@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tricon Transportation — QOE Status Update</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #1a1a1a;
+            background: #fff;
+            padding: 20px 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        a { color: #1a3a5c; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .nav { font-size: 12px; color: #666; margin-bottom: 12px; }
+
+        h1 { font-size: 20px; font-weight: bold; color: #1a3a5c; margin-bottom: 2px; }
+        .subhead { font-size: 12px; color: #666; margin-bottom: 16px; }
+
+        hr { border: none; border-top: 1px solid #ccc; margin: 12px 0; }
+
+        .exec-summary {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-left: 4px solid #1a3a5c;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .exec-summary strong { color: #1a3a5c; }
+        .exec-summary p { margin-bottom: 8px; }
+        .exec-summary p:last-child { margin-bottom: 0; }
+
+        .summary-bar {
+            display: flex;
+            gap: 16px;
+            margin: 14px 0 6px 0;
+            flex-wrap: wrap;
+        }
+        .summary-pill {
+            font-size: 13px;
+            padding: 5px 12px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .pill-progress { background: #fef3c7; color: #92400e; }
+        .pill-hold { background: #e2e8f0; color: #475569; }
+
+        h2 {
+            font-size: 12px;
+            font-weight: bold;
+            color: #1a3a5c;
+            margin: 16px 0 6px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        th {
+            background: #1a3a5c;
+            color: #fff;
+            font-weight: bold;
+            text-align: left;
+            padding: 6px 10px;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+        td {
+            padding: 5px 10px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+        td[title] { cursor: help; }
+        tr:hover > td { background: #f9f9f9; }
+
+        .badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+        .badge-progress { background: #fef3c7; color: #92400e; }
+        .badge-hold { background: #f3f4f6; color: #6b7280; }
+        .badge-almost { background: #dbeafe; color: #1e40af; }
+        .badge-complete { background: #d1fae5; color: #065f46; }
+
+        .accordion-toggle {
+            cursor: pointer;
+            color: #1a1a1a;
+            user-select: none;
+        }
+        .accordion-toggle::before {
+            content: '+';
+            display: inline-block;
+            width: 14px;
+            color: #666;
+            font-weight: bold;
+        }
+        .accordion-toggle.open::before { content: '-'; }
+
+        .accordion-child { display: none; }
+        .accordion-child td { padding: 4px 10px 4px 24px; font-size: 11px; color: #444; }
+        .accordion-child td:first-child { padding-left: 30px; }
+        .accordion-child .badge { font-size: 8px; padding: 1px 5px; }
+
+        .footer {
+            margin-top: 16px;
+            padding-top: 10px;
+            border-top: 1px solid #ccc;
+            font-size: 10px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="Tricon_QOE_Status_Update.html">Home</a>
+</div>
+
+<h1>Tricon Transportation, Inc.</h1>
+<div class="subhead">Quality of Earnings — Status Update &nbsp;|&nbsp; May 21, 2026</div>
+
+<hr>
+
+<div class="exec-summary">
+    <p style="font-size:14px; margin-bottom:10px;"><strong style="font-size:15px;">Executive Summary</strong></p>
+    <p>Cash Reconciliation is complete for TTI and will be completed for TK on Monday. Payroll Register Reconciliation and TTI-TK Intercompany Verification will also be completed on Monday. All remaining workstreams are on hold pending the QuickBooks data file.</p>
+    <div class="summary-bar">
+        <span class="summary-pill pill-progress">3 In Progress</span>
+        <span class="summary-pill pill-hold">17 Not Started / Awaiting QB</span>
+        <span class="summary-pill" style="background:#f5f5f5; color:#666;">21 Total</span>
+    </div>
+</div>
+
+<h2>Financial Statement Analysis</h2>
+<table>
+    <thead><tr><th style="width:75%">Workstream</th><th style="width:25%; text-align:left">Status</th></tr></thead>
+    <tbody>
+        <tr>
+            <td title="Build invoice-level revenue by billing code and customer. Tie to P&L revenue lines by service type (Container Drayage, FTL, LTL, Transload, Warehouse). Verify every dollar is real, recorded in the correct period, and supported by source documents.">Revenue Build-Up &amp; Invoice-to-P&amp;L Tie-Out (by Billing Code &amp; Customer)</td>
+            <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+        </tr>
+        <tr>
+            <td class="accordion-toggle" onclick="toggleAccordion('cash-recon')" title="Match every cash movement in the GL to a bank statement line and vice versa. Includes outstanding checks, inter-account transfers, and unapplied cash.">Cash Reconciliation (GL &harr; Bank)</td>
+            <td><span class="badge badge-progress">In Progress</span></td>
+        </tr>
+        <tr id="cash-recon" class="accordion-child">
+            <td><a href="TTI_2024_Cash_Tieout.html">TTI &harr; Bank Reconciliation</a></td>
+            <td><span class="badge badge-almost">Almost Complete</span></td>
+        </tr>
+        <tr id="cash-recon" class="accordion-child">
+            <td><a href="TK_Investment_Cash_Tieout.html">TK Investments &harr; Bank Reconciliation</a></td>
+            <td><span class="badge badge-progress">In Progress</span></td>
+        </tr>
+        <tr id="cash-recon" class="accordion-child">
+            <td><a href="TWS_Warehouse_Cash_Tieout.html">TWS Warehouse &harr; Bank Reconciliation</a></td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+        </tr>
+        <tr>
+            <td class="accordion-toggle" onclick="toggleAccordion('intercompany-recon')" title="Verify subcontractor costs are real, properly classified, and intercompany transactions net to zero across the consolidated group.">Subcontracted Services &amp; Intercompany Tie-Out</td>
+            <td><span class="badge badge-progress">In Progress</span></td>
+        </tr>
+        <tr id="intercompany-recon" class="accordion-child">
+            <td>TK Intercompany Verification</td>
+            <td><span class="badge badge-progress">In Progress</span></td>
+        </tr>
+        <tr id="intercompany-recon" class="accordion-child">
+            <td>TWS Warehouse Intercompany Verification</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+        </tr>
+        <tr>
+            <td title="Extract freight vendor invoices and tie to P&L. Verify no personal expenses are misclassified as freight cost.">Freight Cost &amp; OPEX Verification</td>
+            <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+        </tr>
+        <tr>
+            <td title="Normalize reported EBITDA by removing owner compensation above market, personal expenses, non-recurring items, and one-time gains/losses.">EBITDA Normalization &amp; Adjustments</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+        </tr>
+        <tr>
+            <td title="Match customer cash receipts (bank deposits) to AR invoices. Identify unapplied cash, unidentified remittances, and customer payment trends (DSO by customer).">Customer Receipts Tie-Out</td>
+            <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+        </tr>
+        <tr>
+            <td title="Match vendor cash disbursements (bank withdrawals) to AP invoices and purchase orders. Verify no duplicate payments, personal expenses, or unauthorized disbursements.">Vendor Payments Tie-Out</td>
+            <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+        </tr>
+        <tr>
+            <td title="Sample 30-50 invoices and match to Bills of Lading (BOLs) to verify revenue is supported by actual delivery documentation.">Invoices Document Recon</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Operational &amp; Customer Analysis</h2>
+<table>
+    <thead><tr><th style="width:75%">Workstream</th><th style="width:25%; text-align:left">Status</th></tr></thead>
+    <tbody>
+        <tr>
+            <td title="Calculate customer concentration (Top 1/5/10 as % of revenue), DSO trends, and identify any customer-vendor overlap or related-party customers.">Customer Concentration Analysis</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+        </tr>
+        <tr>
+            <td class="accordion-toggle" onclick="toggleAccordion('payroll-recon')" title="Verify payroll register detail ties to bank withdrawals and GL payroll accounts. Confirm tax remittances match withholdings, driver headcount aligns with revenue per driver, and W-2 vs 1099 classification is accurate.">Payroll Register Verification</td>
+            <td><span class="badge badge-progress">In Progress</span></td>
+        </tr>
+        <tr id="payroll-recon" class="accordion-child">
+            <td>TK Investments Payroll Recon</td>
+            <td><span class="badge badge-progress">In Progress</span></td>
+        </tr>
+        <tr id="payroll-recon" class="accordion-child">
+            <td>TTI Payroll Recon</td>
+            <td><span class="badge badge-progress">In Progress</span></td>
+        </tr>
+        <tr id="payroll-recon" class="accordion-child">
+            <td>TWS Warehouse Payroll Recon</td>
+            <td><span class="badge badge-progress">In Progress</span></td>
+        </tr>
+        <tr id="payroll-recon" class="accordion-child">
+            <td>TFS Payroll Recon</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+        </tr>
+        <tr>
+            <td title="Reconcile fuel card statements (WEX, Comdata) to P&L. Verify fuel expense per mile and check for personal fuel run through the business.">Fuel Cost Reconciliation</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+        </tr>
+        <tr>
+            <td title="Analyze revenue per load by customer, port, and lane. Identify loss-leading lanes, unbilled detention costs, and chassis availability charges.">Route / Lane Profitability</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+        </tr>
+        <tr>
+            <td title="Review DOT safety rating, CSA score, recent compliance audits, and any major violations. Bad score = uninsurable.">DOT Compliance &amp; Safety Rating</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Balance Sheet &amp; Capital Structure</h2>
+<table>
+    <thead><tr><th style="width:75%">Workstream</th><th style="width:25%; text-align:left">Status</th></tr></thead>
+    <tbody>
+        <tr>
+            <td title="Build amortization schedules for all loans/leases. Verify interest expense ties to P&L and check debt covenant compliance.">Lease &amp; Financing Verification</td>
+            <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+        </tr>
+        <tr>
+            <td title="AR aging, collectability analysis, AP aging, prepaid amortization, and accrued liability adequacy.">Working Capital Analysis</td>
+            <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+        </tr>
+        <tr>
+            <td title="List all owned/leased trucks, trailers, and forklifts with Make, Model, Year, VIN. Verify maintenance reserves and chassis rental terms.">Equipment &amp; Fleet Analysis</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+        </tr>
+        <tr>
+            <td title="Review insurance declarations (Auto, Cargo, Workers' Comp), claims history, and premium trends. Verify the broker CIM's EBITDA bridge handles insurance correctly.">Insurance — Claims &amp; Premiums</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Taxes &amp; Regulatory</h2>
+<table>
+    <thead><tr><th style="width:75%">Workstream</th><th style="width:25%; text-align:left">Status</th></tr></thead>
+    <tbody>
+        <tr>
+            <td title="Verify all federal and state tax returns are filed. Check for open audits, assessments, sales tax compliance, and worker classification risk.">Tax Exposure &amp; Compliance Review</td>
+            <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+        </tr>
+        <tr>
+            <td title="Collect IFTA quarterly returns and IRS Form 2290 (Heavy Highway Vehicle Use Tax) filings for 2024 and 2025.">IFTA &amp; Highway Use Tax</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Normalization &amp; Entity Structure</h2>
+<table>
+    <thead><tr><th style="width:75%">Workstream</th><th style="width:25%; text-align:left">Status</th></tr></thead>
+    <tbody>
+        <tr>
+            <td title="Verify standalone P&L for each entity (TTI, TK, TFS, TWS, TTIO, TTIM, TTIW), confirm intercompany eliminations, and check transfer pricing.">Segment / Entity Consolidation</td>
+            <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="footer">
+    <strong>Next Steps:</strong> (1) Complete TK Cash Reconciliation, Payroll Register Reconciliation, and Intercompany Verification on Monday; (2) Upon receipt of the QuickBooks data file, all remaining workstreams will commence in parallel.
+</div>
+
+<script>
+function toggleAccordion(id) {
+    var rows = document.querySelectorAll('tr.accordion-child');
+    var targetRows = document.querySelectorAll('tr[id="' + id + '"]');
+    var isOpen = targetRows.length > 0 && targetRows[0].style.display === 'table-row';
+    rows.forEach(function(r) { r.style.display = 'none'; });
+    document.querySelectorAll('.accordion-toggle').forEach(function(el) { el.classList.remove('open'); });
+    if (!isOpen) {
+        targetRows.forEach(function(r) { r.style.display = 'table-row'; });
+        event.target.classList.add('open');
+    }
+}
+</script>
+
+</body>
+</html>

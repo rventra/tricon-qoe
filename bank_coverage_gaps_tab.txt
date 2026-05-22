@@ -1,0 +1,6 @@
+Bank Account	2022	2023	2024	2025	2026
+BMO-TTICorp (0677032724)	Jan-Dec	Jan-Dec	Complete	Jun-Dec	Jan-Apr
+BMO-TTIPark (0069956696)	Jan-Dec	Jan-Dec	Jan-Dec	Complete	Complete
+CNB-TTICorp2 (248017740)	Jan-Dec	Jan-Dec	Jan, Apr, Aug	Complete	Jan-Apr
+TK-Investments (037441394)	Jan-Dec	Jan-Dec	Jan-Dec	Complete	Complete
+TWS-Warehouse (959089530)	Jan-Dec	Jan-May, Jul-Nov	Jan, Jul, Aug	Complete	Complete

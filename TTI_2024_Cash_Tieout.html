@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTI 2024 Cash Tie-Out</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background: #fff;
+            padding: 40px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        a { color: #1a3a5c; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .nav-top {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1a3a5c;
+            margin-bottom: 4px;
+        }
+        .subhead {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        .exec-summary {
+            background: #f5f5f5;
+            border-left: 3px solid #1a3a5c;
+            padding: 16px 20px;
+            margin-bottom: 28px;
+        }
+        .exec-summary h2 {
+            font-size: 13px;
+            font-weight: bold;
+            color: #1a3a5c;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .exec-summary p {
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .exec-summary p:last-child { margin-bottom: 0; }
+
+        h2 {
+            font-size: 14px;
+            font-weight: bold;
+            color: #1a3a5c;
+            margin: 28px 0 12px 0;
+        }
+
+        h3 {
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+            margin: 16px 0 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-bottom: 16px;
+        }
+        th {
+            background: #1a3a5c;
+            color: #fff;
+            font-weight: bold;
+            text-align: left;
+            padding: 7px 10px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        td {
+            padding: 7px 10px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+        tr:last-child td { border-bottom: 2px solid #1a3a5c; }
+
+        .text-right { text-align: right; }
+        .text-center { text-align: center; }
+        .bold { font-weight: bold; }
+        .positive { color: #059669; }
+        .negative { color: #dc2626; }
+        .highlight { background: #fafafa; }
+
+        .insight {
+            background: #fafafa;
+            border-left: 2px solid #ccc;
+            padding: 12px 16px;
+            margin: 12px 0 20px 0;
+            font-size: 12px;
+            color: #333;
+        }
+        .insight p { margin-bottom: 6px; }
+        .insight p:last-child { margin-bottom: 0; }
+
+        .footer {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid #ccc;
+            font-size: 11px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav-top">
+    <a href="Tricon_QOE_Status_Update.html">&larr; Back to Status Overview</a>
+</div>
+
+<h1>TTI 2024 Cash Tie-Out</h1>
+<div class="subhead">GL = 2024 Strict &nbsp;|&nbsp; Bank = Dec 2023 – Jan 2025 (30-day buffer) &nbsp;|&nbsp; Prepared: May 2026</div>
+
+<hr>
+
+<div class="exec-summary">
+    <h2>Executive Summary</h2>
+    <p>
+        <strong>90.5% match rate</strong> across BMO-TTICorp and CNB-TTICorp2 accounts. $3.5M in GL entries have no corresponding bank proof; $285K in bank activity has no GL entry.
+    </p>
+    <p>
+        The $3.5M unmatched is driven by: $1.6M year-end non-cash journal entries, $827K outstanding checks, $684K QuickBooks bundled deposit artifacts, and $387K in other items. <strong>$105K in 90+ day stale checks</strong> represents the primary audit concern.
+    </p>
+</div>
+
+<h2>1. GL-to-Bank Reconciliation</h2>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th class="text-right">BMO-TTICorp</th>
+            <th class="text-right">CNB-TTICorp2</th>
+            <th class="text-right">Combined</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>EXACT</td>
+            <td class="text-right">1,796 / $6.7M</td>
+            <td class="text-right">15 / $113K</td>
+            <td class="text-right">1,811 / $6.8M</td>
+        </tr>
+        <tr>
+            <td>PROXIMITY</td>
+            <td class="text-right">807 / $23.7M</td>
+            <td class="text-right">45 / $2.7M</td>
+            <td class="text-right">852 / $26.4M</td>
+        </tr>
+        <tr>
+            <td>NO MATCH</td>
+            <td class="text-right negative">168 / $2.3M</td>
+            <td class="text-right negative">108 / $1.2M</td>
+            <td class="text-right negative">276 / $3.5M</td>
+        </tr>
+        <tr class="highlight">
+            <td class="bold">Match Rate</td>
+            <td class="text-right bold">93.1%</td>
+            <td class="text-right bold">69.1%</td>
+            <td class="text-right bold">90.5%</td>
+        </tr>
+    </tbody>
+</table>
+<div class="insight">
+    <p>The 30-day buffer added <strong>62 bank records</strong> from Dec 2023 and Jan 2025. It pulled December NO MATCH down from $3.0M to $2.85M (captured ~$175K of January-clearing items), but most NO MATCH items remain genuinely unmatched.</p>
+</div>
+
+<h2>2. NO MATCH Breakdown</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th class="text-center">Count</th>
+            <th class="text-right">Amount</th>
+            <th>Explanation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Journal Entries</td>
+            <td class="text-center">2</td>
+            <td class="text-right negative">$1.6M</td>
+            <td>Year-end non-cash JE (accruals, not real cash)</td>
+        </tr>
+        <tr>
+            <td>Outstanding Checks</td>
+            <td class="text-center">114</td>
+            <td class="text-right negative">$827K</td>
+            <td>GL checks never cleared bank</td>
+        </tr>
+        <tr>
+            <td>Deposits (-SPLIT-)</td>
+            <td class="text-center">8</td>
+            <td class="text-right negative">$684K</td>
+            <td>QuickBooks bundled deposit artifacts</td>
+        </tr>
+        <tr>
+            <td>Payments</td>
+            <td class="text-center">13</td>
+            <td class="text-right negative">$222K</td>
+            <td>A/P payments not clearing</td>
+        </tr>
+        <tr>
+            <td>Bill Pmt-Check</td>
+            <td class="text-center">139</td>
+            <td class="text-right negative">$165K</td>
+            <td>Bill payments via check</td>
+        </tr>
+        <tr class="highlight">
+            <td class="bold">Total</td>
+            <td class="text-center bold">276</td>
+            <td class="text-right bold negative">$3.5M</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>3. Outstanding Checks >30 Days at Year-End</h2>
+<p style="margin-bottom:12px; font-size:12px;">
+    <strong>140 checks, $379K</strong> (vs $211K before the buffer — increase because the old recon was missing 52 GL entries, not because the buffer found more).
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>Age</th>
+            <th class="text-right">Amount</th>
+            <th>Risk</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>30-60 days</td>
+            <td class="text-right">$272K</td>
+            <td>Timing diffs, likely cleared Jan/Feb</td>
+        </tr>
+        <tr>
+            <td>60-90 days</td>
+            <td class="text-right">$1K</td>
+            <td>Minor</td>
+        </tr>
+        <tr>
+            <td>90+ days</td>
+            <td class="text-right negative bold">$105K</td>
+            <td><strong class="negative">Stale — possibly never sent or void but not reversed</strong></td>
+        </tr>
+    </tbody>
+</table>
+<div class="insight">
+    <p><strong>Biggest stale items:</strong> Reg Logistics $117K (56d, DEBT), B&amp;C Properties $47K (39d), JT Trans $28K (32d), CNN Trans $17K (123d).</p>
+</div>
+
+<h2>4. Inter-Account Transfers</h2>
+<div class="insight">
+    <p><strong>GL side:</strong> 4 same-day BMO↔CNB transfers totaling $1.5M. These are BMO funding the CNB disbursement account.</p>
+    <p><strong>Bank side:</strong> 511 "FORCED CHECK TRANSFERS" ($467K), 87 wire transfers ($3.2M), 61 PC transfers ($2.7M). Primarily TK subcontractor payments and loan payments.</p>
+</div>
+
+<h2>5. Vague Deposits</h2>
+<div class="insight">
+    <p><strong>$25M in vague deposits</strong> across 1,562 items. Top concerns:</p>
+    <p>— <strong>TELLER DEPOSIT:</strong> $6.0M — physical branch deposits, untraceable without deposit slips</p>
+    <p>— <strong>E-Deposit:</strong> $2.8M — remote check deposits, should have check images</p>
+    <p>— <strong>FORCE POST CREDIT CK DEPOSIT:</strong> $2.1M — manually posted, no remittance detail</p>
+    <p>— <strong>FORCE POST CREDIT INCOMING WIRE:</strong> $299K — wire without originator</p>
+</div>
+
+<h2>6. Bank→GL Reconciliation</h2>
+<p style="margin-bottom:12px; font-size:12px;">
+    Bank = 2024 strict, GL = Dec 2023 – Jan 2025. <strong>99.2%</strong> of bank transactions tie to a GL entry.
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>Match Type</th>
+            <th class="text-center">Transactions</th>
+            <th class="text-right">Amount</th>
+            <th>Method</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>EXACT</td>
+            <td class="text-center">1,906</td>
+            <td class="text-right">$7.0M</td>
+            <td>Check# + Amount</td>
+        </tr>
+        <tr>
+            <td>PROXIMITY</td>
+            <td class="text-center">797</td>
+            <td class="text-right">$26.2M</td>
+            <td>Amount + Date</td>
+        </tr>
+        <tr class="highlight">
+            <td class="bold">BANK-ONLY (NO MATCH)</td>
+            <td class="text-center bold negative">51</td>
+            <td class="text-right bold negative">$285K</td>
+            <td>No GL entry found</td>
+        </tr>
+    </tbody>
+</table>
+<div class="insight">
+    <p><strong>Top unmatched items:</strong> $86K ACH deposit (Jan 4, carrier settlement booked in smaller pieces), $47K incoming wire (Feb 23), $42K forced post credit (Mar 25). Granular settlement items that aggregate differently in the GL.</p>
+    <p>Between the two directions: GL entries with no bank proof (<strong class="negative">$3.5M</strong>) and bank entries with no GL entry (<strong class="negative">$285K</strong>).</p>
+</div>
+
+<h2>Bottom Line</h2>
+<div class="insight" style="border-left-color: #dc2626;">
+    <p>— <strong>$3.5M unmatched</strong> is driven by: $1.6M year-end JE (non-cash) + $827K outstanding checks + $684K QB -SPLIT- artifacts + $387K other</p>
+    <p>— <strong class="negative">$105K in 90+ day stale checks</strong> — the real audit concern</p>
+    <p>— CNB's coverage gap and BMO-TTIPark/TK (zero statements) remain the biggest cash-proof holes</p>
+    <p>— The 30-day buffer helped marginally on December (~$175K captured) but 124 Dec txns ($2.85M) remain unmatched</p>
+</div>
+
+<div class="footer">
+    <a href="Tricon_QOE_Status_Update.html">&larr; Back to Status Overview</a>
+</div>
+
+</body>
+</html>

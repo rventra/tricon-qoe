@@ -1,31 +1,9 @@
-# Sensitive / API keys
-*.env
-.env.local
-
-# Large data files
-data/raw/*.json
-data/flat/*.json
-data/raw/backups/
-data/raw/diagnostic_pages/
-
-# Python
+data/
 __pycache__/
 *.pyc
 *.pyo
 *.egg-info/
-
-# Temp files
-*.tmp
 *.log
+*.tmp
 *.bak
-
-# OS
-.DS_Store
-Thumbs.db
-
-# IDE
-.vscode/
-.idea/
-
-# Kimi sessions
-.kimi/
+*.swp

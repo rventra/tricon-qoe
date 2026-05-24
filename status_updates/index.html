@@ -12,7 +12,7 @@
             color: #1a1a1a;
             background: #fff;
             padding: 20px 30px;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
         a { color: #1a3a5c; text-decoration: none; }
@@ -107,6 +107,16 @@
         td[title] { cursor: help; }
         tr:hover > td { background: #f9f9f9; }
 
+        td a {
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        td a::after {
+            content: ' \2197';
+            font-size: 10px;
+            color: #64748b;
+        }
+
         .badge {
             display: inline-block;
             font-size: 11px;
@@ -175,94 +185,114 @@
 
 <h2>Financial Statement Analysis</h2>
 <table>
-    <thead><tr><th style="width:75%">Workstream</th><th style="width:25%; text-align:left">Status</th></tr></thead>
+    <thead><tr><th style="width:55%">Workstream</th><th style="width:18%; text-align:left">Status</th><th style="width:27%; text-align:left">Comments</th></tr></thead>
     <tbody>
         <tr>
             <td title="Build invoice-level revenue by billing code and customer. Tie to P&L revenue lines by service type (Container Drayage, FTL, LTL, Transload, Warehouse). Verify every dollar is real, recorded in the correct period, and supported by source documents.">Revenue Build-Up &amp; Invoice-to-P&amp;L Tie-Out (by Billing Code &amp; Customer)</td>
             <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+            <td>Blocked until QuickBooks data file is delivered.</td>
         </tr>
         <tr>
             <td class="accordion-toggle" onclick="toggleAccordion('cash-recon')" title="Match every cash movement in the GL to a bank statement line and vice versa. Includes outstanding checks, inter-account transfers, and unapplied cash.">Cash Reconciliation (GL &harr; Bank)</td>
             <td><span class="badge badge-progress">In Progress</span></td>
+            <td>TTI nearly complete; TK scheduled for Monday.</td>
         </tr>
         <tr id="cash-recon" class="accordion-child">
             <td><a href="TTI_2024_Cash_Tieout.html">TTI &harr; Bank Reconciliation</a></td>
             <td><span class="badge badge-almost">Almost Complete</span></td>
+            <td>90.5% match rate; $105K stale checks flagged.</td>
         </tr>
         <tr id="cash-recon" class="accordion-child">
             <td><a href="TK_Investment_Cash_Tieout.html">TK Investments &harr; Bank Reconciliation</a></td>
             <td><span class="badge badge-progress">In Progress</span></td>
+            <td>Pending 2024 bank statements.</td>
         </tr>
         <tr id="cash-recon" class="accordion-child">
             <td><a href="TWS_Warehouse_Cash_Tieout.html">TWS Warehouse &harr; Bank Reconciliation</a></td>
             <td><span class="badge badge-hold">Not Started</span></td>
+            <td>On hold pending QB data file.</td>
         </tr>
         <tr>
             <td class="accordion-toggle" onclick="toggleAccordion('intercompany-recon')" title="Verify subcontractor costs are real, properly classified, and intercompany transactions net to zero across the consolidated group.">Subcontracted Services &amp; Intercompany Tie-Out</td>
             <td><span class="badge badge-progress">In Progress</span></td>
+            <td>TTI-TK three-way audit in progress.</td>
         </tr>
         <tr id="intercompany-recon" class="accordion-child">
             <td>TK Intercompany Verification</td>
             <td><span class="badge badge-progress">In Progress</span></td>
+            <td>Matching GL checks to TK deposits.</td>
         </tr>
         <tr id="intercompany-recon" class="accordion-child">
             <td>TWS Warehouse Intercompany Verification</td>
             <td><span class="badge badge-hold">Not Started</span></td>
+            <td>Blocked until TWS cash recon starts.</td>
         </tr>
         <tr>
             <td title="Extract freight vendor invoices and tie to P&L. Verify no personal expenses are misclassified as freight cost.">Freight Cost &amp; OPEX Verification</td>
             <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+            <td>Requires vendor invoice detail from QB.</td>
         </tr>
         <tr>
             <td title="Normalize reported EBITDA by removing owner compensation above market, personal expenses, non-recurring items, and one-time gains/losses.">EBITDA Normalization &amp; Adjustments</td>
             <td><span class="badge badge-hold">Not Started</span></td>
+            <td>Will start after financials are loaded.</td>
         </tr>
         <tr>
             <td title="Match customer cash receipts (bank deposits) to AR invoices. Identify unapplied cash, unidentified remittances, and customer payment trends (DSO by customer).">Customer Receipts Tie-Out</td>
             <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+            <td>Needs AR ledger and deposit detail.</td>
         </tr>
         <tr>
             <td title="Match vendor cash disbursements (bank withdrawals) to AP invoices and purchase orders. Verify no duplicate payments, personal expenses, or unauthorized disbursements.">Vendor Payments Tie-Out</td>
             <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+            <td>Needs AP ledger and check register.</td>
         </tr>
         <tr>
             <td title="Sample 30-50 invoices and match to Bills of Lading (BOLs) to verify revenue is supported by actual delivery documentation.">Invoices Document Recon</td>
             <td><span class="badge badge-hold">Not Started</span></td>
+            <td>Waiting on invoice and BOL sample sets.</td>
         </tr>
     </tbody>
 </table>
 
 <h2>Operational &amp; Customer Analysis</h2>
 <table>
-    <thead><tr><th style="width:75%">Workstream</th><th style="width:25%; text-align:left">Status</th></tr></thead>
+    <thead><tr><th style="width:55%">Workstream</th><th style="width:18%; text-align:left">Status</th><th style="width:27%; text-align:left">Comments</th></tr></thead>
     <tbody>
         <tr>
             <td title="Calculate customer concentration (Top 1/5/10 as % of revenue), DSO trends, and identify any customer-vendor overlap or related-party customers.">Customer Concentration Analysis</td>
             <td><span class="badge badge-hold">Not Started</span></td>
+            <td>Requires complete revenue by customer.</td>
         </tr>
         <tr>
             <td class="accordion-toggle" onclick="toggleAccordion('payroll-recon')" title="Verify payroll register detail ties to bank withdrawals and GL payroll accounts. Confirm tax remittances match withholdings, driver headcount aligns with revenue per driver, and W-2 vs 1099 classification is accurate.">Payroll Register Verification</td>
             <td><span class="badge badge-progress">In Progress</span></td>
+            <td>All entities in progress except TFS.</td>
         </tr>
         <tr id="payroll-recon" class="accordion-child">
             <td>TK Investments Payroll Recon</td>
             <td><span class="badge badge-progress">In Progress</span></td>
+            <td>Register vs. bank withdrawals.</td>
         </tr>
         <tr id="payroll-recon" class="accordion-child">
             <td>TTI Payroll Recon</td>
             <td><span class="badge badge-progress">In Progress</span></td>
+            <td>Register vs. bank withdrawals.</td>
         </tr>
         <tr id="payroll-recon" class="accordion-child">
             <td>TWS Warehouse Payroll Recon</td>
             <td><span class="badge badge-progress">In Progress</span></td>
+            <td>Register vs. bank withdrawals.</td>
         </tr>
         <tr id="payroll-recon" class="accordion-child">
             <td>TFS Payroll Recon</td>
             <td><span class="badge badge-hold">Not Started</span></td>
+            <td>No payroll data received yet.</td>
         </tr>
         <tr>
             <td title="Reconcile fuel card statements (WEX, Comdata) to P&L. Verify fuel expense per mile and check for personal fuel run through the business.">Fuel Cost Reconciliation</td>
             <td><span class="badge badge-hold">Not Started</span></td>
+            <td>Fuel card statements not yet provided.</td>
         </tr>
         <!-- Route / Lane Profitability and DOT Compliance removed per lite scope -->
     </tbody>
@@ -270,15 +300,17 @@
 
 <h2>Balance Sheet &amp; Capital Structure</h2>
 <table>
-    <thead><tr><th style="width:75%">Workstream</th><th style="width:25%; text-align:left">Status</th></tr></thead>
+    <thead><tr><th style="width:55%">Workstream</th><th style="width:18%; text-align:left">Status</th><th style="width:27%; text-align:left">Comments</th></tr></thead>
     <tbody>
         <tr>
             <td title="Build amortization schedules for all loans/leases. Verify interest expense ties to P&L and check debt covenant compliance.">Lease &amp; Financing Verification</td>
             <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+            <td>Requires loan/lease schedule detail.</td>
         </tr>
         <tr>
             <td title="AR aging, collectability analysis, AP aging, prepaid amortization, and accrued liability adequacy.">Working Capital Analysis</td>
             <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+            <td>Needs full AR/AP aging reports.</td>
         </tr>
         <!-- Equipment & Fleet Analysis and Insurance removed per lite scope -->
     </tbody>
@@ -286,11 +318,12 @@
 
 <h2>Taxes &amp; Regulatory</h2>
 <table>
-    <thead><tr><th style="width:75%">Workstream</th><th style="width:25%; text-align:left">Status</th></tr></thead>
+    <thead><tr><th style="width:55%">Workstream</th><th style="width:18%; text-align:left">Status</th><th style="width:27%; text-align:left">Comments</th></tr></thead>
     <tbody>
         <tr>
             <td title="Verify all federal and state tax returns are filed. Check for open audits, assessments, sales tax compliance, and worker classification risk.">Tax Exposure &amp; Compliance Review</td>
             <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+            <td>Tax returns and compliance docs pending.</td>
         </tr>
         <!-- IFTA & Highway Use Tax removed per lite scope -->
     </tbody>
@@ -298,11 +331,12 @@
 
 <h2>Normalization &amp; Entity Structure</h2>
 <table>
-    <thead><tr><th style="width:75%">Workstream</th><th style="width:25%; text-align:left">Status</th></tr></thead>
+    <thead><tr><th style="width:55%">Workstream</th><th style="width:18%; text-align:left">Status</th><th style="width:27%; text-align:left">Comments</th></tr></thead>
     <tbody>
         <tr>
             <td title="Verify standalone P&L for each entity (TTI, TK, TFS, TWS, TTIO, TTIM, TTIW), confirm intercompany eliminations, and check transfer pricing.">Segment / Entity Consolidation</td>
             <td><span class="badge badge-hold">Awaiting QB data file</span></td>
+            <td>Needs entity-level P&L and elimination mapping.</td>
         </tr>
     </tbody>
 </table>

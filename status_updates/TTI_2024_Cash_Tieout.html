@@ -230,6 +230,92 @@
     <p>Simple: <strong>no bank statements have been received yet</strong>. The 7 "matches" we did find are coincidental — same amounts, same dates, but not verified. Everything else is just waiting on paperwork.</p>
 </div>
 
+<h2>The 2025 CNB Check Gap (The Smoking Gun)</h2>
+<div class="insight">
+    <p>Here is exactly what happened with the 2025 CNB statements. The bank summary says checks cleared. Our extraction says they didn't. The reason: the detailed continuation pages listing each check were image-only and never got read.</p>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Month</th>
+            <th class="text-right">Checks Cleared (per Bank)</th>
+            <th class="text-right">Checks in Our Data</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>February</td><td class="text-right">66</td><td class="text-right">4</td></tr>
+        <tr><td>March</td><td class="text-right">122</td><td class="text-right">16</td></tr>
+        <tr><td>April</td><td class="text-right">190</td><td class="text-right">0</td></tr>
+        <tr><td>May</td><td class="text-right">188</td><td class="text-right">0</td></tr>
+        <tr><td>June</td><td class="text-right">171</td><td class="text-right">0</td></tr>
+        <tr><td>July</td><td class="text-right">205</td><td class="text-right">0</td></tr>
+        <tr><td>August</td><td class="text-right">200</td><td class="text-right">0</td></tr>
+        <tr class="highlight"><td class="bold">Total</td><td class="text-right bold">~950</td><td class="text-right bold">~20</td></tr>
+    </tbody>
+</table>
+<div class="insight">
+    <p>That gap — roughly <strong>930 missing checks</strong> — is why 2,094 GL entries show as unmatched. It's not that the money disappeared; it's that we simply don't have the bank-side detail to prove the checks cleared. Once we get proper statement files, this should clean up fast.</p>
+</div>
+
+<h2>Account-by-Account Detail</h2>
+
+<h3>2023 — All BMO</h3>
+<table>
+    <thead><tr><th>Account</th><th class="text-right">Total</th><th class="text-right">Exact</th><th class="text-right">Close</th><th class="text-right">No Match</th><th class="text-center">Rate</th></tr></thead>
+    <tbody>
+        <tr><td>BMO Corporate Account - Other</td><td class="text-right">3,029</td><td class="text-right">889</td><td class="text-right">1,859</td><td class="text-right">281</td><td class="text-center bold positive">90.7%</td></tr>
+    </tbody>
+</table>
+
+<h3>2024 — BMO Strong, CNB Weaker</h3>
+<table>
+    <thead><tr><th>Account</th><th class="text-right">Total</th><th class="text-right">Exact</th><th class="text-right">Close</th><th class="text-right">No Match</th><th class="text-center">Rate</th></tr></thead>
+    <tbody>
+        <tr><td>BMO Corporate Account - Other</td><td class="text-right">2,771</td><td class="text-right">1,289</td><td class="text-right">1,406</td><td class="text-right">76</td><td class="text-center bold positive">97.3%</td></tr>
+        <tr><td>CNB Corp.</td><td class="text-right">168</td><td class="text-right">8</td><td class="text-right">63</td><td class="text-right">97</td><td class="text-center bold negative">42.3%</td></tr>
+    </tbody>
+</table>
+<div class="insight">
+    <p>BMO-TTICorp at 97.3% is excellent. CNB at 42% reflects same-day BMO-to-CNB transfers and carrier checks with timing quirks. The 63 "close" matches on CNB ($3.4M) landed by amount and date even though check numbers didn't line up.</p>
+</div>
+
+<h3>2025 — BMO Fine, CNB Broken</h3>
+<table>
+    <thead><tr><th>Account</th><th class="text-right">Total</th><th class="text-right">Exact</th><th class="text-right">Close</th><th class="text-right">No Match</th><th class="text-center">Rate</th></tr></thead>
+    <tbody>
+        <tr><td>BMO Corporate Account - Other</td><td class="text-right">741</td><td class="text-right">145</td><td class="text-right">510</td><td class="text-right">86</td><td class="text-center bold positive">88.4%</td></tr>
+        <tr><td>CNB Corp.</td><td class="text-right">2,312</td><td class="text-right">5</td><td class="text-right">213</td><td class="text-right">2,094</td><td class="text-center bold negative">9.4%</td></tr>
+        <tr><td>Tricon Freight Services - CNB</td><td class="text-right">1</td><td class="text-right">0</td><td class="text-right">0</td><td class="text-right">1</td><td class="text-center bold negative">0.0%</td></tr>
+    </tbody>
+</table>
+
+<h3>2026 — Nothing to Test Yet</h3>
+<table>
+    <thead><tr><th>Account</th><th class="text-right">Total</th><th class="text-right">Exact</th><th class="text-right">Close</th><th class="text-right">No Match</th><th class="text-center">Rate</th></tr></thead>
+    <tbody>
+        <tr><td>BMO Corporate Account - Other</td><td class="text-right">120</td><td class="text-right">0</td><td class="text-right">3</td><td class="text-right">117</td><td class="text-center bold negative">2.5%</td></tr>
+        <tr><td>CNB Corp.</td><td class="text-right">960</td><td class="text-right">0</td><td class="text-right">4</td><td class="text-right">956</td><td class="text-center bold negative">0.4%</td></tr>
+    </tbody>
+</table>
+
+<h2>Top Unmatched Items (2024)</h2>
+<div class="insight">
+    <p>These are the biggest individual items that didn't match in 2024. As you can see, the $1.6M tax entry is the elephant in the room — everything else is routine.</p>
+</div>
+<table>
+    <thead><tr><th>Payee / Name</th><th class="text-right">Count</th><th class="text-right">Amount</th><th>Type</th></tr></thead>
+    <tbody>
+        <tr><td>(Tax AJE #1)</td><td class="text-right">1</td><td class="text-right">$1,597,719</td><td>Non-cash year-end tax accrual</td></tr>
+        <tr><td>REG Logistics, Inc.</td><td class="text-right">5</td><td class="text-right">$138,234</td><td>Outstanding checks</td></tr>
+        <tr><td>BBSI</td><td class="text-right">4</td><td class="text-right">$139,157</td><td>Outstanding checks (payroll service)</td></tr>
+        <tr><td>BECTON DICKINSON CASS</td><td class="text-right">3</td><td class="text-right">$130,020</td><td>ACH carrier settlement</td></tr>
+        <tr><td>JT Trans LLC</td><td class="text-right">5</td><td class="text-right">$138,234</td><td>Outstanding checks</td></tr>
+        <tr><td>CNN TRANS.</td><td class="text-right">5</td><td class="text-right">$76,912</td><td>Outstanding checks</td></tr>
+        <tr><td>B &amp; C Properties</td><td class="text-right">1</td><td class="text-right">$47,215</td><td>Outstanding check (rent)</td></tr>
+        <tr><td>TK - Investments LLC</td><td class="text-right">1</td><td class="text-right">$25,345</td><td>Intercompany transfer</td></tr>
+    </tbody>
+</table>
+
 <h2>How We Match</h2>
 <div class="insight">
     <p>We run two passes:</p>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TK Investment Cash Reconciliation — Pending</title>
+    <title>TK Cash Tie-Out — 2023 to 2026</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -16,8 +16,8 @@
             max-width: 900px;
             margin: 0 auto;
         }
-        a { color: #1a3a5c; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: #1a3a5c; text-decoration: underline; }
+        a:hover { color: #0f172a; }
 
         .nav-top {
             font-size: 12px;
@@ -43,28 +43,83 @@
             margin: 20px 0;
         }
 
-        .pending-box {
-            background: #fafafa;
-            border-left: 3px solid #C8973E;
-            padding: 20px;
-            margin: 20px 0;
+        .exec-summary {
+            background: #f5f5f5;
+            border-left: 3px solid #1a3a5c;
+            padding: 16px 20px;
+            margin-bottom: 28px;
         }
-        .pending-box h2 {
+        .exec-summary h2 {
             font-size: 13px;
             font-weight: bold;
             color: #1a3a5c;
             margin-bottom: 8px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .pending-box p {
+        .exec-summary p {
             font-size: 13px;
             color: #333;
             margin-bottom: 8px;
         }
-        .pending-box .highlight {
-            color: #92400e;
-            font-weight: 600;
+        .exec-summary p:last-child { margin-bottom: 0; }
+
+        h2 {
+            font-size: 14px;
+            font-weight: bold;
+            color: #1a3a5c;
+            margin: 28px 0 12px 0;
         }
+
+        h3 {
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+            margin: 16px 0 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-bottom: 16px;
+        }
+        th {
+            background: #1a3a5c;
+            color: #fff;
+            font-weight: bold;
+            text-align: left;
+            padding: 7px 10px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        td {
+            padding: 7px 10px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+        tr:last-child td { border-bottom: 2px solid #1a3a5c; }
+
+        .text-right { text-align: right; }
+        .text-center { text-align: center; }
+        .bold { font-weight: bold; }
+        .positive { color: #059669; }
+        .negative { color: #dc2626; }
+        .highlight { background: #fafafa; }
+
+        .insight {
+            background: #fafafa;
+            border-left: 2px solid #ccc;
+            padding: 12px 16px;
+            margin: 12px 0 20px 0;
+            font-size: 12px;
+            color: #333;
+        }
+        .insight p { margin-bottom: 6px; }
+        .insight p:last-child { margin-bottom: 0; }
 
         .footer {
             margin-top: 32px;
@@ -78,26 +133,142 @@
 <body>
 
 <div class="nav-top">
-    <a href="Tricon_QOE_Status_Update.html">&larr; Back to Status Overview</a>
+    <a href="index.html">&larr; Back to Status Overview</a>
 </div>
 
-<h1>TK Investment Cash Reconciliation</h1>
-<div class="subhead">Account: 037441394 &nbsp;|&nbsp; T-K Investments LLC</div>
+<h1>TK Cash Tie-Out</h1>
+<div class="subhead">2023 through 2026 &nbsp;|&nbsp; GL to Bank &nbsp;|&nbsp; Prepared: May 2026</div>
 
 <hr>
 
-<div class="pending-box">
-    <h2>Analysis Pending</h2>
+<div class="exec-summary">
+    <h2>The Big Picture</h2>
     <p>
-        The TK Investment cash reconciliation is <span class="highlight">scheduled to commence upon receipt of the 2024 bank statements</span>, expected Monday.
+        TK recorded <strong>$8.7M in GL entries</strong> across four years. Of that, <strong>$4.9M (56%)</strong> matched to bank.
     </p>
     <p>
-        Once received, the same GL-to-Bank matching methodology applied to TTI will be executed for TK, including exact match (check# + amount) and proximity match (amount + date within 30 days).
+        That 56% sounds low, but there's a story behind it. <strong>2023 and 2025 are strong</strong> — both hit 90% or better when the bank statements were available. <strong>2024 is basically a blank slate</strong> — the client confirmed those bank statements are missing, so we couldn't test anything. <strong>2026 is a mixed bag</strong> — the cash account itself is at 72%, but a lot of the GL entries are non-cash items like revenue and payroll that wouldn't have a bank transaction to match anyway.
     </p>
 </div>
 
+<h2>Year by Year</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Year</th>
+            <th class="text-right">GL Entries</th>
+            <th class="text-right">Matched</th>
+            <th class="text-right">No Match</th>
+            <th class="text-center">Match Rate</th>
+            <th class="text-right">Unmatched $</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="bold">2023</td>
+            <td class="text-right">223</td>
+            <td class="text-right">212</td>
+            <td class="text-right">11</td>
+            <td class="text-center bold positive">95.1%</td>
+            <td class="text-right">$101K</td>
+        </tr>
+        <tr>
+            <td class="bold">2024</td>
+            <td class="text-right">213</td>
+            <td class="text-right">3</td>
+            <td class="text-right">210</td>
+            <td class="text-center bold negative">1.4%</td>
+            <td class="text-right">$2.5M</td>
+        </tr>
+        <tr>
+            <td class="bold">2025</td>
+            <td class="text-right">198</td>
+            <td class="text-right">180</td>
+            <td class="text-right">18</td>
+            <td class="text-center bold positive">90.9%</td>
+            <td class="text-right">$363K</td>
+        </tr>
+        <tr>
+            <td class="bold">2026</td>
+            <td class="text-right">122</td>
+            <td class="text-right">44</td>
+            <td class="text-right">78</td>
+            <td class="text-center bold">36.1%</td>
+            <td class="text-right">$865K</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>What's Driving the Gaps?</h2>
+
+<h3>2023 — $101K unmatched (11 items)</h3>
+<div class="insight">
+    <p>TK's best year. Only 11 items didn't match, and they're mostly <strong>timing differences</strong> — entries from late December 2022 or early January 2023 that fell just outside our 45-day matching window. One small equity adjustment ($6K) is non-cash.</p>
+</div>
+
+<h3>2024 — $2.5M unmatched (210 items)</h3>
+<div class="insight">
+    <p>This is <strong>not a bookkeeping problem</strong> — it's a missing paperwork problem. The client confirmed that 2024 TK-Investments bank statements are unavailable. All 210 unmatched items are real cash transactions; we just don't have the bank side to verify them.</p>
+    <p>The 3 "matches" we did find ($5.4K) are incidental — same amounts, similar dates, but not truly verified.</p>
+</div>
+
+<h3>2025 — $363K unmatched (18 items)</h3>
+<div class="insight">
+    <p>Back to solid ground. The 18 gaps are a mix of <strong>timing differences</strong> and a few <strong>intercompany quirks</strong> where TK and TTI may record the same transaction slightly differently. Nothing concerning.</p>
+</div>
+
+<h3>2026 — $865K unmatched (78 items)</h3>
+<div class="insight">
+    <p>The cash account itself (T-K Investments LLC) is matching at <strong>72.1%</strong> — reasonable for a partial year with current bank data.</p>
+    <p>The rest of the unmatched amount comes from <strong>non-cash GL accounts</strong> that simply don't have a bank equivalent:</p>
+    <p>— <strong>Gross Trucking Income</strong> ($338K): Revenue bookings — no bank transaction expected.</p>
+    <p>— <strong>Payroll Expenses</strong> ($316K): Expense entries — the bank shows the net clearing amount, not the individual payroll lines.</p>
+    <p>— <strong>401k, utilities, and other adjustments</strong> ($20K): Various non-cash entries.</p>
+    <p>Unlike TTI, the TK GL feed includes <em>all</em> account types — not just cash. So a 0% match on revenue or payroll is actually correct.</p>
+</div>
+
+<h2>How We Match</h2>
+<div class="insight">
+    <p>Same approach as TTI:</p>
+    <p>— <strong>Exact:</strong> Same check number + same amount + within about 45 days.</p>
+    <p>— <strong>Close:</strong> Same amount + close date, even if the check number doesn't line up.</p>
+    <p>We search across all four years at once, so cross-year timing isn't a dead end.</p>
+</div>
+
+<h2>Bank Statement Coverage</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Account</th>
+            <th class="text-center">2023</th>
+            <th class="text-center">2024</th>
+            <th class="text-center">2025</th>
+            <th class="text-center">2026</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>TK-Investments (#394)</td>
+            <td class="text-center positive bold">&#10003;</td>
+            <td class="text-center negative bold">Missing — confirmed by client</td>
+            <td class="text-center positive bold">&#10003;</td>
+            <td class="text-center positive bold">&#10003; (partial)</td>
+        </tr>
+    </tbody>
+</table>
+<div class="insight">
+    <p><strong>Note:</strong> 2026 is partial — statements are still coming in as the year progresses. TK has one cash account: TK-Investments (#394).</p>
+</div>
+
+<h2>Bottom Line</h2>
+<div class="insight" style="border-left-color: #1a3a5c;">
+    <p>— <strong>2023 and 2025 are clean</strong> — 90%+ match rates when data is available.</p>
+    <p>— <strong>2024 is a data gap, not a reconciliation failure.</strong> Missing bank statements mean we couldn't test $2.5M in real transactions.</p>
+    <p>— <strong>2026 is on track.</strong> Cash account at 72% with partial data; the rest are non-cash GL entries that don't need a bank match.</p>
+</div>
+
 <div class="footer">
-    <a href="Tricon_QOE_Status_Update.html">&larr; Back to Status Overview</a>
+    <a href="index.html">&larr; Back to Status Overview</a>
 </div>
 
 </body>

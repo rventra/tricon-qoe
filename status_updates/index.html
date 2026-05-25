@@ -175,12 +175,54 @@
 
 <div class="exec-summary">
     <p style="font-size:14px; margin-bottom:10px;"><strong style="font-size:15px;">Executive Summary</strong></p>
-    <p>Cash Reconciliation is complete for TTI and will be completed for TK on Monday. Payroll Register Reconciliation and TTI-TK Intercompany Verification will also be completed on Monday. All remaining workstreams are on hold pending the QuickBooks data file.</p>
+    <p>We've run the cash tie-out across <strong>2023–2026</strong> for both TTI and TK. TTI's 2023–2024 are in solid shape (90–94% matched). 2025 looks rough at 29%, but that's driven by missing CNB check detail — about 950 checks from the compilation PDFs never made it into our data. The BMO side still matched at 88%. 2026 is waiting on statements. TK's 2023 and 2025 are strong at 90%+, but 2024 is a blank slate since those bank statements are confirmed missing. Payroll and intercompany work is wrapping up. Everything else is on hold until the QuickBooks file arrives.</p>
     <div class="summary-bar">
         <span class="summary-pill pill-progress">3 In Progress</span>
-        <span class="summary-pill pill-hold">12 Not Started / Awaiting QB</span>
-        <span class="summary-pill" style="background:#f5f5f5; color:#666;">16 Total</span>
+        <span class="summary-pill pill-hold">11 Not Started / Awaiting QB</span>
+        <span class="summary-pill" style="background:#f5f5f5; color:#666;">14 Total</span>
     </div>
+    <p style="margin-top:14px; font-size:12px; color:#555;"><strong>Bank Statement Progress</strong></p>
+    <table style="font-size:11px; margin-top:6px;">
+        <thead>
+            <tr>
+                <th style="font-size:10px; padding:4px 8px;">Account</th>
+                <th style="font-size:10px; padding:4px 8px; text-align:center;">2023</th>
+                <th style="font-size:10px; padding:4px 8px; text-align:center;">2024</th>
+                <th style="font-size:10px; padding:4px 8px; text-align:center;">2025</th>
+                <th style="font-size:10px; padding:4px 8px; text-align:center;">2026</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding:4px 8px;">BMO-TTICorp (#2724)</td>
+                <td style="padding:4px 8px; text-align:center; color:#059669; font-weight:bold;">&#10003;</td>
+                <td style="padding:4px 8px; text-align:center; color:#059669; font-weight:bold;">&#10003;</td>
+                <td style="padding:4px 8px; text-align:center; color:#059669; font-weight:bold;">&#10003;</td>
+                <td style="padding:4px 8px; text-align:center; color:#dc2626; font-weight:bold;">&times;</td>
+            </tr>
+            <tr>
+                <td style="padding:4px 8px;">CNB-TTICorp2 (#7740)</td>
+                <td style="padding:4px 8px; text-align:center;">N/A</td>
+                <td style="padding:4px 8px; text-align:center; color:#059669; font-weight:bold;">&#10003; (partial)</td>
+                <td style="padding:4px 8px; text-align:center; color:#dc2626; font-weight:bold;">Incomplete — lacking detail files</td>
+                <td style="padding:4px 8px; text-align:center; color:#dc2626; font-weight:bold;">&times;</td>
+            </tr>
+            <tr>
+                <td style="padding:4px 8px;">TWS-Warehouse (#9530)</td>
+                <td style="padding:4px 8px; text-align:center; color:#059669; font-weight:bold;">&#10003;</td>
+                <td style="padding:4px 8px; text-align:center; color:#059669; font-weight:bold;">&#10003;</td>
+                <td style="padding:4px 8px; text-align:center; color:#059669; font-weight:bold;">&#10003;</td>
+                <td style="padding:4px 8px; text-align:center; color:#059669; font-weight:bold;">&#10003;</td>
+            </tr>
+            <tr>
+                <td style="padding:4px 8px;">BMO-TTIPark (#696)</td>
+                <td style="padding:4px 8px; text-align:center; color:#059669; font-weight:bold;">&#10003;</td>
+                <td style="padding:4px 8px; text-align:center; color:#059669; font-weight:bold;">&#10003;</td>
+                <td style="padding:4px 8px; text-align:center; color:#059669; font-weight:bold;">&#10003;</td>
+                <td style="padding:4px 8px; text-align:center; color:#059669; font-weight:bold;">&#10003;</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 <h2>Financial Statement Analysis</h2>
@@ -200,12 +242,12 @@
         <tr id="cash-recon" class="accordion-child">
             <td><a href="TTI_2024_Cash_Tieout.html">TTI &harr; Bank Reconciliation</a></td>
             <td><span class="badge badge-almost">Almost Complete</span></td>
-            <td>90.5% match rate; $105K stale checks flagged.</td>
+            <td>2023–2026 reviewed. 2023-2024 in good shape (90–94%). 2025 hit by missing CNB check detail (~950 checks). 2026 waiting on statements. See full report ↗</td>
         </tr>
         <tr id="cash-recon" class="accordion-child">
             <td><a href="TK_Investment_Cash_Tieout.html">TK Investments &harr; Bank Reconciliation</a></td>
             <td><span class="badge badge-progress">In Progress</span></td>
-            <td>Pending 2024 bank statements.</td>
+            <td>2023–2026 reviewed. 2023 &amp; 2025 strong (90%+). 2024 statements missing. 2026 cash account at 72%. See full report ↗</td>
         </tr>
         <tr id="cash-recon" class="accordion-child">
             <td><a href="TWS_Warehouse_Cash_Tieout.html">TWS Warehouse &harr; Bank Reconciliation</a></td>
@@ -289,11 +331,7 @@
             <td><span class="badge badge-hold">Not Started</span></td>
             <td>No payroll data received yet.</td>
         </tr>
-        <tr>
-            <td title="Reconcile fuel card statements (WEX, Comdata) to P&L. Verify fuel expense per mile and check for personal fuel run through the business.">Fuel Cost Reconciliation</td>
-            <td><span class="badge badge-hold">Not Started</span></td>
-            <td>Fuel card statements not yet provided.</td>
-        </tr>
+        <!-- Fuel Cost Reconciliation removed per current scope -->
         <!-- Route / Lane Profitability and DOT Compliance removed per lite scope -->
     </tbody>
 </table>

@@ -125,24 +125,9 @@
         .badge-almost { background: #dbeafe; color: #1e40af; }
         .badge-complete { background: #d1fae5; color: #065f46; }
 
-        .accordion-toggle {
-            cursor: pointer;
-            color: #1a1a1a;
-            user-select: none;
-        }
-        .accordion-toggle::before {
-            content: '+';
-            display: inline-block;
-            width: 14px;
-            color: #666;
-            font-weight: bold;
-        }
-        .accordion-toggle.open::before { content: '-'; }
-
-        .accordion-child { display: none; }
-        .accordion-child td { padding: 4px 10px 4px 24px; font-size: 11px; color: #444; }
-        .accordion-child td:first-child { padding-left: 30px; }
-        .accordion-child .badge { font-size: 8px; padding: 1px 5px; }
+        .sub-item td { padding: 4px 10px 4px 24px; font-size: 12px; color: #444; }
+        .sub-item td:first-child { padding-left: 30px; }
+        .sub-item .badge { font-size: 10px; padding: 1px 5px; }
 
         .footer {
             margin-top: 16px;
@@ -261,16 +246,16 @@
             <td>TTI and TK 2023–2026 reviewed. TWS on hold pending QBX. See combined report ↗</td>
         </tr>
         <tr>
-            <td class="accordion-toggle" onclick="toggleAccordion('intercompany-recon')" title="Verify subcontractor costs are real, properly classified, and intercompany transactions net to zero across the consolidated group.">Subcontracted Services &amp; Intercompany Tie-Out</td>
+            <td title="Verify subcontractor costs are real, properly classified, and intercompany transactions net to zero across the consolidated group.">Subcontracted Services &amp; Intercompany Tie-Out</td>
             <td><span class="badge badge-progress">In Progress</span></td>
             <td>TTI-TK three-way audit in progress.</td>
         </tr>
-        <tr id="intercompany-recon" class="accordion-child">
+        <tr class="sub-item">
             <td>TK Intercompany Verification</td>
             <td><span class="badge badge-progress">In Progress</span></td>
             <td>Matching GL checks to TK deposits.</td>
         </tr>
-        <tr id="intercompany-recon" class="accordion-child">
+        <tr class="sub-item">
             <td>TWS Warehouse Intercompany Verification</td>
             <td><span class="badge badge-hold">Not Started</span></td>
             <td>Blocked until TWS cash recon starts.</td>
@@ -313,11 +298,11 @@
             <td>Requires complete revenue by customer.</td>
         </tr>
         <tr>
-            <td class="accordion-toggle" onclick="toggleAccordion('payroll-recon')" title="Verify payroll register detail ties to bank withdrawals and GL payroll accounts. Confirm tax remittances match withholdings, driver headcount aligns with revenue per driver, and W-2 vs 1099 classification is accurate.">Payroll Register Verification</td>
+            <td title="Verify payroll register detail ties to bank withdrawals and GL payroll accounts. Confirm tax remittances match withholdings, driver headcount aligns with revenue per driver, and W-2 vs 1099 classification is accurate.">Payroll Register Verification</td>
             <td><span class="badge badge-progress">In Progress</span></td>
             <td>All entities in progress except TFS.</td>
         </tr>
-        <tr id="payroll-recon" class="accordion-child">
+        <tr class="sub-item">
             <td>TK Investments Payroll Recon</td>
             <td><span class="badge badge-progress">In Progress</span></td>
             <td>Register vs. bank withdrawals.</td>
@@ -389,19 +374,6 @@
     <strong>Next Steps:</strong> (1) Complete TK Cash Reconciliation, Payroll Register Reconciliation, and Intercompany Verification on Monday; (2) Upon receipt of the QBX, all remaining workstreams will commence in parallel.
 </div>
 
-<script>
-function toggleAccordion(id) {
-    var rows = document.querySelectorAll('tr.accordion-child');
-    var targetRows = document.querySelectorAll('tr[id="' + id + '"]');
-    var isOpen = targetRows.length > 0 && targetRows[0].style.display === 'table-row';
-    rows.forEach(function(r) { r.style.display = 'none'; });
-    document.querySelectorAll('.accordion-toggle').forEach(function(el) { el.classList.remove('open'); });
-    if (!isOpen) {
-        targetRows.forEach(function(r) { r.style.display = 'table-row'; });
-        event.target.classList.add('open');
-    }
-}
-</script>
 
 </body>
 </html>

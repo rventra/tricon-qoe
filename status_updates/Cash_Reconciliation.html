@@ -189,20 +189,20 @@
                 <td>BMO Corporate Account - Other</td>
                 <td class="text-right">6,789</td>
                 <td class="text-right">78.4M</td>
-                <td class="text-right">6,627</td>
+                <td class="text-right">6,629</td>
                 <td class="text-right">78.6M</td>
                 <td class="text-center">2,411</td>
-                <td class="text-center">2,593</td>
-                <td class="text-center">1,623</td>
-                <td class="text-right">34.3M</td>
-                <td class="text-center bold">75.5%</td>
+                <td class="text-center">2,792</td>
+                <td class="text-center">1,426</td>
+                <td class="text-right">25.7M</td>
+                <td class="text-center bold">78.5%</td>
                 <td>2023-2026</td>
-                <td>Issue — 2026 TTICorp missing, 2024 TTIPark missing</td>
+                <td>IMPROVED</td>
             </tr>
             <tr>
                 <td>CNB-TTICorp2</td>
                 <td>248017740</td>
-                <td>CNB Corp.</td>
+                <td>CNB Corp. / Tricon Freight Services - CNB</td>
                 <td class="text-right">274</td>
                 <td class="text-right">15.3M</td>
                 <td class="text-right">3,184</td>
@@ -213,21 +213,21 @@
                 <td class="text-right">25.8M</td>
                 <td class="text-center bold">2.7%</td>
                 <td>2024-2025</td>
-                <td>Gap — 2023 N/A, 2026 missing, 2025 summary-only</td>
+                <td>GAP</td>
             </tr>
             <tr style="background:#f8fafc; font-weight:bold;">
                 <td>TOTAL</td>
                 <td></td>
                 <td></td>
-                <td class="text-right">7,560</td>
-                <td class="text-right">98.9M</td>
+                <td class="text-right">7,063</td>
+                <td class="text-right">93.7M</td>
                 <td class="text-right">9,813</td>
                 <td class="text-right">114.1M</td>
                 <td class="text-center">2,423</td>
-                <td class="text-center">2,668</td>
-                <td class="text-center">4,720</td>
-                <td class="text-right">60.1M</td>
-                <td class="text-center">51.9%</td>
+                <td class="text-center">2,867</td>
+                <td class="text-center">4,523</td>
+                <td class="text-right">51.5M</td>
+                <td class="text-center">53.9%</td>
                 <td></td>
                 <td></td>
             </tr>
@@ -241,6 +241,7 @@
     <p>— <strong>Exact:</strong> Same check number + same amount + same account + within 30 days.</p>
     <p>— <strong>Close:</strong> Same amount + within 30 days + same account, even if the check number doesn't line up.</p>
     <p>— <strong>Direction:</strong> Deposits only match deposits, withdrawals only match withdrawals. No cross-matching.</p>
+    <p>— <strong>Transfer exception:</strong> Transfer bank records are direction-agnostic — they can match either GL outflows (checks/payments) or GL inflows (deposits), since transfer direction cannot be reliably determined from the bank description alone.</p>
     <p>Everything else gets flagged as a gap. BMO-TTICorp and BMO-TTIPark both map to the same GL account, so they match as a combined pool.</p>
 </div>
 
@@ -252,25 +253,26 @@
 
     <div class="exec-summary">
         <h3>The Big Picture</h3>
-        <p>Over four years, TTI recorded <strong>$114.1M in cash-related GL entries</strong>. Of that, <strong>$54.0M (about 47%)</strong> matched cleanly to bank records under our tightened criteria (30-day window, direction-matched).</p>
-        <p>The headline rate looks low, but it's being dragged down by two things: the <strong>CNB 2025 data gap</strong> (2,262 entries with no bank detail), and the <strong>tighter 30-day window</strong> catching a lot of operational vendor payments that clear outside the month. If you look at BMO alone, the match rate is <strong>75.5%</strong> — much healthier.</p>
-        <p><strong>2024 is the strongest year at 80.1%</strong>. <strong>2023 at 73.2%</strong> is solid but has a lot of recurring vendor payments falling just outside the 30-day window. <strong>2025 at 17.1%</strong> is almost entirely the CNB extraction problem. <strong>Q1 2026 at 0.1%</strong> — no bank statements received yet. That's a timeline issue, not an audit concern.</p>
+        <p>TTI had <strong>$114.1M in GL cash entries across 4 years</strong>. <strong>$62.5M (54.8%)</strong> matched to bank records under tightened criteria (30-day window, deposit/withdrawal separation).</p>
+        <p>The headline rate is suppressed by CNB-TTICorp2 (2025 summary PDF data gap). Excluding CNB, <strong>BMO runs at 78.5%</strong> — up from 75.5% after making transfer bank records direction-agnostic (197 new matches recovered, $8.6M).</p>
+        <p><strong>2024 is the strongest year at 82.4%</strong> — BMO alone runs at 86.1%. <strong>2023 at 75.2%</strong> — 750 entries/$12.8M unmatched, driven by recurring operational vendor payments that fall outside the 30-day matching window. <strong>2025 at 19.2%</strong> is artificially low, driven by the <strong>CNB-TTICorp2</strong> data gap (2,262 CNB NO MATCH entries). BMO alone is 72.1%. <strong>Q1 2026 at 0.4%</strong> — no 2026 bank statements received for BMO-TTICorp. Not an audit issue.</p>
     </div>
 
     <h3>Year by Year</h3>
     <table>
         <thead><tr><th>Year</th><th class="text-right">GL Entries</th><th class="text-right">Matched</th><th class="text-right">No Match</th><th class="text-center">Match Rate</th><th class="text-right">Unmatched $</th></tr></thead>
         <tbody>
-            <tr><td class="bold">2023</td><td class="text-right">3,029</td><td class="text-right">2,216</td><td class="text-right">813</td><td class="text-center bold positive">73.2%</td><td class="text-right">$16.1M</td></tr>
-            <tr><td class="bold">2024</td><td class="text-right">2,939</td><td class="text-right">2,354</td><td class="text-right">585</td><td class="text-center bold positive">80.1%</td><td class="text-right">$12.9M</td></tr>
-            <tr><td class="bold">2025</td><td class="text-right">3,054</td><td class="text-right">522</td><td class="text-right">2,532</td><td class="text-center bold negative">17.1%</td><td class="text-right">$23.4M</td></tr>
-            <tr><td class="bold">Q1 2026</td><td class="text-right">791</td><td class="text-right">1</td><td class="text-right">790</td><td class="text-center bold negative">0.1%</td><td class="text-right">$7.6M</td></tr>
+            <tr><td class="bold">2023</td><td class="text-right">3,029</td><td class="text-right">2,279</td><td class="text-right">750</td><td class="text-center bold positive">75.2%</td><td class="text-right">$12.8M</td></tr>
+            <tr><td class="bold">2024</td><td class="text-right">2,939</td><td class="text-right">2,423</td><td class="text-right">516</td><td class="text-center bold positive">82.4%</td><td class="text-right">$8.8M</td></tr>
+            <tr><td class="bold">2025</td><td class="text-right">3,054</td><td class="text-right">585</td><td class="text-right">2,469</td><td class="text-center bold negative">19.2%</td><td class="text-right">$22.3M</td></tr>
+            <tr><td class="bold">Q1 2026</td><td class="text-right">791</td><td class="text-right">3</td><td class="text-right">788</td><td class="text-center bold negative">0.4%</td><td class="text-right">$7.6M</td></tr>
         </tbody>
     </table>
 
     <h3>The 2025 CNB Check Gap</h3>
     <div class="insight">
-        <p>Here is exactly what happened with the 2025 CNB statements. The bank summary says checks cleared. Our extraction says they didn't. The reason: the detailed continuation pages listing each check were image-only and never got read.</p>
+        <p><strong>The 2025 TTI match rate of 19.2% is NOT a reconciliation failure — it is a data availability issue.</strong></p>
+        <p>The 2025 CNB-TTICorp2 bank statements were provided as a 12-page image-only PDF compilation. The detailed "Checks Paid" continuation pages — which list the actual check numbers, dates, and amounts for every check that cleared — were <strong>not extracted</strong>.</p>
     </div>
     <table>
         <thead><tr><th>Month</th><th class="text-right">Checks Cleared (per Bank)</th><th class="text-right">Checks in Our Data</th></tr></thead>
@@ -286,20 +288,24 @@
         </tbody>
     </table>
     <div class="insight">
-        <p>That gap — roughly <strong>930 missing checks</strong> — is why 2,262 GL entries show as unmatched. It's not that the money disappeared; it's that we simply don't have the bank-side detail to prove the checks cleared. CNB's 2025 match rate sits at <strong>2.2%</strong> ($25.6M in GL entries, only $0.5M matched). Once we get proper statement files, this should clean up fast.</p>
+        <p><strong>Impact:</strong> Approximately <strong>2,262 TTI GL entries</strong> mapped to CNB Corp. in 2025 have no corresponding bank proof. CNB's match rate sits at <strong>2.2%</strong> for 2025 ($25.6M in GL entries with only $0.5M matched).</p>
+        <p><strong>This is a data extraction gap, not a cash tie-out discrepancy.</strong> Once the full CNB 2025 statement detail is obtained, the match rate should recover significantly.</p>
     </div>
 
-    <h3>BMO Unmatched Deep Dive ($34.3M / 1,623 entries)</h3>
+    <h3>BMO Unmatched Deep Dive ($25.7M / 1,426 entries)</h3>
+    <div class="insight">
+        <p>BMO has 1,426 unmatched entries totaling $25.7M — down from 1,623/$34.3M after the transfer direction fix recovered 197 matches ($8.6M). The breakdown reveals specific root causes:</p>
+    </div>
     <table>
         <thead><tr><th>#</th><th>Cause</th><th class="text-right">Entries</th><th class="text-right">$ Amount</th><th class="text-right">% of BMO NM</th></tr></thead>
         <tbody>
-            <tr><td class="bold">1</td><td>2023 operational vendor payments (30-day window gaps)</td><td class="text-right">~800</td><td class="text-right">~$13.5M</td><td class="text-right bold">39%</td></tr>
-            <tr><td class="bold">2</td><td>Non-cash entries (GJ, opening balance equity)</td><td class="text-right">~5</td><td class="text-right">~$2.6M</td><td class="text-right">8%</td></tr>
-            <tr><td class="bold">3</td><td>Shareholder distributions (Tami Harshberger checks)</td><td class="text-right">2</td><td class="text-right">$2.7M</td><td class="text-right">8%</td></tr>
-            <tr><td class="bold">4</td><td>2024-2025 other timing/data gaps</td><td class="text-right">~448</td><td class="text-right">~$11.2M</td><td class="text-right">33%</td></tr>
-            <tr><td class="bold">5</td><td>-SPLIT- bundled deposits (QB artifacts)</td><td class="text-right">11</td><td class="text-right">$1.5M</td><td class="text-right">4%</td></tr>
-            <tr><td class="bold">6</td><td>Q1 2026 entries (no bank data for TTICorp)</td><td class="text-right">87</td><td class="text-right">$1.7M</td><td class="text-right">5%</td></tr>
-            <tr><td class="bold">7</td><td>Sub-$500K residual (small items)</td><td class="text-right">~200</td><td class="text-right">~$1.1M</td><td class="text-right">3%</td></tr>
+            <tr><td class="bold">1</td><td>2023 operational vendor payments (30-day window gaps)</td><td class="text-right">~660</td><td class="text-right">~$11.0M</td><td class="text-right bold">43%</td></tr>
+            <tr><td class="bold">2</td><td>Non-cash entries (GJ, opening balance equity)</td><td class="text-right">~5</td><td class="text-right">~$2.6M</td><td class="text-right">10%</td></tr>
+            <tr><td class="bold">3</td><td>Shareholder distributions (Tami Harshberger checks)</td><td class="text-right">2</td><td class="text-right">$2.7M</td><td class="text-right">10%</td></tr>
+            <tr><td class="bold">4</td><td>2024-2025 other timing/data gaps</td><td class="text-right">~370</td><td class="text-right">~$7.5M</td><td class="text-right">29%</td></tr>
+            <tr><td class="bold">5</td><td>-SPLIT- bundled deposits (QB artifacts)</td><td class="text-right">11</td><td class="text-right">$1.5M</td><td class="text-right">6%</td></tr>
+            <tr><td class="bold">6</td><td>Q1 2026 entries (no bank data for TTICorp)</td><td class="text-right">85</td><td class="text-right">$1.7M</td><td class="text-right">7%</td></tr>
+            <tr><td class="bold">7</td><td>Sub-$500K residual (small items)</td><td class="text-right">~170</td><td class="text-right">~$0.9M</td><td class="text-right">3%</td></tr>
         </tbody>
     </table>
 
@@ -307,8 +313,8 @@
     <table>
         <thead><tr><th class="text-right">Amount</th><th>Date</th><th>Type</th><th>Name</th><th>Likely Cause</th></tr></thead>
         <tbody>
-            <tr><td class="text-right">$1,597,719</td><td>12/31/2024</td><td>General Journal</td><td>(blank)</td><td><strong>Non-cash</strong> — year-end tax accrual</td></tr>
-            <tr><td class="text-right">$1,500,000</td><td>10/13/2023</td><td>Check</td><td>Tami Harshberger</td><td>Shareholder distribution — check# or date variance</td></tr>
+            <tr><td class="text-right">$1,597,719</td><td>12/31/2024</td><td>General Journal</td><td>(blank)</td><td><strong>Non-cash</strong> — year-end tax accrual, will never match</td></tr>
+            <tr><td class="text-right">$1,500,000</td><td>10/13/2023</td><td>Check</td><td>Tami Harshberger</td><td>Shareholder distribution — real check, check# or date variance</td></tr>
             <tr><td class="text-right">$1,200,000</td><td>09/23/2024</td><td>Check</td><td>Tami Harshberger</td><td>Shareholder draw — same issue</td></tr>
             <tr><td class="text-right">$1,000,000</td><td>04/10/2024</td><td>Check</td><td>Tricon Transportation</td><td>Opening balance equity — not a real bank transaction</td></tr>
             <tr><td class="text-right">$823,979</td><td>02/07/2023</td><td>Payment</td><td>Brother International Corp.</td><td>Should have bank record — 30-day window gap</td></tr>
@@ -318,12 +324,12 @@
         </tbody>
     </table>
     <div class="insight">
-        <p>~$3.2M of the $8M in large items is non-cash (GJ, opening balance). The remaining ~$4.8M are real checks/payments that should have bank records — likely falling outside the 30-day window or having check number/amount discrepancies.</p>
+        <p>~$3.2M of the $8.0M in large items is non-cash (GJ, opening balance). The remaining ~$4.8M are real checks/payments that should have bank records — likely falling outside the 30-day window or having check number/amount discrepancies. The transfer fix recovered 197 entries ($8.6M) that were previously blocked by direction mismatch — these were mostly intercompany and operational transfers that the engine now correctly matches regardless of direction.</p>
     </div>
 
     <h3>2023 Operational Vendor Gap</h3>
     <div class="insight">
-        <p>The biggest single category is 2023 recurring vendor payments. BMO bank data exists for all 12 months (2,913 records, $34M), yet 813 entries remain unmatched. Top vendors:</p>
+        <p>The biggest single category is 2023 recurring vendor payments. BMO bank data exists for all 12 months of 2023 (2,913 records, $34M), yet <strong>750 entries</strong> remain unmatched. Top vendors contributing:</p>
     </div>
     <table>
         <thead><tr><th>Payee</th><th class="text-right">Unmatched Entries</th><th class="text-right">Unmatched Amount</th><th>Pattern</th></tr></thead>
@@ -341,25 +347,36 @@
     <table>
         <thead><tr><th>Account</th><th class="text-right">Total</th><th class="text-right">Exact</th><th class="text-right">Close</th><th class="text-right">No Match</th><th class="text-center">Rate</th></tr></thead>
         <tbody>
-            <tr><td>BMO (TTICorp+TTIPark) — 2023</td><td class="text-right">3,029</td><td class="text-right">937</td><td class="text-right">1,279</td><td class="text-right">813</td><td class="text-center bold positive">73.2%</td></tr>
-            <tr><td>BMO (TTICorp+TTIPark) — 2024</td><td class="text-right">2,771</td><td class="text-right">1,294</td><td class="text-right">1,024</td><td class="text-right">453</td><td class="text-center bold positive">83.7%</td></tr>
+            <tr><td>BMO (TTICorp+TTIPark) — 2023</td><td class="text-right">3,029</td><td class="text-right">937</td><td class="text-right">1,342</td><td class="text-right">750</td><td class="text-center bold positive">75.2%</td></tr>
+            <tr><td>BMO (TTICorp+TTIPark) — 2024</td><td class="text-right">2,771</td><td class="text-right">1,294</td><td class="text-right">1,093</td><td class="text-right">384</td><td class="text-center bold positive">86.1%</td></tr>
             <tr><td>CNB Corp. — 2024</td><td class="text-right">168</td><td class="text-right">8</td><td class="text-right">28</td><td class="text-right">132</td><td class="text-center bold negative">21.4%</td></tr>
-            <tr><td>BMO (TTICorp+TTIPark) — 2025</td><td class="text-right">740</td><td class="text-right">180</td><td class="text-right">290</td><td class="text-right">270</td><td class="text-center bold positive">63.5%</td></tr>
-            <tr><td>CNB Corp. — 2025</td><td class="text-right">2,313</td><td class="text-right">4</td><td class="text-right">47</td><td class="text-right">2,262</td><td class="text-center bold negative">2.2%</td></tr>
-            <tr><td>BMO (TTICorp+TTIPark) — Q1 2026</td><td class="text-right">87</td><td class="text-right">0</td><td class="text-right">0</td><td class="text-right">87</td><td class="text-center bold negative">0.0%</td></tr>
+            <tr><td>BMO (TTICorp+TTIPark) — 2025</td><td class="text-right">741</td><td class="text-right">180</td><td class="text-right">354</td><td class="text-right">207</td><td class="text-center bold positive">72.1%</td></tr>
+            <tr><td>CNB Corp. — 2025</td><td class="text-right">2,312</td><td class="text-right">4</td><td class="text-right">47</td><td class="text-right">2,261</td><td class="text-center bold negative">2.2%</td></tr>
+            <tr><td>Tricon Freight Services - CNB — 2025</td><td class="text-right">1</td><td class="text-right">0</td><td class="text-right">0</td><td class="text-right">1</td><td class="text-center bold negative">0.0%</td></tr>
+            <tr><td>BMO (TTICorp+TTIPark) — Q1 2026</td><td class="text-right">88</td><td class="text-right">0</td><td class="text-right">3</td><td class="text-right">85</td><td class="text-center bold negative">3.4%</td></tr>
             <tr><td>CNB Corp. — Q1 2026</td><td class="text-right">703</td><td class="text-right">0</td><td class="text-right">0</td><td class="text-right">703</td><td class="text-center bold negative">0.0%</td></tr>
         </tbody>
     </table>
+    <div class="insight">
+        <p><strong>2023 Insight:</strong> 2023 at 75.2% reflects the tightened 30-day window. 750 NO MATCH items ($12.8M) are primarily operational vendor payments (Becton Dickinson, Brother International, Havi Services) where GL and bank dates differ by more than 30 days. The transfer fix recovered ~63 items in 2023.</p>
+        <p><strong>2024 Insight:</strong> BMO at 86.1% is the strongest year. The 384 BMO NO MATCH items ($8.8M) include the $1.2M Tami Harshberger shareholder draw, $1M opening balance equity, and ~$6.6M in other timing/check differences. The transfer fix recovered ~69 items in 2024. CNB at 21.4% reflects the early CNB data challenges.</p>
+        <p><strong>2025 Insight:</strong> BMO improved to 72.1% after the transfer fix (up from 63.5%). The 207 BMO NO MATCH items ($3.2M) are timing/carrier differences. The transfer fix recovered ~64 items in 2025. CNB's 2,261 NO MATCH items ($25.1M) are the 2025 statement extraction gap — see Section 1.</p>
+        <p><strong>Q1 2026 Insight:</strong> No 2026 bank statements for BMO-TTICorp. The 3 PROXIMITY matches are transfer-related (2026 TTIPark data exists and matches via the direction-agnostic rule). All other entries represent a data timing issue, not a reconciliation concern.</p>
+    </div>
 
     <h3>Bank Statement Coverage</h3>
     <table>
-        <thead><tr><th>Account</th><th class="text-center">2023</th><th class="text-center">2024</th><th class="text-center">2025</th><th class="text-center">Q1 2026</th></tr></thead>
+        <thead><tr><th>Account</th><th class="text-center">2023</th><th class="text-center">2024</th><th class="text-center">2025</th><th class="text-center">Q1 2026</th><th>Notes</th></tr></thead>
         <tbody>
-            <tr><td>BMO-TTICorp (#2724)</td><td class="text-center positive bold">&#10003;</td><td class="text-center positive bold">&#10003;</td><td class="text-center positive bold">&#10003;</td><td class="text-center negative bold">&times;</td></tr>
-            <tr><td>BMO-TTIPark (#696)</td><td class="text-center positive bold">&#10003;</td><td class="text-center negative bold">&times;</td><td class="text-center positive bold">&#10003;</td><td class="text-center positive bold">&#10003;</td></tr>
-            <tr><td>CNB-TTICorp2 (#7740)</td><td class="text-center">N/A</td><td class="text-center positive bold">&#10003;</td><td class="text-center negative bold">Incomplete</td><td class="text-center negative bold">&times;</td></tr>
+            <tr><td>BMO-TTICorp (#2724)</td><td class="text-center positive bold">&#10003;</td><td class="text-center positive bold">&#10003;</td><td class="text-center positive bold">&#10003;</td><td class="text-center negative bold">&times;</td><td><strong>2026 not yet received</strong></td></tr>
+            <tr><td>BMO-TTIPark (#696)</td><td class="text-center positive bold">&#10003;</td><td class="text-center negative bold">&times;</td><td class="text-center positive bold">&#10003;</td><td class="text-center positive bold">&#10003;</td><td>2024 missing (covered by BMO-TTICorp)</td></tr>
+            <tr><td>CNB-TTICorp2 (#7740)</td><td class="text-center">N/A</td><td class="text-center positive bold">&#10003; (partial)</td><td class="text-center negative bold">&times; (950+ checks missing)</td><td class="text-center negative bold">&times;</td><td>2025 extraction gap</td></tr>
+            <tr><td>TWS-Warehouse (#9530)</td><td class="text-center positive bold">&#10003;</td><td class="text-center positive bold">&#10003;</td><td class="text-center positive bold">&#10003;</td><td class="text-center positive bold">&#10003;</td><td>Not mapped in TTI GL</td></tr>
         </tbody>
     </table>
+    <div class="insight">
+        <p><strong>Notes:</strong> TWS-Warehouse (#9530) is not mapped as a cash account in the TTI GL. CNB-TTICorp2 became operational in February 2024. BMO-TTIPark 2024 confirmed missing but negligible impact (TTICorp covers). 2026 data not yet provided — expected to arrive as statements are processed.</p>
+    </div>
 </div>
 
 <hr>
@@ -370,8 +387,7 @@
 
     <div class="exec-summary">
         <h3>The Big Picture</h3>
-        <p>TK recorded <strong>$7.8M in GL cash entries</strong> across four years. Of that, <strong>$4.9M (63.8%)</strong> matched to bank.</p>
-        <p>That 64% is solid. <strong>2023 at 95.0%</strong> and <strong>2025 at 89.8%</strong> are strong when bank data is available. <strong>2024 at 0.5%</strong> is basically a blank slate — the client confirmed those bank statements are missing. <strong>Q1 2026 at 91.7%</strong> is the strongest partial-year showing yet — only 4 small items remain unmatched.</p>
+        <p>TK had <strong>$7.8M in GL cash entries across 4 years. $4.9M (62.9%)</strong> matched to bank records. TK's 2023 is strong at 95.9% and 2025 recovers to 91.4%, but 2024 drops to 0.5% due to missing TK-Investments bank statements. Q1 2026 runs at 95.8% — the strongest partial-year showing.</p>
         <p><em>Note: Non-cash accounts (payroll, revenue, benefits) are now excluded from the reconciliation. They have no bank counterpart and were artificially depressing the match rate.</em></p>
     </div>
 
@@ -379,42 +395,46 @@
     <table>
         <thead><tr><th>Year</th><th class="text-right">GL Entries</th><th class="text-right">Matched</th><th class="text-right">No Match</th><th class="text-center">Match Rate</th><th class="text-right">Unmatched $</th></tr></thead>
         <tbody>
-            <tr><td class="bold">2023</td><td class="text-right">222</td><td class="text-right">211</td><td class="text-right">11</td><td class="text-center bold positive">95.0%</td><td class="text-right">$0.1M</td></tr>
+            <tr><td class="bold">2023</td><td class="text-right">222</td><td class="text-right">213</td><td class="text-right">9</td><td class="text-center bold positive">95.9%</td><td class="text-right">$0.1M</td></tr>
             <tr><td class="bold">2024</td><td class="text-right">212</td><td class="text-right">1</td><td class="text-right">211</td><td class="text-center bold negative">0.5%</td><td class="text-right">$2.5M</td></tr>
-            <tr><td class="bold">2025</td><td class="text-right">197</td><td class="text-right">177</td><td class="text-right">20</td><td class="text-center bold positive">89.8%</td><td class="text-right">$0.3M</td></tr>
-            <tr><td class="bold">Q1 2026</td><td class="text-right">48</td><td class="text-right">44</td><td class="text-right">4</td><td class="text-center bold positive">91.7%</td><td class="text-right">$0.0M</td></tr>
+            <tr><td class="bold">2025</td><td class="text-right">197</td><td class="text-right">180</td><td class="text-right">17</td><td class="text-center bold positive">91.4%</td><td class="text-right">$0.3M</td></tr>
+            <tr><td class="bold">Q1 2026</td><td class="text-right">48</td><td class="text-right">46</td><td class="text-right">2</td><td class="text-center bold positive">95.8%</td><td class="text-right">$0.0M</td></tr>
         </tbody>
     </table>
 
     <h3>What's Driving the Gaps?</h3>
     <div class="insight">
-        <p><strong>2023 ($0.1M):</strong> TK's best year. Only 11 items off, mostly timing differences falling outside the 30-day window.</p>
+        <p><strong>2023 ($0.1M):</strong> TK's best year. Only 9 items off, mostly timing differences falling outside the 30-day window.</p>
         <p><strong>2024 ($2.5M):</strong> Not a bookkeeping problem — 2024 bank statements are simply missing. All 211 unmatched items are real cash transactions; we just don't have the bank side to verify them.</p>
-        <p><strong>2025 ($0.3M):</strong> Back to solid ground. 20 gaps are timing differences and minor intercompany quirks.</p>
-        <p><strong>Q1 2026 (&lt;$0.1M):</strong> Only 4 small items remain unmatched (&lt;$50K combined). With non-cash accounts excluded, the cash account runs at <strong>91.7%</strong> — the strongest partial-year showing yet.</p>
+        <p><strong>2025 ($0.3M):</strong> Back to solid ground. 17 gaps are timing differences and intercompany variance.</p>
+        <p><strong>Q1 2026 (&lt;$0.1M):</strong> Only 2 small items remain unmatched ($15K combined). With non-cash accounts excluded, the cash account runs at <strong>95.8%</strong> — the strongest partial-year showing yet. The previous 45.8% figure was artificially depressed by including payroll, revenue, and benefits entries that have no bank counterpart.</p>
     </div>
 
     <h3>Account Breakdown by Year</h3>
     <table>
         <thead><tr><th>Account</th><th class="text-right">Count</th><th class="text-right">Amount</th><th class="text-center">Rate</th><th>Why the gaps?</th></tr></thead>
         <tbody>
-            <tr><td>T-K Investments LLC -441394 (2023)</td><td class="text-right">11</td><td class="text-right">$94K</td><td class="text-center bold positive">95.0%</td><td>Timing outside 30-day window</td></tr>
+            <tr><td>T-K Investments LLC -441394 (2023)</td><td class="text-right">9</td><td class="text-right">$81K</td><td class="text-center bold positive">95.9%</td><td>Timing differences outside ±30-day window</td></tr>
             <tr><td>T-K Investments LLC -441394 (2024)</td><td class="text-right">211</td><td class="text-right">$2.47M</td><td class="text-center bold negative">0.5%</td><td>No bank statements available</td></tr>
-            <tr><td>T-K Investments LLC -441394 (2025)</td><td class="text-right">20</td><td class="text-right">$280K</td><td class="text-center bold positive">89.8%</td><td>Timing + intercompany variance</td></tr>
-            <tr><td>T-K Investments LLC -441394 (Q1 2026)</td><td class="text-right">4</td><td class="text-right">&lt;$50K</td><td class="text-center bold positive">91.7%</td><td>Timing; partial-year bank data</td></tr>
+            <tr><td>T-K Investments LLC -441394 (2025)</td><td class="text-right">17</td><td class="text-right">$245K</td><td class="text-center bold positive">91.4%</td><td>Timing differences and intercompany variance</td></tr>
+            <tr><td>T-K Investments LLC -441394 (Q1 2026)</td><td class="text-right">2</td><td class="text-right">$15K</td><td class="text-center bold positive">95.8%</td><td>Timing; partial-year bank data</td></tr>
         </tbody>
     </table>
 
     <h3>Bank Statement Coverage</h3>
     <table>
-        <thead><tr><th>Account</th><th class="text-center">2023</th><th class="text-center">2024</th><th class="text-center">2025</th><th class="text-center">Q1 2026</th></tr></thead>
+        <thead><tr><th>Account</th><th class="text-center">2023</th><th class="text-center">2024</th><th class="text-center">2025</th><th class="text-center">Q1 2026</th><th>Notes</th></tr></thead>
         <tbody>
-            <tr><td>TK-Investments (#394)</td><td class="text-center positive bold">&#10003;</td><td class="text-center negative bold">Missing</td><td class="text-center positive bold">&#10003;</td><td class="text-center positive bold">&#10003;</td></tr>
+            <tr><td>TK-Investments (#394)</td><td class="text-center positive bold">&#10003;</td><td class="text-center negative bold">&times;</td><td class="text-center positive bold">&#10003;</td><td class="text-center positive bold">&#10003;</td><td><strong>2024 Confirmed Missing.</strong> 2023, 2025-2026 bank data available.</td></tr>
         </tbody>
     </table>
+    <div class="insight">
+        <p><strong>Notes:</strong> TK has one cash account: TK-Investments (#394). 2024 TK-Investments statements confirmed missing by client; search complete. Q1 2026 partial — current year statements still being received.</p>
+    </div>
 
     <h3>Intercompany Context</h3>
     <div class="insight">
+        <p>TK entries in the TK GL-to-Bank recon represent cash movements for TK entities processed through the GL system. The engine now filters to cash accounts only (<code>T-K Investments LLC -441394</code>), excluding non-cash accounts (payroll, revenue, benefits) that have no bank transaction counterpart.</p>
         <p>TK's three-way intercompany audit shows:</p>
         <p>— <strong>2023:</strong> TTI P&L and TK P&L reconcile at $1.19M (matches perfectly)</p>
         <p>— <strong>2024:</strong> -$65,797 gap (TTI books $1.28M, TK shows $1.22M) — under active investigation</p>

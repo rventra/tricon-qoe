@@ -181,6 +181,7 @@
                 <th class="text-right">PDF Net Invoice</th>
                 <th class="text-right">GL Expense</th>
                 <th class="text-right">GL Cash</th>
+                <th class="text-right">P&L</th>
                 <th class="text-center">Register→GL</th>
                 <th class="text-center">GL→Cash</th>
                 <th class="text-center">Full Path</th>
@@ -188,12 +189,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td class="bold">TTI</td><td>2024</td><td class="text-right">$1,436,366</td><td class="text-right">$1,436,366</td><td class="text-right">$1,436,366</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="bold">All tie</td></tr>
-            <tr><td class="bold">TTI</td><td>2025</td><td class="text-right">$1,567,284</td><td class="text-right">$1,567,804</td><td class="text-right">$1,567,804</td><td class="text-center warn">+$520</td><td class="text-center check">&#10003;</td><td class="text-center warn">+$520</td><td>Quintana reimbursement</td></tr>
-            <tr><td class="bold">TTI</td><td>2023</td><td class="text-right">$1,354,903</td><td class="text-right">$1,396,864</td><td class="text-right">$1,381,224</td><td class="text-center warn">+$41,962</td><td class="text-center warn">-$15,640</td><td class="text-center warn">+$26,321</td><td>Pre-BBSi accruals</td></tr>
-            <tr><td class="bold">TK</td><td>2024</td><td class="text-right">$1,169,383</td><td class="text-right">$1,169,383</td><td class="text-right">$1,169,383</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="bold">All tie</td></tr>
-            <tr><td class="bold">TK</td><td>2025</td><td class="text-right">$1,062,337</td><td class="text-right">$1,062,337</td><td class="text-right">$1,062,337</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="bold">All tie (2&cent; rounding)</td></tr>
-            <tr><td class="bold">TK</td><td>2023</td><td class="text-right">$1,093,526</td><td class="text-right">$1,093,426</td><td class="text-right">$1,093,426</td><td class="text-center warn">-$100</td><td class="text-center check">&#10003;</td><td class="text-center warn">-$100</td><td>WC premiums bundled</td></tr>
+            <tr><td class="bold">TTI</td><td>2024</td><td class="text-right">$1,436,366</td><td class="text-right">$1,436,366</td><td class="text-right">$1,436,366</td><td class="text-right">—</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="bold">All tie</td></tr>
+            <tr><td class="bold">TTI</td><td>2025</td><td class="text-right">$1,567,284</td><td class="text-right">$1,567,804</td><td class="text-right">$1,567,804</td><td class="text-right">—</td><td class="text-center warn">+$520</td><td class="text-center check">&#10003;</td><td class="text-center warn">+$520</td><td>Quintana reimbursement</td></tr>
+            <tr><td class="bold">TTI</td><td>2023</td><td class="text-right">$1,354,903</td><td class="text-right">$1,396,864</td><td class="text-right">$1,381,224</td><td class="text-right warn">$1,003,493</td><td class="text-center warn">+$41,962</td><td class="text-center warn">-$15,640</td><td class="text-center warn">+$26,321</td><td>P&L gap -$351K</td></tr>
+            <tr><td class="bold">TK</td><td>2024</td><td class="text-right">$1,169,383</td><td class="text-right">$1,169,383</td><td class="text-right">$1,169,383</td><td class="text-right">$1,169,383</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="bold">All tie</td></tr>
+            <tr><td class="bold">TK</td><td>2025</td><td class="text-right">$1,062,337</td><td class="text-right">$1,062,337</td><td class="text-right">$1,062,337</td><td class="text-right">$1,062,337</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="bold">All tie (2&cent; rounding)</td></tr>
+            <tr><td class="bold">TK</td><td>2023</td><td class="text-right">$1,093,526</td><td class="text-right">$1,093,426</td><td class="text-right">$1,093,426</td><td class="text-right">$1,093,426</td><td class="text-center warn">-$100</td><td class="text-center check">&#10003;</td><td class="text-center warn">-$100</td><td>WC premiums bundled</td></tr>
         </tbody>
     </table>
 </div>
@@ -317,6 +318,43 @@
     <div class="insight">
         <p>TWS payroll does not appear in the TTI GL under Warehouse accounts. The available GL data (TTI and TK General Ledgers) does not capture TWS payroll separately.</p>
         <p><strong>Required to complete:</strong> TWS-specific QuickBooks file or GL export showing how TWS payroll is recorded — whether as a standalone entity, a division within TTI, or an intercompany recharge.</p>
+    </div>
+</div>
+
+<hr>
+
+<!-- BENEFITS SECTION -->
+<div class="entity-section">
+    <h2>Benefits, Bonuses &amp; Profit Sharing</h2>
+    <div class="exec-summary">
+        <h3>Key Movements</h3>
+        <p><strong>TTI 401K dropped 54% in 2025</strong> ($159K &rarr; $74K) despite flat headcount. Health Insurance swung $104K &rarr; $180K &rarr; $134K. A <strong>$168K Profit Sharing contribution</strong> hit in 2025 — 8.6% of total employment cost. Verify if this is one-time or recurring.</p>
+        <p>Embedded bonuses (BONUS pay type in PDF registers) are stable and recurring: TTI $12.5K&rarr;$12.4K&rarr;$20.9K; TK $7.5K&rarr;$6.5K&rarr;$6.9K; TWS $6K&rarr;$4.8K&rarr;$5.6K. No evidence of one-off distributions.</p>
+    </div>
+
+    <h3>TTI Employer-Paid Benefits (from GL Split)</h3>
+    <table>
+        <thead><tr><th>Benefit</th><th class="text-right">2023</th><th class="text-right">2024</th><th class="text-right">2025</th><th>Change</th></tr></thead>
+        <tbody>
+            <tr><td>401K (employer contributions)</td><td class="text-right">$144,304</td><td class="text-right">$159,205</td><td class="text-right">$74,038</td><td class="negative">Down 54%</td></tr>
+            <tr><td>Health Insurance (employer premiums)</td><td class="text-right">$103,651</td><td class="text-right">$179,758</td><td class="text-right">$134,047</td><td class="warn">Volatile</td></tr>
+            <tr><td>Life &amp; Disability Insurance</td><td class="text-right">$2,479</td><td class="text-right">$2,479</td><td class="text-right">$2,012</td><td>Flat</td></tr>
+            <tr><td>Profit Sharing Plan</td><td class="text-right">$0</td><td class="text-right">$0</td><td class="text-right">$168,000</td><td class="negative">New in 2025</td></tr>
+            <tr><td>Separate GL Bonus entries</td><td class="text-right">$500</td><td class="text-right">$2,000</td><td class="text-right">$0</td><td>Immaterial</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Embedded Bonuses (BONUS Pay Type from PDF Registers)</h3>
+    <table>
+        <thead><tr><th>Entity</th><th class="text-right">2023</th><th class="text-right">2024</th><th class="text-right">2025</th><th>Per Employee</th></tr></thead>
+        <tbody>
+            <tr><td>TTI</td><td class="text-right">$12,500</td><td class="text-right">$12,350</td><td class="text-right">$20,950</td><td>~$658&ndash;$1,048</td></tr>
+            <tr><td>TK</td><td class="text-right">$7,500</td><td class="text-right">$6,500</td><td class="text-right">$6,900</td><td>~$500</td></tr>
+            <tr><td>TWS</td><td class="text-right">$6,000</td><td class="text-right">$4,750</td><td class="text-right">$5,550</td><td>~$500</td></tr>
+        </tbody>
+    </table>
+    <div class="insight">
+        <p>Bonuses are embedded in the PDF gross wages under the BONUS pay type — these are recurring, not one-off. The 2025 TTI uptick ($12.5K &rarr; $20.9K) is the only notable movement. Separate GL Split="Bonus" entries ($500&ndash;$2,000) represent non-BBSi bonus payments and are immaterial.</p>
     </div>
 </div>
 

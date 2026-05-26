@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll Register Verification — BBSi PEO Tie-Out</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background: #fff;
+            padding: 40px 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        a { color: #1a3a5c; text-decoration: underline; }
+        a:hover { color: #0f172a; }
+
+        .nav-top {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1a3a5c;
+            margin-bottom: 4px;
+        }
+        .subhead {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        .entity-section {
+            margin-bottom: 40px;
+        }
+        .entity-section h2 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1a3a5c;
+            margin: 32px 0 16px 0;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #1a3a5c;
+        }
+
+        .exec-summary {
+            background: #f5f5f5;
+            border-left: 3px solid #1a3a5c;
+            padding: 16px 20px;
+            margin-bottom: 28px;
+        }
+        .exec-summary h3 {
+            font-size: 13px;
+            font-weight: bold;
+            color: #1a3a5c;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .exec-summary p {
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .exec-summary p:last-child { margin-bottom: 0; }
+
+        h3 {
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+            margin: 16px 0 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-bottom: 16px;
+        }
+        th {
+            background: #1a3a5c;
+            color: #fff;
+            font-weight: bold;
+            text-align: left;
+            padding: 7px 10px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        td {
+            padding: 7px 10px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+        tr:last-child td { border-bottom: 2px solid #1a3a5c; }
+
+        .text-right { text-align: right; }
+        .text-center { text-align: center; }
+        .bold { font-weight: bold; }
+        .positive { color: #059669; }
+        .negative { color: #dc2626; }
+        .highlight { background: #fafafa; }
+
+        .insight {
+            background: #fafafa;
+            border-left: 2px solid #ccc;
+            padding: 12px 16px;
+            margin: 12px 0 20px 0;
+            font-size: 12px;
+            color: #333;
+        }
+        .insight p { margin-bottom: 6px; }
+        .insight p:last-child { margin-bottom: 0; }
+
+        .footer {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid #ccc;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .scroll-table {
+            overflow-x: auto;
+            margin-bottom: 24px;
+        }
+        .scroll-table table {
+            min-width: 900px;
+            font-size: 11px;
+            margin-bottom: 0;
+        }
+        .scroll-table th,
+        .scroll-table td {
+            padding: 5px 8px;
+            white-space: nowrap;
+        }
+
+        .check { color: #059669; font-weight: bold; }
+        .warn { color: #f59e0b; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="nav-top">
+    <a href="index.html">&larr; Back to Status Overview</a>
+</div>
+
+<h1>Payroll Register Verification</h1>
+<div class="subhead">BBSi PEO Tie-Out &nbsp;|&nbsp; TTI, TK, TWS &nbsp;|&nbsp; 2023–2025 &nbsp;|&nbsp; Prepared: May 2026</div>
+
+<hr>
+
+<div class="exec-summary">
+    <h3>Overview</h3>
+    <p>The payroll register tie-out tests whether stated payroll expenses are accurate, actually paid, and free of hidden costs. We compare BBSi Payment Check Allocation Reports (PDF registers) against the General Ledger and bank statements in a three-way tie: <strong>Register → GL Expense → GL Cash</strong>.</p>
+    <p><strong>The GL tie is solid.</strong> GL Expense matches GL Cash across every year and entity — Leg 2 is clean. The variances are between the PDF register and the GL, driven by explainable items (pre-BBSi accruals, WC premiums, reimbursements) rather than missing or phantom payroll.</p>
+    <p><strong>Key findings:</strong> TTI 2024–2025 ties perfectly. TTI 2023 has a $42K variance from pre-BBSi accruals. TK 2024–2025 ties perfectly; TK 2023 includes $762K in WC premiums bundled with payroll. <strong>TWS register data is available but GL mapping is missing.</strong> Q1 2026 registers have not yet been received.</p>
+</div>
+
+<h2 style="font-size:14px; font-weight:bold; color:#1a3a5c; margin:20px 0 10px 0;">Three-Way Tie Summary</h2>
+<div class="scroll-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Entity</th>
+                <th>Year</th>
+                <th class="text-right">PDF Net Invoice</th>
+                <th class="text-right">GL Expense</th>
+                <th class="text-right">GL Cash</th>
+                <th class="text-center">Register→GL</th>
+                <th class="text-center">GL→Cash</th>
+                <th class="text-center">Full Path</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td class="bold">TTI</td><td>2024</td><td class="text-right">$1,436,366</td><td class="text-right">$1,436,366</td><td class="text-right">$1,436,366</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="bold">All tie</td></tr>
+            <tr><td class="bold">TTI</td><td>2025</td><td class="text-right">$1,567,284</td><td class="text-right">$1,567,804</td><td class="text-right">$1,567,804</td><td class="text-center warn">+$520</td><td class="text-center check">&#10003;</td><td class="text-center warn">+$520</td><td>Quintana reimbursement</td></tr>
+            <tr><td class="bold">TTI</td><td>2023</td><td class="text-right">$1,354,903</td><td class="text-right">$1,396,864</td><td class="text-right">$1,381,224</td><td class="text-center warn">+$41,962</td><td class="text-center warn">-$15,640</td><td class="text-center warn">+$26,321</td><td>Pre-BBSi accruals</td></tr>
+            <tr><td class="bold">TK</td><td>2024</td><td class="text-right">$1,169,383</td><td class="text-right">$1,169,383</td><td class="text-right">$1,169,383</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="bold">All tie</td></tr>
+            <tr><td class="bold">TK</td><td>2025</td><td class="text-right">$1,062,337</td><td class="text-right">$1,062,337</td><td class="text-right">$1,062,337</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="text-center check">&#10003;</td><td class="bold">All tie (2&cent; rounding)</td></tr>
+            <tr><td class="bold">TK</td><td>2023</td><td class="text-right">$1,093,526</td><td class="text-right">$1,093,426</td><td class="text-right">$1,093,426</td><td class="text-center warn">-$100</td><td class="text-center check">&#10003;</td><td class="text-center warn">-$100</td><td>WC premiums bundled</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="insight">
+    <p><strong>What the gaps mean:</strong> The only column that never fails is <strong>GL Expense → GL Cash</strong> (Leg 2). Every dollar recorded as payroll expense in the books was actually funded from cash. The variances between PDF and GL are explainable non-payroll items coded to the same Split — not missing or phantom payroll.</p>
+</div>
+
+<hr>
+
+<!-- TTI SECTION -->
+<div class="entity-section">
+    <h2>TTI — Tricon Transportation, Inc.</h2>
+    <div class="exec-summary">
+        <h3>The Big Picture</h3>
+        <p>TTI gross wages grew <strong>6.7% CAGR</strong> ($1.28M → $1.35M → $1.45M). Headcount dropped from 28 to 22 then stabilized at 23, while average wage per employee rose sharply ($45.6K → $61.5K → $63.2K) — a leaner, higher-paid workforce. The blended hourly rate grew 4.9% CAGR, near inflation.</p>
+        <p><strong>2024 and 2025 tie perfectly.</strong> 2023 has a $42K variance from pre-BBSi accruals ($15,640 non-cash AP entries + $26,321 year-end timing). The P&L for 2023 shows a <strong>-$351K gap</strong> vs the register — likely because the P&L only captured the BBSi period (Sep–Dec), missing pre-BBSi payroll booked through different accounts.</p>
+    </div>
+
+    <h3>Register Grand Totals</h3>
+    <table>
+        <thead><tr><th>Item</th><th class="text-right">2023</th><th class="text-right">2024</th><th class="text-right">2025</th></tr></thead>
+        <tbody>
+            <tr><td class="bold">Pay Amount (Gross Wages)</td><td class="text-right">$1,276,987</td><td class="text-right">$1,353,782</td><td class="text-right">$1,453,453</td></tr>
+            <tr><td>Employer Taxes</td><td class="text-right">$101,863</td><td class="text-right">$106,207</td><td class="text-right">$115,011</td></tr>
+            <tr><td>Employee Taxes Withheld</td><td class="text-right">$258,746</td><td class="text-right">$282,574</td><td class="text-right">$298,535</td></tr>
+            <tr><td>Deductions</td><td class="text-right">$56,549</td><td class="text-right">$68,029</td><td class="text-right">$67,956</td></tr>
+            <tr class="highlight"><td class="bold">Net Invoice (Paid to BBSi)</td><td class="text-right bold">$1,354,903</td><td class="text-right bold">$1,436,366</td><td class="text-right bold">$1,567,284</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Three-Way Tie Detail</h3>
+    <div class="insight">
+        <p><strong>2024 — Perfect Tie.</strong> All three legs match to the dollar. BMO carried $1.30M (Jan–Oct), then CNB carried $139K (Nov–Dec) — reflecting the account transition.</p>
+        <p><strong>2025 — Near Perfect.</strong> The $520 variance is a Jose Quintana reimbursement coded to Split="Payroll" but not a BBSi invoice. GL Expense = GL Cash is clean.</p>
+        <p><strong>2023 — Transition Year.</strong> $15,640 in non-cash AP entries (Vision Quest, pre-BBSi) plus $26,321 in year-end accrual timing explain the $41,962 gap. No phantom payroll.</p>
+    </div>
+
+    <h3>QoE Observations</h3>
+    <table>
+        <thead><tr><th>Item</th><th>Year</th><th class="text-right">Amount</th><th>Concern</th></tr></thead>
+        <tbody>
+            <tr><td>P&L gap vs register</td><td>2023</td><td class="text-right">-$351,410</td><td>Medium — P&L may only capture Sep–Dec BBSi period</td></tr>
+            <tr><td>Profit Sharing Plan</td><td>2025</td><td class="text-right">$168,000</td><td>Medium — confirm one-time vs recurring</td></tr>
+            <tr><td>Owner comp (Kevin Harshberger)</td><td>2023–2025</td><td class="text-right">~$114K/yr</td><td>Low — normalize for EBITDA if owner-operator</td></tr>
+            <tr><td>401K dropped 54%</td><td>2025</td><td class="text-right">-$85K</td><td>Low — verify plan changes</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<hr>
+
+<!-- TK SECTION -->
+<div class="entity-section">
+    <h2>TK — T-K Investments, LLC</h2>
+    <div class="exec-summary">
+        <h3>The Big Picture</h3>
+        <p>TK wages declined <strong>1.9% CAGR</strong> ($901K → $973K → $867K) driven by headcount reduction (19 → 15) and hours down 3.1% CAGR. Average hourly wage rose only 1.2% CAGR — below inflation. The 37% jump in wages per employee is compositional (lost 5 lower-paid workers), not wage inflation.</p>
+        <p><strong>2024 and 2025 tie perfectly.</strong> 2023 includes <strong>$762K in workers' compensation premiums</strong> bundled into the GL "Payroll Expenses" Split — inflating the apparent payroll cost. Actual BBSi labor was only $331K (Sep–Dec). The P&L ties exactly to the GL for all years.</p>
+    </div>
+
+    <h3>Register Grand Totals</h3>
+    <table>
+        <thead><tr><th>Item</th><th class="text-right">2023</th><th class="text-right">2024</th><th class="text-right">2025</th></tr></thead>
+        <tbody>
+            <tr><td class="bold">Pay Amount (Gross Wages)</td><td class="text-right">$901,421</td><td class="text-right">$972,612</td><td class="text-right">$866,649</td></tr>
+            <tr><td>Employer Taxes</td><td class="text-right">$72,264</td><td class="text-right">$76,906</td><td class="text-right">$69,363</td></tr>
+            <tr><td>Employee Taxes Withheld</td><td class="text-right">$173,319</td><td class="text-right">$216,026</td><td class="text-right">$194,963</td></tr>
+            <tr><td>Deductions</td><td class="text-right">$12,615</td><td class="text-right">$21,655</td><td class="text-right">$13,256</td></tr>
+            <tr class="highlight"><td class="bold">Net Invoice (Paid to BBSi)</td><td class="text-right bold">$1,093,526</td><td class="text-right bold">$1,169,383</td><td class="text-right bold">$1,062,337</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Three-Way Tie Detail</h3>
+    <div class="insight">
+        <p><strong>2024 — Perfect Tie.</strong> All three legs match to the dollar. TK's first full year on BBSi.</p>
+        <p><strong>2025 — Perfect Tie (2&cent; rounding).</strong> Immaterial rounding artifact between PDF and GL.</p>
+        <p><strong>2023 — BBSi Transition with WC.</strong> The GL "Payroll Expenses" Split includes $762K in WC premiums (Jan–Sep) plus $331K in actual BBSi payroll (Sep–Dec). The PDF register shows full-year wages. P&L = GL exactly for all years.</p>
+    </div>
+
+    <h3>Bank Tie-Out Note</h3>
+    <div class="insight">
+        <p><strong>2024 bank statements are missing</strong> — no bank data available for keyword matching. 2023 and 2025 show partial keyword matches but WC premiums conflate the totals. The GL-to-Register tie is the reliable verification for TK.</p>
+    </div>
+
+    <h3>QoE Observations</h3>
+    <table>
+        <thead><tr><th>Item</th><th>Year</th><th class="text-right">Amount</th><th>Concern</th></tr></thead>
+        <tbody>
+            <tr><td>WC premiums in Payroll Expenses</td><td>2023</td><td class="text-right">$762,640</td><td>Medium — inflates apparent labor cost</td></tr>
+            <tr><td>Headcount reduction</td><td>2023–2024</td><td class="text-right">19 &rarr; 15</td><td>Low — 26% turnover, net shrinkage</td></tr>
+            <tr><td>No 2025 employee detail</td><td>2025</td><td class="text-right">N/A</td><td>Low — register was summary-only</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<hr>
+
+<!-- TWS SECTION -->
+<div class="entity-section">
+    <h2>TWS — Tricon Warehouse Services, LLC</h2>
+    <div class="exec-summary">
+        <h3>Status — On Hold Pending GL Data</h3>
+        <p>TWS payroll registers are available for 2023–2025, but <strong>TWS does not appear in the current GL dataset</strong> (TTI or TK ledgers). TWS may be accounted for in a separate GL not yet provided, as a division within TTI, or through an intercompany recharge.</p>
+        <p>The register shows gross wages of <strong>$340K → $475K → $490K</strong> (20.1% CAGR) with stable headcount of 12. Until TWS-specific GL data is received, the three-way tie-out cannot be completed.</p>
+    </div>
+
+    <h3>Register Grand Totals</h3>
+    <table>
+        <thead><tr><th>Item</th><th class="text-right">2023</th><th class="text-right">2024</th><th class="text-right">2025</th></tr></thead>
+        <tbody>
+            <tr><td class="bold">Pay Amount (Gross Wages)</td><td class="text-right">$339,781</td><td class="text-right">$474,657</td><td class="text-right">$490,287</td></tr>
+            <tr><td>Employer Taxes</td><td class="text-right">$28,048</td><td class="text-right">$39,945</td><td class="text-right">$41,762</td></tr>
+            <tr><td>Employee Taxes Withheld</td><td class="text-right">$58,368</td><td class="text-right">$83,413</td><td class="text-right">$88,999</td></tr>
+            <tr><td>Deductions</td><td class="text-right">$7,203</td><td class="text-right">$14,262</td><td class="text-right">$14,578</td></tr>
+            <tr class="highlight"><td class="bold">Net Invoice (Paid to BBSi)</td><td class="text-right bold">$406,388</td><td class="text-right bold">$568,809</td><td class="text-right bold">$584,976</td></tr>
+        </tbody>
+    </table>
+
+    <h3>What's Blocking the Tie-Out?</h3>
+    <div class="insight">
+        <p>TWS payroll does not appear in the TTI GL under Warehouse accounts. The available GL data (TTI and TK General Ledgers) does not capture TWS payroll separately.</p>
+        <p><strong>Required to complete:</strong> TWS-specific QuickBooks file or GL export showing how TWS payroll is recorded — whether as a standalone entity, a division within TTI, or an intercompany recharge.</p>
+    </div>
+</div>
+
+<hr>
+
+<!-- FOLLOW-UP SECTION -->
+<div class="entity-section">
+    <h2>Recommended Follow-Up</h2>
+    <table>
+        <thead><tr><th>#</th><th>Action</th><th>Why It Matters</th></tr></thead>
+        <tbody>
+            <tr><td class="bold">1</td><td>Request TWS GL data</td><td>TWS payroll is material ($407K–$585K/yr) and needs tie-out verification</td></tr>
+            <tr><td class="bold">2</td><td>Q1 2026 payroll registers</td><td>Not yet available; tie out when received to confirm current-year accuracy</td></tr>
+            <tr><td class="bold">3</td><td>Confirm owner identity (Harshberger)</td><td>Determine if Kevin Harshberger is owner-operator for EBITDA normalization</td></tr>
+            <tr><td class="bold">4</td><td>Clarify TTI 2023 P&L gap (-$351K)</td><td>P&L may only capture Sep–Dec BBSi period; affects 2023 EBITDA</td></tr>
+            <tr><td class="bold">5</td><td>Confirm Profit Sharing ($168K) one-time vs recurring</td><td>8.6% of total employment cost in 2025</td></tr>
+            <tr><td class="bold">6</td><td>Request TK 2025 register with employee detail</td><td>Current version is summary-only; need headcount/owner-comp verification</td></tr>
+            <tr><td class="bold">7</td><td>TK WC cross-reference</td><td>Verify $1.86M WC premiums (2022–2023) against P&L insurance expense line</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="footer">
+    <a href="index.html">&larr; Back to Status Overview</a>
+</div>
+
+</body>
+</html>

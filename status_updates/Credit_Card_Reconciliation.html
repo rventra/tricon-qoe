@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Reconciliation — AMEX Statement-to-GL (2024–Q1 2026)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background: #fff;
+            padding: 40px 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .scroll-table {
+            overflow-x: auto;
+            margin-bottom: 24px;
+        }
+        .scroll-table table {
+            min-width: 900px;
+            font-size: 11px;
+            margin-bottom: 0;
+        }
+        .scroll-table th,
+        .scroll-table td {
+            padding: 5px 8px;
+            white-space: nowrap;
+        }
+        a { color: #1a3a5c; text-decoration: underline; }
+        a:hover { color: #0f172a; }
+
+        .nav-top {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1a3a5c;
+            margin-bottom: 4px;
+        }
+        .subhead {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        .exec-summary {
+            background: #f5f5f5;
+            border-left: 3px solid #1a3a5c;
+            padding: 16px 20px;
+            margin-bottom: 28px;
+        }
+        .exec-summary h3 {
+            font-size: 13px;
+            font-weight: bold;
+            color: #1a3a5c;
+            margin-bottom: 8px;
+        }
+        .exec-summary p {
+            font-size: 12px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .exec-summary p:last-child { margin-bottom: 0; }
+
+        h2 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1a3a5c;
+            margin: 32px 0 16px 0;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #1a3a5c;
+        }
+
+        h3 {
+            font-size: 13px;
+            font-weight: bold;
+            color: #1a3a5c;
+            margin: 24px 0 10px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        th {
+            background: #f8f8f8;
+            border-bottom: 2px solid #1a3a5c;
+            text-align: left;
+            padding: 8px 10px;
+            font-weight: bold;
+            color: #1a3a5c;
+        }
+        td {
+            border-bottom: 1px solid #e5e5e5;
+            padding: 7px 10px;
+            vertical-align: top;
+        }
+        tr:hover td { background: #fafafa; }
+
+        .num { text-align: right; font-family: "Courier New", monospace; }
+        .pct { text-align: center; }
+        .highlight { background: #fffbeb; }
+        .total-row td {
+            font-weight: bold;
+            border-top: 2px solid #1a3a5c;
+            border-bottom: 2px solid #1a3a5c;
+            background: #f8f8f8;
+        }
+
+        .insight {
+            background: #f0f7ff;
+            border-left: 3px solid #1a3a5c;
+            padding: 12px 16px;
+            margin: 16px 0;
+            font-size: 12px;
+        }
+        .warning {
+            background: #fffbeb;
+            border-left: 3px solid #d4a853;
+            padding: 12px 16px;
+            margin: 16px 0;
+            font-size: 12px;
+        }
+
+        .methodology-box {
+            background: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 16px;
+            margin: 16px 0;
+            font-size: 11px;
+            font-family: "Courier New", monospace;
+            line-height: 1.6;
+        }
+
+        ul { margin: 8px 0 8px 24px; font-size: 12px; }
+        li { margin-bottom: 4px; }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 16px;
+            border-top: 1px solid #ccc;
+            font-size: 11px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav-top">
+    <a href="index.html">&larr; Back to Status Dashboard</a>
+</div>
+
+<h1>Credit Card Reconciliation</h1>
+<div class="subhead">American Express Statement-to-GL Analysis | TTI | 2024 – Q1 2026</div>
+
+<!-- Executive Summary -->
+<div class="exec-summary">
+    <h3>Executive Summary</h3>
+    <p>TTI uses two American Express cards — <strong>Business Platinum</strong> and <strong>Personal Platinum</strong> — with combined annual spend of ~$575K. The company accounts for these on a <strong>cash basis</strong>: the GL payment TO American Express IS the expense entry. There is no separate expense accrual. When TTI writes a check to AMEX from BMO or CNB, QuickBooks debits expense accounts and credits cash — all in one transaction via the <code>-SPLIT-</code> mechanism. <strong>85.6%</strong> of AMEX GL entries use this pattern.</p>
+    <p><strong>Total AMEX spend (from statements): $1,279K across 2024–Q1 2026</strong><br>
+    <strong>Total AMEX payments in GL: $2,534K across 2023–2026</strong> (includes prior-year balances)</p>
+</div>
+
+<!-- Section 1: Accounting Method -->
+<h2>1. Accounting Method: Cash Basis via -SPLIT-</h2>
+
+<p>TTI does not record individual AMEX transactions as they occur. The monthly cycle:</p>
+
+<div class="methodology-box">
+Employee swipes AMEX (Day 1-30)<br>
+         &darr;<br>
+AMEX issues monthly statement<br>
+         &darr;<br>
+TTI writes single check for statement balance<br>
+         &darr;<br>
+Check clears BMO or CNB<br>
+         &darr;<br>
+QB auto-allocates total via -SPLIT- across expense accounts
+</div>
+
+<table>
+    <tr>
+        <th>Metric</th>
+        <th class="num">Count</th>
+        <th class="num">Total $</th>
+        <th class="pct">% of Dollars</th>
+    </tr>
+    <tr>
+        <td><strong>-SPLIT-</strong> (bundled expense allocation)</td>
+        <td class="num">99</td>
+        <td class="num">$2,170,499</td>
+        <td class="pct"><strong>85.6%</strong></td>
+    </tr>
+    <tr>
+        <td>Specific account coding</td>
+        <td class="num">148</td>
+        <td class="num">$363,724</td>
+        <td class="pct">14.4%</td>
+    </tr>
+    <tr class="total-row">
+        <td><strong>Total</strong></td>
+        <td class="num"><strong>247</strong></td>
+        <td class="num"><strong>$2,534,223</strong></td>
+        <td class="pct"><strong>100%</strong></td>
+    </tr>
+</table>
+
+<div class="insight">
+    There is <strong>no active credit card liability account</strong>. The "American Express" account on the balance sheet was an orphan from prior accounting that was cleared via year-end TAX AJE #8 in 2024.
+</div>
+
+<!-- Section 2: GL Payments by Cash Account -->
+<h2>2. GL Payments by Cash Account</h2>
+
+<table>
+    <tr>
+        <th>Cash Account</th>
+        <th class="num">2023</th>
+        <th class="num">2024</th>
+        <th class="num">2025</th>
+        <th class="num">2026 Q1</th>
+        <th class="num">Total</th>
+    </tr>
+    <tr>
+        <td><strong>BMO Corporate Account - Other</strong></td>
+        <td class="num">$817,297</td>
+        <td class="num">$586,713</td>
+        <td class="num">$627,881</td>
+        <td class="num">$127,508</td>
+        <td class="num"><strong>$2,159,399</strong></td>
+    </tr>
+    <tr>
+        <td><strong>CNB Corp.</strong></td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+        <td class="num">$34,653</td>
+        <td class="num">$19,872</td>
+        <td class="num"><strong>$54,525</strong></td>
+    </tr>
+    <tr class="total-row">
+        <td><strong>Total GL (BMO + CNB)</strong></td>
+        <td class="num"><strong>$817,297</strong></td>
+        <td class="num"><strong>$586,713</strong></td>
+        <td class="num"><strong>$662,534</strong></td>
+        <td class="num"><strong>$147,380</strong></td>
+        <td class="num"><strong>$2,213,924</strong></td>
+    </tr>
+</table>
+
+<div class="insight">
+    <strong>96% of AMEX payments run through BMO</strong> — the main operating account. CNB only started paying AMEX in 2025.
+</div>
+
+<!-- Section 3: Statement Spend vs. GL Payments -->
+<h2>3. Statement Spend vs. GL Payments</h2>
+
+<table>
+    <tr>
+        <th>Year</th>
+        <th class="num">Statement Spend (Charges)</th>
+        <th class="num">Statement Payments</th>
+        <th class="num">GL Payments</th>
+        <th>Timing Gap</th>
+    </tr>
+    <tr>
+        <td><strong>2024</strong></td>
+        <td class="num">$543,609</td>
+        <td class="num">$584,655</td>
+        <td class="num">$593,402</td>
+        <td>+$9K (GL &gt; stmt)</td>
+    </tr>
+    <tr>
+        <td><strong>2025</strong></td>
+        <td class="num">$574,819</td>
+        <td class="num">$669,131</td>
+        <td class="num">$667,593</td>
+        <td>-$2K (stmt &gt; GL)</td>
+    </tr>
+    <tr>
+        <td><strong>2026 Q1</strong></td>
+        <td class="num">$160,378</td>
+        <td class="num">$147,351</td>
+        <td class="num">$225,456</td>
+        <td>+$78K (includes prior)</td>
+    </tr>
+    <tr class="total-row">
+        <td><strong>Total</strong></td>
+        <td class="num"><strong>$1,278,806</strong></td>
+        <td class="num"><strong>$1,401,137</strong></td>
+        <td class="num"><strong>$1,486,451</strong></td>
+        <td></td>
+    </tr>
+</table>
+
+<div class="insight">
+    Payments exceed charges because they include prior-month balances carried from the previous statement cycle. GL payments trail statement payments by ~1 month (the time from statement due date to check clearing).
+</div>
+
+<!-- Section 4: Spend by Category -->
+<h2>4. Spend by Category (from AMEX Statements)</h2>
+
+<div class="scroll-table">
+<table>
+    <tr>
+        <th>Category</th>
+        <th class="num">2024</th>
+        <th class="num">2025</th>
+        <th class="num">2026 Q1</th>
+        <th class="num">Total</th>
+        <th class="pct">%</th>
+    </tr>
+    <tr>
+        <td><strong>PierPass</strong> (port congestion)</td>
+        <td class="num">$251,502</td>
+        <td class="num">$260,666</td>
+        <td class="num">$64,026</td>
+        <td class="num"><strong>$576,194</strong></td>
+        <td class="pct"><strong>45.1%</strong></td>
+    </tr>
+    <tr>
+        <td><strong>PortCheck</strong> (port security)</td>
+        <td class="num">$68,250</td>
+        <td class="num">$65,440</td>
+        <td class="num">$16,000</td>
+        <td class="num"><strong>$149,690</strong></td>
+        <td class="pct"><strong>11.7%</strong></td>
+    </tr>
+    <tr>
+        <td>Samsara (telematics/GPS)</td>
+        <td class="num">$30,662</td>
+        <td class="num">$31,931</td>
+        <td class="num">$21,977</td>
+        <td class="num">$84,570</td>
+        <td class="pct">6.6%</td>
+    </tr>
+    <tr>
+        <td>eBay / PayPal</td>
+        <td class="num">$33,748</td>
+        <td class="num">$17,188</td>
+        <td class="num">$10,015</td>
+        <td class="num">$60,951</td>
+        <td class="pct">4.8%</td>
+    </tr>
+    <tr>
+        <td>Amazon / Online</td>
+        <td class="num">$9,710</td>
+        <td class="num">$16,648</td>
+        <td class="num">$2,317</td>
+        <td class="num">$28,674</td>
+        <td class="pct">2.2%</td>
+    </tr>
+    <tr>
+        <td>Home Depot / Retail</td>
+        <td class="num">$6,076</td>
+        <td class="num">$16,937</td>
+        <td class="num">$1,253</td>
+        <td class="num">$24,266</td>
+        <td class="pct">1.9%</td>
+    </tr>
+    <tr>
+        <td>Chevron fuel</td>
+        <td class="num">$10,082</td>
+        <td class="num">$9,142</td>
+        <td class="num">$2,019</td>
+        <td class="num">$21,243</td>
+        <td class="pct">1.7%</td>
+    </tr>
+    <tr>
+        <td>eModal (port appt system)</td>
+        <td class="num">$4,129</td>
+        <td class="num">$16,122</td>
+        <td class="num">$301</td>
+        <td class="num">$20,552</td>
+        <td class="pct">1.6%</td>
+    </tr>
+    <tr>
+        <td>Towing / Repair</td>
+        <td class="num">$14,239</td>
+        <td class="num">$4,804</td>
+        <td class="num">$636</td>
+        <td class="num">$19,678</td>
+        <td class="pct">1.5%</td>
+    </tr>
+    <tr>
+        <td>Union 76 fuel</td>
+        <td class="num">$7,696</td>
+        <td class="num">$7,760</td>
+        <td class="num">$1,793</td>
+        <td class="num">$17,249</td>
+        <td class="pct">1.3%</td>
+    </tr>
+    <tr>
+        <td>POLA/POLB port fees</td>
+        <td class="num">$4,800</td>
+        <td class="num">$7,000</td>
+        <td class="num">$1,600</td>
+        <td class="num">$13,400</td>
+        <td class="pct">1.0%</td>
+    </tr>
+    <tr>
+        <td>Dell / Electronics</td>
+        <td class="num">$2,088</td>
+        <td class="num">$7,365</td>
+        <td class="num">$28</td>
+        <td class="num">$9,480</td>
+        <td class="pct">0.7%</td>
+    </tr>
+    <tr>
+        <td>Hyundai Marine (engine)</td>
+        <td class="num">$1,800</td>
+        <td class="num">$5,350</td>
+        <td class="num">$1,020</td>
+        <td class="num">$8,170</td>
+        <td class="pct">0.6%</td>
+    </tr>
+    <tr>
+        <td>Insurance</td>
+        <td class="num">$7,790</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+        <td class="num">$7,790</td>
+        <td class="pct">0.6%</td>
+    </tr>
+    <tr>
+        <td>DAT Solutions (load board)</td>
+        <td class="num">$260</td>
+        <td class="num">$3,510</td>
+        <td class="num">$937</td>
+        <td class="num">$4,707</td>
+        <td class="pct">0.4%</td>
+    </tr>
+    <tr>
+        <td>Other (misc vendors)</td>
+        <td class="num">$86,362</td>
+        <td class="num">$102,944</td>
+        <td class="num">$36,349</td>
+        <td class="num">$225,655</td>
+        <td class="pct">17.6%</td>
+    </tr>
+    <tr class="total-row">
+        <td><strong>Total</strong></td>
+        <td class="num"><strong>$543,609</strong></td>
+        <td class="num"><strong>$574,819</strong></td>
+        <td class="num"><strong>$160,378</strong></td>
+        <td class="num"><strong>$1,278,806</strong></td>
+        <td class="pct"><strong>100%</strong></td>
+    </tr>
+</table>
+</div>
+
+<h3>Key Observations</h3>
+<ul>
+    <li><strong>~57% of all AMEX spend is port-related</strong> (PierPass + PortCheck + POLA/POLB + eModal) — this is the core operating use case</li>
+    <li><strong>Fuel is minimal on AMEX</strong> (~$40K) — TTI likely uses separate fleet fueling cards</li>
+    <li><strong>Samsara spend is accelerating</strong> ($22K in Q1 2026 = ~$88K annualized) — likely new GPS/hardware purchases</li>
+    <li><strong>The "Other" bucket is large</strong> at $226K (17.6%) — misc small vendors that didn't keyword-match</li>
+</ul>
+
+<div class="warning">
+    <strong>Notable Personal / Non-Operating Items</strong><br><br>
+    <strong>Business Platinum:</strong> Rusnak Porsche $3,787 (2026, vehicle?), Uber Trips ~$400<br><br>
+    <strong>Personal Platinum:</strong> Gunslingers Gun Shop $5,157 (2024), Saco River Auction ~$5,923 (2025–2026), Dave & Adam's Card World $2,987 (2024), A & N Collectibles $2,250 (2026), Fairmont Hotels Vegas $2,145 (2024), Ticketmaster ~$5,500+ (concerts), Delta Air Lines $1,768 (2025), Golden Nugget / Harrah's / Aria ~$2,500 (2024)
+</div>
+
+<!-- Section 5: AMEX Liability Account -->
+<h2>5. AMEX Liability Account Analysis</h2>
+
+<p>The "American Express" balance sheet account had the following year-end balances:</p>
+
+<table>
+    <tr>
+        <th>Year</th>
+        <th class="num">Balance</th>
+        <th>Event</th>
+    </tr>
+    <tr>
+        <td>2022</td>
+        <td class="num">-$71,863</td>
+        <td>Carryover from prior periods</td>
+    </tr>
+    <tr>
+        <td>2023</td>
+        <td class="num">-$72,313</td>
+        <td>-$450 Bill Pmt-CCard (ONE)</td>
+    </tr>
+    <tr>
+        <td>2024</td>
+        <td class="num">$0</td>
+        <td><strong>TAX AJE #8</strong> zeroed it out</td>
+    </tr>
+    <tr>
+        <td>2025</td>
+        <td class="num">$29</td>
+        <td>Residual DEBT check</td>
+    </tr>
+</table>
+
+<div class="insight">
+    <strong>TAX AJE #8 (12/31/2024)</strong> — "To reconcile credit cards/advanced payments":<br><br>
+    <table style="margin:0;max-width:500px;">
+        <tr><th>Account</th><th class="num">Debit</th><th class="num">Credit</th></tr>
+        <tr><td>American Express (liab)</td><td class="num">$72,313</td><td class="num">—</td></tr>
+        <tr><td>MasterCard (liab)</td><td class="num">$27,114</td><td class="num">—</td></tr>
+        <tr><td>Loan - 2x 2020 Freightliners (liab)</td><td class="num">$67,145</td><td class="num">—</td></tr>
+        <tr><td>Advanced Payments (asset)</td><td class="num">—</td><td class="num">$102,683</td></tr>
+        <tr><td>Line of Credit (liab)</td><td class="num">—</td><td class="num">$63,889</td></tr>
+        <tr class="total-row"><td><strong>Total</strong></td><td class="num"><strong>$166,572</strong></td><td class="num"><strong>$166,572</strong></td></tr>
+    </table><br>
+    <strong>This was not a cash payment.</strong> The $72K was reclassified via year-end adjusting entry. Supporting rationale needed from client's tax team.
+</div>
+
+<!-- Section 6: GL Expense Coding -->
+<h2>6. GL Expense Coding (Non-SPLIT Breakdown)</h2>
+
+<p>When not using <code>-SPLIT-</code>, the bookkeeper coded AMEX payments to:</p>
+
+<table>
+    <tr>
+        <th>Split Account</th>
+        <th class="num">Entries</th>
+        <th class="num">Total</th>
+        <th>Nature</th>
+    </tr>
+    <tr>
+        <td>BMO Corporate Account</td>
+        <td class="num">26</td>
+        <td class="num">$196,726</td>
+        <td>Cash (offset)</td>
+    </tr>
+    <tr>
+        <td>Advances</td>
+        <td class="num">6</td>
+        <td class="num">$100,120</td>
+        <td>Driver advances</td>
+    </tr>
+    <tr>
+        <td>CNB Corp.</td>
+        <td class="num">47</td>
+        <td class="num">$37,554</td>
+        <td>Cash (offset)</td>
+    </tr>
+    <tr>
+        <td>Gas</td>
+        <td class="num">13</td>
+        <td class="num">$10,677</td>
+        <td>Expense</td>
+    </tr>
+    <tr>
+        <td>Accounts Payable</td>
+        <td class="num">7</td>
+        <td class="num">$7,944</td>
+        <td>AP accrual</td>
+    </tr>
+    <tr>
+        <td>Professional Fees</td>
+        <td class="num">39</td>
+        <td class="num">$5,779</td>
+        <td>Expense</td>
+    </tr>
+    <tr>
+        <td>Travel Expense</td>
+        <td class="num">2</td>
+        <td class="num">$2,840</td>
+        <td>Expense</td>
+    </tr>
+    <tr>
+        <td>Payroll Expenses</td>
+        <td class="num">2</td>
+        <td class="num">$238</td>
+        <td>Expense</td>
+    </tr>
+    <tr>
+        <td>Office Costs</td>
+        <td class="num">2</td>
+        <td class="num">$145</td>
+        <td>Expense</td>
+    </tr>
+    <tr>
+        <td>Misc Expense</td>
+        <td class="num">2</td>
+        <td class="num">$115</td>
+        <td>Expense</td>
+    </tr>
+    <tr>
+        <td>Computer/Internet</td>
+        <td class="num">1</td>
+        <td class="num">$73</td>
+        <td>Expense</td>
+    </tr>
+</table>
+
+<!-- Section 7: Data Sources -->
+<h2>7. Data Sources &amp; Coverage</h2>
+
+<table>
+    <tr>
+        <th>Source</th>
+        <th>Path</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>Raw Textract</td>
+        <td><code>credit_cards/CREDIT_CARD_RAW.jsonl</code></td>
+        <td>54 PDFs, 705 pages extracted</td>
+    </tr>
+    <tr>
+        <td>Flattened Text</td>
+        <td><code>credit_cards/CREDIT_CARD_FLAT.jsonl</code></td>
+        <td>76,973 text lines, sorted</td>
+    </tr>
+    <tr>
+        <td>Parsed Statements</td>
+        <td><code>credit_cards/PARSED_AMEX_STATEMENTS.json</code></td>
+        <td>Structured: charges, payments, merchants</td>
+    </tr>
+    <tr>
+        <td>TTI General Ledger</td>
+        <td><code>TTI_GEN_LEDGER_Flattened.csv</code></td>
+        <td>GL entries for cash account mapping</td>
+    </tr>
+</table>
+
+<h3>Statement Coverage</h3>
+<table>
+    <tr>
+        <th>Card</th>
+        <th>First Statement</th>
+        <th>Last Statement</th>
+        <th class="num">Statements</th>
+    </tr>
+    <tr>
+        <td>Business Platinum</td>
+        <td>Jan 2024</td>
+        <td>Mar 2026</td>
+        <td class="num">27</td>
+    </tr>
+    <tr>
+        <td>Personal Platinum</td>
+        <td>Jan 2024</td>
+        <td>Mar 2026</td>
+        <td class="num">27</td>
+    </tr>
+    <tr class="total-row">
+        <td><strong>Total</strong></td>
+        <td></td>
+        <td></td>
+        <td class="num"><strong>54</strong></td>
+    </tr>
+</table>
+
+<!-- Section 8: What Can and Cannot Be Tied -->
+<h2>8. What Can and Cannot Be Tied</h2>
+
+<table>
+    <tr>
+        <th style="width:50%;">Can Tie</th>
+        <th style="width:50%;">Cannot Tie</th>
+    </tr>
+    <tr>
+        <td>Monthly AMEX statement totals &rarr; check in BMO/CNB bank data</td>
+        <td>Individual AMEX transactions to specific GL entries (only bulk payment shows up)</td>
+    </tr>
+    <tr>
+        <td>Total annual statement spend &rarr; total annual GL payments (~1 month timing gap)</td>
+        <td>Bookkeeper's <code>-SPLIT-</code> category allocation to actual merchant spend (QB estimation)</td>
+    </tr>
+    <tr>
+        <td>Large one-off charges (Rusnak Porsche) to cash account movement</td>
+        <td></td>
+    </tr>
+</table>
+
+<!-- Section 9: MasterCard -->
+<h2>9. MasterCard</h2>
+
+<div class="insight">
+    MasterCard is <strong>not active</strong> in the GL. Only 3 entries exist across all years:
+    <ul>
+        <li><strong>3/17/2022</strong>: Bill Pmt-CCard to GM Financial (voided, $0)</li>
+        <li><strong>12/31/2024</strong>: TAX AJE #8 zeroed out $27,114 balance</li>
+    </ul>
+    No MasterCard statements were requested or needed.
+</div>
+
+<!-- QoE Observations -->
+<h2>QoE Observations</h2>
+
+<div class="warning">
+    <ul>
+        <li><strong>Cash basis accounting means statement-to-GL tie is inherently approximate</strong> — the GL never sees individual transactions, only bulk payments. Month-to-month variance of $0–$10K is normal timing noise.</li>
+        <li><strong>Personal Platinum has ~$30K in clearly personal/non-operating spend</strong> across 2024–2026 (firearms, collectibles, concerts, Vegas hotels, airfare). This is on a company card — normalization/adjustment discussion needed with client.</li>
+        <li><strong>No receipt/documentation trail</strong> was extracted from the statements. For QoE purposes, the AMEX statement ITSELF is the supporting document.</li>
+        <li><strong>"Other" category at $226K (17.6%)</strong> is large but composed of small individual charges. No single merchant exceeds $5K outside the named categories.</li>
+        <li><strong>TAX AJE #8</strong> reclassified $72K AMEX liability without cash movement. Need tax team rationale for the reclassification.</li>
+    </ul>
+</div>
+
+<div class="footer">
+    <p><strong>Source:</strong> <code>credit_cards/Credit_Card_Tie_Out_Report.md</code> | Prepared: May 2026</p>
+</div>
+
+</body>
+</html>

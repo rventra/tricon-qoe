@@ -162,69 +162,103 @@
 <hr>
 
 <h2 style="font-size:14px; font-weight:bold; color:#1a3a5c; margin:20px 0 10px 0;">Reconciliation Summary</h2>
-<div class="scroll-table">
-    <table>
-        <thead>
-            <tr>
-                <th>Metric</th>
-                <th class="text-center">Statements</th>
-                <th class="text-center">GL Entries</th>
-                <th class="text-right">Statement Spend</th>
-                <th class="text-right">Statement Payments</th>
-                <th class="text-right">GL Payments</th>
-                <th class="text-center">Match</th>
-                <th>Notes</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="bold">2024</td>
-                <td class="text-center">24</td>
-                <td class="text-center">74</td>
-                <td class="text-right">$543,609</td>
-                <td class="text-right">$584,655</td>
-                <td class="text-right">$586,713</td>
-                <td class="text-center bold positive">+$9K</td>
-                <td>GL includes prior-month carryover</td>
-            </tr>
-            <tr>
-                <td class="bold">2025</td>
-                <td class="text-center">24</td>
-                <td class="text-center">66</td>
-                <td class="text-right">$574,819</td>
-                <td class="text-right">$669,131</td>
-                <td class="text-right">$662,534</td>
-                <td class="text-center bold positive">-$2K</td>
-                <td>Statement payments slightly ahead of GL</td>
-            </tr>
-            <tr>
-                <td class="bold">2026 Q1</td>
-                <td class="text-center">6</td>
-                <td class="text-center">17</td>
-                <td class="text-right">$160,378</td>
-                <td class="text-right">$147,351</td>
-                <td class="text-right">$147,380</td>
-                <td class="text-center bold negative">+$78K</td>
-                <td>GL includes prior-year balances</td>
-            </tr>
-            <tr style="background:#f8fafc; font-weight:bold;">
-                <td>TOTAL</td>
-                <td class="text-center">54</td>
-                <td class="text-center">157</td>
-                <td class="text-right">$1,278,806</td>
-                <td class="text-right">$1,401,137</td>
-                <td class="text-right">$1,396,627</td>
-                <td class="text-center"></td>
-                <td>2023 statements missing</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<table>
+    <thead>
+        <tr>
+            <th>Metric</th>
+            <th class="text-center">2024</th>
+            <th class="text-center">2025</th>
+            <th class="text-center">2026 Q1</th>
+            <th class="text-center">TOTAL</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="bold">Statements</td>
+            <td class="text-center">24</td>
+            <td class="text-center">24</td>
+            <td class="text-center">6</td>
+            <td class="text-center bold">54</td>
+        </tr>
+        <tr>
+            <td class="bold">GL Entries</td>
+            <td class="text-center">74</td>
+            <td class="text-center">66</td>
+            <td class="text-center">17</td>
+            <td class="text-center bold">157</td>
+        </tr>
+        <tr>
+            <td class="bold">Statement Spend (Charges)</td>
+            <td class="text-center">$543,609</td>
+            <td class="text-center">$574,819</td>
+            <td class="text-center">$160,378</td>
+            <td class="text-center bold">$1,278,806</td>
+        </tr>
+        <tr>
+            <td class="bold">Statement Payments</td>
+            <td class="text-center">$584,655</td>
+            <td class="text-center">$669,131</td>
+            <td class="text-center">$147,351</td>
+            <td class="text-center bold">$1,401,137</td>
+        </tr>
+        <tr>
+            <td class="bold">GL Payments</td>
+            <td class="text-center">$586,713</td>
+            <td class="text-center">$662,534</td>
+            <td class="text-center">$147,380</td>
+            <td class="text-center bold">$1,396,627</td>
+        </tr>
+        <tr>
+            <td class="bold">Match (vs. Statement Pmts)</td>
+            <td class="text-center bold positive">+$9K</td>
+            <td class="text-center bold positive">-$2K</td>
+            <td class="text-center bold negative">+$78K</td>
+            <td class="text-center"></td>
+        </tr>
+        <tr>
+            <td class="bold">Notes</td>
+            <td class="text-center">GL includes prior-month carryover</td>
+            <td class="text-center">Statement payments slightly ahead of GL</td>
+            <td class="text-center">GL includes prior-year balances</td>
+            <td class="text-center bold negative">2023 statements missing</td>
+        </tr>
+    </tbody>
+</table>
 
 <div class="exec-summary">
     <h3>Executive Summary</h3>
-    <p>TTI uses two American Express cards — <strong>Business Platinum</strong> and <strong>Personal Platinum</strong> — with combined annual spend of ~$575K. The company accounts for these on a <strong>cash basis</strong>: the GL payment TO American Express IS the expense entry. There is no separate expense accrual. When TTI writes a check to AMEX from BMO or CNB, QuickBooks debits expense accounts and credits cash — all in one transaction via the <code>-SPLIT-</code> mechanism. <strong>85.6%</strong> of AMEX GL entries use this pattern.</p>
-    <p><strong>Total AMEX spend (from statements): $1.28M across 2024–Q1 2026</strong> | <strong>Total AMEX payments in GL: $2.53M across 2023–2026</strong> (includes prior-year balances). <strong>2023 AMEX statements were not provided</strong> — the $817K in 2023 GL payments cannot be verified against source documents.</p>
+    <p>TTI uses two American Express cards — <strong>Business Platinum</strong> and <strong>Personal Platinum</strong> — with combined annual spend of ~$575K. The company accounts for these on a <strong>cash basis</strong>: the GL payment TO American Express IS the expense entry. There is no separate expense accrual or active credit card liability account.</p>
+    <p>When TTI writes a check to AMEX from BMO or CNB, QuickBooks debits expense accounts and credits cash via a single <code>-SPLIT-</code> transaction. This pattern accounts for <strong>85.6%</strong> of AMEX GL entries.</p>
+    <p><strong>Total AMEX spend (statements): $1.28M across 2024–Q1 2026</strong> | <strong>Total AMEX payments (GL): $2.53M across 2023–2026</strong> (includes prior-year balances). <strong>2023 AMEX statements were not provided</strong> — the $817K in 2023 GL payments cannot be verified against source documents.</p>
+</div>
+
+<hr>
+
+<!-- WHAT CAN/CANNOT BE TIED -->
+<div class="entity-section">
+    <h2>Reconciliation Boundaries: What Can &amp; Cannot Be Tied</h2>
+
+    <div class="insight">
+        <p>Because TTI uses <strong>cash basis accounting</strong>, the GL never registers individual transactions — only bulk payments. Normal month-to-month timing variances of $0–$10K are expected.</p>
+    </div>
+
+    <table>
+        <thead><tr><th style="width:50%;">Can Tie</th><th style="width:50%;">Cannot Tie</th></tr></thead>
+        <tbody>
+            <tr>
+                <td>Monthly AMEX statement totals &rarr; check in BMO/CNB bank data</td>
+                <td>Individual AMEX transactions to specific GL entries (only bulk payment shows up)</td>
+            </tr>
+            <tr>
+                <td>Total annual statement spend &rarr; total annual GL payments (~1 month timing gap)</td>
+                <td>Bookkeeper's <code>-SPLIT-</code> category allocation to actual merchant spend (QB estimation)</td>
+            </tr>
+            <tr>
+                <td>Large one-off charges (e.g., Rusnak Porsche) to cash account movement</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 <hr>
@@ -244,10 +278,10 @@
 
     <h3>GL Entry Breakdown</h3>
     <table>
-        <thead><tr><th>Metric</th><th class="text-right">Count</th><th class="text-right">Total $</th><th class="text-center">% of Dollars</th></tr></thead>
+        <thead><tr><th>Entry Type</th><th class="text-right">Count</th><th class="text-right">Total $</th><th class="text-center">% of Dollars</th></tr></thead>
         <tbody>
             <tr>
-                <td><strong>-SPLIT-</strong> (bundled expense allocation)</td>
+                <td class="bold"><code>-SPLIT-</code> (bundled expense allocation)</td>
                 <td class="text-right">99</td>
                 <td class="text-right">$2,170,499</td>
                 <td class="text-center bold">85.6%</td>
@@ -278,6 +312,10 @@
 <div class="entity-section">
     <h2>GL Payments by Cash Account</h2>
 
+    <div class="insight">
+        <p><strong>96% of AMEX payments run through BMO</strong> — the main operating account. CNB only started paying AMEX in 2025.</p>
+    </div>
+
     <table>
         <thead><tr><th>Cash Account</th><th class="text-right">2023</th><th class="text-right">2024</th><th class="text-right">2025</th><th class="text-right">2026 Q1</th><th class="text-right">Total</th></tr></thead>
         <tbody>
@@ -307,55 +345,6 @@
             </tr>
         </tbody>
     </table>
-
-    <div class="insight">
-        <p><strong>96% of AMEX payments run through BMO</strong> — the main operating account. CNB only started paying AMEX in 2025.</p>
-    </div>
-</div>
-
-<hr>
-
-<!-- STATEMENT SPEND VS GL PAYMENTS -->
-<div class="entity-section">
-    <h2>Statement Spend vs. GL Payments</h2>
-
-    <table>
-        <thead><tr><th>Year</th><th class="text-right">Statement Spend (Charges)</th><th class="text-right">Statement Payments</th><th class="text-right">GL Payments</th><th>Timing Gap</th></tr></thead>
-        <tbody>
-            <tr>
-                <td class="bold">2024</td>
-                <td class="text-right">$543,609</td>
-                <td class="text-right">$584,655</td>
-                <td class="text-right">$593,402</td>
-                <td>+$9K (GL > stmt)</td>
-            </tr>
-            <tr>
-                <td class="bold">2025</td>
-                <td class="text-right">$574,819</td>
-                <td class="text-right">$669,131</td>
-                <td class="text-right">$667,593</td>
-                <td>-$2K (stmt > GL)</td>
-            </tr>
-            <tr>
-                <td class="bold">2026 Q1</td>
-                <td class="text-right">$160,378</td>
-                <td class="text-right">$147,351</td>
-                <td class="text-right">$225,456</td>
-                <td>+$78K (includes prior)</td>
-            </tr>
-            <tr style="background:#f8fafc; font-weight:bold;">
-                <td>Total</td>
-                <td class="text-right">$1,278,806</td>
-                <td class="text-right">$1,401,137</td>
-                <td class="text-right">$1,486,451</td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div class="insight">
-        <p>Payments exceed charges because they include prior-month balances carried from the previous statement cycle. GL payments trail statement payments by ~1 month (the time from statement due date to check clearing).</p>
-    </div>
 </div>
 
 <hr>
@@ -517,89 +506,57 @@
         </table>
     </div>
 
-    <h3>Key Observations</h3>
     <div class="insight">
         <p>— <strong>~57% of all AMEX spend is port-related</strong> (PierPass + PortCheck + POLA/POLB + eModal) — this is the core operating use case</p>
         <p>— <strong>Fuel is minimal on AMEX</strong> (~$40K) — TTI likely uses separate fleet fueling cards</p>
         <p>— <strong>Samsara spend is accelerating</strong> ($22K in Q1 2026 = ~$88K annualized) — likely new GPS/hardware purchases</p>
-        <p>— <strong>The "Other" bucket is large</strong> at $226K (17.6%) — misc small vendors that didn't keyword-match</p>
+        <p>— <strong>The "Other" bucket is large</strong> at $226K (17.6%) — misc small vendors that didn't keyword-match. No single merchant exceeds $5K outside the named categories.</p>
     </div>
 </div>
 
 <hr>
 
-<!-- PERSONAL / NON-OPERATING -->
+<!-- QoE OBSERVATIONS -->
 <div class="entity-section">
-    <h2>Personal / Non-Operating Charges</h2>
+    <h2>QoE Observations &amp; Anomalies</h2>
 
+    <h3>1. Personal / Non-Operating Charges</h3>
     <div class="insight">
-        <p><strong>Business Platinum:</strong></p>
-        <p>— Rusnak Porsche $3,787 (2026) — Vehicle?</p>
-        <p>— Uber Trips ~$400 (2025–2026) — Misc rides</p>
+        <p>Approximately <strong>$30K in clearly personal or non-operating spend</strong> across 2024–2026 on company cards. A normalization / EBITDA adjustment discussion is required with the client.</p>
     </div>
-
-    <h3>Personal Platinum</h3>
     <table>
-        <thead><tr><th>Item</th><th class="text-right">Amount</th><th>Date</th><th>Note</th></tr></thead>
+        <thead><tr><th>Item / Merchant</th><th class="text-right">Amount</th><th>Date</th><th>Card / Note</th></tr></thead>
         <tbody>
-            <tr><td>Gunslingers Gun Shop</td><td class="text-right">$5,157</td><td>2024</td><td>Firearms</td></tr>
-            <tr><td>Saco River Auction</td><td class="text-right">~$5,923</td><td>2025–2026</td><td>Auctions/hobbies</td></tr>
-            <tr><td>Dave &amp; Adam's Card World</td><td class="text-right">$2,987</td><td>2024</td><td>Sports cards</td></tr>
-            <tr><td>A &amp; N Collectibles</td><td class="text-right">$2,250</td><td>2026</td><td>Collectibles</td></tr>
-            <tr><td>Fairmont Hotels (Vegas)</td><td class="text-right">$2,145</td><td>2024</td><td>Personal travel</td></tr>
-            <tr><td>Ticketmaster (concerts)</td><td class="text-right">~$5,500+</td><td>2024–2025</td><td>George Strait, etc.</td></tr>
-            <tr><td>Delta Air Lines</td><td class="text-right">$1,768</td><td>2025</td><td>Air travel</td></tr>
-            <tr><td>Golden Nugget / Harrah's / Aria</td><td class="text-right">~$2,500</td><td>2024</td><td>Vegas hotels</td></tr>
+            <tr><td>Saco River Auction</td><td class="text-right">~$5,923</td><td>2025–2026</td><td>Personal Plat — Auctions / hobbies</td></tr>
+            <tr><td>Ticketmaster (concerts)</td><td class="text-right">~$5,500+</td><td>2024–2025</td><td>Personal Plat — George Strait, etc.</td></tr>
+            <tr><td>Gunslingers Gun Shop</td><td class="text-right">$5,157</td><td>2024</td><td>Personal Plat — Firearms</td></tr>
+            <tr><td>Rusnak Porsche</td><td class="text-right">$3,787</td><td>2026</td><td>Business Plat — Vehicle?</td></tr>
+            <tr><td>Dave &amp; Adam's Card World</td><td class="text-right">$2,987</td><td>2024</td><td>Personal Plat — Sports cards</td></tr>
+            <tr><td>Golden Nugget / Harrah's / Aria</td><td class="text-right">~$2,500</td><td>2024</td><td>Personal Plat — Vegas hotels</td></tr>
+            <tr><td>A &amp; N Collectibles</td><td class="text-right">$2,250</td><td>2026</td><td>Personal Plat — Collectibles</td></tr>
+            <tr><td>Fairmont Hotels (Vegas)</td><td class="text-right">$2,145</td><td>2024</td><td>Personal Plat — Personal travel</td></tr>
+            <tr><td>Delta Air Lines</td><td class="text-right">$1,768</td><td>2025</td><td>Personal Plat — Air travel</td></tr>
+            <tr><td>Uber Trips</td><td class="text-right">~$400</td><td>2025–2026</td><td>Business Plat — Misc rides</td></tr>
         </tbody>
     </table>
 
+    <h3>2. AMEX Liability Account &amp; TAX AJE #8</h3>
     <div class="insight">
-        <p><strong>~$30K in clearly personal/non-operating spend</strong> across 2024–2026 on company cards. Normalization/adjustment discussion needed with client.</p>
-    </div>
-</div>
-
-<hr>
-
-<!-- AMEX LIABILITY ACCOUNT -->
-<div class="entity-section">
-    <h2>AMEX Liability Account Analysis</h2>
-
-    <div class="insight">
-        <p>The "American Express" balance sheet account had the following year-end balances. There is <strong>no active credit card liability account</strong> — the balance was an orphan from prior accounting.</p>
+        <p>The "American Express" balance sheet account was an orphan from prior accounting periods (holding a -$72,313 balance in 2023). On <strong>12/31/2024, TAX AJE #8</strong> zeroed out this account alongside a MasterCard liability account ($27,114) and a Freightliner loan account ($67,145), offsetting them against Advanced Payments and a Line of Credit.</p>
+        <p><strong>This was a reclassification, not a cash payment.</strong> Supporting rationale is needed from the client's tax team.</p>
     </div>
 
-    <table>
-        <thead><tr><th>Year</th><th class="text-right">Balance</th><th>Event</th></tr></thead>
-        <tbody>
-            <tr><td>2022</td><td class="text-right">-$71,863</td><td>Carryover from prior periods</td></tr>
-            <tr><td>2023</td><td class="text-right">-$72,313</td><td>-$450 Bill Pmt-CCard (ONE)</td></tr>
-            <tr><td>2024</td><td class="text-right">$0</td><td><strong>TAX AJE #8</strong> zeroed it out</td></tr>
-            <tr><td>2025</td><td class="text-right">$29</td><td>Residual DEBT check</td></tr>
-        </tbody>
-    </table>
-
-    <h3>TAX AJE #8 (12/31/2024)</h3>
+    <h3>3. MasterCard Inactivity</h3>
     <div class="insight">
-        <p><strong>"To reconcile credit cards/advanced payments"</strong></p>
+        <p>MasterCard is <strong>effectively inactive</strong> in the GL. Only three entries exist across all years, culminating in the TAX AJE #8 reclassification. No statements are required.</p>
     </div>
-    <table>
-        <thead><tr><th>Account</th><th class="text-right">Debit</th><th class="text-right">Credit</th></tr></thead>
-        <tbody>
-            <tr><td>American Express (liab)</td><td class="text-right">$72,313</td><td class="text-right">—</td></tr>
-            <tr><td>MasterCard (liab)</td><td class="text-right">$27,114</td><td class="text-right">—</td></tr>
-            <tr><td>Loan - 2x 2020 Freightliners (liab)</td><td class="text-right">$67,145</td><td class="text-right">—</td></tr>
-            <tr><td>Advanced Payments (asset)</td><td class="text-right">—</td><td class="text-right">$102,683</td></tr>
-            <tr><td>Line of Credit (liab)</td><td class="text-right">—</td><td class="text-right">$63,889</td></tr>
-            <tr style="background:#f8fafc; font-weight:bold;">
-                <td>Total</td>
-                <td class="text-right">$166,572</td>
-                <td class="text-right">$166,572</td>
-            </tr>
-        </tbody>
-    </table>
 
+    <h3>4. General QoE Observations</h3>
     <div class="insight">
-        <p><strong>This was not a cash payment.</strong> The $72K was reclassified via year-end adjusting entry. Supporting rationale needed from client's tax team.</p>
+        <p>— <strong>Cash basis accounting means statement-to-GL tie is inherently approximate</strong> — the GL never sees individual transactions, only bulk payments. Month-to-month variance of $0–$10K is normal timing noise.</p>
+        <p>— <strong>No receipt/documentation trail</strong> was extracted from the statements. For QoE purposes, the AMEX statement ITSELF is the supporting document.</p>
+        <p>— <strong>"Other" category at $226K (17.6%)</strong> is large but composed of small individual charges. No single merchant exceeds $5K outside the named categories.</p>
+        <p>— <strong>2023 statements missing</strong>. If they become available, category table should be extended backward and the $817K in 2023 payments verified.</p>
     </div>
 </div>
 
@@ -658,64 +615,9 @@
             </tr>
         </tbody>
     </table>
-</div>
 
-<hr>
-
-<!-- WHAT CAN/CANNOT BE TIED -->
-<div class="entity-section">
-    <h2>What Can and Cannot Be Tied</h2>
-
-    <table>
-        <thead><tr><th style="width:50%;">Can Tie</th><th style="width:50%;">Cannot Tie</th></tr></thead>
-        <tbody>
-            <tr>
-                <td>Monthly AMEX statement totals → check in BMO/CNB bank data</td>
-                <td>Individual AMEX transactions to specific GL entries (only bulk payment shows up)</td>
-            </tr>
-            <tr>
-                <td>Total annual statement spend → total annual GL payments (~1 month timing gap)</td>
-                <td>Bookkeeper's <code>-SPLIT-</code> category allocation to actual merchant spend (QB estimation)</td>
-            </tr>
-            <tr>
-                <td>Large one-off charges (Rusnak Porsche) to cash account movement</td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<hr>
-
-<!-- MASTERCARD -->
-<div class="entity-section">
-    <h2>MasterCard</h2>
-
-    <div class="insight">
-        <p>MasterCard is <strong>not active</strong> in the GL. Only 3 entries exist across all years:</p>
-        <p>— <strong>3/17/2022</strong>: Bill Pmt-CCard to GM Financial (voided, $0)</p>
-        <p>— <strong>12/31/2024</strong>: TAX AJE #8 zeroed out $27,114 balance</p>
-        <p>No MasterCard statements were requested or needed.</p>
-    </div>
-
-    <h3>Coverage Gap</h3>
     <div class="insight">
         <p><strong>2023 AMEX statements were not provided.</strong> The GL shows $817K in AMEX payments through BMO in 2023, but no source documents exist to verify category breakdowns, merchant detail, or personal vs. business allocation for that year. If 2023 statements become available, they should be parsed and the category table extended backward.</p>
-    </div>
-</div>
-
-<hr>
-
-<!-- QoE OBSERVATIONS -->
-<div class="entity-section">
-    <h2>QoE Observations</h2>
-
-    <div class="insight">
-        <p>— <strong>Cash basis accounting means statement-to-GL tie is inherently approximate</strong> — the GL never sees individual transactions, only bulk payments. Month-to-month variance of $0–$10K is normal timing noise.</p>
-        <p>— <strong>Personal Platinum has ~$30K in clearly personal/non-operating spend</strong> across 2024–2026 (firearms, collectibles, concerts, Vegas hotels, airfare). This is on a company card — normalization/adjustment discussion needed with client.</p>
-        <p>— <strong>No receipt/documentation trail</strong> was extracted from the statements. For QoE purposes, the AMEX statement ITSELF is the supporting document.</p>
-        <p>— <strong>"Other" category at $226K (17.6%)</strong> is large but composed of small individual charges. No single merchant exceeds $5K outside the named categories.</p>
-        <p>— <strong>TAX AJE #8</strong> reclassified $72K AMEX liability without cash movement. Need tax team rationale for the reclassification.</p>
     </div>
 </div>
 

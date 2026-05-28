@@ -466,12 +466,12 @@
     <tr>
       <td style="text-align:left; font-weight:600;">Direction Mismatch</td>
       <td class="rate ok">~20%</td>
-      <td style="text-align:left;">Engine correctly rejects: GL Deposit vs Bank Fee, GL GJ vs Bank Check, etc.</td>
+      <td style="text-align:left;">Reconciliation correctly rejects: GL Deposit vs Bank Fee, GL GJ vs Bank Check, etc.</td>
     </tr>
   </tbody>
 </table>
 <div class="footnote">
-  <strong>Bottom line:</strong> After fixing the Payment/AR direction bug, the engine is performing excellently. 92.7% TTI and 96.0% TK are strong reconciliation rates. The remaining ~7% are genuinely missing bank records, checks clearing after 60 days, or non-cash entries.
+  <strong>Bottom line:</strong> After fixing the Payment/AR direction classification, the reconciliation is performing excellently. 92.7% TTI and 96.0% TK are strong match rates. The remaining ~7% are genuinely missing bank records, checks clearing after 60 days, or non-cash entries.
 </div>
 </div>
 

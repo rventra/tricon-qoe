@@ -554,7 +554,7 @@
     <h3>4. General QoE Observations</h3>
     <div class="insight">
         <p>— <strong>Cash basis accounting means statement-to-GL tie is inherently approximate</strong> — the GL never sees individual transactions, only bulk payments. Month-to-month variance of $0–$10K is normal timing noise.</p>
-        <p>— <strong>No receipt/documentation trail</strong> was extracted from the statements. For QoE purposes, the AMEX statement ITSELF is the supporting document.</p>
+        <p>— <strong>No receipt/documentation trail</strong> was pulled from the statements. For QoE purposes, the AMEX statement ITSELF is the supporting document.</p>
         <p>— <strong>"Other" category at $226K (17.6%)</strong> is large but composed of small individual charges. No single merchant exceeds $5K outside the named categories.</p>
         <p>— <strong>2023 statements missing</strong>. If they become available, category table should be extended backward and the $817K in 2023 payments verified.</p>
     </div>
@@ -597,7 +597,7 @@
     <table>
         <thead><tr><th>Source</th><th>Path</th><th>Description</th></tr></thead>
         <tbody>
-            <tr><td>Raw Textract</td><td><code>credit_cards/CREDIT_CARD_RAW.jsonl</code></td><td>54 PDFs, 705 pages extracted</td></tr>
+            <tr><td>Raw PDF Processing</td><td><code>credit_cards/CREDIT_CARD_RAW.jsonl</code></td><td>54 PDFs, 705 pages processed</td></tr>
             <tr><td>Flattened Text</td><td><code>credit_cards/CREDIT_CARD_FLAT.jsonl</code></td><td>76,973 text lines, sorted</td></tr>
             <tr><td>Parsed Statements</td><td><code>credit_cards/PARSED_AMEX_STATEMENTS.json</code></td><td>Structured: charges, payments, merchants</td></tr>
             <tr><td>TTI General Ledger</td><td><code>TTI_GEN_LEDGER_Flattened.csv</code></td><td>GL entries for cash account mapping</td></tr>

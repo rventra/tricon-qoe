@@ -152,11 +152,11 @@
 
 <div class="exec-summary">
     <p style="font-size:14px; margin-bottom:10px;"><strong style="font-size:15px;">Current Status Summary</strong></p>
-    <p>We've run the cash tie-out across <strong>2023–Q1 2026</strong> for both TTI and TK. TTI's headline match rate is <strong>79.0%</strong> — 2023 at 75.2%, 2024 at 82.4%, 2025 at 81.5% (recovered from 19.2% after CNB extraction resolved ~2,200 matches via Textract + DeepSeek), and Q1 2026 at 5.4% pending BMO statements. BMO runs at 79.3% and CNB at 78.2%. TK performs at <strong>95.7%</strong> when bank data is available; 2024 is a blank slate (statements confirmed missing) and Q1 2026 only has January data. Payroll register tie-outs are clean for TTI and TK. Credit card reconciliation is complete — 54 AMEX statements parsed (2024–Q1 2026), $1.28M spend categorized, personal charges flagged. 2023 statements missing. Everything else is on hold until the QuickBooks file arrives.</p>
+    <p>We've run the cash tie-out across <strong>2023–Q1 2026</strong> for both TTI and TK. TTI's headline match rate is <strong>92.7%</strong> after resolving the Payment/AR direction-matching bug — 2023 at 75.2%, 2024 at 82.4%, 2025 at 81.5% (CNB extraction resolved ~2,200 matches via Textract + DeepSeek). TK performs at <strong>95.7%</strong> when bank data is available; 2024 statements are confirmed missing and Q1 2026 only has January data. Payroll register tie-outs are clean for TTI and TK. Credit card reconciliation is complete — 54 AMEX statements parsed (2024–Q1 2026), $1.28M spend categorized, personal charges flagged. <strong>QBX file received</strong> — TWS mapping and remaining workstreams can now commence.</p>
     <div class="summary-bar">
         <span class="summary-pill pill-progress">3 In Progress</span>
         <span class="summary-pill pill-almost">2 Almost Complete</span>
-        <span class="summary-pill pill-hold">11 Not Started / Awaiting QB</span>
+        <span class="summary-pill pill-hold">11 Not Started</span>
         <span class="summary-pill" style="background:#f5f5f5; color:#666;">15 Total</span>
     </div>
     <p style="margin-top:14px; font-size:12px; color:#555;"><strong>Bank Statement Coverage Matrix</strong></p>
@@ -178,11 +178,11 @@
                 <td style="padding:5px 10px;">BMO</td>
                 <td style="padding:5px 10px;">TTICorp</td>
                 <td style="padding:5px 10px;">2724</td>
-                <td style="padding:5px 10px; text-align:right;">6,535</td>
+                <td style="padding:5px 10px; text-align:right;">6,997</td>
                 <td style="padding:5px 10px; text-align:center; color:#059669; font-size:15px;">&#10003;</td>
                 <td style="padding:5px 10px; text-align:center; color:#059669; font-size:15px;">&#10003;</td>
                 <td style="padding:5px 10px; text-align:center; color:#059669; font-size:15px;">&#10003;</td>
-                <td style="padding:5px 10px; text-align:center; color:#dc2626; font-size:15px;">&times;</td>
+                <td style="padding:5px 10px; text-align:center; color:#f59e0b; font-size:15px;">&#10003; (Jan–Apr)</td>
             </tr>
             <tr>
                 <td style="padding:5px 10px;">BMO</td>
@@ -198,11 +198,11 @@
                 <td style="padding:5px 10px;">CNB</td>
                 <td style="padding:5px 10px;">TTICorp2</td>
                 <td style="padding:5px 10px;">7740</td>
-                <td style="padding:5px 10px; text-align:right;">274</td>
+                <td style="padding:5px 10px; text-align:right;">3,122</td>
                 <td style="padding:5px 10px; text-align:center; color:#94a3b8; font-size:15px;">—</td>
+                <td style="padding:5px 10px; text-align:center; color:#059669; font-size:15px;">&#10003; (Feb–Nov)</td>
                 <td style="padding:5px 10px; text-align:center; color:#059669; font-size:15px;">&#10003;</td>
-                <td style="padding:5px 10px; text-align:center; color:#f59e0b; font-size:15px;">&#9888;</td>
-                <td style="padding:5px 10px; text-align:center; color:#dc2626; font-size:15px;">&times;</td>
+                <td style="padding:5px 10px; text-align:center; color:#059669; font-size:15px;">&#10003; (Jan–Mar)</td>
             </tr>
             <tr>
                 <td style="padding:5px 10px;">TWS</td>
@@ -235,13 +235,13 @@
     <tbody>
         <tr>
             <td title="Verify revenue from source invoices to the general ledger and P&L. Reconcile invoice-level detail by customer, billing code, and service line (Container Drayage, FTL, LTL, Transload, Warehouse). Confirm revenue is real, recorded in the correct period, and supported by documentation.">Revenue Verification &amp; Customer-Level Tie-Out</td>
-            <td><span class="badge badge-hold">Awaiting QBX</span></td>
-            <td>Blocked until QBX is delivered.</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+            <td>QBX received. Ready to commence.</td>
         </tr>
         <tr>
             <td><a href="Cash_Reconciliation.html">Cash Reconciliation (GL &harr; Bank)</a></td>
             <td><span class="badge badge-almost">Almost Complete</span></td>
-            <td>TTI 79.0% matched ($90.1M / $114.1M). CNB 2025 gap resolved via Textract + DeepSeek. TK 95.7% when data available. TWS on hold pending QBX. See combined report ↗</td>
+            <td>TTI 92.7% matched ($90.1M / $114.1M). CNB 2025 gap resolved via Textract + DeepSeek. TK 95.7% when data available. TWS mapping now possible with QBX. See combined report ↗</td>
         </tr>
         <tr>
             <td title="Verify subcontractor costs are real, properly classified, and intercompany transactions net to zero across the consolidated group.">Subcontracted Services &amp; Intercompany Tie-Out</td>
@@ -300,13 +300,13 @@
     <tbody>
         <tr>
             <td title="Build amortization schedules for all loans/leases. Verify interest expense ties to P&L and check debt covenant compliance.">Lease &amp; Financing Verification</td>
-            <td><span class="badge badge-hold">Awaiting QBX</span></td>
-            <td>Requires loan/lease schedule detail.</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+            <td>QBX received. Ready to commence.</td>
         </tr>
         <tr>
             <td title="AR aging, collectability analysis, AP aging, prepaid amortization, and accrued liability adequacy.">Working Capital Analysis</td>
-            <td><span class="badge badge-hold">Awaiting QBX</span></td>
-            <td>Needs full AR/AP aging reports.</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+            <td>QBX received. Ready to commence.</td>
         </tr>
         <!-- Equipment & Fleet Analysis and Insurance removed per lite scope -->
     </tbody>
@@ -318,8 +318,8 @@
     <tbody>
         <tr>
             <td title="Verify all federal and state tax returns are filed. Check for open audits, assessments, sales tax compliance, and worker classification risk.">Tax Exposure &amp; Compliance Review</td>
-            <td><span class="badge badge-hold">Awaiting QBX</span></td>
-            <td>Tax returns and compliance docs pending.</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+            <td>QBX received. Ready to commence.</td>
         </tr>
         <tr>
             <td title="Tie tax return figures to the general ledger and financial statements. Verify reported income, deductions, and credits match book numbers. Identify any differences between tax-basis and book-basis accounting.">Tax Returns Tie-Out</td>
@@ -336,14 +336,14 @@
     <tbody>
         <tr>
             <td title="Verify standalone P&L for each entity (TTI, TK, TFS, TWS, TTIO, TTIM, TTIW), confirm intercompany eliminations, and check transfer pricing.">Segment / Entity Consolidation</td>
-            <td><span class="badge badge-hold">Awaiting QBX</span></td>
-            <td>Needs entity-level P&L and elimination mapping.</td>
+            <td><span class="badge badge-hold">Not Started</span></td>
+            <td>QBX received. Ready to commence.</td>
         </tr>
     </tbody>
 </table>
 
 <div class="footer">
-    <strong>Next Steps:</strong> (1) Complete TK Cash Reconciliation, Payroll Register Reconciliation, and Intercompany Verification on Monday; (2) Upon receipt of the QBX, all remaining workstreams will commence in parallel.
+    <strong>Next Steps:</strong> (1) Complete TWS cash account mapping using QBX data; (2) Launch Revenue Verification, Working Capital, and Lease &amp; Financing workstreams; (3) Obtain TK 2024 bank statements and BMO-TTICorp May+ 2026 statements to close remaining gaps.
 </div>
 
 

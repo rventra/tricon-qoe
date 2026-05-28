@@ -5,14 +5,45 @@
 <title>Cash Reconciliation — TTI &amp; TK (2023–Q1 2026)</title>
 <style>
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0; padding: 40px 20px;
     background: #f5f6f8; color: #1a1a2e;
   }
   .container { max-width: 1200px; margin: 0 auto; }
+
+  /* Navigation */
+  .top-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 20px; flex-wrap: wrap; gap: 10px;
+  }
+  .top-nav a {
+    color: #1a1a2e; text-decoration: none; font-size: 13px; font-weight: 500;
+    padding: 6px 12px; border-radius: 6px; background: #e8e8ec;
+    transition: background 0.2s;
+  }
+  .top-nav a:hover { background: #d0d0d8; }
+  .top-nav .updated {
+    font-size: 12px; color: #888;
+  }
+
   h1 { font-size: 28px; font-weight: 600; margin-bottom: 4px; }
   .subtitle { font-size: 14px; color: #666; margin-bottom: 24px; }
+
+  /* Jump Links */
+  .jump-links {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 24px;
+  }
+  .jump-links a {
+    font-size: 12px; color: #444; text-decoration: none;
+    padding: 5px 12px; border-radius: 20px; background: #e8e8ec;
+    border: 1px solid #d0d0d8; transition: all 0.15s;
+  }
+  .jump-links a:hover {
+    background: #1a1a2e; color: #fff; border-color: #1a1a2e;
+  }
 
   .summary-box {
     background: #fff; border-radius: 8px;
@@ -22,6 +53,10 @@
   .summary-box h2 {
     font-size: 18px; font-weight: 600; margin: 0 0 16px 0;
     border-bottom: 2px solid #e0e0e0; padding-bottom: 8px;
+  }
+  .summary-box h3 {
+    font-size: 14px; font-weight: 600; margin: 20px 0 10px 0;
+    color: #333;
   }
 
   table {
@@ -62,19 +97,49 @@
   .footnote {
     font-size: 11px; color: #777; margin-top: 8px; line-height: 1.5;
   }
+  .callout {
+    background: #f0f4ff; border-left: 4px solid #1a1a2e;
+    padding: 14px 18px; margin: 14px 0;
+    font-size: 13px; line-height: 1.6; border-radius: 0 6px 6px 0;
+  }
+  .callout p { margin: 0 0 6px 0; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout strong { color: #1a1a2e; }
 
   .two-col { display: flex; gap: 20px; flex-wrap: wrap; }
   .two-col .summary-box { flex: 1; min-width: 480px; }
+
+  .footer {
+    text-align: center; font-size: 11px; color: #999;
+    margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd;
+  }
 </style>
 </head>
 <body>
 <div class="container">
 
-<h1>Cash Reconciliation</h1>
-<div class="subtitle">GL to Bank | 2023 through Q1 2026 | TTI, TK, and TWS | Prepared: May 2026 | Date Window: ±60 days</div>
+<div class="top-nav">
+  <a href="index.html">&larr; Back to Status Dashboard</a>
+  <span class="updated">Updated: May 27, 2026 &nbsp;|&nbsp; Date Window: &plusmn;60 days</span>
+</div>
+
+<h1 id="top">Cash Reconciliation</h1>
+<div class="subtitle">GL to Bank | 2023 through Q1 2026 | TTI, TK, and TWS</div>
+
+<div class="jump-links">
+  <a href="#exec-summary">Executive Summary</a>
+  <a href="#tti-summary">TTI Account Summary</a>
+  <a href="#tti-yearly">TTI Year by Year</a>
+  <a href="#cnb-resolution">CNB Resolution</a>
+  <a href="#bmo-deep-dive">BMO Unmatched</a>
+  <a href="#tk-summary">TK Summary</a>
+  <a href="#root-causes">Why Not 100%</a>
+  <a href="#coverage">Bank Coverage</a>
+  <a href="#methodology">How We Match</a>
+</div>
 
 <!-- ===================== EXECUTIVE OVERVIEW ===================== -->
-<div class="two-col">
+<div class="two-col" id="exec-summary">
 
 <div class="summary-box">
 <h2>TTI — Executive Summary by Year</h2>
@@ -249,7 +314,7 @@
 </div>
 
 <!-- ===================== TTI SUMMARY ===================== -->
-<div class="summary-box">
+<div class="summary-box" id="tti-summary">
 <h2>TTI — Reconciliation Summary (2023–Q1 2026)</h2>
 <table>
   <thead>
@@ -311,7 +376,7 @@
 </div>
 
 <!-- ===================== TTI YEAR BY YEAR ===================== -->
-<div class="summary-box">
+<div class="summary-box" id="tti-yearly">
 <h2>TTI — Year by Year Detail</h2>
 <table>
   <thead>
@@ -403,12 +468,197 @@
   </tbody>
 </table>
 <div class="footnote">
-  <strong>Exact</strong> = Check# + Amount + Date ±60d all match. <strong>Close</strong> = Amount + Date ±60d match (no check# required). <strong>No Match</strong> = No bank record found within window.
+  <strong>Exact</strong> = Check# + Amount + Date &plusmn;60d all match. <strong>Close</strong> = Amount + Date &plusmn;60d match (no check# required). <strong>No Match</strong> = No bank record found within window.
 </div>
 </div>
 
+<!-- ===================== CNB RESOLUTION ===================== -->
+<div class="summary-box" id="cnb-resolution">
+<h2>CNB-TTICorp2 Resolution (May 27, 2026)</h2>
+<div class="callout">
+  <p><strong>The CNB data gap has been resolved.</strong> The 2025 CNB-TTICorp2 bank statements were image-only PDFs. A three-phase extraction pipeline recovered <strong>~2,200 previously missing matches</strong>, lifting the 2025 match rate from 19.2% to 81.5%.</p>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Phase</th>
+      <th>Method</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left; font-weight:600;">1. OCR</td>
+      <td style="text-align:left;">AWS Textract DetectDocumentText</td>
+      <td style="text-align:left;">26 PDFs &rarr; 72,686 lines of OCR text</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">2. Checks</td>
+      <td style="text-align:left;">Deterministic coordinate parser v2</td>
+      <td style="text-align:left;">2,393 checks extracted from "CHECKS PAID" pages</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">3. Electronic</td>
+      <td style="text-align:left;">DeepSeek LLM (deepseek-v4-flash:nitro)</td>
+      <td style="text-align:left;">977 electronic debits / credits / wires / fees</td>
+    </tr>
+  </tbody>
+</table>
+<h3>CNB 2025 — Month by Month Match Rate</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>GL Entries</th>
+      <th>Bank Entries</th>
+      <th>GL Total $</th>
+      <th>Bank Total $</th>
+      <th>Match Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td style="text-align:left; font-weight:600;">2025-01</td><td class="number">96</td><td class="number">84</td><td class="number">$1,807K</td><td class="number">$1,687K</td><td class="match-rate">87.5%</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2025-02</td><td class="number">82</td><td class="number">73</td><td class="number">$1,297K</td><td class="number">$1,263K</td><td class="match-rate">89.0%</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2025-03</td><td class="number">170</td><td class="number">149</td><td class="number">$1,966K</td><td class="number">$3,184K</td><td class="match-rate">87.6%</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2025-04</td><td class="number">199</td><td class="number">191</td><td class="number">$2,089K</td><td class="number">$2,024K</td><td class="match-rate">96.0%</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2025-05</td><td class="number">243</td><td class="number">233</td><td class="number">$2,134K</td><td class="number">$3,412K</td><td class="match-rate">95.9%</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2025-06</td><td class="number">199</td><td class="number">220</td><td class="number">$2,102K</td><td class="number">$3,633K</td><td class="match-rate">90.5%</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2025-07</td><td class="number">214</td><td class="number">221</td><td class="number">$2,057K</td><td class="number">$2,063K</td><td class="match-rate">96.7%</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2025-08</td><td class="number">272</td><td class="number">220</td><td class="number">$2,436K</td><td class="number">$2,264K</td><td class="match-rate">80.9%</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2025-09</td><td class="number">203</td><td class="number">268</td><td class="number">$2,673K</td><td class="number">$4,951K</td><td class="match-rate">87.2%</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2025-10</td><td class="number">243</td><td class="number">276</td><td class="number">$2,693K</td><td class="number">$4,808K</td><td class="match-rate">86.0%</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2025-11</td><td class="number">197</td><td class="number">203</td><td class="number">$1,670K</td><td class="number">$2,501K</td><td class="match-rate">86.3%</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2025-12</td><td class="number">194</td><td class="number">202</td><td class="number">$2,657K</td><td class="number">$2,725K</td><td class="match-rate">86.1%</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2026-01</td><td class="number">266</td><td class="number">264</td><td class="number">$1,628K</td><td class="number">$2,497K</td><td class="match-rate medium">72.2%</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2026-02</td><td class="number">204</td><td class="number">210</td><td class="number">$2,129K</td><td class="number">$3,727K</td><td class="match-rate medium">78.4%</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2026-03</td><td class="number">233</td><td class="number">273</td><td class="number">$2,133K</td><td class="number">$3,695K</td><td class="match-rate medium">74.7%</td></tr>
+  </tbody>
+</table>
+<div class="footnote">
+  <strong>Note:</strong> CNB 2024 remains limited — only Feb-Nov statements available; Jan and Dec completely missing. Bank Total $ includes deposits + withdrawals; GL Total $ is the net magnitude.
+</div>
+</div>
+
+<!-- ===================== BMO UNMATCHED DEEP DIVE ===================== -->
+<div class="summary-box" id="bmo-deep-dive">
+<h2>BMO Unmatched Deep Dive ($20.7M / 1,369 entries)</h2>
+<div class="callout">
+  <p>BMO has 1,369 unmatched entries totaling $20.7M. The breakdown reveals specific, explainable root causes. <strong>~53% ($11M) are 2023 operational vendor payments</strong> that fall outside the 60-day matching window.</p>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Root Cause</th>
+      <th>Entries</th>
+      <th>$ Amount</th>
+      <th>% of BMO NM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left; font-weight:600;">2023 operational vendor payments (window gaps)</td>
+      <td class="number">~660</td>
+      <td class="number">~$11.0M</td>
+      <td class="match-rate">53%</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">2024–2025 other timing / data gaps</td>
+      <td class="number">~370</td>
+      <td class="number">~$7.5M</td>
+      <td class="match-rate">36%</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Non-cash entries (GJ, opening balance equity)</td>
+      <td class="number">~5</td>
+      <td class="number">~$2.6M</td>
+      <td class="match-rate">13%</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Shareholder distributions (Tami Harshberger)</td>
+      <td class="number">2</td>
+      <td class="number">$2.7M</td>
+      <td class="match-rate">13%</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">-SPLIT- bundled deposits (QB artifacts)</td>
+      <td class="number">11</td>
+      <td class="number">$1.5M</td>
+      <td class="match-rate">7%</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Q1 2026 entries (no bank data for TTICorp)</td>
+      <td class="number">85</td>
+      <td class="number">$1.7M</td>
+      <td class="match-rate">8%</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Sub-$500K residual (small items)</td>
+      <td class="number">~170</td>
+      <td class="number">~$0.9M</td>
+      <td class="match-rate">4%</td>
+    </tr>
+  </tbody>
+</table>
+<h3>Largest Unmatched Transactions (&gt;$500K)</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Name</th>
+      <th style="text-align:left;">Likely Cause</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="number neg">$1,597,719</td>
+      <td>12/31/2024</td>
+      <td>General Journal</td>
+      <td>(blank)</td>
+      <td style="text-align:left;"><strong>Non-cash</strong> — year-end tax accrual, will never match</td>
+    </tr>
+    <tr>
+      <td class="number neg">$1,500,000</td>
+      <td>10/13/2023</td>
+      <td>Check</td>
+      <td>Tami Harshberger</td>
+      <td style="text-align:left;">Shareholder distribution — check# or date variance</td>
+    </tr>
+    <tr>
+      <td class="number neg">$1,200,000</td>
+      <td>09/23/2024</td>
+      <td>Check</td>
+      <td>Tami Harshberger</td>
+      <td style="text-align:left;">Shareholder draw — same issue</td>
+    </tr>
+    <tr>
+      <td class="number neg">$1,000,000</td>
+      <td>04/10/2024</td>
+      <td>Check</td>
+      <td>Tricon Transportation</td>
+      <td style="text-align:left;">Opening balance equity — not a real bank transaction</td>
+    </tr>
+    <tr>
+      <td class="number neg">$823,979</td>
+      <td>02/07/2023</td>
+      <td>Payment</td>
+      <td>Brother International</td>
+      <td style="text-align:left;">Should have bank record — 60-day window gap</td>
+    </tr>
+    <tr>
+      <td class="number neg">$683,723</td>
+      <td>03/29/2023</td>
+      <td>Payment</td>
+      <td>Brother International</td>
+      <td style="text-align:left;">Should have bank record — 60-day window gap</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 <!-- ===================== TK SUMMARY ===================== -->
-<div class="summary-box">
+<div class="summary-box" id="tk-summary">
 <h2>TK (TK-Investments LLC) — Reconciliation Summary</h2>
 <table>
   <thead>
@@ -499,10 +749,13 @@
     </tr>
   </tbody>
 </table>
+<div class="callout">
+  <p><strong>Intercompany context:</strong> TK's three-way audit shows 2023 TTI/TK P&amp;L reconciles at $1.19M (perfect). 2024 has a -$65,797 gap (TTI $1.28M vs TK $1.22M) and 2025 has a +$89,748 gap — both under investigation.</p>
+</div>
 </div>
 
 <!-- ===================== WHY NOT 100% ===================== -->
-<div class="summary-box">
+<div class="summary-box" id="root-causes">
 <h2>Why the Match Rate Is Not 100% (And Shouldn't Be)</h2>
 <table>
   <thead>
@@ -514,7 +767,7 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left; font-weight:600;">Payment → No Bank Outflow</td>
+      <td style="text-align:left; font-weight:600;">Payment &rarr; No Bank Outflow</td>
       <td class="match-rate">~65%</td>
       <td style="text-align:left;">GL shows a "Payment" to a vendor, but the bank has no corresponding withdrawal/check. The bank <em>does</em> show a deposit from the same vendor with the same amount — but that's the vendor paying Tricon, not Tricon paying the vendor. These payments were likely made from a different account (CNB) or via ACH/wire not captured in extraction.</td>
     </tr>
@@ -541,7 +794,7 @@
 </div>
 
 <!-- ===================== BANK STATEMENT COVERAGE ===================== -->
-<div class="summary-box">
+<div class="summary-box" id="coverage">
 <h2>Bank Statement Coverage</h2>
 <table>
   <thead>
@@ -606,7 +859,7 @@
 </div>
 
 <!-- ===================== MATCHING CRITERIA ===================== -->
-<div class="summary-box">
+<div class="summary-box" id="methodology">
 <h2>How We Match</h2>
 <table>
   <thead>
@@ -637,6 +890,11 @@
 <div class="footnote">
   <strong>Parameters:</strong> Date window = &plusmn;60 days. Amount tolerance = $0.00 (exact match). Account mapping enforced: BMO GL &rarr; BMO bank only; CNB GL &rarr; CNB bank only; TK GL &rarr; TK bank only.
 </div>
+</div>
+
+<div class="footer">
+  <p><strong>Source:</strong> <code>bank_to_gl_master/03_docs/Bank_Statement_Tie_Out_Reports.md</code></p>
+  <p>Updated: May 27, 2026 &nbsp;|&nbsp; Matching Engine: &plusmn;60 days, exact amount, direction-aware</p>
 </div>
 
 </div>

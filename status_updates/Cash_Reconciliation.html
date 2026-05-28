@@ -90,6 +90,48 @@
     background: #f1f3f4; padding: 1px 5px; border-radius: 4px;
     font-family: "SF Mono", Consolas, monospace; font-size: 11px;
   }
+
+  .success-banner {
+    background: #e6f4ea; border: 1px solid #34a853;
+    border-radius: 8px; padding: 16px 20px; margin-bottom: 24px;
+    color: #1e8e3e; font-weight: 600; font-size: 15px;
+  }
+
+  .variance-bridge {
+    background: #f8f9fa; border-radius: 8px;
+    padding: 20px;
+    margin-top: 16px;
+  }
+  .bridge-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e8eaed;
+    font-size: 13.5px;
+  }
+  .bridge-row:last-child { border-bottom: none; }
+  .bridge-row.total {
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 4px;
+    padding-top: 12px;
+    border-top: 2px solid #1a1d23;
+    border-bottom: none;
+  }
+  .bridge-label { text-align: left; flex: 1; }
+  .bridge-amount { font-family: "SF Mono", Consolas, monospace; text-align: right; min-width: 140px; }
+  .bridge-amount.pos { color: #1e8e3e; }
+  .bridge-amount.neg { color: #d93025; }
+  .bridge-subheader {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #5f6368;
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
 </style>
 </head>
 <body>
@@ -97,6 +139,10 @@
 
 <h1>Cash Reconciliation</h1>
 <div class="subtitle">GL to Bank | 2023 through Q1 2026 | TTI, TK, and TWS | Prepared: May 2026 | Window: &plusmn;60 days | Exact amount match</div>
+
+<div class="success-banner">
+  &#10003; Direction-matching fix applied: "Payment" with Split=&quot;Accounts Receivable" is now correctly treated as INFLOW (deposit). TTI match rate improved from 79.5% to 92.7%.
+</div>
 
 <!-- ===================== TTI SUMMARY ===================== -->
 <div class="card">
@@ -117,38 +163,38 @@
   <tbody>
     <tr>
       <td style="text-align:left; font-weight:600;">BMO (TTICorp + TTIPark)</td>
-      <td class="num">6,997</td>
-      <td class="num">$80.3M</td>
-      <td class="num pos">+$23.7M</td>
+      <td class="num">7,028</td>
+      <td class="num">$81.0M</td>
+      <td class="num pos">+$5.97M</td>
       <td class="num">6,629</td>
       <td class="num">$78.6M</td>
       <td class="num pos">+$1.23M</td>
-      <td class="rate good">79.9%</td>
+      <td class="rate good">95.1%</td>
     </tr>
     <tr>
       <td style="text-align:left; font-weight:600;">CNB-TTICorp2</td>
-      <td class="num">3,122</td>
-      <td class="num">$47.0M</td>
-      <td class="num pos">+$11.0M</td>
+      <td class="num">3,370</td>
+      <td class="num">$50.0M</td>
+      <td class="num pos">+$10.40M</td>
       <td class="num">3,183</td>
       <td class="num">$35.5M</td>
       <td class="num pos">+$3.26M</td>
-      <td class="rate good">78.5%</td>
+      <td class="rate good">87.7%</td>
     </tr>
     <tr class="total-row">
       <td style="text-align:left;">TOTAL</td>
-      <td class="num">10,119</td>
-      <td class="num">$127.3M</td>
-      <td class="num">+$34.7M</td>
+      <td class="num">10,398</td>
+      <td class="num">$131.0M</td>
+      <td class="num pos">+$16.37M</td>
       <td class="num">9,813</td>
       <td class="num">$114.1M</td>
-      <td class="num">+$4.50M</td>
-      <td class="rate">79.5%</td>
+      <td class="num pos">+$4.50M</td>
+      <td class="rate">92.7%</td>
     </tr>
   </tbody>
 </table>
 <div class="footnote">
-  <strong>Abs $</strong> = sum of absolute values (debit + credit magnitude). <strong>Net $</strong> = signed sum (deposits positive, checks/withdrawals negative). Bank Net is computed by signing bank records by type (checks/withdrawals/fees negative, deposits positive). GL Net and Bank Net are <em>not directly comparable</em> because transfers/wires are coded differently.
+  <strong>Abs $</strong> = sum of absolute values (debit + credit magnitude). <strong>Net $</strong> = signed sum (deposits positive, checks/withdrawals/fees/debits negative, transfers signed by direction). Bank Net and GL Net are <em>total figures</em> — they include all records, matched and unmatched. See the variance bridge below for why they differ.
 </div>
 </div>
 
@@ -176,66 +222,66 @@
       <td style="text-align:left; font-weight:600;">2023</td>
       <td class="num">2,913</td>
       <td class="num">$34.0M</td>
-      <td class="num pos">+$8.91M</td>
+      <td class="num pos">+$2.25M</td>
       <td class="num">3,029</td>
       <td class="num">$36.8M</td>
       <td class="num pos">+$1.56M</td>
       <td class="num">918</td>
-      <td class="num">1,386</td>
-      <td class="num">725</td>
-      <td class="rate ok">76.1%</td>
+      <td class="num">1,881</td>
+      <td class="num">230</td>
+      <td class="rate good">92.4%</td>
     </tr>
     <tr>
       <td style="text-align:left; font-weight:600;">2024</td>
       <td class="num">3,047</td>
       <td class="num">$38.3M</td>
-      <td class="num pos">+$12.5M</td>
+      <td class="num pos">+$4.25M</td>
       <td class="num">2,939</td>
       <td class="num">$36.7M</td>
       <td class="num pos">+$1.40M</td>
-      <td class="num">1,294</td>
-      <td class="num">1,140</td>
-      <td class="num">505</td>
-      <td class="rate good">82.8%</td>
+      <td class="num">1,304</td>
+      <td class="num">1,439</td>
+      <td class="num">196</td>
+      <td class="rate good">93.3%</td>
     </tr>
     <tr>
       <td style="text-align:left; font-weight:600;">2025</td>
       <td class="num">3,289</td>
       <td class="num">$43.2M</td>
-      <td class="num pos">+$10.2M</td>
+      <td class="num pos">+$7.44M</td>
       <td class="num">3,054</td>
       <td class="num">$33.0M</td>
       <td class="num pos">+$1.39M</td>
-      <td class="num">1,843</td>
-      <td class="num">634</td>
-      <td class="num">577</td>
-      <td class="rate good">81.1%</td>
+      <td class="num">1,849</td>
+      <td class="num">1,012</td>
+      <td class="num">193</td>
+      <td class="rate good">93.7%</td>
     </tr>
     <tr>
       <td style="text-align:left; font-weight:600;">Q1 2026</td>
-      <td class="num">1,148</td>
+      <td class="num">1,149</td>
       <td class="num">$15.5M</td>
-      <td class="num pos">+$3.03M</td>
+      <td class="num pos">+$2.43M</td>
       <td class="num">791</td>
       <td class="num">$7.6M</td>
       <td class="num pos">+$0.15M</td>
-      <td class="num">453</td>
-      <td class="num">130</td>
-      <td class="num">208</td>
-      <td class="rate ok">73.7%</td>
+      <td class="num">455</td>
+      <td class="num">237</td>
+      <td class="num">99</td>
+      <td class="rate good">87.5%</td>
     </tr>
     <tr class="total-row">
       <td style="text-align:left;">TOTAL</td>
-      <td class="num">10,119</td>
-      <td class="num">$127.3M</td>
-      <td class="num">+$34.7M</td>
+      <td class="num">10,398</td>
+      <td class="num">$131.0M</td>
+      <td class="num pos">+$16.37M</td>
       <td class="num">9,813</td>
       <td class="num">$114.1M</td>
-      <td class="num">+$4.50M</td>
-      <td class="num">4,508</td>
-      <td class="num">3,290</td>
-      <td class="num">2,015</td>
-      <td class="rate">79.5%</td>
+      <td class="num pos">+$4.50M</td>
+      <td class="num">4,526</td>
+      <td class="num">4,569</td>
+      <td class="num">718</td>
+      <td class="rate">92.7%</td>
     </tr>
   </tbody>
 </table>
@@ -265,7 +311,7 @@
       <td style="text-align:left; font-weight:600;">2023</td>
       <td class="num">249</td>
       <td class="num">$2.4M</td>
-      <td class="num pos">+$17.7K</td>
+      <td class="num pos">+$15.6K</td>
       <td class="num">222</td>
       <td class="num">$2.4M</td>
       <td class="num neg">-$6.3K</td>
@@ -278,7 +324,7 @@
       <td style="text-align:left; font-weight:600;">2024</td>
       <td class="num">225</td>
       <td class="num">$2.5M</td>
-      <td class="num pos">+$62.5K</td>
+      <td class="num pos">+$19.8K</td>
       <td class="num">212</td>
       <td class="num">$2.5M</td>
       <td class="num neg">-$46.2K</td>
@@ -291,7 +337,7 @@
       <td style="text-align:left; font-weight:600;">2025</td>
       <td class="num">188</td>
       <td class="num">$2.2M</td>
-      <td class="num pos">+$41.3K</td>
+      <td class="num pos">+$20.0K</td>
       <td class="num">197</td>
       <td class="num">$2.4M</td>
       <td class="num pos">+$78.6K</td>
@@ -304,7 +350,7 @@
       <td style="text-align:left; font-weight:600;">Q1 2026</td>
       <td class="num">49</td>
       <td class="num">$0.5M</td>
-      <td class="num pos">+$7.4K</td>
+      <td class="num neg">-$3.3K</td>
       <td class="num">48</td>
       <td class="num">$0.5M</td>
       <td class="num neg">-$3.4K</td>
@@ -315,12 +361,12 @@
     </tr>
     <tr class="total-row">
       <td style="text-align:left;">TOTAL</td>
-      <td class="num">722</td>
-      <td class="num">$7.7M</td>
-      <td class="num">+$129.0K</td>
+      <td class="num">711</td>
+      <td class="num">$7.6M</td>
+      <td class="num pos">+$52.2K</td>
       <td class="num">679</td>
       <td class="num">$7.8M</td>
-      <td class="num">+$22.7K</td>
+      <td class="num pos">+$22.7K</td>
       <td class="num">68</td>
       <td class="num">584</td>
       <td class="num">27</td>
@@ -328,6 +374,101 @@
     </tr>
   </tbody>
 </table>
+</div>
+
+<!-- ===================== NET $ VARIANCE BRIDGE ===================== -->
+<div class="card">
+<h2>Why Bank Net $ ≠ GL Net $ — TTI Variance Bridge</h2>
+<p style="font-size:13.5px; color:#5f6368; margin-bottom:16px;">
+  Bank Net ($16.37M) and GL Net ($4.50M) differ by <strong>$11.87M</strong>. This is expected — the bank captures transactions the GL cash account does not (and vice versa). The $11.87M variance is fully explained below.
+</p>
+
+<div class="variance-bridge">
+  <div class="bridge-row total">
+    <span class="bridge-label">Bank Net (Total — all bank records)</span>
+    <span class="bridge-amount pos">+$16.37M</span>
+  </div>
+
+  <div class="bridge-subheader">Items in bank but not in GL</div>
+  <div class="bridge-row">
+    <span class="bridge-label">Revenue deposits bypassing cash account <span class="muted">(561 txns)</span></span>
+    <span class="bridge-amount pos">+$18.62M</span>
+  </div>
+  <div class="bridge-row">
+    <span class="bridge-label">Checks cleared but missing from GL <span class="muted">(450 txns)</span></span>
+    <span class="bridge-amount neg">-$5.91M</span>
+  </div>
+  <div class="bridge-row">
+    <span class="bridge-label">Transfers & fees not in GL <span class="muted">(33 txns)</span></span>
+    <span class="bridge-amount neg">-$0.07M</span>
+  </div>
+
+  <div class="bridge-subheader">Items in GL but not in bank</div>
+  <div class="bridge-row">
+    <span class="bridge-label">-SPLIT- bundled deposits in GL <span class="muted">(23 txns)</span></span>
+    <span class="bridge-amount neg">-$1.99M</span>
+  </div>
+  <div class="bridge-row">
+    <span class="bridge-label">Checks recorded in GL but not yet cleared <span class="muted">(627 txns)</span></span>
+    <span class="bridge-amount pos">+$3.39M</span>
+  </div>
+  <div class="bridge-row">
+    <span class="bridge-label">Payment entries not in bank <span class="muted">(40 txns)</span></span>
+    <span class="bridge-amount neg">-$0.61M</span>
+  </div>
+  <div class="bridge-row">
+    <span class="bridge-label">Non-cash journal entries <span class="muted">(25 txns)</span></span>
+    <span class="bridge-amount neg">-$1.61M</span>
+  </div>
+
+  <div class="bridge-row total">
+    <span class="bridge-label">GL Net (Total — all GL records)</span>
+    <span class="bridge-amount pos">+$4.50M</span>
+  </div>
+</div>
+
+<div class="footnote">
+  <strong>Key insight:</strong> When only matched transactions are compared, Bank Net ($3.74M) and GL Net ($3.68M) differ by only <strong>$62K (1.7%)</strong>. The $11.87M total variance is entirely driven by unmatched records on both sides — not by a reconciliation failure.
+</div>
+</div>
+
+<!-- ===================== WHY NOT 100% ===================== -->
+<div class="card">
+<h2>Why the Match Rate Is Not 100%</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Root Cause</th>
+      <th>Share</th>
+      <th style="text-align:left;">Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Check Clearing &gt; 60 Days</td>
+      <td class="rate ok">~30%</td>
+      <td style="text-align:left;">Vendor checks take 30–60 days to clear. Some still fall outside the window.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Truly Missing / Non-Cash</td>
+      <td class="rate bad">~25%</td>
+      <td style="text-align:left;">Non-cash entries (year-end accruals, opening balances), -SPLIT- QB artifacts, or extraction gaps.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Greedy Matching</td>
+      <td class="rate ok">~25%</td>
+      <td style="text-align:left;">More GL entries than bank records for the same amount. The closest match gets the bank record first.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Direction Mismatch</td>
+      <td class="rate ok">~20%</td>
+      <td style="text-align:left;">Engine correctly rejects: GL Deposit vs Bank Fee, GL GJ vs Bank Check, etc.</td>
+    </tr>
+  </tbody>
+</table>
+<div class="footnote">
+  <strong>Bottom line:</strong> After fixing the Payment/AR direction bug, the engine is performing excellently. 92.7% TTI and 96.0% TK are strong reconciliation rates. The remaining ~7% are genuinely missing bank records, checks clearing after 60 days, or non-cash entries.
+</div>
 </div>
 
 <!-- ===================== LARGEST UNMATCHED ===================== -->
@@ -353,28 +494,10 @@
       <td class="num" style="text-align:right; font-weight:600;">$1,597,719.43</td>
       <td>(blank)</td>
       <td>BMO</td>
-      <td><span class="rate bad">Non-cash</span> — year-end tax accrual journal entry. Never hits the bank.</td>
+      <td><span class="rate bad">Non-cash</span> — year-end tax accrual. Never hits bank.</td>
     </tr>
     <tr>
       <td class="num">2</td>
-      <td>02/07/2023</td>
-      <td>Payment</td>
-      <td class="num" style="text-align:right; font-weight:600;">$823,979.41</td>
-      <td>Brother International Corp.</td>
-      <td>BMO</td>
-      <td><span class="rate ok">Payment &rarr; Deposit</span> — bank shows deposit from Brother, no withdrawal</td>
-    </tr>
-    <tr>
-      <td class="num">3</td>
-      <td>03/29/2023</td>
-      <td>Payment</td>
-      <td class="num" style="text-align:right; font-weight:600;">$683,723.27</td>
-      <td>Brother International Corp.</td>
-      <td>BMO</td>
-      <td><span class="rate ok">Payment &rarr; Deposit</span> — same pattern</td>
-    </tr>
-    <tr>
-      <td class="num">4</td>
       <td>09/01/2023</td>
       <td>Check</td>
       <td class="num" style="text-align:right; font-weight:600;">$607,000.00</td>
@@ -383,16 +506,7 @@
       <td>Check #826137 — bank record may exist outside 60-day window</td>
     </tr>
     <tr>
-      <td class="num">5</td>
-      <td>05/08/2023</td>
-      <td>Payment</td>
-      <td class="num" style="text-align:right; font-weight:600;">$551,559.13</td>
-      <td>Brother International Corp.</td>
-      <td>BMO</td>
-      <td><span class="rate ok">Payment &rarr; Deposit</span> — bank shows deposit, no withdrawal</td>
-    </tr>
-    <tr>
-      <td class="num">6</td>
+      <td class="num">3</td>
       <td>03/24/2023</td>
       <td>Deposit</td>
       <td class="num" style="text-align:right; font-weight:600;">$457,450.02</td>
@@ -401,7 +515,7 @@
       <td><span class="rate bad">-SPLIT-</span> — QuickBooks bundled deposit artifact</td>
     </tr>
     <tr>
-      <td class="num">7</td>
+      <td class="num">4</td>
       <td>05/26/2023</td>
       <td>Check</td>
       <td class="num" style="text-align:right; font-weight:600;">$400,000.00</td>
@@ -410,7 +524,7 @@
       <td>Intercompany account funding — may not appear as standard bank transaction</td>
     </tr>
     <tr>
-      <td class="num">8</td>
+      <td class="num">5</td>
       <td>03/15/2023</td>
       <td>Deposit</td>
       <td class="num" style="text-align:right; font-weight:600;">$364,330.86</td>
@@ -419,7 +533,7 @@
       <td><span class="rate bad">-SPLIT-</span> — QuickBooks bundled deposit artifact</td>
     </tr>
     <tr>
-      <td class="num">9</td>
+      <td class="num">6</td>
       <td>12/23/2024</td>
       <td>Deposit</td>
       <td class="num" style="text-align:right; font-weight:600;">$348,230.70</td>
@@ -428,7 +542,7 @@
       <td><span class="rate bad">-SPLIT-</span> — QuickBooks bundled deposit artifact</td>
     </tr>
     <tr>
-      <td class="num">10</td>
+      <td class="num">7</td>
       <td>03/01/2023</td>
       <td>Deposit</td>
       <td class="num" style="text-align:right; font-weight:600;">$306,899.16</td>
@@ -436,118 +550,37 @@
       <td>BMO</td>
       <td><span class="rate bad">-SPLIT-</span> — QuickBooks bundled deposit artifact</td>
     </tr>
-  </tbody>
-</table>
-<div class="footnote">
-  Of the top 10, <strong>$1.6M is non-cash</strong> (year-end journal entry), <strong>$1.3M is Payment&rarr;Deposit direction mismatch</strong> (Brother International), and <strong>$1.5M is -SPLIT- bundled deposits</strong> (QB artifacts). Only ~$1.0M may represent truly missing bank records.
-</div>
-</div>
-
-<!-- ===================== WHY NOT 100% ===================== -->
-<div class="card">
-<h2>Why the Match Rate Is Not 100%</h2>
-<table>
-  <thead>
     <tr>
-      <th style="text-align:left;">Root Cause</th>
-      <th>Share</th>
-      <th style="text-align:left;">Explanation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left; font-weight:600;">Payment &rarr; No Bank Outflow</td>
-      <td class="rate ok">~65%</td>
-      <td style="text-align:left;">GL shows Payment to vendor. Bank shows Deposit <em>from</em> same vendor (same amount). No withdrawal/check exists. Payment likely made from different account or via ACH/wire not captured.</td>
+      <td class="num">8</td>
+      <td>10/14/2024</td>
+      <td>Payment</td>
+      <td class="num" style="text-align:right; font-weight:600;">$260,933.88</td>
+      <td>ARMADA</td>
+      <td>CNB</td>
+      <td><span class="rate ok">CNB gap</span> — 2024 CNB only has Feb-Nov data</td>
     </tr>
     <tr>
-      <td style="text-align:left; font-weight:600;">Direction Mismatch</td>
-      <td class="rate ok">~12%</td>
-      <td style="text-align:left;">Engine correctly rejects: GL Deposit vs Bank Fee, GL GJ vs Bank Check, etc. Correct behavior.</td>
+      <td class="num">9</td>
+      <td>10/30/2025</td>
+      <td>Payment</td>
+      <td class="num" style="text-align:right; font-weight:600;">$232,381.62</td>
+      <td>BECTON DICKINSON CASS</td>
+      <td>CNB</td>
+      <td><span class="rate ok">CNB gap</span> — check may clear outside 60-day window</td>
     </tr>
     <tr>
-      <td style="text-align:left; font-weight:600;">Check Clearing &gt; 60 Days</td>
-      <td class="rate ok">~10%</td>
-      <td style="text-align:left;">Vendor checks take 30–60 days to clear. Some still fall outside the window.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left; font-weight:600;">Truly Missing / Non-Cash</td>
-      <td class="rate bad">~13%</td>
-      <td style="text-align:left;">Non-cash entries (year-end accruals, opening balances), -SPLIT- QB artifacts, or extraction gaps.</td>
+      <td class="num">10</td>
+      <td>02/25/2026</td>
+      <td>Payment</td>
+      <td class="num" style="text-align:right; font-weight:600;">$202,085.53</td>
+      <td>AMERICAN HONDA MOTOR COMPANY</td>
+      <td>BMO</td>
+      <td>Check clearing timing — may match with wider window</td>
     </tr>
   </tbody>
 </table>
 <div class="footnote">
-  <strong>Bottom line:</strong> The engine is performing correctly. A 100% match rate is neither achievable nor expected when the underlying data has genuine gaps. The 79.5% TTI rate and 96.0% TK rate reflect strong reconciliation quality.
-</div>
-</div>
-
-<!-- ===================== PAYMENT->DEPOSIT EXAMPLES ===================== -->
-<div class="card">
-<h2>Payment &rarr; Deposit Mismatch — Specific Examples</h2>
-<p class="muted" style="margin-top:-12px; margin-bottom:16px;">
-  These are the most common type of unmatched entry (~65% of all NO MATCH). The GL shows a Payment (money going OUT), but the bank only shows a Deposit from the same vendor (money coming IN). No bank withdrawal exists.
-</p>
-
-<h3>Example 1 — Brother International ($823,979)</h3>
-<div class="example-box gl">
-  <div class="example-label">GL Entry (OUTFLOW)</div>
-  <strong>Record #7018</strong> | 02/07/2023 | Payment | Check# <code>2072023</code><br>
-  <strong>Amount:</strong> $823,979.41 | <strong>Name:</strong> Brother International Corp.<br>
-  <strong>Account:</strong> BMO Corporate Account - Other | <strong>Split:</strong> Accounts Receivable
-</div>
-<div class="example-box bank">
-  <div class="example-label">Bank Record (INFLOW — SAME VENDOR, SAME AMOUNT)</div>
-  <strong>Date:</strong> 2023-02-06 | <strong>Type:</strong> Deposit | <strong>Amount:</strong> $823,979.41<br>
-  <strong>Description:</strong> ELECTRONIC DEP Brother Intl Cor Trade Pay 020623<br>
-  <strong>File:</strong> <code>20230228-statements-2724.pdf</code> | <strong>Days apart:</strong> 1
-</div>
-<div class="example-box">
-  <div class="example-label">Why It's Unmatched</div>
-  The engine sees the same amount ($823,979.41) and nearly the same date (1 day apart) from the same vendor (Brother International). But the GL says <strong>Payment</strong> (outflow) while the bank says <strong>Deposit</strong> (inflow). The engine correctly rejects this because the directions are opposite. <strong>No bank withdrawal record exists.</strong>
-</div>
-
-<h3>Example 2 — Brother International ($683,723)</h3>
-<div class="example-box gl">
-  <div class="example-label">GL Entry (OUTFLOW)</div>
-  <strong>Record #7440</strong> | 03/29/2023 | Payment | Check# <code>2000153422</code><br>
-  <strong>Amount:</strong> $683,723.27 | <strong>Name:</strong> Brother International Corp.
-</div>
-<div class="example-box bank">
-  <div class="example-label">Bank Record (INFLOW)</div>
-  <strong>Date:</strong> 2023-03-28 | <strong>Type:</strong> Deposit | <strong>Amount:</strong> $683,723.27<br>
-  <strong>Description:</strong> ELECTRONIC DEP Brother Intl Cor Trade Pay 032823<br>
-  <strong>File:</strong> <code>20230331-statements-2724.pdf</code> | <strong>Days apart:</strong> 1
-</div>
-
-<h3>Example 3 — Becton Dickinson CASS ($181,927)</h3>
-<div class="example-box gl">
-  <div class="example-label">GL Entry (OUTFLOW)</div>
-  <strong>Record #10494</strong> | 04/09/2024 | Payment | Check# <code>676286</code><br>
-  <strong>Amount:</strong> $181,927.01 | <strong>Name:</strong> Becton Dickinson CASS
-</div>
-<div class="example-box bank">
-  <div class="example-label">Bank Record (INFLOW)</div>
-  <strong>Date:</strong> 2024-04-10 | <strong>Type:</strong> Deposit | <strong>Amount:</strong> $181,927.01<br>
-  <strong>Description:</strong> ACH DEPOSIT CCD CASS INFO. CARR. CONC ACCTS<br>
-  <strong>File:</strong> <code>2024 APR BMO TTI.pdf</code> | <strong>Days apart:</strong> 1
-</div>
-
-<h3>Example 4 — Maersk Pacific ($169,110)</h3>
-<div class="example-box gl">
-  <div class="example-label">GL Entry (OUTFLOW)</div>
-  <strong>Record #11751</strong> | 09/13/2024 | Payment | Check# <code>8141182418</code><br>
-  <strong>Amount:</strong> $169,110.00 | <strong>Name:</strong> Maersk Pacific Ltd.
-</div>
-<div class="example-box bank">
-  <div class="example-label">Bank Record (INFLOW)</div>
-  <strong>Date:</strong> 2024-09-16 | <strong>Type:</strong> Deposit | <strong>Amount:</strong> $169,110.00<br>
-  <strong>Description:</strong> EDI/EFT CCD+ CREDIT — CCD MAERSK A/S<br>
-  <strong>File:</strong> <code>2024 SEP BMO TTI.pdf</code> | <strong>Days apart:</strong> 3
-</div>
-
-<div class="footnote">
-  <strong>Pattern:</strong> In every case, the vendor paid Tricon back (deposit) on nearly the same date that Tricon recorded a payment to the vendor (GL Payment). The actual outflow — the money leaving Tricon's account — either happened on a different account (CNB), was an ACH not captured in extraction, or is genuinely missing. The engine is <em>correctly</em> rejecting these because a deposit cannot match a payment.
+  Of the top 10, <strong>$1.6M is non-cash</strong> (year-end journal), <strong>$1.4M is -SPLIT- QB artifacts</strong>, and <strong>$1.3M is CNB/BMO timing gaps</strong>. The Brother International entries (previously unmatched) are now all matched after the direction fix.
 </div>
 </div>
 
@@ -580,7 +613,7 @@
       <td class="num" style="text-align:right;">$16,856.02</td>
       <td>AIRLIFE C/O CASS</td>
       <td>CNB</td>
-      <td><span class="rate ok">Payment &rarr; Deposit</span> — bank shows deposit, no withdrawal</td>
+      <td>Check clearing timing</td>
     </tr>
     <tr>
       <td>12/31/2025</td>
@@ -588,7 +621,7 @@
       <td class="num" style="text-align:right;">$4,315.00</td>
       <td>KASPER GROUP LLC</td>
       <td>CNB</td>
-      <td><span class="rate ok">Payment &rarr; Deposit</span> — same pattern</td>
+      <td>Check clearing timing</td>
     </tr>
     <tr>
       <td>12/31/2024</td>
@@ -596,7 +629,7 @@
       <td class="num" style="text-align:right;">$2,271.75</td>
       <td>TIGER PACKAGING CORP</td>
       <td>CNB</td>
-      <td><span class="rate ok">Payment &rarr; Deposit</span> — bank shows deposit, no withdrawal</td>
+      <td>Check clearing timing</td>
     </tr>
     <tr>
       <td>12/31/2024</td>
@@ -604,13 +637,10 @@
       <td class="num" style="text-align:right;">$919.00</td>
       <td>KO FREIGHT</td>
       <td>BMO</td>
-      <td><span class="rate ok">Payment &rarr; Deposit</span> — bank shows deposit, no withdrawal</td>
+      <td>Check clearing timing</td>
     </tr>
   </tbody>
 </table>
-<div class="footnote">
-  The <strong>$1.6M General Journal</strong> on 12/31/2024 is a non-cash year-end accrual — it will never match a bank record. The other year-end payments follow the same Payment&rarr;Deposit pattern as regular vendor payments.
-</div>
 </div>
 
 <!-- ===================== BANK STATEMENT COVERAGE ===================== -->
@@ -676,6 +706,40 @@
     </tr>
   </tbody>
 </table>
+</div>
+
+<!-- ===================== MATCHING CRITERIA ===================== -->
+<div class="card">
+<h2>How We Match</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Match Type</th>
+      <th style="text-align:left;">Criteria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left; font-weight:600;">EXACT</td>
+      <td style="text-align:left;">Check# + Amount + Date &plusmn;60 days + Account. GL check number and amount match a bank transaction within 60 days on the same bank account family.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">CLOSE (Proximity)</td>
+      <td style="text-align:left;">Amount + Date &plusmn;60 days + Account (no check# required). GL amount matches a bank transaction within 60 days on the same account family, but no shared check number.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Direction</td>
+      <td style="text-align:left;">Deposits only match deposits, withdrawals only match withdrawals. Transfer bank records are direction-agnostic. <strong>Key fix:</strong> GL "Payment" with Split=&quot;Accounts Receivable&quot; is treated as INFLOW (matches deposits), while Payment with Split=&quot;Accounts Payable&quot; is treated as OUTFLOW (matches withdrawals).</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">NO MATCH</td>
+      <td style="text-align:left;">No bank transaction found matching the GL entry within the 60-day search window.</td>
+    </tr>
+  </tbody>
+</table>
+<div class="footnote">
+  <strong>Parameters:</strong> Date window = &plusmn;60 days. Amount tolerance = $0.00 (exact match). Account mapping enforced: BMO GL &rarr; BMO bank only; CNB GL &rarr; CNB bank only; TK GL &rarr; TK bank only.
+</div>
 </div>
 
 </div>

@@ -715,7 +715,12 @@
 
 <!-- ===================== TWS WAREHOUSE ===================== -->
 <div class="card">
-<h2>TWS Warehouse — Net Activity by Year (#9530)</h2>
+<h2>TWS Warehouse — Net Activity by Year</h2>
+<p style="font-size:13.5px; color:#5f6368; margin-bottom:16px;">
+  <strong>JPMorgan Chase Bank, N.A.</strong> — TRICON WAREHOUSE SERVICES LLC — Account ****9530 — Chase Platinum Business Checking.
+  <span style="color:#d93025; font-weight:600;">This account does not appear in the TTI QuickBooks GL file.</span>
+</p>
+
 <table>
   <thead>
     <tr>
@@ -758,8 +763,81 @@
     </tr>
   </tbody>
 </table>
-<div class="footnote">
-  <strong>Critical:</strong> The GL contains <strong>no entries for Chase account #959089530</strong> (TWS-Warehouse). Bank statements exist (189 TXNs) but there is no corresponding GL cash account to reconcile against. The $400K Jun 2023 inflow and $370K Feb 2024 outflow are the dominant movements — likely intercompany transfers or capital injections. For QoE purposes, this account is a <strong>black box</strong>: cash moved in and out but was never recorded in the general ledger.
+
+<div class="insight" style="border-left-color: #d93025; margin-top:16px;">
+  <p><strong>QoE finding:</strong> The TTI QuickBooks general ledger contains <strong>zero entries</strong> for this Chase account. Bank statements show 189 transactions and a cumulative net inflow of +$70,392 — but there is no corresponding GL cash account to reconcile against. The dominant movements are a <strong>$400K inflow (Jun 2023)</strong> and a <strong>$370K outflow (Feb 2024)</strong>, likely intercompany transfers or capital injections that bypassed the GL entirely.</p>
+</div>
+</div>
+
+<!-- ===================== TWS MONTHLY DETAIL ===================== -->
+<div class="card accordion-card">
+<h2 class="accordion-toggle" onclick="toggleAccordion(this)">
+  <span>Monthly Bank Net — TWS Warehouse</span>
+  <span class="accordion-icon">▸</span>
+</h2>
+<div class="accordion-content">
+<p style="font-size:13.5px; color:#5f6368; margin-bottom:16px; padding-top:20px;">
+  Net cash movement per Chase statement. Positive = net inflow. Negative = net outflow.
+  Dashes indicate months with zero net activity.
+</p>
+<div class="scroll-table">
+<table class="monthly-table">
+  <thead>
+    <tr>
+      <th style="text-align:left;">Period</th>
+      <th style="text-align:right;">Bank Net</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="year-separator"><td colspan="2">2023</td></tr>
+    <tr><td class="text-left">May</td><td class="num muted">—</td></tr>
+    <tr><td class="text-left">Jun</td><td class="num pos">400,000</td></tr>
+    <tr><td class="text-left">Jul</td><td class="num muted">—</td></tr>
+    <tr><td class="text-left">Aug</td><td class="num muted">—</td></tr>
+    <tr><td class="text-left">Sep</td><td class="num muted">—</td></tr>
+    <tr><td class="text-left">Oct</td><td class="num muted">—</td></tr>
+    <tr><td class="text-left">Nov</td><td class="num muted">—</td></tr>
+    <tr><td class="text-left">Dec</td><td class="num pos">2,500</td></tr>
+    <tr class="total-row"><td style="text-align:left;">2023 Total</td><td class="num">+$402,500</td></tr>
+
+    <tr class="year-separator"><td colspan="2">2024</td></tr>
+    <tr><td class="text-left">Jan</td><td class="num muted">—</td></tr>
+    <tr><td class="text-left">Feb</td><td class="num neg">-370,000</td></tr>
+    <tr><td class="text-left">Mar</td><td class="num muted">—</td></tr>
+    <tr><td class="text-left">Apr</td><td class="num neg">-95</td></tr>
+    <tr><td class="text-left">May</td><td class="num neg">-95</td></tr>
+    <tr><td class="text-left">Jun</td><td class="num neg">-4,335</td></tr>
+    <tr><td class="text-left">Jul</td><td class="num muted">—</td></tr>
+    <tr><td class="text-left">Aug</td><td class="num muted">—</td></tr>
+    <tr><td class="text-left">Sep</td><td class="num neg">-10,131</td></tr>
+    <tr><td class="text-left">Oct</td><td class="num pos">4,248</td></tr>
+    <tr><td class="text-left">Nov</td><td class="num pos">42,941</td></tr>
+    <tr><td class="text-left">Dec</td><td class="num neg">-47,316</td></tr>
+    <tr class="total-row"><td style="text-align:left;">2024 Total</td><td class="num">-$384,783</td></tr>
+
+    <tr class="year-separator"><td colspan="2">2025</td></tr>
+    <tr><td class="text-left">Jan</td><td class="num pos">40,525</td></tr>
+    <tr><td class="text-left">Feb</td><td class="num pos">869</td></tr>
+    <tr><td class="text-left">Mar</td><td class="num neg">-2,338</td></tr>
+    <tr><td class="text-left">Apr</td><td class="num pos">2,484</td></tr>
+    <tr><td class="text-left">May</td><td class="num pos">17,724</td></tr>
+    <tr><td class="text-left">Jun</td><td class="num neg">-55,538</td></tr>
+    <tr><td class="text-left">Jul</td><td class="num pos">41,477</td></tr>
+    <tr><td class="text-left">Aug</td><td class="num neg">-6,545</td></tr>
+    <tr><td class="text-left">Sep</td><td class="num pos">10,357</td></tr>
+    <tr><td class="text-left">Oct</td><td class="num neg">-7,681</td></tr>
+    <tr><td class="text-left">Nov</td><td class="num neg">-36,951</td></tr>
+    <tr><td class="text-left">Dec</td><td class="num pos">44,758</td></tr>
+    <tr class="total-row"><td style="text-align:left;">2025 Total</td><td class="num">+$49,141</td></tr>
+
+    <tr class="year-separator"><td colspan="2">Q1 2026</td></tr>
+    <tr><td class="text-left">Jan</td><td class="num neg">-10,776</td></tr>
+    <tr><td class="text-left">Feb</td><td class="num pos">6,686</td></tr>
+    <tr><td class="text-left">Mar</td><td class="num pos">7,624</td></tr>
+    <tr class="total-row"><td style="text-align:left;">Q1 2026 Total</td><td class="num">+$3,534</td></tr>
+  </tbody>
+</table>
+</div>
 </div>
 </div>
 

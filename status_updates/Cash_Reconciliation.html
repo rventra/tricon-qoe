@@ -266,7 +266,7 @@
 </div>
 
 <div class="insight" style="border-left-color: #d93025;">
-  <p><strong>What the -$245K means:</strong> The GL shows $245K more net cash inflow than the bank statements. This is <strong>not</strong> normal timing — it is driven by the BMO GL cash account being contaminated by an income account. The balance sheet confirms the <em>actual</em> BMO cash delta is +$1.23M (from -$792K to +$439K), while the bank shows only +$764K. CNB ties within +$137K (bank +$3.40M vs GL +$3.26M).</p>
+  <p><strong>What the -$745K means:</strong> The actual cash per the balance sheet (+$4.49M) exceeds bank statement net movement (+$3.75M) by $745K. This is a <strong>genuine variance</strong> — not a GL contamination artifact. The BMO actual cash delta (+$1.23M) exceeds bank BMO (+$764K) by $467K, and CNB actual (+$3.26M) exceeds bank CNB (+$2.90M) by $362K. Both accounts show more GL cash inflow than bank deposits. Possible explanations: (a) bank deposits recorded as revenue bypassing the cash account, (b) -SPLIT- bundled deposits in QB, (c) deposits in transit not yet on statements.</p>
 </div>
 </div>
 
@@ -351,7 +351,8 @@
   <strong>2024 variance (-$2.11M):</strong> Bank shows -$0.71M net while GL shows +$1.40M. The $1.6M year-end non-cash tax journal entry sits in the GL but never hit the bank. Removing that, the two sources are directionally aligned. Feb 2024 CNB was overstated by $500K in the bank data.<br><br>
   <strong>2025 variance (+$36K):</strong> Effectively ties. CNB became the dominant operating account and the GL correctly tracks it.<br><br>
   <strong>Q1 2026 variance (-$8K):</strong> Immaterial on partial data. Normal float.<br><br>
-  <strong style="color:#d93025;">TOTAL variance (-$745K):</strong> The BMO GL cash account is contaminated by an income account erroneously mapped to it. The actual BMO cash delta per the balance sheet is +$1.23M, while the bank shows +$764K — a -$467K difference. CNB also diverges (bank +$2.90M vs GL +$3.26M = -$362K). See Balance Sheet Proof below.
+  <strong style="color:#d93025;">TOTAL variance (-$745K):</strong> The actual cash per the balance sheet (+$4.49M) exceeds bank net movement (+$3.75M) by $745K. This is a genuine variance, not a contamination artifact — the contamination was already controlled for by using the BS actual cash line. BMO: actual +$1.23M vs bank +$764K (-$467K). CNB: actual +$3.26M vs bank +$2.90M (-$362K). See Balance Sheet Proof below.<br><br>
+  <strong style="color:#f9ab00;">Separate QoE note — BMO GL contamination:</strong> The GL "BMO Corporate Account - Other" activity summary shows a net change of -$366,872 (from $1,547,440 to $1,180,568) because an income account is erroneously mapped to it. The <em>actual</em> cash delta is +$1,231,006. This is a control weakness but does not explain the -$745K bank-vs-cash variance.
 </div>
 </div>
 
@@ -524,7 +525,7 @@
 <h2>QoE Observations</h2>
 
 <div class="insight" style="border-left-color: #d93025;">
-  <p><strong>1. The BMO GL cash account is contaminated by an income account.</strong> The GL "BMO Corporate Account - Other" activity summary shows a net change of <strong>-$366,872</strong> (from $1,547,440 to $1,180,568) — but the balance sheet proves the <strong>actual cash</strong> delta is <strong>+$1,231,006</strong> (from -$792,242 to +$438,764). An income account is erroneously mapped to the BMO cash account, causing the GL activity detail to understate true cash movement by $1.6M. This is a <strong>material control weakness</strong>.</p>
+  <p><strong>1. There is a -$745K genuine variance between bank and actual cash.</strong> The balance sheet proves actual cash grew by +$4.49M (BMO +$1.23M, CNB +$3.26M), but bank statements show only +$3.75M (BMO +$764K, CNB +$2.90M). Both accounts diverge: BMO by -$467K and CNB by -$362K. This is not normal timing — it suggests deposits hit the GL cash account but may not have cleared through the bank statements, or revenue deposits bypassed the bank entirely.</p>
 </div>
 
 <div class="insight" style="border-left-color: #f9ab00;">
@@ -536,7 +537,7 @@
 </div>
 
 <div class="insight" style="border-left-color: #1e8e3e;">
-  <p><strong>4. CNB ties well.</strong> Bank CNB shows +$3.40M net movement while GL CNB shows +$3.26M — a +$137K difference (4.0%). This is within an acceptable range for timing differences and validates the CNB reconciliation. The problem is isolated to BMO.</p>
+  <p><strong>4. The BMO GL cash account is contaminated by an income account.</strong> The GL "BMO Corporate Account - Other" activity summary shows a net change of <strong>-$366,872</strong> (from $1,547,440 to $1,180,568) — but the balance sheet proves the <strong>actual cash</strong> delta is <strong>+$1,231,006</strong>. An income account is erroneously mapped to the BMO cash account. This is a <strong>material control weakness</strong> but was controlled for in the variance analysis above.</p>
 </div>
 </div>
 

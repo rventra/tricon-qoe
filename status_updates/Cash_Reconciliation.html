@@ -191,6 +191,32 @@
     margin-top: 12px;
     margin-bottom: 4px;
   }
+  /* Accordion */
+  .accordion-toggle {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    user-select: none;
+  }
+  .accordion-toggle:hover { opacity: 0.8; }
+  .accordion-icon {
+    font-size: 14px;
+    color: #5f6368;
+    transition: transform 0.2s;
+  }
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .accordion-card.open .accordion-content {
+    max-height: 8000px;
+  }
+  .accordion-card.open .accordion-icon {
+    transform: rotate(90deg);
+  }
 </style>
 </head>
 <body>
@@ -355,9 +381,13 @@
 </div>
 
 <!-- ===================== MONTHLY DETAIL ===================== -->
-<div class="card">
-<h2>Monthly Bank Net vs GL Net — TTI</h2>
-<p style="font-size:13.5px; color:#5f6368; margin-bottom:16px;">
+<div class="card accordion-card">
+<h2 class="accordion-toggle" onclick="toggleAccordion(this)">
+  <span>Monthly Bank Net vs GL Net — TTI</span>
+  <span class="accordion-icon">▸</span>
+</h2>
+<div class="accordion-content">
+<p style="font-size:13.5px; color:#5f6368; margin-bottom:16px; padding-top:20px;">
   Side-by-side comparison of net cash movement per bank statement vs net cash movement per GL. 
   <span style="color:#1e8e3e; font-weight:600;">Positive</span> = net inflow month. <span style="color:#d93025; font-weight:600;">Negative</span> = net outflow month.
 </p>
@@ -443,6 +473,7 @@
 
 <div class="footnote">
   <strong>Column definitions:</strong> <strong>Bank BMO-Corp / Park / CNB</strong> = net cash flow per bank statement (deposits minus withdrawals/checks/fees). <strong>GL BMO / CNB</strong> = net of cash-account GL entries. <strong>Variance</strong> = Bank Total minus GL Total. <strong>V</strong> = verified flag from statement review. BMO-Park has no corresponding GL cash account — it is a non-operating petty-cash account.
+</div>
 </div>
 </div>
 
@@ -706,5 +737,10 @@
 </div>
 
 </div>
+<script>
+function toggleAccordion(el) {
+  el.closest('.accordion-card').classList.toggle('open');
+}
+</script>
 </body>
 </html>

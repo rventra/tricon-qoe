@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue &amp; AR — TTI Accrual-to-Cash Bridge</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #1a1d23;
+            background: #f8f9fa;
+            padding: 40px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        a { color: #1a73e8; text-decoration: none; font-weight: 500; }
+        a:hover { text-decoration: underline; }
+
+        .nav-top {
+            font-size: 13px; margin-bottom: 12px;
+        }
+
+        h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+        .subhead { font-size: 14px; color: #5f6368; margin-bottom: 28px; }
+
+        .card {
+            background: #fff; border-radius: 12px;
+            box-shadow: 0 1px 2px rgba(60,64,67,0.08), 0 1px 3px rgba(60,64,67,0.05);
+            padding: 28px; margin-bottom: 24px;
+        }
+        .card h2 {
+            font-size: 16px; font-weight: 600; margin: 0 0 20px 0;
+            color: #1a1d23; letter-spacing: -0.2px;
+        }
+        .card h3 {
+            font-size: 13px; font-weight: 600; margin: 20px 0 10px 0;
+            color: #1a1d23; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        .success-banner {
+            background: #e6f4ea; border: 1px solid #34a853;
+            border-radius: 8px; padding: 16px 20px; margin-bottom: 24px;
+            color: #1e8e3e; font-weight: 600; font-size: 15px;
+        }
+
+        table {
+            width: 100%; border-collapse: collapse;
+            font-size: 13px; margin-bottom: 8px;
+        }
+        th {
+            background: #1a1d23; color: #fff;
+            font-weight: 600; padding: 10px 12px;
+            text-align: left; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        td {
+            padding: 9px 12px; border-bottom: 1px solid #e8eaed;
+            vertical-align: middle;
+        }
+        tr:nth-child(even) { background: #fafbfc; }
+        tr:hover { background: #f0f4ff; }
+
+        .total-row td {
+            background: #1a1d23; color: #fff;
+            font-weight: 600;
+        }
+        .total-row .num { color: #fff; }
+
+        .num { font-family: "SF Mono", "Roboto Mono", Consolas, monospace; font-size: 12.5px; text-align: right; }
+        .text-right { text-align: right; }
+        .text-left { text-align: left; }
+        .text-center { text-align: center; }
+        .pos { color: #1e8e3e; }
+        .neg { color: #d93025; }
+        .muted { color: #5f6368; font-size: 12px; }
+
+        .bridge-box {
+            background: #f8f9fa; border-radius: 8px;
+            padding: 20px; margin-top: 16px;
+        }
+        .bridge-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #e8eaed;
+            font-size: 13.5px;
+        }
+        .bridge-row:last-child { border-bottom: none; }
+        .bridge-row.total {
+            font-weight: 700; font-size: 14px;
+            margin-top: 4px; padding-top: 12px;
+            border-top: 2px solid #1a1d23;
+            border-bottom: none;
+        }
+        .bridge-row.grand-total {
+            font-weight: 700; font-size: 15px;
+            margin-top: 4px; padding-top: 12px;
+            border-top: 3px solid #1e8e3e;
+            border-bottom: none;
+            color: #1e8e3e;
+        }
+        .bridge-label { text-align: left; flex: 1; }
+        .bridge-amount { font-family: "SF Mono", Consolas, monospace; text-align: right; min-width: 160px; }
+        .bridge-amount.pos { color: #1e8e3e; }
+        .bridge-amount.neg { color: #d93025; }
+        .bridge-subheader {
+            font-weight: 600; font-size: 12px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            color: #5f6368; margin-top: 12px; margin-bottom: 4px;
+        }
+
+        .insight {
+            background: #fafafa; border-left: 3px solid #1a73e8;
+            padding: 14px 16px; margin: 12px 0 20px 0;
+            font-size: 13px; color: #333;
+        }
+        .insight p { margin-bottom: 6px; }
+        .insight p:last-child { margin-bottom: 0; }
+
+        .kpi-row {
+            display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px;
+        }
+        .kpi-box {
+            flex: 1; min-width: 200px;
+            background: #fff; border-radius: 12px;
+            box-shadow: 0 1px 2px rgba(60,64,67,0.08);
+            padding: 20px 24px; text-align: center;
+        }
+        .kpi-box .kpi-label {
+            font-size: 11px; font-weight: 600; color: #5f6368;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .kpi-box .kpi-value {
+            font-size: 26px; font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .kpi-box .kpi-value.pos { color: #1e8e3e; }
+        .kpi-box .kpi-value.neg { color: #d93025; }
+        .kpi-box .kpi-sub {
+            font-size: 12px; color: #5f6368; margin-top: 4px;
+        }
+
+        .footnote {
+            font-size: 11.5px; color: #5f6368; margin-top: 12px; line-height: 1.6;
+        }
+
+        .section-divider {
+            margin: 32px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8eaed;
+            font-size: 12px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px;
+            color: #5f6368;
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav-top">
+    <a href="index.html">&larr; Back to Status Overview</a>
+</div>
+
+<h1>Revenue &amp; Accounts Receivable — TTI</h1>
+<div class="subhead">Accrual-to-Cash Revenue Bridge &nbsp;|&nbsp; Prepared: May 2026</div>
+
+<!-- ===================== EXEC SUMMARY ===================== -->
+<div class="card">
+<h2>QoE Summary — Revenue Bridge</h2>
+<div class="success-banner">
+    &#10003; <strong>Cash collections tie to 99.993%</strong> — $55.86M collected against $55.85M of billable cash.
+</div>
+
+<div class="kpi-row">
+    <div class="kpi-box">
+        <div class="kpi-label">Gross Billed Invoices</div>
+        <div class="kpi-value pos">$55.10M</div>
+        <div class="kpi-sub">Accrual basis revenue</div>
+    </div>
+    <div class="kpi-box">
+        <div class="kpi-label">Cash Collections</div>
+        <div class="kpi-value pos">$55.86M</div>
+        <div class="kpi-sub">Bank + check deposits</div>
+    </div>
+    <div class="kpi-box">
+        <div class="kpi-label">Collection Rate</div>
+        <div class="kpi-value">99.993%</div>
+        <div class="kpi-sub">Outstanding AR minimal</div>
+    </div>
+    <div class="kpi-box">
+        <div class="kpi-label">Net AR Change</div>
+        <div class="kpi-value neg">-$85.4K</div>
+        <div class="kpi-sub">AR decreased period-over-period</div>
+    </div>
+</div>
+
+<div class="insight">
+    <p><strong>What this means for QoE:</strong> TTI's revenue is effectively cash-equivalent. The accrual-to-cash bridge shows that nearly every dollar billed has been collected. The $85K net decrease in AR (beginning $2.25M → ending $2.17M) indicates collections slightly outpaced new billings — a positive sign for working capital.</p>
+    <p>Of the $55.77M total revenue activity, <strong>$55.10M (98.8%) is supported by gross billed invoices</strong>. The remaining $756K is unclassified revenue entries that require further review.</p>
+</div>
+</div>
+
+<!-- ===================== REVENUE BY TYPE ===================== -->
+<div class="card">
+<h2>Revenue by GL Entry Type</h2>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left;">Row Labels</th>
+            <th class="text-right">Sum of Amount</th>
+            <th style="text-align:left;">Nature</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td class="text-left">Invoice</td><td class="num pos">55,099,844</td><td class="muted">Gross billed invoices — core revenue</td></tr>
+        <tr><td class="text-left">Deposit</td><td class="num pos">41,868</td><td class="muted">Direct bank deposits (non-invoice revenue)</td></tr>
+        <tr><td class="text-left">(blank)</td><td class="num pos">165</td><td class="muted">Unclassified / no type assigned</td></tr>
+        <tr><td class="text-left">Credit</td><td class="num pos">1,516</td><td class="muted">Customer credit applied</td></tr>
+        <tr><td class="text-left">Credit Memo</td><td class="num neg">-430</td><td class="muted">Credit memo adjustments</td></tr>
+        <tr><td class="text-left">Payment</td><td class="num neg">-241</td><td class="muted">Payment reversals / refunds</td></tr>
+        <tr><td class="text-left">Bill</td><td class="num neg">-54,798</td><td class="muted">Vendor bill contra-entries</td></tr>
+        <tr><td class="text-left">Check</td><td class="num neg">-77,301</td><td class="muted">Check payments / disbursements</td></tr>
+        <tr class="total-row">
+            <td style="text-align:left;">Grand Total (Classified)</td>
+            <td class="num">55,010,624</td>
+            <td></td>
+        </tr>
+        <tr style="background:#fef3c7;">
+            <td style="text-align:left; font-weight:600;">Could not Classify</td>
+            <td class="num" style="font-weight:600;">756,645</td>
+            <td class="muted">Requires further review</td>
+        </tr>
+        <tr style="background:#1a1d23; color:#fff;">
+            <td style="text-align:left; font-weight:600;">TOTAL REVENUE ACTIVITY</td>
+            <td class="num" style="font-weight:600; color:#81c995;">55,767,269</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+<div class="footnote">
+    <strong>Note:</strong> "Could not Classify" represents $756,645 in revenue entries that did not match standard invoice/deposit patterns. This is 1.4% of total revenue activity and should be reviewed for proper classification (e.g., intercompany transfers, misc income, or data entry errors).
+</div>
+</div>
+
+<!-- ===================== ACCRUAL-TO-CASH BRIDGE ===================== -->
+<div class="card">
+<h2>Accrual-to-Cash Revenue Bridge</h2>
+<p style="font-size:13.5px; color:#5f6368; margin-bottom:16px;">
+    The bridge reconciles gross billed invoice revenue to actual cash collected, accounting for AR movement, credit memos, and non-standard entries.
+</p>
+
+<div class="bridge-box">
+    <div class="bridge-subheader">Revenue Components</div>
+    <div class="bridge-row">
+        <span class="bridge-label">Gross Billed Invoices</span>
+        <span class="bridge-amount pos">+$55,099,844</span>
+    </div>
+    <div class="bridge-row">
+        <span class="bridge-label">General Journal</span>
+        <span class="bridge-amount muted">$0</span>
+    </div>
+    <div class="bridge-row">
+        <span class="bridge-label">Direct Bank Deposits</span>
+        <span class="bridge-amount pos">+$41,868</span>
+    </div>
+    <div class="bridge-row">
+        <span class="bridge-label">Credit Memo</span>
+        <span class="bridge-amount pos">+$1,086</span>
+    </div>
+    <div class="bridge-row">
+        <span class="bridge-label">Does not Belong <span class="muted">(non-revenue items)</span></span>
+        <span class="bridge-amount neg">-$132,175</span>
+    </div>
+    <div class="bridge-row">
+        <span class="bridge-label">Could not Classify</span>
+        <span class="bridge-amount" style="color:#f59e0b;">+$756,645</span>
+    </div>
+    <div class="bridge-row total">
+        <span class="bridge-label">Total Revenue Activity</span>
+        <span class="bridge-amount">$55,767,269</span>
+    </div>
+
+    <div class="bridge-subheader">Working Capital Adjustment</div>
+    <div class="bridge-row">
+        <span class="bridge-label">Beginning Accounts Receivable</span>
+        <span class="bridge-amount pos">+$2,251,433</span>
+    </div>
+    <div class="bridge-row">
+        <span class="bridge-label">Ending Accounts Receivable</span>
+        <span class="bridge-amount neg">-$2,165,993</span>
+    </div>
+    <div class="bridge-row">
+        <span class="bridge-label">Deferred Revenue</span>
+        <span class="bridge-amount muted">$0</span>
+    </div>
+    <div class="bridge-row total">
+        <span class="bridge-label">Net Change in AR</span>
+        <span class="bridge-amount neg">-$85,440</span>
+    </div>
+    <div class="bridge-subheader">&#9660; Cash Collected</div>
+    <div class="bridge-row grand-total">
+        <span class="bridge-label">Cash Collections</span>
+        <span class="bridge-amount pos">$55,856,625</span>
+    </div>
+</div>
+
+<div class="insight" style="border-left-color: #1e8e3e;">
+    <p><strong>Collection rate: 99.993%</strong> — Cash collections of $55.86M against a cash-equivalent revenue base of $55.85M. The $85K net decrease in AR means TTI collected slightly more cash than it billed in the period, which is a healthy working capital dynamic.</p>
+    <p><strong>The "Does not Belong" bucket ($132K)</strong> represents entries coded to revenue accounts that are not actually revenue (e.g., intercompany transfers, expense reimbursements, or misclassified items). These should be reclassified for accurate QoE reporting.</p>
+</div>
+</div>
+
+<!-- ===================== QoE OBSERVATIONS ===================== -->
+<div class="card">
+<h2>QoE Observations</h2>
+
+<div class="insight" style="border-left-color: #1e8e3e;">
+    <p><strong>1. Revenue is highly collectible.</strong> A 99.993% collection rate with minimal AR growth is strong evidence that TTI's revenue is real, from credit-worthy customers, and properly recorded.</p>
+</div>
+
+<div class="insight" style="border-left-color: #f59e0b;">
+    <p><strong>2. $756K unclassified revenue needs review.</strong> 1.4% of total revenue activity could not be matched to invoices or standard deposit patterns. Possible explanations: (a) intercompany revenue between TTI and TK, (b) misc income (fuel surcharges, detention fees), (c) data entry errors where invoice numbers were omitted.</p>
+</div>
+
+<div class="insight" style="border-left-color: #d93025;">
+    <p><strong>3. $132K "Does not Belong" requires reclassification.</strong> These are non-revenue items sitting in revenue accounts. For QoE purposes, they should be backed out of revenue and reclassified to the appropriate account (intercompany, expense reimbursement, or contra-revenue).</p>
+</div>
+
+<div class="insight" style="border-left-color: #1a73e8;">
+    <p><strong>4. No deferred revenue = simple revenue recognition.</strong> TTI does not carry deferred revenue, meaning all revenue is recognized at the point of billing (or deposit). This simplifies the QoE analysis — there are no long-term contracts or prepayments to unwind.</p>
+</div>
+</div>
+
+<!-- ===================== DATA SOURCES ===================== -->
+<div class="card">
+<h2>Data Sources</h2>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left;">Source</th>
+            <th style="text-align:left;">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td class="text-left">TTI General Ledger</td><td class="muted">Revenue account entries by type (Invoice, Deposit, Credit Memo, etc.)</td></tr>
+        <tr><td class="text-left">AR Aging Report</td><td class="muted">Beginning and ending AR balances from QuickBooks</td></tr>
+        <tr><td class="text-left">Bank Statements</td><td class="muted">Deposit detail for direct bank deposit verification</td></tr>
+    </tbody>
+</table>
+</div>
+
+<div class="nav-top" style="margin-top: 24px;">
+    <a href="index.html">&larr; Back to Status Overview</a>
+</div>
+
+</body>
+</html>

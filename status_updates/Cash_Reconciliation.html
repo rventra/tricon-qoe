@@ -548,91 +548,119 @@
 
 <!-- ===================== TK SUMMARY ===================== -->
 <div class="card">
-<h2>TK — Reconciliation Summary</h2>
+<h2>TK — Bank Net vs GL Net</h2>
+<p style="font-size:13.5px; color:#5f6368; margin-bottom:16px;">
+  TK Investments (#394). Side-by-side of net cash movement per bank statement vs GL cash account.
+  <strong>2025 bank statements are pending.</strong>
+</p>
+
 <table>
   <thead>
     <tr>
       <th style="text-align:left;">Year</th>
-      <th>Bank<br>TXNs</th>
-      <th>Bank<br>Abs $</th>
-      <th>Bank<br>Net $</th>
-      <th>GL<br>TXNs</th>
-      <th>GL<br>Abs $</th>
-      <th>GL<br>Net $</th>
-      <th>Exact</th>
-      <th>Close</th>
-      <th>No Match</th>
-      <th>Match<br>Rate</th>
+      <th style="text-align:right;">Bank Net</th>
+      <th style="text-align:right;">GL Net</th>
+      <th style="text-align:right;">Variance</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left; font-weight:600;">2023</td>
-      <td class="num">249</td>
-      <td class="num">$2.4M</td>
-      <td class="num pos">+$15.6K</td>
-      <td class="num">222</td>
-      <td class="num">$2.4M</td>
+      <td class="num pos">+$4,010</td>
       <td class="num neg">-$6,294</td>
-      <td class="num">22</td>
-      <td class="num">194</td>
-      <td class="num">6</td>
-      <td class="rate good">97.3%</td>
+      <td class="num pos">+$10,304</td>
     </tr>
     <tr>
       <td style="text-align:left; font-weight:600;">2024</td>
-      <td class="num">225</td>
-      <td class="num">$2.5M</td>
-      <td class="num pos">+$19.8K</td>
-      <td class="num">212</td>
-      <td class="num">$2.5M</td>
+      <td class="num pos">+$21,269</td>
       <td class="num neg">-$46,239</td>
-      <td class="num">23</td>
-      <td class="num">185</td>
-      <td class="num">4</td>
-      <td class="rate good">98.1%</td>
+      <td class="num pos">+$67,508</td>
     </tr>
     <tr>
       <td style="text-align:left; font-weight:600;">2025</td>
-      <td class="num">188</td>
-      <td class="num">$2.2M</td>
-      <td class="num pos">+$20.0K</td>
-      <td class="num">197</td>
-      <td class="num">$2.4M</td>
+      <td class="num muted">—</td>
       <td class="num pos">+$78,638</td>
-      <td class="num">19</td>
-      <td class="num">165</td>
-      <td class="num">13</td>
-      <td class="rate good">93.4%</td>
+      <td class="num muted">—</td>
     </tr>
     <tr>
       <td style="text-align:left; font-weight:600;">Q1 2026</td>
-      <td class="num">49</td>
-      <td class="num">$0.5M</td>
-      <td class="num neg">-$3.3K</td>
-      <td class="num">48</td>
-      <td class="num">$0.5M</td>
+      <td class="num neg">-$3,336</td>
       <td class="num pos">+$2,196</td>
-      <td class="num">4</td>
-      <td class="num">40</td>
-      <td class="num">4</td>
-      <td class="rate good">91.7%</td>
-    </tr>
-    <tr class="total-row">
-      <td style="text-align:left;">TOTAL</td>
-      <td class="num">711</td>
-      <td class="num">$7.6M</td>
-      <td class="num pos">+$52.2K</td>
-      <td class="num">679</td>
-      <td class="num">$7.8M</td>
-      <td class="num pos">+$28,301</td>
-      <td class="num">68</td>
-      <td class="num">584</td>
-      <td class="num">27</td>
-      <td class="rate">96.0%</td>
+      <td class="num neg">-$5,532</td>
     </tr>
   </tbody>
 </table>
+
+<div class="footnote">
+  <strong>2023:</strong> Bank +$4,010 vs GL -$6,294. Variance +$10,304. Apr 2023 statement not provided.<br><br>
+  <strong>2024:</strong> Bank +$21,269 vs GL -$46,239. Variance +$67,508 — largest gap, driven by Jul +$47K inflow. Apr 2024 statement not provided.<br><br>
+  <strong>2025:</strong> Bank statements pending. GL shows +$78,638 net inflow.<br><br>
+  <strong>Q1 2026:</strong> Bank -$3,336 vs GL +$2,196. Variance -$5,532.
+</div>
+</div>
+
+<!-- ===================== TK MONTHLY DETAIL ===================== -->
+<div class="card accordion-card">
+<h2 class="accordion-toggle" onclick="toggleAccordion(this)">
+  <span>Monthly Bank Net — TK</span>
+  <span class="accordion-icon">▸</span>
+</h2>
+<div class="accordion-content">
+<p style="font-size:13.5px; color:#5f6368; margin-bottom:16px; padding-top:20px;">
+  Net cash movement per bank statement by month. Positive = net inflow. Negative = net outflow.
+  Missing months are marked with "—".
+</p>
+<div class="scroll-table">
+<table class="monthly-table">
+  <thead>
+    <tr>
+      <th style="text-align:left;">Period</th>
+      <th style="text-align:right;">Bank Net</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="year-separator"><td colspan="2">2023</td></tr>
+    <tr><td class="text-left">Jan</td><td class="num pos">729</td></tr>
+    <tr><td class="text-left">Feb</td><td class="num pos">3,871</td></tr>
+    <tr><td class="text-left">Mar</td><td class="num neg">-4,677</td></tr>
+    <tr><td class="text-left">Apr</td><td class="num muted">—</td></tr>
+    <tr><td class="text-left">May</td><td class="num neg">-2,321</td></tr>
+    <tr><td class="text-left">Jun</td><td class="num neg">-185</td></tr>
+    <tr><td class="text-left">Jul</td><td class="num pos">20,462</td></tr>
+    <tr><td class="text-left">Aug</td><td class="num neg">-1,374</td></tr>
+    <tr><td class="text-left">Sep</td><td class="num neg">-5,676</td></tr>
+    <tr><td class="text-left">Oct</td><td class="num pos">16,746</td></tr>
+    <tr><td class="text-left">Nov</td><td class="num pos">5,515</td></tr>
+    <tr><td class="text-left">Dec</td><td class="num neg">-29,080</td></tr>
+    <tr class="total-row"><td style="text-align:left;">2023 Total</td><td class="num">+$4,010</td></tr>
+
+    <tr class="year-separator"><td colspan="2">2024</td></tr>
+    <tr><td class="text-left">Jan</td><td class="num pos">5,541</td></tr>
+    <tr><td class="text-left">Feb</td><td class="num pos">22,019</td></tr>
+    <tr><td class="text-left">Mar</td><td class="num neg">-14,379</td></tr>
+    <tr><td class="text-left">Apr</td><td class="num muted">—</td></tr>
+    <tr><td class="text-left">May</td><td class="num neg">-3,183</td></tr>
+    <tr><td class="text-left">Jun</td><td class="num neg">-16,840</td></tr>
+    <tr><td class="text-left">Jul</td><td class="num pos">47,541</td></tr>
+    <tr><td class="text-left">Aug</td><td class="num neg">-21,753</td></tr>
+    <tr><td class="text-left">Sep</td><td class="num neg">-403</td></tr>
+    <tr><td class="text-left">Oct</td><td class="num pos">5,123</td></tr>
+    <tr><td class="text-left">Nov</td><td class="num neg">-24,488</td></tr>
+    <tr><td class="text-left">Dec</td><td class="num pos">22,091</td></tr>
+    <tr class="total-row"><td style="text-align:left;">2024 Total</td><td class="num">+$21,269</td></tr>
+
+    <tr class="year-separator"><td colspan="2">2025</td></tr>
+    <tr><td class="text-left" colspan="2" style="color:#5f6368; font-style:italic; padding:12px 8px;">Bank statements pending</td></tr>
+
+    <tr class="year-separator"><td colspan="2">Q1 2026</td></tr>
+    <tr><td class="text-left">Jan</td><td class="num neg">-33,261</td></tr>
+    <tr><td class="text-left">Feb</td><td class="num pos">6,544</td></tr>
+    <tr><td class="text-left">Mar</td><td class="num pos">23,381</td></tr>
+    <tr class="total-row"><td style="text-align:left;">Q1 2026 Total</td><td class="num">-$3,336</td></tr>
+  </tbody>
+</table>
+</div>
+</div>
 </div>
 
 <!-- ===================== TWS WAREHOUSE ===================== -->

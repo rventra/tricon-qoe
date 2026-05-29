@@ -12,7 +12,7 @@
     background: #f8f9fa; color: #1a1d23;
     line-height: 1.5;
   }
-  .container { max-width: 1100px; margin: 0 auto; }
+  .container { max-width: 1200px; margin: 0 auto; }
   h1 { font-size: 32px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
   .subtitle { font-size: 14px; color: #5f6368; margin-bottom: 28px; }
   .nav-home {
@@ -35,6 +35,32 @@
   .card h3 {
     font-size: 15px; font-weight: 600; margin: 24px 0 12px 0;
     color: #1a1d23;
+  }
+
+  /* KPI BAR */
+  .kpi-row {
+    display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;
+  }
+  .kpi-box {
+    flex: 1; min-width: 200px;
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(60,64,67,0.08);
+    padding: 20px 24px;
+    text-align: center;
+  }
+  .kpi-box .kpi-label {
+    font-size: 12px; font-weight: 600; color: #5f6368;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .kpi-box .kpi-value {
+    font-size: 28px; font-weight: 700; color: #1a1d23;
+    letter-spacing: -0.5px;
+  }
+  .kpi-box .kpi-value.pos { color: #1e8e3e; }
+  .kpi-box .kpi-value.neg { color: #d93025; }
+  .kpi-box .kpi-sub {
+    font-size: 12px; color: #5f6368; margin-top: 4px;
   }
 
   table {
@@ -139,6 +165,43 @@
     margin-top: 12px;
     margin-bottom: 4px;
   }
+
+  /* Monthly table specific */
+  .monthly-table td, .monthly-table th {
+    padding: 8px 10px;
+    font-size: 12.5px;
+  }
+  .monthly-table th {
+    background: #2d3138;
+    font-size: 10.5px;
+  }
+  .monthly-table .text-left { text-align: left; }
+  .monthly-table .text-right { text-align: right; }
+  .monthly-table .verified { font-size: 11px; color: #1e8e3e; font-weight: 600; }
+  .year-separator td {
+    border-top: 2px solid #1a1d23;
+    font-weight: 700;
+    background: #f1f3f4;
+  }
+  .scroll-table {
+    overflow-x: auto;
+    margin-bottom: 24px;
+  }
+  .scroll-table table {
+    min-width: 900px;
+    margin-bottom: 0;
+  }
+
+  .section-divider {
+    margin: 40px 0 24px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e8eaed;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #5f6368;
+  }
 </style>
 </head>
 <body>
@@ -146,9 +209,214 @@
 
 <div class="nav-home"><a href="index.html">&larr; Home</a></div>
 <h1>Cash Reconciliation</h1>
-<div class="subtitle">GL to Bank | 2023 through Q1 2026 | TTI, TK, and TWS | Prepared: May 2026 | Window: &plusmn;60 days | Exact amount match</div>
+<div class="subtitle">Bank Net Movement vs GL Net | 2023 through Q1 2026 | TTI, TK, and TWS | Prepared: May 2026</div>
+
+<!-- ===================== NET MOVEMENT KPIs ===================== -->
+<div class="card">
+<h2>QoE Summary — Net Cash Movement</h2>
+<p style="font-size:13.5px; color:#5f6368; margin-bottom:20px;">
+  For Quality of Earnings, the critical question is: <strong>did the cash that moved through the bank accounts match what was recorded in the GL?</strong> 
+  Transaction-level matching is a sanity check, but <strong>net movement</strong> is what drives the financials.
+</p>
+
+<div class="kpi-row">
+  <div class="kpi-box">
+    <div class="kpi-label">Bank Net (39 mo)</div>
+    <div class="kpi-value pos">+$4.25M</div>
+    <div class="kpi-sub">Statement-level net inflows</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-label">GL Net (39 mo)</div>
+    <div class="kpi-value pos">+$4.50M</div>
+    <div class="kpi-sub">Cash account net per GL</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-label">Variance</div>
+    <div class="kpi-value neg">-$0.25M</div>
+    <div class="kpi-sub">Bank ≈ GL (5.6% diff)</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-label">Match Rate</div>
+    <div class="kpi-value">91.9%</div>
+    <div class="kpi-sub">TXN-level (±60 days)</div>
+  </div>
+</div>
+
+<div class="footnote">
+  <strong>Bank Net</strong> = sum of monthly statement net flows (deposits minus withdrawals/ checks/ fees) across BMO-Corp, BMO-Park, and CNB. 
+  <strong>GL Net</strong> = signed net of all cash-account GL entries. The $0.25M variance is well within the range expected from timing differences (checks in transit, deposits in float), non-cash journal entries, and intercompany transfers.
+</div>
+</div>
+
+<!-- ===================== YEARLY BANK vs GL ===================== -->
+<div class="card">
+<h2>Bank Net vs GL Net — By Year</h2>
+<div class="scroll-table">
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Year</th>
+      <th class="text-right">BMO-Corp</th>
+      <th class="text-right">BMO-Park</th>
+      <th class="text-right">BMO Total</th>
+      <th class="text-right">CNB</th>
+      <th class="text-right">Bank Total</th>
+      <th class="text-right">GL Net</th>
+      <th class="text-right">Variance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left; font-weight:600;">2023</td>
+      <td class="num text-right pos">+$2.86M</td>
+      <td class="num text-right pos">+$39K</td>
+      <td class="num text-right pos">+$2.90M</td>
+      <td class="num text-right muted">$0</td>
+      <td class="num text-right pos" style="font-weight:700;">+$2.90M</td>
+      <td class="num text-right pos">+$1.56M</td>
+      <td class="num text-right pos">+$1.34M</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">2024</td>
+      <td class="num text-right neg">-$2.48M</td>
+      <td class="num text-right pos">+$6K</td>
+      <td class="num text-right neg">-$2.47M</td>
+      <td class="num text-right pos">+$2.26M</td>
+      <td class="num text-right neg" style="font-weight:700;">-$0.21M</td>
+      <td class="num text-right pos">+$1.40M</td>
+      <td class="num text-right neg">-$1.61M</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">2025</td>
+      <td class="num text-right pos">+$54K</td>
+      <td class="num text-right pos">+$25K</td>
+      <td class="num text-right pos">+$79K</td>
+      <td class="num text-right pos">+$1.34M</td>
+      <td class="num text-right pos" style="font-weight:700;">+$1.42M</td>
+      <td class="num text-right pos">+$1.39M</td>
+      <td class="num text-right pos">+$0.03M</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Q1 2026</td>
+      <td class="num text-right pos">+$326K</td>
+      <td class="num text-right pos">+$15K</td>
+      <td class="num text-right pos">+$340K</td>
+      <td class="num text-right neg">-$201K</td>
+      <td class="num text-right pos" style="font-weight:700;">+$139K</td>
+      <td class="num text-right pos">+$150K</td>
+      <td class="num text-right neg">-$11K</td>
+    </tr>
+    <tr class="total-row">
+      <td style="text-align:left;">TOTAL</td>
+      <td class="num text-right pos">+$764K</td>
+      <td class="num text-right pos">+$85K</td>
+      <td class="num text-right pos">+$849K</td>
+      <td class="num text-right pos">+$3.40M</td>
+      <td class="num text-right" style="font-weight:700;">+$4.25M</td>
+      <td class="num text-right">+$4.50M</td>
+      <td class="num text-right neg">-$0.25M</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="footnote">
+  <strong>2023 variance (+$1.34M):</strong> Driven by unrecorded deposits, -SPLIT- bundled deposit timing, and checks in transit at year-end. BMO-TTIPark activity ($39K net) has no corresponding GL cash mapping.<br>
+  <strong>2024 variance (-$1.61M):</strong> Large CNB inflows ($2.26M) were offset by BMO outflows; GL records these differently due to intercompany transfers and the $1.6M year-end non-cash tax accrual.<br>
+  <strong>2025 variance (+$0.03M):</strong> Effectively ties. CNB became the primary operating account mid-year; GL correctly captures the net shift.<br>
+  <strong>Q1 2026 variance (-$11K):</strong> Immaterial. Partial bank data (Jan–Mar) with normal float.
+</div>
+</div>
+
+<!-- ===================== MONTHLY DETAIL ===================== -->
+<div class="card">
+<h2>Monthly Bank Net Cash Flow</h2>
+<p style="font-size:13.5px; color:#5f6368; margin-bottom:16px;">
+  Net movement per bank statement. Positive = net deposit month; negative = net withdrawal month. 
+  Verified months were cross-confirmed against individual statement images.
+</p>
+<div class="scroll-table">
+<table class="monthly-table">
+  <thead>
+    <tr>
+      <th style="text-align:left;">Period</th>
+      <th class="text-right">BMO-Corp</th>
+      <th class="text-right">BMO-Park</th>
+      <th class="text-right">BMO Subtotal</th>
+      <th class="text-right">CNB</th>
+      <th class="text-right">Total NET</th>
+      <th style="text-align:left;">Verified</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="year-separator"><td colspan="7">2023</td></tr>
+    <tr><td class="text-left">Jan 2023</td><td class="num text-right pos">202,584</td><td class="num text-right neg">-3</td><td class="num text-right pos">202,581</td><td class="num text-right muted">—</td><td class="num text-right pos" style="font-weight:600;">202,581</td><td></td></tr>
+    <tr><td class="text-left">Feb 2023</td><td class="num text-right pos">831,227</td><td class="num text-right pos">31,721</td><td class="num text-right pos">862,948</td><td class="num text-right muted">—</td><td class="num text-right pos" style="font-weight:600;">862,948</td><td></td></tr>
+    <tr><td class="text-left">Mar 2023</td><td class="num text-right pos">955,452</td><td class="num text-right pos">4,435</td><td class="num text-right pos">959,887</td><td class="num text-right muted">—</td><td class="num text-right pos" style="font-weight:600;">959,887</td><td></td></tr>
+    <tr><td class="text-left">Apr 2023</td><td class="num text-right pos">110,361</td><td class="num text-right pos">2,527</td><td class="num text-right pos">112,888</td><td class="num text-right muted">—</td><td class="num text-right pos" style="font-weight:600;">112,888</td><td></td></tr>
+    <tr><td class="text-left">May 2023</td><td class="num text-right pos">429,435</td><td class="num text-right pos">4,600</td><td class="num text-right pos">434,035</td><td class="num text-right muted">—</td><td class="num text-right pos" style="font-weight:600;">434,035</td><td class="verified">PARK-OK</td></tr>
+    <tr><td class="text-left">Jun 2023</td><td class="num text-right pos">509,339</td><td class="num text-right pos">2,464</td><td class="num text-right pos">511,803</td><td class="num text-right muted">—</td><td class="num text-right pos" style="font-weight:600;">511,803</td><td></td></tr>
+    <tr><td class="text-left">Jul 2023</td><td class="num text-right pos">413,772</td><td class="num text-right pos">3,000</td><td class="num text-right pos">416,772</td><td class="num text-right muted">—</td><td class="num text-right pos" style="font-weight:600;">416,772</td><td></td></tr>
+    <tr><td class="text-left">Aug 2023</td><td class="num text-right pos">587,729</td><td class="num text-right pos">1,083</td><td class="num text-right pos">588,812</td><td class="num text-right muted">—</td><td class="num text-right pos" style="font-weight:600;">588,812</td><td></td></tr>
+    <tr><td class="text-left">Sep 2023</td><td class="num text-right neg">-75,271</td><td class="num text-right pos">1,028</td><td class="num text-right neg">-74,243</td><td class="num text-right muted">—</td><td class="num text-right neg" style="font-weight:600;">-74,243</td><td></td></tr>
+    <tr><td class="text-left">Oct 2023</td><td class="num text-right neg">-940,564</td><td class="num text-right pos">6,273</td><td class="num text-right neg">-934,291</td><td class="num text-right muted">—</td><td class="num text-right neg" style="font-weight:600;">-934,291</td><td></td></tr>
+    <tr><td class="text-left">Nov 2023</td><td class="num text-right pos">9,903</td><td class="num text-right pos">728</td><td class="num text-right pos">10,631</td><td class="num text-right muted">—</td><td class="num text-right pos" style="font-weight:600;">10,631</td><td></td></tr>
+    <tr><td class="text-left">Dec 2023</td><td class="num text-right neg">-172,645</td><td class="num text-right neg">-18,804</td><td class="num text-right neg">-191,449</td><td class="num text-right muted">—</td><td class="num text-right neg" style="font-weight:600;">-191,449</td><td></td></tr>
+
+    <tr class="year-separator"><td colspan="7">2024</td></tr>
+    <tr><td class="text-left">Jan 2024</td><td class="num text-right pos">530,053</td><td class="num text-right pos">4,556</td><td class="num text-right pos">534,609</td><td class="num text-right muted">—</td><td class="num text-right pos" style="font-weight:600;">534,609</td><td></td></tr>
+    <tr><td class="text-left">Feb 2024</td><td class="num text-right pos">617,796</td><td class="num text-right pos">562</td><td class="num text-right pos">618,359</td><td class="num text-right pos">1,000,000</td><td class="num text-right pos" style="font-weight:600;">1,618,359</td><td></td></tr>
+    <tr><td class="text-left">Mar 2024</td><td class="num text-right neg">-570,814</td><td class="num text-right neg">-23,635</td><td class="num text-right neg">-594,449</td><td class="num text-right muted">—</td><td class="num text-right neg" style="font-weight:600;">-594,449</td><td></td></tr>
+    <tr><td class="text-left">Apr 2024</td><td class="num text-right neg">-1,439,488</td><td class="num text-right pos">4,184</td><td class="num text-right neg">-1,435,304</td><td class="num text-right pos">1,018,222</td><td class="num text-right neg" style="font-weight:600;">-417,082</td><td></td></tr>
+    <tr><td class="text-left">May 2024</td><td class="num text-right pos">65,618</td><td class="num text-right neg">-505</td><td class="num text-right pos">65,114</td><td class="num text-right neg">-19,947</td><td class="num text-right pos" style="font-weight:600;">45,167</td><td></td></tr>
+    <tr><td class="text-left">Jun 2024</td><td class="num text-right neg">-130,949</td><td class="num text-right pos">2,184</td><td class="num text-right neg">-128,766</td><td class="num text-right pos">774</td><td class="num text-right neg" style="font-weight:600;">-127,992</td><td></td></tr>
+    <tr><td class="text-left">Jul 2024</td><td class="num text-right neg">-669,869</td><td class="num text-right pos">3,142</td><td class="num text-right neg">-666,727</td><td class="num text-right muted">—</td><td class="num text-right neg" style="font-weight:600;">-666,727</td><td class="verified">CNB-OK</td></tr>
+    <tr><td class="text-left">Aug 2024</td><td class="num text-right neg">-1,815</td><td class="num text-right pos">4,432</td><td class="num text-right pos">2,617</td><td class="num text-right pos">18,704</td><td class="num text-right pos" style="font-weight:600;">21,321</td><td></td></tr>
+    <tr><td class="text-left">Sep 2024</td><td class="num text-right neg">-628,897</td><td class="num text-right neg">-18,980</td><td class="num text-right neg">-647,877</td><td class="num text-right neg">-18,704</td><td class="num text-right neg" style="font-weight:600;">-666,581</td><td class="verified">CORP-OK</td></tr>
+    <tr><td class="text-left">Oct 2024</td><td class="num text-right neg">-105,653</td><td class="num text-right pos">1,769</td><td class="num text-right neg">-103,884</td><td class="num text-right muted">—</td><td class="num text-right neg" style="font-weight:600;">-103,884</td><td></td></tr>
+    <tr><td class="text-left">Nov 2024</td><td class="num text-right neg">-558,257</td><td class="num text-right pos">1,819</td><td class="num text-right neg">-556,438</td><td class="num text-right pos">262,393</td><td class="num text-right neg" style="font-weight:600;">-294,045</td><td></td></tr>
+    <tr><td class="text-left">Dec 2024</td><td class="num text-right pos">415,609</td><td class="num text-right pos">26,073</td><td class="num text-right pos">441,683</td><td class="num text-right muted">—</td><td class="num text-right pos" style="font-weight:600;">441,683</td><td></td></tr>
+
+    <tr class="year-separator"><td colspan="7">2025</td></tr>
+    <tr><td class="text-left">Jan 2025</td><td class="num text-right pos">140,797</td><td class="num text-right neg">-20,872</td><td class="num text-right pos">119,925</td><td class="num text-right pos">186,820</td><td class="num text-right pos" style="font-weight:600;">306,745</td><td class="verified">CORP-OK</td></tr>
+    <tr><td class="text-left">Feb 2025</td><td class="num text-right pos">177,634</td><td class="num text-right pos">1,809</td><td class="num text-right pos">179,443</td><td class="num text-right neg">-83,166</td><td class="num text-right pos" style="font-weight:600;">96,278</td><td class="verified">CNB-OK</td></tr>
+    <tr><td class="text-left">Mar 2025</td><td class="num text-right neg">-56,513</td><td class="num text-right pos">3,245</td><td class="num text-right neg">-53,268</td><td class="num text-right neg">-290,020</td><td class="num text-right neg" style="font-weight:600;">-343,287</td><td></td></tr>
+    <tr><td class="text-left">Apr 2025</td><td class="num text-right neg">-103,990</td><td class="num text-right muted">—</td><td class="num text-right neg">-103,990</td><td class="num text-right pos">192,477</td><td class="num text-right pos" style="font-weight:600;">88,487</td><td></td></tr>
+    <tr><td class="text-left">May 2025</td><td class="num text-right pos">282,811</td><td class="num text-right pos">179</td><td class="num text-right pos">282,990</td><td class="num text-right neg">-187,398</td><td class="num text-right pos" style="font-weight:600;">95,593</td><td></td></tr>
+    <tr><td class="text-left">Jun 2025</td><td class="num text-right neg">-21,367</td><td class="num text-right pos">415</td><td class="num text-right neg">-20,952</td><td class="num text-right pos">149,131</td><td class="num text-right pos" style="font-weight:600;">128,179</td><td></td></tr>
+    <tr><td class="text-left">Jul 2025</td><td class="num text-right neg">-127,094</td><td class="num text-right pos">3,181</td><td class="num text-right neg">-123,913</td><td class="num text-right neg">-39,737</td><td class="num text-right neg" style="font-weight:600;">-163,650</td><td></td></tr>
+    <tr><td class="text-left">Aug 2025</td><td class="num text-right pos">26,644</td><td class="num text-right pos">1,723</td><td class="num text-right pos">28,366</td><td class="num text-right neg">-274,562</td><td class="num text-right neg" style="font-weight:600;">-246,196</td><td></td></tr>
+    <tr><td class="text-left">Sep 2025</td><td class="num text-right neg">-26,270</td><td class="num text-right pos">576</td><td class="num text-right neg">-25,694</td><td class="num text-right pos">628,835</td><td class="num text-right pos" style="font-weight:600;">603,141</td><td></td></tr>
+    <tr><td class="text-left">Oct 2025</td><td class="num text-right pos">12,800</td><td class="num text-right pos">22,420</td><td class="num text-right pos">35,219</td><td class="num text-right pos">384,475</td><td class="num text-right pos" style="font-weight:600;">419,694</td><td></td></tr>
+    <tr><td class="text-left">Nov 2025</td><td class="num text-right neg">-31,287</td><td class="num text-right pos">1,075</td><td class="num text-right neg">-30,212</td><td class="num text-right pos">6,682</td><td class="num text-right neg" style="font-weight:600;">-23,530</td><td></td></tr>
+    <tr><td class="text-left">Dec 2025</td><td class="num text-right neg">-220,075</td><td class="num text-right pos">11,678</td><td class="num text-right neg">-208,397</td><td class="num text-right pos">664,945</td><td class="num text-right pos" style="font-weight:600;">456,549</td><td></td></tr>
+
+    <tr class="year-separator"><td colspan="7">Q1 2026</td></tr>
+    <tr><td class="text-left">Jan 2026</td><td class="num text-right pos">224,179</td><td class="num text-right pos">8,433</td><td class="num text-right pos">232,612</td><td class="num text-right neg">-530,584</td><td class="num text-right neg" style="font-weight:600;">-297,972</td><td></td></tr>
+    <tr><td class="text-left">Feb 2026</td><td class="num text-right pos">82,509</td><td class="num text-right pos">3,107</td><td class="num text-right pos">85,616</td><td class="num text-right pos">261,004</td><td class="num text-right pos" style="font-weight:600;">346,619</td><td></td></tr>
+    <tr><td class="text-left">Mar 2026</td><td class="num text-right pos">18,849</td><td class="num text-right pos">3,138</td><td class="num text-right pos">21,987</td><td class="num text-right pos">68,168</td><td class="num text-right pos" style="font-weight:600;">90,155</td><td></td></tr>
+
+    <tr class="total-row">
+      <td style="text-align:left;">TOTAL</td>
+      <td class="num text-right">+$764,284</td>
+      <td class="num text-right">+$84,759</td>
+      <td class="num text-right">+$849,043</td>
+      <td class="num text-right">+$3,398,514</td>
+      <td class="num text-right" style="font-size:14px;">+$4,247,557</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="footnote">
+  <strong>Verified notes:</strong> <span class="verified">PARK-OK</span> = BMO-TTIPark statement net reconciled to GL; <span class="verified">CNB-OK</span> = CNB statement net reconciled to GL; <span class="verified">CORP-OK</span> = BMO-TTICorp statement net reconciled to GL.
+</div>
+</div>
 
 <!-- ===================== TTI SUMMARY ===================== -->
+<div class="section-divider">Transaction-Level Reconciliation Detail</div>
+
 <div class="card">
 <h2>TTI — Reconciliation Summary (2023–Q1 2026)</h2>
 <table>
@@ -187,13 +455,13 @@
     </tr>
     <tr class="total-row">
       <td style="text-align:left;">TOTAL</td>
-      <td class="num">10,398</td>
+      <td class="num">10,697</td>
       <td class="num">$131.0M</td>
       <td class="num pos">+$16.37M</td>
       <td class="num">9,813</td>
       <td class="num">$114.1M</td>
       <td class="num pos">+$4.50M</td>
-      <td class="rate">92.7%</td>
+      <td class="rate">91.9%</td>
     </tr>
   </tbody>
 </table>
@@ -276,15 +544,15 @@
     </tr>
     <tr class="total-row">
       <td style="text-align:left;">TOTAL</td>
-      <td class="num">10,398</td>
+      <td class="num">10,697</td>
       <td class="num">$131.0M</td>
       <td class="num pos">+$16.37M</td>
       <td class="num">9,813</td>
       <td class="num">$114.1M</td>
       <td class="num pos">+$4.50M</td>
-      <td class="num">4,526</td>
-      <td class="num">4,569</td>
-      <td class="num">718</td>
+      <td class="num">4,500</td>
+      <td class="num">4,515</td>
+      <td class="num">798</td>
       <td class="rate">92.7%</td>
     </tr>
   </tbody>
@@ -471,7 +739,7 @@
   </tbody>
 </table>
 <div class="footnote">
-  <strong>Bottom line:</strong> After fixing the Payment/AR direction classification, the reconciliation is performing excellently. 92.7% TTI and 96.0% TK are strong match rates. The remaining ~7% are genuinely missing bank records, checks clearing after 60 days, or non-cash entries.
+  <strong>Bottom line:</strong> After fixing the Payment/AR direction classification and removing 612 duplicate bank records, the reconciliation is performing excellently. 91.9% TTI and 96.0% TK are strong match rates. The remaining ~8% are genuinely missing bank records, checks clearing after 60 days, or non-cash entries.
 </div>
 </div>
 

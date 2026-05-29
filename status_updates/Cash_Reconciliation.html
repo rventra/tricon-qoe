@@ -229,12 +229,12 @@
 <!-- ===================== NET MOVEMENT KPIs ===================== -->
 <div class="card">
 <h2>QoE Summary — Net Cash Movement</h2>
-<div class="success-banner">
-  &#10003; <strong>Total variance: -$3,571 on $4.25M (0.08%)</strong> — Bank statements and GL tie across the full 39-month period.
+<div class="success-banner" style="background:#fff3e0; border-color:#f9ab00; color:#b06000;">
+  <strong>Total variance: -$245K on $4.25M (5.8%)</strong> — Bank statements and GL do <em>not</em> tie. The BMO GL cash account is contaminated by an income account erroneously mapped to it.
 </div>
 <p style="font-size:13.5px; color:#5f6368; margin-bottom:20px;">
   For Quality of Earnings, the critical question is whether <strong>net cash movement per the bank statements</strong> matches <strong>net cash movement per the GL</strong>. 
-  Transaction-level matching is a diligence tool, but <strong>net reconciliation</strong> is what proves the financials. Over 39 months, the two sources agree to within four thousand dollars.
+  The GL BMO "Corporate Account - Other" includes an income account that inflates the reported total. The <strong>actual cash line</strong> per the balance sheet is +$1.23M for BMO (vs +$764K per bank). See the Balance Sheet Proof below.
 </p>
 
 <div class="kpi-row">
@@ -245,13 +245,13 @@
   </div>
   <div class="kpi-box">
     <div class="kpi-label">GL Net (39 mo)</div>
-    <div class="kpi-value pos">+$4.25M</div>
-    <div class="kpi-sub">BMO Corp + CNB Corp accounts</div>
+    <div class="kpi-value pos">+$4.49M</div>
+    <div class="kpi-sub">BMO actual + CNB Corp</div>
   </div>
   <div class="kpi-box">
     <div class="kpi-label">Variance</div>
-    <div class="kpi-value neutral">-$3.6K</div>
-    <div class="kpi-sub">Immaterial (0.08%)</div>
+    <div class="kpi-value neg">-$245K</div>
+    <div class="kpi-sub">Material (5.8%)</div>
   </div>
   <div class="kpi-box">
     <div class="kpi-label">BMO-Park (off-GL)</div>
@@ -265,9 +265,8 @@
   </div>
 </div>
 
-<div class="insight" style="border-left-color: #1a73e8;">
-  <p><strong>What the -$3.6K means:</strong> This is not a reconciliation failure — it is the cumulative effect of normal timing differences across 39 months. 
-  Checks written in December that clear in January, deposits in transit at month-end, and bank fees not yet recorded in the GL all create month-to-month noise that <em>nearly perfectly nets out</em> over time.</p>
+<div class="insight" style="border-left-color: #d93025;">
+  <p><strong>What the -$245K means:</strong> The GL shows $245K more net cash inflow than the bank statements. This is <strong>not</strong> normal timing — it is driven by the BMO GL cash account being contaminated by an income account. The balance sheet confirms the <em>actual</em> BMO cash delta is +$1.23M (from -$792K to +$439K), while the bank shows only +$764K. CNB ties within +$137K (bank +$3.40M vs GL +$3.26M).</p>
 </div>
 </div>
 
@@ -295,10 +294,10 @@
       <td class="num pos">+$39K</td>
       <td class="num muted">$0</td>
       <td class="num pos" style="font-weight:700;">+$2.90M</td>
-      <td class="num pos">+$1.32M</td>
+      <td class="num pos">+$1.56M</td>
       <td class="num muted">$0</td>
-      <td class="num pos" style="font-weight:700;">+$1.32M</td>
-      <td class="num pos">+$1.58M</td>
+      <td class="num pos" style="font-weight:700;">+$1.56M</td>
+      <td class="num pos">+$1.34M</td>
     </tr>
     <tr>
       <td style="text-align:left; font-weight:600;">2024</td>
@@ -339,19 +338,20 @@
       <td class="num">+$85K</td>
       <td class="num">+$3.40M</td>
       <td class="num" style="font-size:14px;">+$4.25M</td>
-      <td class="num">+$989K</td>
+      <td class="num">+$1.23M</td>
       <td class="num">+$3.26M</td>
-      <td class="num" style="font-size:14px;">+$4.25M</td>
-      <td class="num" style="font-size:14px;">-$3.6K</td>
+      <td class="num" style="font-size:14px;">+$4.49M</td>
+      <td class="num" style="font-size:14px;">-$245K</td>
     </tr>
   </tbody>
 </table>
 
 <div class="footnote">
-  <strong>2023 variance (+$1.58M):</strong> Bank shows ~$2.90M net inflow vs GL $1.32M. The gap is driven by deposits recorded in the bank but not yet booked to the GL cash account (revenue deposits, -SPLIT- timing, and year-end float). <strong>Not a miss — a timing difference.</strong><br><br>
+  <strong>2023 variance (+$1.34M):</strong> Bank shows ~$2.90M net inflow vs GL $1.56M. The gap is driven by deposits recorded in the bank but not yet booked to the GL cash account (revenue deposits, -SPLIT- timing, and year-end float). <strong>Not a miss — a timing difference.</strong><br><br>
   <strong>2024 variance (-$1.61M):</strong> Bank shows -$0.21M net while GL shows +$1.40M. The $1.6M year-end non-cash tax journal entry sits in the GL but never hit the bank. Removing that, the two sources are directionally aligned.<br><br>
   <strong>2025 variance (+$36K):</strong> Effectively ties. CNB became the dominant operating account and the GL correctly tracks it.<br><br>
-  <strong>Q1 2026 variance (-$8K):</strong> Immaterial on partial data. Normal float.
+  <strong>Q1 2026 variance (-$8K):</strong> Immaterial on partial data. Normal float.<br><br>
+  <strong style="color:#d93025;">TOTAL variance (-$245K):</strong> The BMO GL cash account is contaminated by an income account erroneously mapped to it. The actual BMO cash delta per the balance sheet is +$1.23M, while the bank shows +$764K — a -$467K difference. CNB partially offsets this (bank +$3.40M vs GL +$3.26M = +$137K). See Balance Sheet Proof below.
 </div>
 </div>
 
@@ -366,17 +366,59 @@
   </div>
   <div style="text-align: center; min-width: 220px;">
     <div style="font-size: 11px; font-weight: 600; color: #9aa0a6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">GL Net Total</div>
-    <div style="font-size: 36px; font-weight: 700; color: #81c995; font-family: 'SF Mono', Consolas, monospace; letter-spacing: -1px;">+$4,251,128</div>
-    <div style="font-size: 12px; color: #9aa0a6; margin-top: 4px;">BMO Corp + CNB Corp accounts</div>
+    <div style="font-size: 36px; font-weight: 700; color: #81c995; font-family: 'SF Mono', Consolas, monospace; letter-spacing: -1px;">+$4,492,705</div>
+    <div style="font-size: 12px; color: #9aa0a6; margin-top: 4px;">BMO actual + CNB Corp accounts</div>
   </div>
   <div style="text-align: center; min-width: 220px;">
     <div style="font-size: 11px; font-weight: 600; color: #9aa0a6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Variance</div>
-    <div style="font-size: 36px; font-weight: 700; color: #f9ab00; font-family: 'SF Mono', Consolas, monospace; letter-spacing: -1px;">-$3,571</div>
-    <div style="font-size: 12px; color: #9aa0a6; margin-top: 4px;">0.08% of total</div>
+    <div style="font-size: 36px; font-weight: 700; color: #f9ab00; font-family: 'SF Mono', Consolas, monospace; letter-spacing: -1px;">-$245,148</div>
+    <div style="font-size: 12px; color: #9aa0a6; margin-top: 4px;">5.8% of total</div>
   </div>
 </div>
 <div style="text-align: center; margin-top: 20px; font-size: 13px; color: #9aa0a6;">
-  &#10003; The bank statements and the GL tie. The $3.6K difference across 39 months is immaterial.
+  The bank statements and GL do <strong style="color:#f9ab00;">not</strong> tie. A -$245K variance is driven by the BMO GL cash account contamination.
+</div>
+</div>
+
+<!-- ===================== BALANCE SHEET PROOF ===================== -->
+<div class="card">
+<h2>Balance Sheet Cash Proof — TTI</h2>
+<p style="font-size:13.5px; color:#5f6368; margin-bottom:16px;">
+  Reconciling cash per the balance sheet (beginning vs ending) proves the <strong>actual</strong> cash movement independent of the GL activity detail. 
+  The BMO "Corporate Account - Other" GL total line is contaminated by an income account — the BS method cuts through that.
+</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Account</th>
+      <th style="text-align:right;">Beginning Balance<br><span style="font-size:10px; font-weight:400;">Dec 31, 2022</span></th>
+      <th style="text-align:right;">Ending Balance<br><span style="font-size:10px; font-weight:400;">Mar 31, 2026</span></th>
+      <th style="text-align:right;">Delta (▲)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left; font-weight:600;">CNB Corp.</td>
+      <td class="num" style="text-align:right;">$0.00</td>
+      <td class="num" style="text-align:right;">$3,261,698.24</td>
+      <td class="num" style="text-align:right; color:#1e8e3e; font-weight:600;">+$3,261,698.24</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">BMO Corporate Account (Actual)</td>
+      <td class="num" style="text-align:right; color:#d93025;">-$792,242.09</td>
+      <td class="num" style="text-align:right;">$438,764.29</td>
+      <td class="num" style="text-align:right; color:#1e8e3e; font-weight:600;">+$1,231,006.38</td>
+    </tr>
+    <tr class="total-row">
+      <td style="text-align:left; font-weight:600;">TOTAL CASH</td>
+      <td class="num" style="text-align:right; font-weight:600;">-$792,242.09</td>
+      <td class="num" style="text-align:right; font-weight:600;">$3,700,462.53</td>
+      <td class="num" style="text-align:right; font-weight:600; color:#81c995;">+$4,492,704.62</td>
+    </tr>
+  </tbody>
+</table>
+<div class="insight" style="border-left-color: #d93025; margin-top:16px;">
+  <p><strong>QoE finding:</strong> The GL "BMO Corporate Account - Other" activity summary incorrectly shows a net change of <strong>-$366,872</strong> (from $1,547,440 to $1,180,568) because an income account is erroneously mapped to it. The <strong>actual cash</strong> delta is <strong>+$1,231,006</strong>. This is a material control weakness — the GL cash account does not reflect true cash movement.</p>
 </div>
 </div>
 
@@ -409,7 +451,7 @@
   </thead>
   <tbody>
     <tr class="year-separator"><td colspan="10">2023</td></tr>
-    <tr><td class="text-left">Jan</td><td class="num pos">202,584</td><td class="num neg">-3</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">202,581</td><td class="num neg">-2,497</td><td class="num muted">—</td><td class="num neg">-2,497</td><td class="num pos">205,078</td><td></td></tr>
+    <tr><td class="text-left">Jan</td><td class="num pos">202,584</td><td class="num neg">-3</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">202,581</td><td class="num pos">239,079</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">239,079</td><td class="num neg">-36,498</td><td></td></tr>
     <tr><td class="text-left">Feb</td><td class="num pos">831,227</td><td class="num pos">31,721</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">862,948</td><td class="num pos">875,835</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">875,835</td><td class="num neg">-12,887</td><td></td></tr>
     <tr><td class="text-left">Mar</td><td class="num pos">955,452</td><td class="num pos">4,435</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">959,887</td><td class="num pos">783,955</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">783,955</td><td class="num pos">175,932</td><td></td></tr>
     <tr><td class="text-left">Apr</td><td class="num pos">110,361</td><td class="num pos">2,527</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">112,888</td><td class="num pos">282,558</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">282,558</td><td class="num neg">-169,670</td><td></td></tr>
@@ -461,10 +503,10 @@
       <td class="num">+$84,759</td>
       <td class="num">+$3,398,514</td>
       <td class="num" style="font-size:13px;">+$4,247,557</td>
-      <td class="num">+$989,430</td>
+      <td class="num">+$1,231,006</td>
       <td class="num">+$3,261,698</td>
-      <td class="num" style="font-size:13px;">+$4,251,128</td>
-      <td class="num" style="font-size:13px;">-$3,571</td>
+      <td class="num" style="font-size:13px;">+$4,492,706</td>
+      <td class="num" style="font-size:13px;">-$245,149</td>
       <td></td>
     </tr>
   </tbody>
@@ -481,8 +523,8 @@
 <div class="card">
 <h2>QoE Observations</h2>
 
-<div class="insight" style="border-left-color: #1e8e3e;">
-  <p><strong>1. The books are materially correct.</strong> Over 39 months, bank net and GL net differ by $3,571 on $4.25M of cash flow — a 0.08% variance. For QoE purposes, this is a clean tie.</p>
+<div class="insight" style="border-left-color: #d93025;">
+  <p><strong>1. The BMO GL cash account is contaminated by an income account.</strong> The GL "BMO Corporate Account - Other" activity summary shows a net change of <strong>-$366,872</strong> (from $1,547,440 to $1,180,568) — but the balance sheet proves the <strong>actual cash</strong> delta is <strong>+$1,231,006</strong> (from -$792,242 to +$438,764). An income account is erroneously mapped to the BMO cash account, causing the GL activity detail to understate true cash movement by $1.6M. This is a <strong>material control weakness</strong>.</p>
 </div>
 
 <div class="insight" style="border-left-color: #f9ab00;">
@@ -493,8 +535,8 @@
   <p><strong>3. 2024 is the noisy year.</strong> Month-to-month variances swing wildly in 2024 (Feb +$1.07M, Dec -$1.52M) because that is when TTI opened the CNB account and began transferring significant balances between BMO and CNB. The GL records these as they are booked; the bank records them as they clear. Over the full year, bank net (-$0.21M) and GL net (+$1.40M) diverge mainly due to the $1.6M non-cash year-end tax accrual.</p>
 </div>
 
-<div class="insight" style="border-left-color: #d93025;">
-  <p><strong>4. 2023 deposit timing explains the +$1.58M variance.</strong> The bank shows $2.90M net inflow while the GL shows only $1.32M. The $1.58M gap is almost entirely deposits that hit the bank but were recorded in the GL via -SPLIT- bundled deposits or as revenue bypassing the cash account. This is a QuickBooks workflow artifact, not missing cash.</p>
+<div class="insight" style="border-left-color: #1e8e3e;">
+  <p><strong>4. CNB ties well.</strong> Bank CNB shows +$3.40M net movement while GL CNB shows +$3.26M — a +$137K difference (4.0%). This is within an acceptable range for timing differences and validates the CNB reconciliation. The problem is isolated to BMO.</p>
 </div>
 </div>
 

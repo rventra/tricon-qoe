@@ -426,7 +426,7 @@
 <h2>Balance Sheet Cash Proof — TTI</h2>
 <p style="font-size:13.5px; color:#5f6368; margin-bottom:16px;">
   Reconciling cash per the bank statements (beginning vs ending balances) proves the <strong>actual</strong> cash movement independent of the GL activity detail.
-  The GL "BMO Corporate Account - Other" is contaminated by an income account — the statement-balance method cuts through that.
+  The GL "BMO Corporate Account - Other" includes Gross Trucking Income, which makes the balance sheet look messy — the statement-balance method cuts through that.
 </p>
 <table>
   <thead>
@@ -465,7 +465,7 @@
   </tbody>
 </table>
 <div class="insight" style="border-left-color: #1e8e3e; margin-top:16px;">
-  <p><strong>QoE finding:</strong> The statement-balance roll-forward of <strong>+$2,878,135</strong> closely matches the activity-based bank total of <strong>+$2,878,994</strong> (difference: $859). This cross-check validates the period activity. The GL "BMO Corporate Account - Other" activity summary incorrectly shows a net change of <strong>-$366,872</strong> because an income account is erroneously mapped to it — the <strong>actual</strong> cash delta per statements is <strong>-$431,550</strong> (BMO Corp -$515,681 + BMO Park +$84,131). This is a material control weakness.</p>
+  <p><strong>QoE finding:</strong> The statement-balance roll-forward of <strong>+$2,878,135</strong> closely matches the activity-based bank total of <strong>+$2,878,994</strong> (difference: $859). This cross-check validates the period activity. The GL "BMO Corporate Account - Other" activity summary shows a net change of <strong>-$366,872</strong> because <strong>Gross Trucking Income</strong> is included in the account — a minor classification issue that makes the balance sheet messy but does not affect actual cash. The <strong>actual</strong> cash delta per statements is <strong>-$431,550</strong> (BMO Corp -$515,681 + BMO Park +$84,131).</p>
 </div>
 </div>
 
@@ -584,7 +584,7 @@
 </div>
 
 <div class="insight" style="border-left-color: #1e8e3e;">
-  <p><strong>4. The BMO GL cash account is contaminated by an income account.</strong> The GL "BMO Corporate Account - Other" activity summary shows a net change of <strong>-$366,872</strong> (from $1,547,440 to $1,180,568) — but the balance sheet proves the <strong>actual cash</strong> delta is <strong>+$1,231,006</strong>. An income account is erroneously mapped to the BMO cash account. This is a <strong>material control weakness</strong> that was controlled for by using the BS actual cash line in the analysis above.</p>
+  <p><strong>4. Gross Trucking Income is included in the BMO cash account.</strong> The GL "BMO Corporate Account - Other" activity summary shows a net change of <strong>-$366,872</strong> (from $1,547,440 to $1,180,568) — but the statement-balance method proves the <strong>actual cash</strong> delta is <strong>-$431,550</strong>. This is a <strong>minor classification issue</strong>: Gross Trucking Income is mapped to the BMO cash account, which makes the balance sheet look messy but does not affect the underlying cash position.</p>
 </div>
 </div>
 

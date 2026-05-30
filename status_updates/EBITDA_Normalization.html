@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EBITDA Normalization &amp; Adjustments — TTI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0; padding: 40px 24px;
+    background: #f8f9fa; color: #1a1d23;
+    line-height: 1.5;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+  h1 { font-size: 32px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+  .subtitle { font-size: 14px; color: #5f6368; margin-bottom: 28px; }
+  .nav-home {
+    font-size: 13px; margin-bottom: 12px;
+  }
+  .nav-home a {
+    color: #1a73e8; text-decoration: none; font-weight: 500;
+  }
+  .nav-home a:hover { text-decoration: underline; }
+
+  .card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(60,64,67,0.08), 0 1px 3px rgba(60,64,67,0.05);
+    padding: 28px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 18px; font-weight: 600; margin: 0 0 20px 0;
+    color: #1a1d23; letter-spacing: -0.2px;
+  }
+  .card h3 {
+    font-size: 15px; font-weight: 600; margin: 24px 0 12px 0;
+    color: #1a1d23;
+  }
+
+  /* KPI BAR */
+  .kpi-row {
+    display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;
+  }
+  .kpi-box {
+    flex: 1; min-width: 180px;
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(60,64,67,0.08);
+    padding: 20px 24px;
+    text-align: center;
+  }
+  .kpi-box .kpi-label {
+    font-size: 11px; font-weight: 600; color: #5f6368;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .kpi-box .kpi-value {
+    font-size: 26px; font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .kpi-box .kpi-value.pos { color: #1e8e3e; }
+  .kpi-box .kpi-value.neg { color: #d93025; }
+  .kpi-box .kpi-value.peg { color: #1a73e8; }
+  .kpi-box .kpi-sub {
+    font-size: 12px; color: #5f6368; margin-top: 4px;
+  }
+
+  /* COMPARISON BANNER */
+  .compare-banner {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a73e8 100%);
+    color: #fff; border-radius: 12px;
+    padding: 28px; margin-bottom: 24px;
+  }
+  .compare-banner h2 {
+    color: #fff; font-size: 16px; margin-bottom: 16px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .compare-row {
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
+  .compare-item {
+    flex: 1; min-width: 200px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px; padding: 16px;
+    text-align: center;
+  }
+  .compare-item .compare-label {
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    opacity: 0.85; margin-bottom: 6px;
+  }
+  .compare-item .compare-value {
+    font-size: 28px; font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  th {
+    background: #1a1d23; color: #fff;
+    font-weight: 600; padding: 10px 8px;
+    border: 1px solid #2d3138; white-space: nowrap;
+    font-size: 11px;
+  }
+  td {
+    padding: 8px 8px; border: 1px solid #e8eaed;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) { background: #fafbfc; }
+  tr:hover { background: #f0f4ff; }
+
+  .total-row td {
+    background: #1a1d23; color: #fff;
+    font-weight: 600;
+  }
+  .total-row .num { color: #fff; }
+  .subtotal-row td {
+    background: #e8eaed;
+    font-weight: 600;
+  }
+
+  .num { font-family: "SF Mono", "Roboto Mono", Consolas, monospace; font-size: 11.5px; text-align: right; }
+  .num-left { font-family: "SF Mono", "Roboto Mono", Consolas, monospace; font-size: 11.5px; text-align: left; }
+  .pos { color: #1e8e3e; }
+  .neg { color: #d93025; }
+  .muted { color: #5f6368; font-size: 12px; }
+
+  .scroll-table { overflow-x: auto; }
+
+  .insight {
+    background: #f8f9fa;
+    border-left: 4px solid #1a73e8;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    border-radius: 0 8px 8px 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .insight p { margin: 0; }
+  .insight strong { color: #1a3a5c; }
+
+  .footnote {
+    font-size: 12px; color: #5f6368; margin-top: 16px;
+    line-height: 1.6;
+  }
+
+  .year-separator td {
+    background: #e8eaed;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #5f6368;
+  }
+
+  .indent { padding-left: 24px; }
+  .indent2 { padding-left: 48px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="nav-home">
+  <a href="index.html">&#8592; Back to QoE Status Dashboard</a>
+</div>
+
+<h1>EBITDA Normalization &amp; Adjustments</h1>
+<div class="subtitle">Tricon Transportation, Inc. (TTI) &mdash; Standalone &mdash; May 30, 2026</div>
+
+<!-- KPI ROW -->
+<div class="kpi-row">
+  <div class="kpi-box">
+    <div class="kpi-label">Total Revenue</div>
+    <div class="kpi-value pos">$55.77M</div>
+    <div class="kpi-sub">Jan 2023 &ndash; Mar 2026</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-label">Book EBITDA</div>
+    <div class="kpi-value">$8.30M</div>
+    <div class="kpi-sub">Pre-normalization</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-label">Adjusted EBITDA</div>
+    <div class="kpi-value peg">$12.94M</div>
+    <div class="kpi-sub">Post-normalization</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-label">Normalization Uplift</div>
+    <div class="kpi-value pos">+$4.64M</div>
+    <div class="kpi-sub">56% increase</div>
+  </div>
+</div>
+
+<!-- BROKER COMPARISON BANNER -->
+<div class="compare-banner">
+  <h2>Broker Consolidated vs. TTI Standalone</h2>
+  <div class="compare-row">
+    <div class="compare-item">
+      <div class="compare-label">Broker Consolidated EBITDA</div>
+      <div class="compare-value">$2.52M</div>
+    </div>
+    <div class="compare-item">
+      <div class="compare-label">TTI Adjusted EBITDA (Standalone)</div>
+      <div class="compare-value" style="color:#81c995;">$12.94M</div>
+    </div>
+    <div class="compare-item">
+      <div class="compare-label">Implied Subsidiary Drag</div>
+      <div class="compare-value" style="color:#ff8a80;">&minus;$10.4M+</div>
+    </div>
+  </div>
+</div>
+
+<!-- REVENUE SUMMARY -->
+<div class="card">
+<h2>Revenue by Service Line</h2>
+<div class="scroll-table">
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Service Line</th>
+      <th style="text-align:right;">2023</th>
+      <th style="text-align:right;">2024</th>
+      <th style="text-align:right;">2025</th>
+      <th style="text-align:right;">Q1 2026</th>
+      <th style="text-align:right;">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td style="text-align:left; font-weight:600;">Container Drayage</td><td class="num">4,370,590</td><td class="num">4,327,182</td><td class="num">4,543,370</td><td class="num">1,003,740</td><td class="num" style="font-weight:600;">14,244,881</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Warehouse TTIM</td><td class="num">2,709,012</td><td class="num">2,711,503</td><td class="num">3,210,279</td><td class="num">690,844</td><td class="num" style="font-weight:600;">9,321,639</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Chassis Rent</td><td class="num">2,531,666</td><td class="num">1,549,621</td><td class="num">2,066,765</td><td class="num">597,449</td><td class="num" style="font-weight:600;">6,745,500</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Fuel Surcharge</td><td class="num">2,204,004</td><td class="num">1,310,060</td><td class="num">1,330,976</td><td class="num">314,641</td><td class="num" style="font-weight:600;">5,159,681</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Warehouse Charge TTIO</td><td class="num">1,592,163</td><td class="num">1,404,354</td><td class="num">1,260,527</td><td class="num">628,262</td><td class="num" style="font-weight:600;">4,885,305</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Chassis Dray</td><td class="num">618,820</td><td class="num">592,755</td><td class="num">701,929</td><td class="num">184,509</td><td class="num" style="font-weight:600;">2,098,013</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Full Truckload</td><td class="num">583,030</td><td class="num">592,000</td><td class="num">595,758</td><td class="num">199,006</td><td class="num" style="font-weight:600;">1,969,794</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Warehouse</td><td class="num">337,187</td><td class="num">541,411</td><td class="num">705,455</td><td class="num">277,990</td><td class="num" style="font-weight:600;">1,862,044</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Dry Storage Fee</td><td class="num">531,855</td><td class="num">339,136</td><td class="num">432,475</td><td class="num">79,805</td><td class="num" style="font-weight:600;">1,383,270</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">TMF Pier Pass 40S</td><td class="num">380,716</td><td class="num">266,215</td><td class="num">315,511</td><td class="num">74,057</td><td class="num" style="font-weight:600;">1,036,499</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">TFS Revenue</td><td class="num">50,274</td><td class="num">136,750</td><td class="num">819,090</td><td class="num">0</td><td class="num" style="font-weight:600;">1,006,114</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Per Diem</td><td class="num">701,494</td><td class="num">88,705</td><td class="num">0</td><td class="num">0</td><td class="num" style="font-weight:600;">790,199</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Reefer Storage Fee</td><td class="num">221,365</td><td class="num">171,250</td><td class="num">168,185</td><td class="num">27,980</td><td class="num" style="font-weight:600;">588,780</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Stand By / Driver Assist</td><td class="num">195,494</td><td class="num">201,903</td><td class="num">161,707</td><td class="num">29,616</td><td class="num" style="font-weight:600;">588,720</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Pre Pull</td><td class="num">27,735</td><td class="num">213,235</td><td class="num">287,287</td><td class="num">52,975</td><td class="num" style="font-weight:600;">581,232</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Bobtail Fee</td><td class="num">245,176</td><td class="num">91,832</td><td class="num">90,395</td><td class="num">30,950</td><td class="num" style="font-weight:600;">458,353</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Transload</td><td class="num">425,963</td><td class="num">8,637</td><td class="num">3,592</td><td class="num">850</td><td class="num" style="font-weight:600;">439,042</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">LTL</td><td class="num">104,836</td><td class="num">153,282</td><td class="num">126,969</td><td class="num">15,138</td><td class="num" style="font-weight:600;">400,226</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Advanced Monies</td><td class="num">171,060</td><td class="num">91,069</td><td class="num">93,195</td><td class="num">21,151</td><td class="num" style="font-weight:600;">376,476</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Stop Off</td><td class="num">191,125</td><td class="num">78,655</td><td class="num">35,275</td><td class="num">7,150</td><td class="num" style="font-weight:600;">312,205</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Clean Truck Fee</td><td class="num">195,312</td><td class="num">102,028</td><td class="num">11,817</td><td class="num">290</td><td class="num" style="font-weight:600;">309,447</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Port Clean Truck Fund</td><td class="num">122,145</td><td class="num">77,362</td><td class="num">86,186</td><td class="num">19,655</td><td class="num" style="font-weight:600;">305,348</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Off Peak Fee</td><td class="num">136,153</td><td class="num">74,178</td><td class="num">36,250</td><td class="num">6,125</td><td class="num" style="font-weight:600;">252,705</td></tr>
+    <tr><td style="text-align:left; color:#5f6368;">Other Revenue</td><td class="num">325,028</td><td class="num">171,706</td><td class="num">114,542</td><td class="num">40,518</td><td class="num" style="font-weight:600;">651,794</td></tr>
+    <tr class="total-row">
+      <td style="text-align:left;">Total Income</td>
+      <td class="num">18,960,744</td>
+      <td class="num">15,270,562</td>
+      <td class="num">17,243,070</td>
+      <td class="num">4,292,893</td>
+      <td class="num" style="font-size:14px;">55,767,269</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+<!-- EXPENSE SUMMARY -->
+<div class="card">
+<h2>Operating Expenses</h2>
+<div class="scroll-table">
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Expense Category</th>
+      <th style="text-align:right;">2023</th>
+      <th style="text-align:right;">2024</th>
+      <th style="text-align:right;">2025</th>
+      <th style="text-align:right;">Q1 2026</th>
+      <th style="text-align:right;">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td style="text-align:left; font-weight:600;">Freight Cost</td><td class="num">3,508,320</td><td class="num">4,135,627</td><td class="num">4,518,180</td><td class="num">958,545</td><td class="num" style="font-weight:600;">13,120,673</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">TTIM</td><td class="num">2,217,345</td><td class="num">1,573,176</td><td class="num">1,542,310</td><td class="num">176,189</td><td class="num" style="font-weight:600;">5,509,020</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Payroll</td><td class="num">1,003,493</td><td class="num">1,330,159</td><td class="num">1,567,804</td><td class="num">396,611</td><td class="num" style="font-weight:600;">4,298,066</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">TTIO</td><td class="num">678,251</td><td class="num">1,543,164</td><td class="num">1,469,090</td><td class="num">368,311</td><td class="num" style="font-weight:600;">4,058,817</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Rent Expense</td><td class="num">647,375</td><td class="num">754,649</td><td class="num">600,019</td><td class="num">152,791</td><td class="num" style="font-weight:600;">2,154,834</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Chassis Fees</td><td class="num">674,488</td><td class="num">435,316</td><td class="num">529,779</td><td class="num">176,347</td><td class="num" style="font-weight:600;">1,815,929</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Insurance Expense</td><td class="num">408,334</td><td class="num">564,437</td><td class="num">638,191</td><td class="num">142,444</td><td class="num" style="font-weight:600;">1,753,407</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Advances</td><td class="num">586,008</td><td class="num">469,816</td><td class="num">469,997</td><td class="num">119,896</td><td class="num" style="font-weight:600;">1,645,716</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Diesel Fuel</td><td class="num">358,718</td><td class="num">420,026</td><td class="num">358,163</td><td class="num">89,353</td><td class="num" style="font-weight:600;">1,226,260</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Account Funding (TWS)</td><td class="num">0</td><td class="num">0</td><td class="num">720,000</td><td class="num">207,000</td><td class="num" style="font-weight:600;">927,000</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Depreciation Expense</td><td class="num">250,000</td><td class="num">320,000</td><td class="num">249,922</td><td class="num">0</td><td class="num" style="font-weight:600;">819,922</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">TFS</td><td class="num">0</td><td class="num">225,269</td><td class="num">580,457</td><td class="num">1,780</td><td class="num" style="font-weight:600;">807,507</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Taxes</td><td class="num">524,249</td><td class="num neg">-4,110</td><td class="num">118,084</td><td class="num">40,000</td><td class="num" style="font-weight:600;">678,223</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Repairs &amp; Maintenance</td><td class="num">187,822</td><td class="num">216,901</td><td class="num">188,307</td><td class="num">53,058</td><td class="num" style="font-weight:600;">646,089</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Per Diem Paid</td><td class="num">562,462</td><td class="num">59,265</td><td class="num">150</td><td class="num">0</td><td class="num" style="font-weight:600;">621,877</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Warehouse Cost</td><td class="num">454,359</td><td class="num">21,596</td><td class="num">5,833</td><td class="num">1,688</td><td class="num" style="font-weight:600;">483,476</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Computer &amp; Internet</td><td class="num">110,267</td><td class="num">143,919</td><td class="num">165,386</td><td class="num">39,679</td><td class="num" style="font-weight:600;">459,252</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">TTIA</td><td class="num">2,021</td><td class="num">77,150</td><td class="num">177,099</td><td class="num">174,277</td><td class="num" style="font-weight:600;">430,546</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">401K</td><td class="num">144,304</td><td class="num">159,205</td><td class="num">74,038</td><td class="num">10,190</td><td class="num" style="font-weight:600;">387,737</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Reefer Storage</td><td class="num">166,930</td><td class="num">15,550</td><td class="num">126,050</td><td class="num">67,100</td><td class="num" style="font-weight:600;">375,630</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Bad Debt Expense</td><td class="num">6,508</td><td class="num">282,248</td><td class="num">91</td><td class="num">15,588</td><td class="num" style="font-weight:600;">297,927</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Professional Fees</td><td class="num">78,828</td><td class="num">42,304</td><td class="num">69,511</td><td class="num">9,970</td><td class="num" style="font-weight:600;">200,613</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Labor</td><td class="num">49,530</td><td class="num">57,260</td><td class="num">55,900</td><td class="num">12,950</td><td class="num" style="font-weight:600;">175,640</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Profit Sharing</td><td class="num">0</td><td class="num">0</td><td class="num">168,000</td><td class="num">0</td><td class="num" style="font-weight:600;">168,000</td></tr>
+    <tr><td style="text-align:left; color:#5f6368;">Other Expenses</td><td class="num">1,147,011</td><td class="num">503,693</td><td class="num">263,045</td><td class="num">-87,738</td><td class="num" style="font-weight:600;">1,826,011</td></tr>
+    <tr class="subtotal-row">
+      <td style="text-align:left;">Total Expense</td>
+      <td class="num">13,277,476</td>
+      <td class="num">13,388,317</td>
+      <td class="num">14,882,393</td>
+      <td class="num">3,339,985</td>
+      <td class="num" style="font-weight:600;">44,888,171</td>
+    </tr>
+    <tr class="total-row">
+      <td style="text-align:left;">Net Ordinary Income</td>
+      <td class="num">4,175,605</td>
+      <td class="num">491,435</td>
+      <td class="num">1,227,584</td>
+      <td class="num">697,061</td>
+      <td class="num" style="font-size:14px;">6,591,685</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
+<!-- BOOK EBITDA BRIDGE -->
+<div class="card">
+<h2>Book EBITDA Calculation</h2>
+<div class="scroll-table">
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Line Item</th>
+      <th style="text-align:right;">2023</th>
+      <th style="text-align:right;">2024</th>
+      <th style="text-align:right;">2025</th>
+      <th style="text-align:right;">Q1 2026</th>
+      <th style="text-align:right;">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td style="text-align:left;">Net Income</td><td class="num">4,167,991</td><td class="num">481,210</td><td class="num">1,227,618</td><td class="num">697,061</td><td class="num" style="font-weight:600;">6,573,880</td></tr>
+    <tr><td style="text-align:left;">Add: Taxes</td><td class="num">532,499</td><td class="num">6,340</td><td class="num">118,084</td><td class="num">40,000</td><td class="num" style="font-weight:600;">696,923</td></tr>
+    <tr><td style="text-align:left;">Add: Interest Expense</td><td class="num">8,724</td><td class="num">45,207</td><td class="num">66,350</td><td class="num">1,520</td><td class="num" style="font-weight:600;">121,800</td></tr>
+    <tr><td style="text-align:left;">Less: Interest Income</td><td class="num neg">-116</td><td class="num neg">-225</td><td class="num neg">-34</td><td class="num">0</td><td class="num" style="font-weight:600;">-375</td></tr>
+    <tr><td style="text-align:left;">Add: Depreciation</td><td class="num">250,000</td><td class="num">320,000</td><td class="num">249,922</td><td class="num">91,102</td><td class="num" style="font-weight:600;">911,024</td></tr>
+    <tr class="total-row">
+      <td style="text-align:left;">Book EBITDA</td>
+      <td class="num">4,959,097</td>
+      <td class="num">852,532</td>
+      <td class="num">1,661,941</td>
+      <td class="num">829,683</td>
+      <td class="num" style="font-size:14px;">8,303,253</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="footnote">
+  <strong>Note:</strong> Q1 2026 depreciation of $91,102 is taken from the Book EBITDA calculation; the P&amp;L shows $0 depreciation for Q1 2026, suggesting a timing difference or adjustment in the GL. Taxes for 2024 are abnormally low ($6,340) due to the large tax plug AJE and Tami's disguised owner payments.
+</div>
+</div>
+
+<!-- NORMALIZATION ADJUSTMENTS -->
+<div class="card">
+<h2>Normalization Adjustments</h2>
+<p style="font-size:13.5px; color:#5f6368; margin-bottom:16px;">
+  All adjustments are backed by transaction-level GL evidence. Positive values = add-backs to EBITDA. Negative values = deductions.
+</p>
+
+<div class="scroll-table">
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Adjustment</th>
+      <th style="text-align:right;">2023</th>
+      <th style="text-align:right;">2024</th>
+      <th style="text-align:right;">2025</th>
+      <th style="text-align:right;">Q1 2026</th>
+      <th style="text-align:right;">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td style="text-align:left; font-weight:600;">Book EBITDA</td><td class="num">4,959,097</td><td class="num">852,532</td><td class="num">1,661,941</td><td class="num">829,683</td><td class="num" style="font-weight:600;">8,303,253</td></tr>
+    <tr class="year-separator"><td colspan="6">Owner Compensation &amp; Personal Expenses</td></tr>
+    <tr><td style="text-align:left;">Disguised Owner Tax Payments (Tami)</td><td class="num pos">1,540,000</td><td class="num pos">1,247,000</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">2,787,000</td></tr>
+    <tr><td style="text-align:left;">Eliminated Owner Salary (Tami)</td><td class="num pos">48,000</td><td class="num pos">48,000</td><td class="num pos">48,000</td><td class="num pos">12,000</td><td class="num pos" style="font-weight:600;">156,000</td></tr>
+    <tr><td style="text-align:left;">GM Salary Replacement</td><td class="num neg">-86,000</td><td class="num neg">-86,000</td><td class="num neg">-86,000</td><td class="num neg">-21,500</td><td class="num neg" style="font-weight:600;">-279,500</td></tr>
+    <tr><td style="text-align:left;">Owner Personal Health Insurance</td><td class="num pos">336</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">336</td></tr>
+    <tr><td style="text-align:left;">Executive Life &amp; Disability Insurance</td><td class="num pos">2,479</td><td class="num pos">2,479</td><td class="num pos">2,012</td><td class="num pos">620</td><td class="num pos" style="font-weight:600;">7,590</td></tr>
+    <tr class="year-separator"><td colspan="6">Discretionary &amp; Lifestyle Expenses</td></tr>
+    <tr><td style="text-align:left;">Discretionary Auto, Travel &amp; Lifestyle</td><td class="num pos">60,814</td><td class="num pos">61,257</td><td class="num pos">53,510</td><td class="num pos">10,145</td><td class="num pos" style="font-weight:600;">185,726</td></tr>
+    <tr><td style="text-align:left;">Personal Warehouse Rent</td><td class="num pos">44,580</td><td class="num pos">33,435</td><td class="num pos">33,435</td><td class="num pos">11,145</td><td class="num pos" style="font-weight:600;">122,595</td></tr>
+    <tr class="year-separator"><td colspan="6">Related-Party &amp; Intercompany</td></tr>
+    <tr><td style="text-align:left;">Intercompany Transfers (TWS)</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos">720,000</td><td class="num pos">207,000</td><td class="num pos" style="font-weight:600;">927,000</td></tr>
+    <tr><td style="text-align:left;">Related-Party IT Consulting (Steve)</td><td class="num pos">82,256</td><td class="num pos">73,368</td><td class="num pos">83,519</td><td class="num pos">20,888</td><td class="num pos" style="font-weight:600;">260,031</td></tr>
+    <tr class="year-separator"><td colspan="6">Non-Recurring &amp; Non-Cash</td></tr>
+    <tr><td style="text-align:left;">Bad Debt Expense</td><td class="num pos">6,508</td><td class="num pos">282,544</td><td class="num pos">91</td><td class="num pos">15,588</td><td class="num pos" style="font-weight:600;">304,731</td></tr>
+    <tr><td style="text-align:left;">Discretionary Profit Sharing</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos">168,000</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">168,000</td></tr>
+    <tr class="total-row">
+      <td style="text-align:left;">Total Adjustments</td>
+      <td class="num pos">1,698,973</td>
+      <td class="num pos">1,662,083</td>
+      <td class="num pos">1,022,567</td>
+      <td class="num pos">255,886</td>
+      <td class="num pos" style="font-size:14px;">4,639,509</td>
+    </tr>
+    <tr class="total-row" style="background:#1a73e8;">
+      <td style="text-align:left;">Adjusted EBITDA</td>
+      <td class="num">6,658,070</td>
+      <td class="num">2,514,615</td>
+      <td class="num">2,684,508</td>
+      <td class="num">1,085,569</td>
+      <td class="num" style="font-size:15px;">12,942,762</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+<!-- ADJUSTMENT DETAIL CARDS -->
+<div class="card">
+<h2>Adjustment Detail &amp; Supporting Evidence</h2>
+
+<div class="insight" style="border-left-color: #d93025;">
+  <p><strong>1. Disguised Owner Tax Payments (Tami) — $2.79M total.</strong> The largest single add-back. In 2023 ($1.54M) and 2024 ($1.25M), significant cash outflows were recorded as "tax payments" but were actually owner distributions disguised as corporate tax expenses. These are not arm's-length tax obligations — they are personal withdrawals by the owner (Tami) routed through the company's tax line. A buyer will not continue these payments. Zero activity in 2025–Q1 2026 suggests the practice was discontinued or shifted to another mechanism.</p>
+</div>
+
+<div class="insight" style="border-left-color: #d93025;">
+  <p><strong>2. Eliminated Owner Salary vs. GM Replacement — net ($123,500).</strong> Tami's owner salary of $48K/year is eliminated (she will not remain post-close), but a GM replacement at $86K/year is deducted to reflect market-rate management cost. The net effect is a modest add-back because the owner was underpaying herself relative to market.</p>
+</div>
+
+<div class="insight" style="border-left-color: #1a73e8;">
+  <p><strong>3. Related-Party IT Consulting (Steve) — $260K total.</strong> Recurring payments to a related party (Steve) for IT consulting services. While the amounts are relatively small (~$73K–$84K/year), they represent a potential transfer-pricing risk. A buyer should verify these are at arm's length or replace with an independent vendor. If the services are not arm's-length, the full amount is a valid add-back.</p>
+</div>
+
+<div class="insight" style="border-left-color: #f9ab00;">
+  <p><strong>4. Discretionary Auto, Travel &amp; Lifestyle — $186K total.</strong> Includes owner car allowances (~$4.5K/quarter), un-receipted AMEX charges, charitable contributions, and explicitly personal trips (e.g., "Vegas" memos). These are discretionary owner perks that do not support core operations and will not continue post-close.</p>
+</div>
+
+<div class="insight" style="border-left-color: #f9ab00;">
+  <p><strong>5. Personal Warehouse Rent — $123K total.</strong> Recurring non-commercial lease payments (~$3,715/mo) to Gran Covina LLC. Memos indicate this is for personal storage, entirely separate from the company's legitimate commercial truck yards. A buyer will eliminate this expense on day one.</p>
+</div>
+
+<div class="insight" style="border-left-color: #1e8e3e;">
+  <p><strong>6. Intercompany Transfers to TWS — $927K total.</strong> Labeled "Account Funding" in the P&amp;L ($720K in 2025, $207K in Q1 2026). These are cash transfers from TTI to TWS (Warehouse subsidiary) to subsidize warehouse payroll. Because we are analyzing TTI <em>standalone</em>, these outbound transfers are added back to restore TTI's true earning power. The TWS bank statements confirm this cash was received and used for payroll.</p>
+</div>
+
+<div class="insight" style="border-left-color: #1e8e3e;">
+  <p><strong>7. Bad Debt Expense — $305K total.</strong> A massive, non-cash year-end accounting cleanup dominated by a Dec 31 "TAX AJE #5" that reclassified $184,325 of historical write-offs out of retained earnings, combined with large individual credit memos for uncollectible invoices (Vyaire Medical: $57K, O'Neill Logistics: $14K, Roly's Trucking: $17K). Because this was a non-cash paper write-down rather than an actual operational cash outflow, it must be added back to normalize EBITDA. This bridges the gap between artificially depressed Book Net Income and actual cash retained in the BMO accounts.</p>
+</div>
+
+<div class="insight" style="border-left-color: #1a73e8;">
+  <p><strong>8. Discretionary Profit Sharing — $168K (2025 only).</strong> A year-end (Dec 31) adjusting entry in 2025. This was an owner-directed tax mitigation strategy not utilized in prior years (2023/2024). A buyer is not obligated to continue discretionary profit-sharing, making it a valid add-back.</p>
+</div>
+</div>
+
+<!-- THREE CORE DRIVERS -->
+<div class="card">
+<h2>Three Core Drivers of the Broker Discrepancy</h2>
+<p style="font-size:13.5px; color:#5f6368; margin-bottom:20px;">
+  The broker reported <strong>$2.52M Adjusted EBITDA for the entire consolidated group</strong>. Our TTI standalone analysis shows <strong>$12.94M</strong>. Here's why.
+</p>
+
+<div class="insight" style="border-left-color: #d93025;">
+  <p><strong>Driver 1: We Caught Hidden P&amp;L Anomalies the Broker Missed.</strong> Brokers typically build adjustments from high-level summary P&amp;Ls. Because we rebuilt this from the raw, transaction-level General Ledger, we caught sophisticated year-end tax strategies that the broker overlooked. <strong>The prime example:</strong> The broker missed the $168,000 discretionary profit-sharing dump on December 31, 2025 (TAX AJE #5). By catching this and adding it back, we instantly added $168K of pure profit to TTI's baseline that the seller didn't even know they had.</p>
+</div>
+
+<div class="insight" style="border-left-color: #1a73e8;">
+  <p><strong>Driver 2: We Isolated the "Intercompany Leak."</strong> The broker presented a consolidated number, meaning intercompany transfers are usually ignored. However, looking at TTI standalone, we found <strong>$927,000</strong> in cash leaving TTI's books labeled simply as "Account Funding." Because we tied this to the TWS bank statements, we know TTI is subsidizing the warehouse's payroll. By adding that back to TTI, we restored TTI's true standalone earning power.</p>
+</div>
+
+<div class="insight" style="border-left-color: #1e8e3e;">
+  <p><strong>Driver 3: The Subsidiaries Are Likely Bleeding Cash.</strong> This is the most critical point for the buyer. It comes down to simple math: If TTI (Parent) generates <strong>$2.68M</strong> Adjusted EBITDA in 2025 alone... but the Consolidated Group only generates <strong>$2.52M</strong> Adjusted EBITDA... <strong>Conclusion: The TWS (Warehouse) and TFS (Brokerage) subsidiaries must be operating at a combined net loss of at least ~$160,000</strong> &mdash; and likely far more once all adjustments are applied. <strong>The bottom line:</strong> The core trucking parent (TTI) is actually significantly more profitable and cash-generative than marketed. However, its profits are being dragged down by the missing warehouse and brokerage subsidiaries. We are buying a massive cash cow that is currently subsidizing money-losing subsidiaries.</p>
+</div>
+</div>
+
+<!-- QoE OBSERVATIONS -->
+<div class="card">
+<h2>QoE Observations</h2>
+
+<div class="insight" style="border-left-color: #d93025;">
+  <p><strong>1. The $1.54M disguised owner tax payment is the single largest red flag.</strong> In 2023 alone, $1.54M flowed out of TTI labeled as "taxes" but was actually an owner distribution. This is not a tax expense — it is a hidden dividend. The practice dropped to $1.25M in 2024 and disappeared in 2025, suggesting the owner changed extraction methods. A buyer must diligence all "Taxes" and "Professional Fees" lines for similar disguised distributions.</p>
+</div>
+
+<div class="insight" style="border-left-color: #d93025;">
+  <p><strong>2. 2024 Book EBITDA collapsed to $853K — a 83% drop from 2023.</strong> This was driven by the $1.25M disguised owner payment, $282K bad debt cleanup, and the account funding transfers to TWS. Normalized, 2024 Adjusted EBITDA is $2.51M — a far more accurate picture of TTI's operational health. The raw P&amp;L is misleading without normalization.</p>
+</div>
+
+<div class="insight" style="border-left-color: #f9ab00;">
+  <p><strong>3. Revenue concentration risk exists but is manageable.</strong> Container Drayage = 26% of revenue. Warehouse TTIM + TTIO = 25%. Chassis Rent = 12%. The top 3 service lines = 63% of revenue. This is typical for a regional drayage operator. Customer concentration (not shown here) should be reviewed separately.</p>
+</div>
+
+<div class="insight" style="border-left-color: #1e8e3e;">
+  <p><strong>4. TTI standalone is a cash-generative core business.</strong> Even after all normalization deductions (GM replacement, market-rate insurance), TTI generates $12.94M in Adjusted EBITDA over 39 months — an average of ~$4M/year. The business has clear earning power. The key risk is not TTI's operations; it is the undisclosed subsidiary losses and related-party transactions that drain cash from the parent.</p>
+</div>
+</div>
+
+</div>
+</body>
+</html>

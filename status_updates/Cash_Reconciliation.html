@@ -346,8 +346,53 @@
   <strong>2024 variance (-$91K):</strong> Bank shows -$301K net while adjusted GL shows -$210K. The $1.6M year-end non-cash tax journal entry (TAX AJE #1) sits in the GL but never hit the bank. Removing it, the two sources are directionally aligned. Feb 2024 CNB was overstated by $500K in prior data; Oct 2024 CNB deposit of +$538K was previously misplaced.<br><br>
   <strong>2025 variance (+$38K):</strong> Effectively ties. CNB became the dominant operating account and the GL correctly tracks it.<br><br>
   <strong>Q1 2026 variance (-$8K):</strong> Immaterial on partial data. Normal float.<br><br>
-  <strong style="color:#1e8e3e;">TOTAL variance (-$5K):</strong> Bank net (+$2.88M) and adjusted GL net (+$2.88M) differ by $4,991 — a 0.17% variance. <strong style="color:#f9ab00;">Caution:</strong> The $1.6M TAX AJE #1 was removed from the GL as non-cash, but its nature is unknown. If it was a phantom deposit, BS cash may be overstated. See Balance Sheet Proof below.<br><br>
-  <strong style="color:#f9ab00;">Separate QoE note — BMO GL contamination:</strong> The GL "BMO Corporate Account - Other" activity summary shows a net change of -$366,872 (from $1,547,440 to $1,180,568) because an income account is erroneously mapped to it. The <em>actual</em> cash delta is +$1,231,006. This is a control weakness but was controlled for by using the BS actual cash line.
+  <strong>Cash Roll-Forward Proof (Bank Statement Balances):</strong> A second way to validate the tie is to compare beginning and ending balances per the bank statements themselves. Beginning balance to ending balance delta should equal net activity over the period.<br><br>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align:left;">Bank &amp; Account</th>
+        <th style="text-align:right;">Period</th>
+        <th style="text-align:right;">Beginning</th>
+        <th style="text-align:right;">Ending</th>
+        <th style="text-align:right;">Net Movement</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:left; font-weight:600;">BMO Checking (TTIPark, #6696)</td>
+        <td class="num">Jan 2023 – Mar 2026</td>
+        <td class="num">$467.00</td>
+        <td class="num">$84,598.13</td>
+        <td class="num pos" style="font-weight:600;">+$84,131.13</td>
+      </tr>
+      <tr>
+        <td style="text-align:left; font-weight:600;">BMO Checking (TTICorp, #2724)</td>
+        <td class="num">Jan 2023 – Mar 2026</td>
+        <td class="num">$1,772,401.74</td>
+        <td class="num">$1,256,721.07</td>
+        <td class="num neg" style="font-weight:600;">-$515,680.67</td>
+      </tr>
+      <tr>
+        <td style="text-align:left; font-weight:600;">City National Bank (#7740)</td>
+        <td class="num">Feb 2024 – Mar 2026</td>
+        <td class="num">$0.00</td>
+        <td class="num">$3,309,684.91</td>
+        <td class="num pos" style="font-weight:600;">+$3,309,684.91</td>
+      </tr>
+      <tr class="total-row">
+        <td style="text-align:left; font-weight:600;">TOTAL</td>
+        <td class="num"></td>
+        <td class="num">$1,772,868.74</td>
+        <td class="num">$4,651,004.11</td>
+        <td class="num" style="font-size:13px;">+$2,878,135.37</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight" style="border-left-color: #1e8e3e; margin-top:16px;">
+    <p><strong>Roll-forward confirms activity.</strong> The statement-balance delta of <strong>+$2,878,135</strong> closely matches the activity-based bank total of <strong>+$2,878,994</strong> (difference: $859). This cross-check validates that period activity is materially correct. <strong style="color:#f9ab00;">Caution:</strong> The $1.6M TAX AJE #1 and -$700K Sep 1–3 withdrawal remain open questions. See Balance Sheet Proof below.</p>
+  </div>
 </div>
 </div>
 
@@ -380,41 +425,47 @@
 <div class="card">
 <h2>Balance Sheet Cash Proof — TTI</h2>
 <p style="font-size:13.5px; color:#5f6368; margin-bottom:16px;">
-  Reconciling cash per the balance sheet (beginning vs ending) proves the <strong>actual</strong> cash movement independent of the GL activity detail. 
-  The BMO "Corporate Account - Other" GL total line is contaminated by an income account — the BS method cuts through that.
+  Reconciling cash per the bank statements (beginning vs ending balances) proves the <strong>actual</strong> cash movement independent of the GL activity detail.
+  The GL "BMO Corporate Account - Other" is contaminated by an income account — the statement-balance method cuts through that.
 </p>
 <table>
   <thead>
     <tr>
       <th style="text-align:left;">Account</th>
-      <th style="text-align:right;">Beginning Balance<br><span style="font-size:10px; font-weight:400;">Dec 31, 2022</span></th>
-      <th style="text-align:right;">Ending Balance<br><span style="font-size:10px; font-weight:400;">Mar 31, 2026</span></th>
+      <th style="text-align:right;">Beginning Balance</th>
+      <th style="text-align:right;">Ending Balance</th>
       <th style="text-align:right;">Delta (▲)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left; font-weight:600;">CNB Corp.</td>
-      <td class="num" style="text-align:right;">$0.00</td>
-      <td class="num" style="text-align:right;">$3,261,698.24</td>
-      <td class="num" style="text-align:right; color:#1e8e3e; font-weight:600;">+$3,261,698.24</td>
+      <td style="text-align:left; font-weight:600;">BMO Checking (TTIPark, #6696)</td>
+      <td class="num" style="text-align:right;">$467.00</td>
+      <td class="num" style="text-align:right;">$84,598.13</td>
+      <td class="num" style="text-align:right; color:#1e8e3e; font-weight:600;">+$84,131.13</td>
     </tr>
     <tr>
-      <td style="text-align:left; font-weight:600;">BMO Corporate Account (Actual)</td>
-      <td class="num" style="text-align:right; color:#d93025;">-$792,242.09</td>
-      <td class="num" style="text-align:right;">$438,764.29</td>
-      <td class="num" style="text-align:right; color:#1e8e3e; font-weight:600;">+$1,231,006.38</td>
+      <td style="text-align:left; font-weight:600;">BMO Checking (TTICorp, #2724)</td>
+      <td class="num" style="text-align:right;">$1,772,401.74</td>
+      <td class="num" style="text-align:right;">$1,256,721.07</td>
+      <td class="num" style="text-align:right; color:#d93025; font-weight:600;">-$515,680.67</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">City National Bank (#7740)</td>
+      <td class="num" style="text-align:right;">$0.00</td>
+      <td class="num" style="text-align:right;">$3,309,684.91</td>
+      <td class="num" style="text-align:right; color:#1e8e3e; font-weight:600;">+$3,309,684.91</td>
     </tr>
     <tr class="total-row">
       <td style="text-align:left; font-weight:600;">TOTAL CASH</td>
-      <td class="num" style="text-align:right; font-weight:600;">-$792,242.09</td>
-      <td class="num" style="text-align:right; font-weight:600;">$3,700,462.53</td>
-      <td class="num" style="text-align:right; font-weight:600; color:#81c995;">+$4,492,704.62</td>
+      <td class="num" style="text-align:right; font-weight:600;">$1,772,868.74</td>
+      <td class="num" style="text-align:right; font-weight:600;">$4,651,004.11</td>
+      <td class="num" style="text-align:right; font-weight:600; color:#81c995;">+$2,878,135.37</td>
     </tr>
   </tbody>
 </table>
-<div class="insight" style="border-left-color: #d93025; margin-top:16px;">
-  <p><strong>QoE finding:</strong> The GL "BMO Corporate Account - Other" activity summary incorrectly shows a net change of <strong>-$366,872</strong> (from $1,547,440 to $1,180,568) because an income account is erroneously mapped to it. The <strong>actual cash</strong> delta is <strong>+$1,231,006</strong>. This is a material control weakness — the GL cash account does not reflect true cash movement.</p>
+<div class="insight" style="border-left-color: #1e8e3e; margin-top:16px;">
+  <p><strong>QoE finding:</strong> The statement-balance roll-forward of <strong>+$2,878,135</strong> closely matches the activity-based bank total of <strong>+$2,878,994</strong> (difference: $859). This cross-check validates the period activity. The GL "BMO Corporate Account - Other" activity summary incorrectly shows a net change of <strong>-$366,872</strong> because an income account is erroneously mapped to it — the <strong>actual</strong> cash delta per statements is <strong>-$431,550</strong> (BMO Corp -$515,681 + BMO Park +$84,131). This is a material control weakness.</p>
 </div>
 </div>
 

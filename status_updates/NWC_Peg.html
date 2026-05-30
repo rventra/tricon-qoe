@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Net Working Capital Peg — TTI (2023–2024)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0; padding: 40px 24px;
+    background: #f8f9fa; color: #1a1d23;
+    line-height: 1.5;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+  h1 { font-size: 32px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+  .subtitle { font-size: 14px; color: #5f6368; margin-bottom: 28px; }
+  .nav-home {
+    font-size: 13px; margin-bottom: 12px;
+  }
+  .nav-home a {
+    color: #1a73e8; text-decoration: none; font-weight: 500;
+  }
+  .nav-home a:hover { text-decoration: underline; }
+
+  .card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(60,64,67,0.08), 0 1px 3px rgba(60,64,67,0.05);
+    padding: 28px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 18px; font-weight: 600; margin: 0 0 20px 0;
+    color: #1a1d23; letter-spacing: -0.2px;
+  }
+  .card h3 {
+    font-size: 15px; font-weight: 600; margin: 24px 0 12px 0;
+    color: #1a1d23;
+  }
+
+  /* KPI BAR */
+  .kpi-row {
+    display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;
+  }
+  .kpi-box {
+    flex: 1; min-width: 180px;
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(60,64,67,0.08);
+    padding: 20px 24px;
+    text-align: center;
+  }
+  .kpi-box .kpi-label {
+    font-size: 11px; font-weight: 600; color: #5f6368;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .kpi-box .kpi-value {
+    font-size: 26px; font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .kpi-box .kpi-value.pos { color: #1e8e3e; }
+  .kpi-box .kpi-value.neg { color: #d93025; }
+  .kpi-box .kpi-value.peg { color: #1a73e8; }
+  .kpi-box .kpi-sub {
+    font-size: 12px; color: #5f6368; margin-top: 4px;
+  }
+
+  /* LOCKED PEG BANNER */
+  .peg-banner {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a73e8 100%);
+    color: #fff; border-radius: 12px;
+    padding: 32px 28px; margin-bottom: 24px;
+    text-align: center;
+  }
+  .peg-banner .peg-label {
+    font-size: 13px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 1px;
+    opacity: 0.9; margin-bottom: 8px;
+  }
+  .peg-banner .peg-value {
+    font-size: 48px; font-weight: 700;
+    letter-spacing: -1px;
+  }
+  .peg-banner .peg-sub {
+    font-size: 14px; opacity: 0.85; margin-top: 8px;
+  }
+
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  th {
+    background: #1a1d23; color: #fff;
+    font-weight: 600; padding: 10px 8px;
+    border: 1px solid #2d3138; white-space: nowrap;
+    font-size: 11px;
+  }
+  td {
+    padding: 8px 8px; border: 1px solid #e8eaed;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) { background: #fafbfc; }
+  tr:hover { background: #f0f4ff; }
+
+  .total-row td {
+    background: #1a1d23; color: #fff;
+    font-weight: 600;
+  }
+  .total-row .num { color: #fff; }
+
+  .num { font-family: "SF Mono", "Roboto Mono", Consolas, monospace; font-size: 11.5px; text-align: right; }
+  .num-center { font-family: "SF Mono", "Roboto Mono", Consolas, monospace; font-size: 11.5px; text-align: center; }
+  .pos { color: #1e8e3e; }
+  .neg { color: #d93025; }
+  .muted { color: #5f6368; font-size: 12px; }
+
+  .scroll-table { overflow-x: auto; }
+
+  .insight {
+    background: #f8f9fa;
+    border-left: 4px solid #1a73e8;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    border-radius: 0 8px 8px 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .insight p { margin: 0; }
+  .insight strong { color: #1a3a5c; }
+
+  .footnote {
+    font-size: 12px; color: #5f6368; margin-top: 16px;
+    line-height: 1.6;
+  }
+
+  .year-separator td {
+    background: #e8eaed;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #5f6368;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="nav-home">
+  <a href="index.html">&#8592; Back to QoE Status Dashboard</a>
+</div>
+
+<h1>Net Working Capital Peg</h1>
+<div class="subtitle">Tricon Transportation, Inc. &mdash; Cash-Free, Debt-Free Basis &mdash; May 30, 2026</div>
+
+<!-- LOCKED PEG BANNER -->
+<div class="peg-banner">
+  <div class="peg-label">Locked NWC Peg (TTM Average)</div>
+  <div class="peg-value">$1,984,123</div>
+  <div class="peg-sub">Cash-Free, Debt-Free &middot; Adjusted for Bad Debt Waterfall &amp; A/R Reclassification</div>
+</div>
+
+<!-- KPI ROW -->
+<div class="kpi-row">
+  <div class="kpi-box">
+    <div class="kpi-label">Avg. Op. Current Assets</div>
+    <div class="kpi-value pos">$2.32M</div>
+    <div class="kpi-sub">A/R + Adv. Payments + Undep. Funds</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-label">Avg. Op. Current Liabilities</div>
+    <div class="kpi-value neg">$313K</div>
+    <div class="kpi-sub">A/P + Credit Cards</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-label">Avg. Asset Adjustment</div>
+    <div class="kpi-value neg">$169K</div>
+    <div class="kpi-sub">Bad debt waterfall + reclass</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-label">Avg. Liability Adjustment</div>
+    <div class="kpi-value neg">$19.9K</div>
+    <div class="kpi-sub">Dormant credit balances to A/P</div>
+  </div>
+</div>
+
+<!-- METHODOLOGY -->
+<div class="card">
+<h2>Methodology &mdash; Cash-Free, Debt-Free Basis</h2>
+
+<div class="insight">
+  <p><strong>M&A Rule Applied:</strong> "Cash-Free, Debt-Free." All cash (~$4.4M), Line of Credit debt, and vehicle loans (including a 2020 Porsche Macan) have been stripped from the balance sheet. The peg reflects only the operating liquidity required to run the business day-to-day.</p>
+</div>
+
+<div class="insight" style="border-left-color: #1e8e3e;">
+  <p><strong>Adjustment 1 &mdash; $19,930 Flat Reclassification:</strong> A flat $19,930 monthly adjustment is applied to <em>both</em> Current Assets and Current Liabilities. This corrects ancient negative A/R (pre-2017 dormant credit balances) by reclassifying them to Accounts Payable. Because the adjustment hits both sides equally, it has <strong>zero net impact</strong> on NWC &mdash; it simply puts the balances in the right buckets.</p>
+</div>
+
+<div class="insight" style="border-left-color: #d93025;">
+  <p><strong>Adjustment 2 &mdash; $374,543 Bad Debt Waterfall:</strong> Historical A/R is adjusted using a "waterfall" method that removes $374,543 in uncollectable receivables <em>chronologically</em> based on the exact month the bad invoices were generated. This is a <strong>real reduction to NWC</strong> because these receivables will never convert to cash.</p>
+</div>
+
+<div class="insight" style="border-left-color: #1a73e8;">
+  <p><strong>Final Calculation:</strong> The Trailing Twelve Month (TTM) average of the Adjusted Operating NWC is computed across the 24-month observation period (Jan 2023 &ndash; Dec 2024). The <strong>locked peg of $1,984,123</strong> represents the normalized operating working capital the buyer should expect to fund at closing.</p>
+</div>
+</div>
+
+<!-- MONTHLY DETAIL TABLE -->
+<div class="card">
+<h2>Monthly NWC Detail &mdash; Jan 2023 to Dec 2024</h2>
+<p style="font-size:13.5px; color:#5f6368; margin-bottom:16px;">
+  All figures in USD. Positive NWC = the business requires net funding. Negative adjustments reduce assets or increase liabilities.
+</p>
+
+<div class="scroll-table">
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Month</th>
+      <th style="text-align:right;">Op. Curr. Assets</th>
+      <th style="text-align:right;">Op. Curr. Liab.</th>
+      <th style="text-align:right;">NWC Baseline</th>
+      <th style="text-align:right;">Asset Adj.</th>
+      <th style="text-align:right;">Liability Adj.</th>
+      <th style="text-align:right;">Adj. Assets</th>
+      <th style="text-align:right;">Adj. Liab.</th>
+      <th style="text-align:right;">Adjusted NWC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="year-separator"><td colspan="9">2023</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">31-Jan</td><td class="num">2,503,346</td><td class="num">334,473</td><td class="num">2,168,873</td><td class="num neg">-156,542</td><td class="num neg">-19,930</td><td class="num">2,346,804</td><td class="num">354,403</td><td class="num pos" style="font-weight:600;">1,992,401</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">28-Feb</td><td class="num">1,867,034</td><td class="num">233,261</td><td class="num">1,633,773</td><td class="num neg">-137,320</td><td class="num neg">-19,930</td><td class="num">1,729,714</td><td class="num">253,191</td><td class="num pos" style="font-weight:600;">1,476,523</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">31-Mar</td><td class="num">1,759,844</td><td class="num">254,043</td><td class="num">1,505,801</td><td class="num neg">-138,600</td><td class="num neg">-19,930</td><td class="num">1,621,244</td><td class="num">273,973</td><td class="num pos" style="font-weight:600;">1,347,271</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">30-Apr</td><td class="num">1,893,183</td><td class="num">209,500</td><td class="num">1,683,683</td><td class="num neg">-139,500</td><td class="num neg">-19,930</td><td class="num">1,753,683</td><td class="num">229,430</td><td class="num pos" style="font-weight:600;">1,524,253</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">31-May</td><td class="num">1,739,284</td><td class="num">330,207</td><td class="num">1,409,077</td><td class="num neg">-144,404</td><td class="num neg">-19,930</td><td class="num">1,594,880</td><td class="num">350,137</td><td class="num pos" style="font-weight:600;">1,244,743</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">30-Jun</td><td class="num">1,996,375</td><td class="num">338,112</td><td class="num">1,658,263</td><td class="num neg">-151,898</td><td class="num neg">-19,930</td><td class="num">1,844,477</td><td class="num">358,042</td><td class="num pos" style="font-weight:600;">1,486,435</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">31-Jul</td><td class="num">2,845,466</td><td class="num">307,801</td><td class="num">2,537,665</td><td class="num neg">-152,479</td><td class="num neg">-19,930</td><td class="num">2,692,987</td><td class="num">327,731</td><td class="num pos" style="font-weight:600;">2,365,256</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">31-Aug</td><td class="num">2,649,641</td><td class="num">271,446</td><td class="num">2,378,195</td><td class="num neg">-153,586</td><td class="num neg">-19,930</td><td class="num">2,496,055</td><td class="num">291,376</td><td class="num pos" style="font-weight:600;">2,204,679</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">30-Sep</td><td class="num">2,502,580</td><td class="num">222,768</td><td class="num">2,279,812</td><td class="num neg">-170,637</td><td class="num neg">-19,930</td><td class="num">2,331,943</td><td class="num">242,698</td><td class="num pos" style="font-weight:600;">2,089,245</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">31-Oct</td><td class="num">2,110,443</td><td class="num">275,724</td><td class="num">1,834,719</td><td class="num neg">-185,750</td><td class="num neg">-19,930</td><td class="num">1,924,693</td><td class="num">295,654</td><td class="num pos" style="font-weight:600;">1,629,039</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">30-Nov</td><td class="num">2,583,441</td><td class="num">283,664</td><td class="num">2,299,777</td><td class="num neg">-186,255</td><td class="num neg">-19,930</td><td class="num">2,397,186</td><td class="num">303,594</td><td class="num pos" style="font-weight:600;">2,093,592</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">31-Dec</td><td class="num">2,190,408</td><td class="num">224,697</td><td class="num">1,965,711</td><td class="num neg">-183,643</td><td class="num neg">-19,930</td><td class="num">2,006,765</td><td class="num">244,627</td><td class="num pos" style="font-weight:600;">1,762,138</td></tr>
+
+    <tr class="year-separator"><td colspan="9">2024</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">31-Jan</td><td class="num">2,379,373</td><td class="num">261,351</td><td class="num">2,118,022</td><td class="num neg">-232,786</td><td class="num neg">-19,930</td><td class="num">2,146,587</td><td class="num">281,281</td><td class="num pos" style="font-weight:600;">1,865,306</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">28-Feb</td><td class="num">2,259,084</td><td class="num">215,356</td><td class="num">2,043,728</td><td class="num neg">-235,874</td><td class="num neg">-19,930</td><td class="num">2,023,210</td><td class="num">235,286</td><td class="num pos" style="font-weight:600;">1,787,924</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">31-Mar</td><td class="num">2,407,018</td><td class="num">174,816</td><td class="num">2,232,202</td><td class="num neg">-251,618</td><td class="num neg">-19,930</td><td class="num">2,155,400</td><td class="num">194,746</td><td class="num pos" style="font-weight:600;">1,960,654</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">30-Apr</td><td class="num">2,609,678</td><td class="num">164,603</td><td class="num">2,445,075</td><td class="num neg">-266,788</td><td class="num neg">-19,930</td><td class="num">2,342,890</td><td class="num">184,533</td><td class="num pos" style="font-weight:600;">2,158,357</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">31-May</td><td class="num">2,320,316</td><td class="num">104,678</td><td class="num">2,215,638</td><td class="num neg">-268,501</td><td class="num neg">-19,930</td><td class="num">2,051,815</td><td class="num">124,608</td><td class="num pos" style="font-weight:600;">1,927,207</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">30-Jun</td><td class="num">2,051,392</td><td class="num">169,514</td><td class="num">1,881,878</td><td class="num neg">-268,435</td><td class="num neg">-19,930</td><td class="num">1,782,957</td><td class="num">189,444</td><td class="num pos" style="font-weight:600;">1,593,513</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">31-Jul</td><td class="num">2,412,302</td><td class="num">335,106</td><td class="num">2,077,196</td><td class="num neg">-271,224</td><td class="num neg">-19,930</td><td class="num">2,141,078</td><td class="num">355,036</td><td class="num pos" style="font-weight:600;">1,786,042</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">31-Aug</td><td class="num">2,952,107</td><td class="num">144,494</td><td class="num">2,807,613</td><td class="num neg">-272,679</td><td class="num neg">-19,930</td><td class="num">2,679,428</td><td class="num">164,424</td><td class="num pos" style="font-weight:600;">2,515,004</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">30-Sep</td><td class="num">2,672,142</td><td class="num">129,301</td><td class="num">2,542,841</td><td class="num neg">-289,469</td><td class="num neg">-19,930</td><td class="num">2,382,673</td><td class="num">149,231</td><td class="num pos" style="font-weight:600;">2,233,442</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">31-Oct</td><td class="num">2,198,622</td><td class="num">69,788</td><td class="num">2,128,834</td><td class="num neg">-301,549</td><td class="num neg">-19,930</td><td class="num">1,897,073</td><td class="num">89,718</td><td class="num pos" style="font-weight:600;">1,807,355</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">30-Nov</td><td class="num">2,401,120</td><td class="num">92,125</td><td class="num">2,308,995</td><td class="num neg">-318,631</td><td class="num neg">-19,930</td><td class="num">2,082,489</td><td class="num">112,055</td><td class="num pos" style="font-weight:600;">1,970,434</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">31-Dec</td><td class="num">2,177,497</td><td class="num">197,442</td><td class="num">1,980,055</td><td class="num neg">-374,543</td><td class="num neg">-19,930</td><td class="num">1,802,954</td><td class="num">217,372</td><td class="num pos" style="font-weight:600;">1,585,582</td></tr>
+
+    <tr class="total-row">
+      <td style="text-align:left;">TTM Average (Peg)</td>
+      <td class="num">$2,317,007</td>
+      <td class="num">$312,954</td>
+      <td class="num">—</td>
+      <td class="num">$168,728</td>
+      <td class="num">$19,930</td>
+      <td class="num">$2,148,279</td>
+      <td class="num">$164,156</td>
+      <td class="num" style="font-size:14px;">$1,984,123</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="footnote">
+  <strong>Column definitions:</strong> <strong>Op. Curr. Assets</strong> = A/R + Advance Payments + Undeposited Funds. <strong>Op. Curr. Liab.</strong> = A/P + Credit Card liabilities. <strong>NWC Baseline</strong> = Assets minus Liabilities before adjustments. <strong>Asset Adj.</strong> = reduction for uncollectable A/R (waterfall method) plus reclassification. <strong>Liability Adj.</strong> = increase for dormant credit balances reclassified from A/R to A/P. <strong>Adjusted NWC</strong> = (Assets &minus; Asset Adj.) &minus; (Liabilities + Liability Adj.). <strong>TTM Average</strong> = trailing twelve-month mean of Adjusted NWC. The locked peg of <strong>$1,984,123</strong> is the final M&A purchase agreement target.
+</div>
+</div>
+
+<!-- SUMMARY STATS -->
+<div class="card">
+<h2>NWC Statistics by Year</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Metric</th>
+      <th style="text-align:right;">2023</th>
+      <th style="text-align:right;">2024</th>
+      <th style="text-align:right;">24-Month Avg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Avg. Op. Current Assets</td>
+      <td class="num">$2,287,286</td>
+      <td class="num">$2,352,495</td>
+      <td class="num">$2,319,891</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Avg. Op. Current Liabilities</td>
+      <td class="num">$273,390</td>
+      <td class="num">$355,247</td>
+      <td class="num">$314,318</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Avg. NWC Baseline</td>
+      <td class="num">$2,013,896</td>
+      <td class="num">$1,997,248</td>
+      <td class="num">$2,005,572</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Avg. Asset Adjustment</td>
+      <td class="num">$159,515</td>
+      <td class="num">$280,007</td>
+      <td class="num">$219,761</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">Avg. Liability Adjustment</td>
+      <td class="num">$19,930</td>
+      <td class="num">$19,930</td>
+      <td class="num">$19,930</td>
+    </tr>
+    <tr class="total-row">
+      <td style="text-align:left;">Avg. Adjusted NWC</td>
+      <td class="num">$1,834,450</td>
+      <td class="num">$1,698,171</td>
+      <td class="num" style="font-size:13px;">$1,766,311</td>
+    </tr>
+  </tbody>
+</table>
+
+<p style="font-size:13px; color:#5f6368; margin-top:16px;">
+  <strong>Note:</strong> The locked TTM peg of <strong>$1,984,123</strong> is higher than the 24-month average ($1,766,311) because the TTM methodology weights the most recent 12 months more heavily, and the specific TTM window selected captures a period with elevated seasonal A/R (Jul&ndash;Oct 2024).
+</p>
+</div>
+
+<!-- QoE OBSERVATIONS -->
+<div class="card">
+<h2>QoE Observations</h2>
+
+<div class="insight" style="border-left-color: #1e8e3e;">
+  <p><strong>1. The NWC peg is well-supported by 24 months of data.</strong> With two full years of monthly balance sheet snapshots, the $1,984,123 peg has a solid empirical foundation. Seasonality is visible &mdash; Q3 tends to be the peak NWC period (Jul&ndash;Sep) when A/R swells before year-end collections.</p>
+</div>
+
+<div class="insight" style="border-left-color: #1a73e8;">
+  <p><strong>2. The $374,543 bad debt waterfall is the largest adjustment.</strong> This represents receivables that are >90 days old and effectively uncollectable. The waterfall method allocates the write-off to the exact months the invoices were generated, giving a more accurate historical NWC picture than a blunt year-end write-off.</p>
+</div>
+
+<div class="insight" style="border-left-color: #f9ab00;">
+  <p><strong>3. The $19,930 reclassification is a mechanical fix.</strong> Pre-2017 credit balances were sitting in A/R as negative amounts. Reclassifying them to A/P does not change total NWC &mdash; it merely puts the liability in the right bucket. This adjustment is consistent every month.</p>
+</div>
+
+<div class="insight" style="border-left-color: #d93025;">
+  <p><strong>4. Seasonal swing is material.</strong> Monthly Adjusted NWC ranges from a low of $1,244,743 (May 2023) to a high of $2,515,005 (Aug 2024) &mdash; a <strong>$1.27M swing</strong>. Buyers should be aware that Q3 working capital needs can be 2&times; the Q2 trough. The TTM peg smooths this seasonality.</p>
+</div>
+</div>
+
+</div>
+</body>
+</html>

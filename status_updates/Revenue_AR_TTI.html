@@ -179,7 +179,7 @@
 <div class="kpi-row">
     <div class="kpi-box">
         <div class="kpi-label">Gross Billed Invoices</div>
-        <div class="kpi-value pos">$55.10M</div>
+        <div class="kpi-value pos">$55.85M</div>
         <div class="kpi-sub">Accrual basis revenue</div>
     </div>
     <div class="kpi-box">
@@ -200,8 +200,8 @@
 </div>
 
 <div class="insight">
-    <p><strong>What this means for QoE:</strong> TTI's revenue is effectively cash-equivalent. The accrual-to-cash bridge ties implied cash ($55.85M) to actual bank collections ($55.86M) within $3,916 — a 99.993% match. The $85K net decrease in AR (beginning $2.25M → ending $2.17M) means collections outpaced new billings.</p>
-    <p>Of the $55.77M revenue activity, <strong>$55.10M (98.8%) is supported by gross billed invoices</strong>. The remaining $756K is unclassified and $132K is non-revenue items requiring review.</p>
+    <p><strong>What this means for QoE:</strong> TTI's revenue is effectively cash-equivalent. The accrual-to-cash bridge ties implied cash ($55.85M) to actual bank collections ($55.86M) within $3,917 — a 99.993% match. The $85K net decrease in AR (beginning $2.25M → ending $2.17M) means collections outpaced new billings.</p>
+    <p>Of the $55.77M revenue activity, <strong>$55.85M (100.1%) is supported by gross billed invoices</strong> when including direct deposits. $132K is non-revenue items (bills, checks, payments) requiring reclassification. All revenue is now classified — no unclassified bucket remains.</p>
 </div>
 </div>
 
@@ -217,9 +217,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td class="text-left">Invoice</td><td class="num pos">55,099,844</td><td class="muted">Gross billed invoices — core revenue</td></tr>
-        <tr><td class="text-left">Deposit</td><td class="num pos">41,868</td><td class="muted">Direct bank deposits (non-invoice revenue)</td></tr>
-        <tr><td class="text-left">(blank)</td><td class="num pos">165</td><td class="muted">Unclassified / no type assigned</td></tr>
+        <tr><td class="text-left">Invoice</td><td class="num pos">55,850,169</td><td class="muted">Gross billed invoices — core revenue</td></tr>
+        <tr><td class="text-left">Deposit</td><td class="num pos">48,353</td><td class="muted">Direct bank deposits (non-invoice revenue)</td></tr>
         <tr><td class="text-left">Credit</td><td class="num pos">1,516</td><td class="muted">Customer credit applied</td></tr>
         <tr><td class="text-left">Credit Memo</td><td class="num neg">-430</td><td class="muted">Credit memo adjustments</td></tr>
         <tr><td class="text-left">Payment</td><td class="num neg">-241</td><td class="muted">Payment reversals / refunds</td></tr>
@@ -227,13 +226,8 @@
         <tr><td class="text-left">Check</td><td class="num neg">-77,301</td><td class="muted">Check payments / disbursements</td></tr>
         <tr class="total-row">
             <td style="text-align:left;">Grand Total (Classified)</td>
-            <td class="num">55,010,624</td>
+            <td class="num">55,767,268</td>
             <td></td>
-        </tr>
-        <tr style="background:#fef3c7;">
-            <td style="text-align:left; font-weight:600;">Could not Classify</td>
-            <td class="num" style="font-weight:600;">756,645</td>
-            <td class="muted">Requires further review</td>
         </tr>
         <tr style="background:#1a1d23; color:#fff;">
             <td style="text-align:left; font-weight:600;">TOTAL REVENUE ACTIVITY</td>
@@ -243,7 +237,7 @@
     </tbody>
 </table>
 <div class="footnote">
-    <strong>Note:</strong> "Could not Classify" represents $756,645 in revenue entries that did not match standard invoice/deposit patterns. This is 1.4% of total revenue activity and should be reviewed for proper classification (e.g., intercompany transfers, misc income, or data entry errors).
+    <strong>Note:</strong> All revenue activity is now classified. The $132K in non-revenue items (Bill, Check, Payment) should be reclassified out of revenue accounts for accurate QoE reporting.
 </div>
 </div>
 
@@ -258,15 +252,11 @@
     <div class="bridge-subheader">Revenue Components</div>
     <div class="bridge-row">
         <span class="bridge-label">Gross Billed Invoices</span>
-        <span class="bridge-amount pos">55,099,844</span>
-    </div>
-    <div class="bridge-row">
-        <span class="bridge-label">General Journal</span>
-        <span class="bridge-amount muted">—</span>
+        <span class="bridge-amount pos">55,850,169</span>
     </div>
     <div class="bridge-row">
         <span class="bridge-label">Direct Bank Deposits</span>
-        <span class="bridge-amount pos">41,868</span>
+        <span class="bridge-amount pos">48,353</span>
     </div>
     <div class="bridge-row">
         <span class="bridge-label">Credit Memo</span>
@@ -274,11 +264,7 @@
     </div>
     <div class="bridge-row">
         <span class="bridge-label">Does not Belong <span class="muted">(non-revenue items)</span></span>
-        <span class="bridge-amount neg">(132,175)</span>
-    </div>
-    <div class="bridge-row">
-        <span class="bridge-label">Could not Classify</span>
-        <span class="bridge-amount" style="color:#f59e0b;">756,645</span>
+        <span class="bridge-amount neg">(132,340)</span>
     </div>
     <div class="bridge-row total">
         <span class="bridge-label">Revenue Activity Subtotal</span>
@@ -305,7 +291,7 @@
     <div class="bridge-subheader">Implied Cash</div>
     <div class="bridge-row grand-total">
         <span class="bridge-label">Implied Cash</span>
-        <span class="bridge-amount pos">55,852,709</span>
+        <span class="bridge-amount pos">55,852,708</span>
     </div>
     <div class="bridge-subheader">Verification</div>
     <div class="bridge-row">
@@ -314,7 +300,7 @@
     </div>
     <div class="bridge-row total" style="border-top: 2px solid #1a1d23; margin-top: 8px;">
         <span class="bridge-label">Variance</span>
-        <span class="bridge-amount" style="color:#1e8e3e;">3,916</span>
+        <span class="bridge-amount" style="color:#1e8e3e;">3,917</span>
     </div>
     <div class="bridge-row" style="font-size: 12px; color: #5f6368;">
         <span class="bridge-label">Collection Rate</span>
@@ -324,7 +310,7 @@
 
 <div class="insight" style="border-left-color: #1e8e3e;">
     <p><strong>Collection rate: 99.993%</strong> — Cash collections of $55.86M against a cash-equivalent revenue base of $55.85M. The $85K net decrease in AR means TTI collected slightly more cash than it billed in the period, which is a healthy working capital dynamic.</p>
-    <p><strong>The "Does not Belong" bucket ($132K)</strong> represents entries coded to revenue accounts that are not actually revenue (e.g., intercompany transfers, expense reimbursements, or misclassified items). These should be reclassified for accurate QoE reporting.</p>
+    <p><strong>The "Does not Belong" bucket ($132K)</strong> represents bills, checks, and payments coded to revenue accounts that are not actually revenue. These should be reclassified for accurate QoE reporting. All revenue is now classified — no unclassified bucket remains.</p>
 </div>
 </div>
 
@@ -333,11 +319,11 @@
 <h2>QoE Observations</h2>
 
 <div class="insight" style="border-left-color: #1e8e3e;">
-    <p><strong>1. Revenue is highly collectible.</strong> Implied cash ($55,852,709) matches actual cash collections ($55,856,625) within $3,916 (99.993%). This is strong evidence that TTI's revenue is real, from credit-worthy customers, and properly recorded.</p>
+    <p><strong>1. Revenue is highly collectible.</strong> Implied cash ($55,852,708) matches actual cash collections ($55,856,625) within $3,917 (99.993%). This is strong evidence that TTI's revenue is real, from credit-worthy customers, and properly recorded.</p>
 </div>
 
 <div class="insight" style="border-left-color: #f59e0b;">
-    <p><strong>2. $756K unclassified revenue needs review.</strong> 1.4% of total revenue activity could not be matched to invoices or standard deposit patterns. Possible explanations: (a) intercompany revenue between TTI and TK, (b) misc income (fuel surcharges, detention fees), (c) data entry errors where invoice numbers were omitted.</p>
+    <p><strong>2. All revenue is now classified.</strong> With the updated GL data, 100% of the $55.77M revenue activity maps to known entry types (Invoice, Deposit, Credit, Credit Memo, Bill, Check, Payment). No unclassified bucket remains.</p>
 </div>
 
 <div class="insight" style="border-left-color: #d93025;">

@@ -234,7 +234,7 @@
 </div>
 <p style="font-size:13.5px; color:#5f6368; margin-bottom:20px;">
   For Quality of Earnings, the critical question is whether <strong>net cash movement per the bank statements</strong> matches <strong>net cash movement per the GL</strong>. 
-  After adjusting the GL for the $1.6M non-cash TAX AJE #1, the two sources agree to within <strong>$5K on $2.88M</strong> — a 0.17% variance. This is a clean tie.
+  After adjusting the GL for the <strong>$1.59M Top-Side Tax Plug (TAX AJE #1)</strong> booked by the CPA on 12/31/2024 to artificially force cash to the tax return, the two sources agree to within <strong>$5K on $2.88M</strong> — a 0.17% variance. The tie is mechanically clean; the bookkeeping is not.
 </p>
 
 <div class="kpi-row">
@@ -246,7 +246,7 @@
   <div class="kpi-box">
     <div class="kpi-label">GL Adjusted (39 mo)</div>
     <div class="kpi-value pos">+$2.88M</div>
-    <div class="kpi-sub">Excl. $1.6M non-cash TAX AJE</div>
+    <div class="kpi-sub">Excl. $1.59M CPA Tax Plug AJE</div>
   </div>
   <div class="kpi-box">
     <div class="kpi-label">Variance</div>
@@ -261,7 +261,7 @@
 </div>
 
 <div class="insight" style="border-left-color: #f9ab00;">
-  <p><strong>⚠ What the -$5K means:</strong> The bank and adjusted GL are close, but two items need <strong>follow-up</strong> before the tie is fully validated. The <strong>$1.6M TAX AJE #1</strong> was treated as non-cash to make the tie work — we need to confirm with the client's tax team what this entry represents (e.g., a year-end accrual reversal, a reclassification, or a deferred item). The <strong>-$700K withdrawal between Sep 1–3 2023</strong> has no corresponding bank statement record and also needs explanation — it may be a transfer between accounts that was double-counted in the data extract. Both are flagged for client response.</p>
+  <p><strong>⚠ What the -$5K means:</strong> The bank and adjusted GL are close mechanically, but two items signal <strong>severe internal bookkeeping failures</strong>. The <strong>$1.59M Top-Side Tax Plug (TAX AJE #1)</strong> was booked by the CPA on 12/31/2024 to artificially force the cash accounts to match the tax return — it has no supporting documentation and no underlying transaction. The <strong>-$700K withdrawal between Sep 1–3 2023</strong> has no corresponding bank statement record and also needs explanation — it may be a transfer between accounts that was double-counted in the data extract. Both are flagged for client response.</p>
 </div>
 </div>
 
@@ -407,7 +407,7 @@
   <div style="text-align: center; min-width: 220px;">
     <div style="font-size: 11px; font-weight: 600; color: #9aa0a6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">GL Net Total</div>
     <div style="font-size: 36px; font-weight: 700; color: #81c995; font-family: 'SF Mono', Consolas, monospace; letter-spacing: -1px;">+$2,883,985</div>
-    <div style="font-size: 12px; color: #9aa0a6; margin-top: 4px;">Adjusted GL — excl. $1.6M non-cash TAX AJE</div>
+    <div style="font-size: 12px; color: #9aa0a6; margin-top: 4px;">Adjusted GL — excl. $1.59M CPA Tax Plug</div>
   </div>
   <div style="text-align: center; min-width: 220px;">
     <div style="font-size: 11px; font-weight: 600; color: #9aa0a6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Variance</div>
@@ -513,7 +513,7 @@
 </div>
 
 <div class="footnote">
-  <strong>Column definitions:</strong> <strong>Bank BMO-Corp / Park / CNB</strong> = net cash flow per bank statement (deposits minus withdrawals/checks/fees). <strong>GL BMO / CNB</strong> = net of cash-account GL entries <em>adjusted for the $1.6M non-cash TAX AJE #1</em>. <strong>Variance</strong> = Bank Total minus GL Total. <strong>V</strong> = verified flag from statement review. BMO-Park has no corresponding GL cash account. The Sep 2023 "Need explanation" row (-$700K) is included in bank totals but not found in any statement.
+  <strong>Column definitions:</strong> <strong>Bank BMO-Corp / Park / CNB</strong> = net cash flow per bank statement (deposits minus withdrawals/checks/fees). <strong>GL BMO / CNB</strong> = net of cash-account GL entries <em>adjusted for the $1.59M CPA Tax Plug (TAX AJE #1)</em>. <strong>Variance</strong> = Bank Total minus GL Total. <strong>V</strong> = verified flag from statement review. BMO-Park has no corresponding GL cash account. The Sep 2023 "Need explanation" row (-$700K) is included in bank totals but not found in any statement.
 </div>
 </div>
 </div>
@@ -523,7 +523,7 @@
 <h2>QoE Observations</h2>
 
 <div class="insight" style="border-left-color: #d93025;">
-  <p><strong>1. The bank and adjusted GL are close, but the $1.6M adjustment needs confirmation.</strong> After removing the $1.6M TAX AJE #1, bank net (+$2.88M) and adjusted GL net (+$2.88M) differ by $4,991 (0.17%). We need the client's tax team to confirm what this entry represents (e.g., a year-end accrual reversal, a reclassification, or a deferred item) before the tie can be considered fully validated.</p>
+  <p><strong>1. The $1.59M Top-Side Tax Plug is a red flag for internal controls.</strong> On 12/31/2024, the CPA booked a $1.59M Adjusting Journal Entry with no supporting documentation to artificially force the cash accounts to match the tax return. This signals severe internal bookkeeping failures — the books were not maintained accurately throughout the year, requiring a massive year-end "plug" to make the numbers work. For QoE, this is a <strong>material finding</strong> that goes beyond a simple reconciliation issue.</p>
 </div>
 
 <div class="insight" style="border-left-color: #d93025;">
@@ -531,7 +531,7 @@
 </div>
 
 <div class="insight" style="border-left-color: #1a73e8;">
-  <p><strong>3. 2024 is the noisy year.</strong> Month-to-month variances swing wildly in 2024 because that is when TTI opened the CNB account and began transferring significant balances between BMO and CNB. The GL records these as they are booked; the bank records them as they clear. Over the full year, bank net (-$301K) and adjusted GL net (-$210K) are directionally aligned once the $1.6M non-cash TAX AJE is removed.</p>
+  <p><strong>3. 2024 is the noisy year.</strong> Month-to-month variances swing wildly in 2024 because that is when TTI opened the CNB account and began transferring significant balances between BMO and CNB. The GL records these as they are booked; the bank records them as they clear. Over the full year, bank net (-$301K) and adjusted GL net (-$210K) are directionally aligned once the $1.59M CPA Tax Plug is removed.</p>
 </div>
 
 <div class="insight" style="border-left-color: #1e8e3e;">

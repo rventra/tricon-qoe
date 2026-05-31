@@ -128,6 +128,32 @@
 
   .scroll-table { overflow-x: auto; }
 
+  /* ACCORDION */
+  .accordion-card { padding: 0; overflow: hidden; }
+  .accordion-toggle {
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; padding: 28px 28px 20px 28px; margin: 0;
+    font-size: 18px; font-weight: 600; color: #1a1d23; letter-spacing: -0.2px;
+  }
+  .accordion-toggle:hover { opacity: 0.8; }
+  .accordion-icon {
+    font-size: 14px; color: #5f6368;
+    transition: transform 0.2s ease;
+    margin-left: 12px;
+  }
+  .accordion-content {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 28px;
+  }
+  .accordion-card.open .accordion-content {
+    max-height: 5000px;
+    padding: 0 28px 28px 28px;
+  }
+  .accordion-card.open .accordion-icon {
+    transform: rotate(90deg);
+  }
+
   .insight {
     background: #f8f9fa;
     border-left: 4px solid #1a73e8;
@@ -167,14 +193,14 @@
 </div>
 
 <h1>EBITDA Normalization &amp; Adjustments</h1>
-<div class="subtitle">Tricon Transportation, Inc. (TTI) &mdash; Standalone &mdash; May 30, 2026</div>
+<div class="subtitle">Tricon Transportation, Inc. (TTI) &mdash; Standalone &mdash; Jan 2023 &ndash; Mar 2026</div>
 
 <!-- KPI ROW -->
 <div class="kpi-row">
   <div class="kpi-box">
     <div class="kpi-label">Total Revenue</div>
     <div class="kpi-value pos">$55.77M</div>
-    <div class="kpi-sub">Jan 2023 &ndash; Mar 2026</div>
+    <div class="kpi-sub">Same period as EBITDA below</div>
   </div>
   <div class="kpi-box">
     <div class="kpi-label">Book EBITDA</div>
@@ -216,8 +242,12 @@
 </div>
 
 <!-- REVENUE SUMMARY -->
-<div class="card">
-<h2>Revenue by Service Line</h2>
+<div class="card accordion-card">
+<h2 class="accordion-toggle" onclick="toggleAccordion(this)">
+  <span>Revenue by Service Line</span>
+  <span class="accordion-icon">&#9656;</span>
+</h2>
+<div class="accordion-content">
 <div class="scroll-table">
 <table>
   <thead>
@@ -267,10 +297,15 @@
 </table>
 </div>
 </div>
+</div>
 
 <!-- EXPENSE SUMMARY -->
-<div class="card">
-<h2>Operating Expenses</h2>
+<div class="card accordion-card">
+<h2 class="accordion-toggle" onclick="toggleAccordion(this)">
+  <span>Operating Expenses</span>
+  <span class="accordion-icon">&#9656;</span>
+</h2>
+<div class="accordion-content">
 <div class="scroll-table">
 <table>
   <thead>
@@ -329,7 +364,7 @@
 </table>
 </div>
 </div>
-
+</div>
 
 <!-- BOOK EBITDA BRIDGE -->
 <div class="card">
@@ -370,8 +405,12 @@
 </div>
 
 <!-- NORMALIZATION ADJUSTMENTS -->
-<div class="card">
-<h2>Normalization Adjustments</h2>
+<div class="card accordion-card">
+<h2 class="accordion-toggle" onclick="toggleAccordion(this)">
+  <span>Normalization Adjustments</span>
+  <span class="accordion-icon">&#9656;</span>
+</h2>
+<div class="accordion-content">
 <p style="font-size:13.5px; color:#5f6368; margin-bottom:16px;">
   All adjustments are backed by transaction-level GL evidence. Positive values = add-backs to EBITDA. Negative values = deductions.
 </p>
@@ -425,6 +464,7 @@
 </table>
 </div>
 </div>
+</div>
 
 <!-- ADJUSTMENT DETAIL CARDS -->
 <div class="card">
@@ -464,8 +504,12 @@
 </div>
 
 <!-- YEAR-BY-YEAR BROKER COMPARISON -->
-<div class="card">
-<h2>Year-by-Year: Broker vs. TTI Standalone</h2>
+<div class="card accordion-card open">
+<h2 class="accordion-toggle" onclick="toggleAccordion(this)">
+  <span>Year-by-Year: Broker vs. TTI Standalone</span>
+  <span class="accordion-icon">&#9656;</span>
+</h2>
+<div class="accordion-content">
 <div class="scroll-table">
 <table>
   <thead>
@@ -498,6 +542,7 @@
 
 <div class="footnote">
   <strong>Note:</strong> The broker reported <strong>$2.52M</strong> for the <em>entire consolidated group</em> in 2025. Our TTI <em>standalone</em> analysis shows <strong>$2.68M</strong>. The $164K difference (6.5%) is well within the normal range of reconciliation differences and is primarily attributable to our standalone treatment of intercompany transfers vs. the broker's consolidated netting. Without full subsidiary P&amp;Ls, no conclusion can be drawn about subsidiary profitability.
+</div>
 </div>
 </div>
 
@@ -543,5 +588,11 @@
 </div>
 
 </div>
+<script>
+function toggleAccordion(el) {
+  el.closest('.accordion-card').classList.toggle('open');
+}
+</script>
+
 </body>
 </html>

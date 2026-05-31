@@ -64,6 +64,8 @@ status_updates/
 ├── Revenue_AR_TTI.html             # Revenue & AR bridge
 ├── Payroll_Register_Verification.html  # Payroll three-way tie
 ├── Credit_Card_Reconciliation.html # CC reconciliation
+├── NWC_Peg.html                    # Net Working Capital Peg (NEW)
+├── EBITDA_Normalization.html       # EBITDA normalization (NEW)
 └── (other HTML files may exist)
 ```
 
@@ -71,7 +73,7 @@ status_updates/
 - **Purpose:** Executive summary of all QoE workstreams
 - **Style:** Simple table-based layout with badge statuses
 - **Badges:** `badge-complete` (green), `badge-almost` (blue), `badge-progress` (yellow), `badge-hold` (gray)
-- **Status pills:** In Progress / Not Started / Complete counts
+- **Status pills:** In Progress / Not Started / Complete / Almost Complete counts
 - **Links to:** All sub-pages via relative URLs
 
 ### `Cash_Reconciliation.html` — Cash Reconciliation
@@ -81,39 +83,34 @@ status_updates/
   2. Yearly Bank vs GL table (2023–Q1 2026)
   3. Cash Roll-Forward Proof (beginning/ending balances per bank statement)
   4. Grand Total card (dark background)
-  5. Balance Sheet Cash Proof (statement-balance method)
-  6. Monthly accordion — TTI (click to expand)
-  7. QoE Observations (4 observations)
-  8. TK — Bank Net vs GL Net (yearly summary only)
+  5. Monthly accordion — TTI (click to expand)
+  6. QoE Observations (4 observations)
+  7. TK — Bank Net vs GL Net (yearly summary + monthly detail table)
+  8. TK GL Cash Detail (checks vs deposits)
   9. TWS Warehouse — Net Activity by Year + monthly accordion
   10. Bank Statement Coverage matrix
   11. Matching Criteria
 - **Key numbers:**
   - TTI Bank 39-mo: **+$2,878,994**
   - TTI GL Adjusted: **+$2,883,985**
-  - Variance: **-$4,991 (0.17%)**
+  - TTI Variance: **-$4,991 (0.17%)**
   - Unexplained: **-$700K** (Sep 1–3 2023 bank switchover)
-  - TAX AJE #1: **$1.6M** — treated as non-cash, needs tax team confirmation
-  - TK Q1 2026: Bank -$3,336 vs GL -$3,423 = **$87 variance**
+  - **TAX AJE #1: $1.59M Top-Side Tax Plug** — CPA booked on 12/31/2024 with no supporting docs to artificially force cash to match tax return. Signals severe internal bookkeeping failures. **Material internal control weakness.**
+  - TK Bank: All 39 months received (Jan 2023–Mar 2026)
+  - TK 2023 Bank Net: **-$5,327** | GL Net: **-$6,294** | Var: **+$967**
+  - TK 2024 Bank Net: **+$19,813** | GL Net: **-$46,239** | Var: **+$66,052**
+  - TK 2025 Bank Net: **+$13,647** | GL Net: **+$78,638** | Var: **-$64,991**
+  - TK Q1 2026: Bank **-$3,336** vs GL **-$3,423** = **$87 variance**
+  - TK Total Bank: **+$24,797** | GL: **+$22,682** | Var: **+$2,115**
 
 ### `Revenue_AR_TTI.html` — Revenue & AR
 - **Status:** Almost Complete
-- **Sections:**
-  1. QoE Summary KPIs (Gross Billed, Cash Collections, Collection Rate, Net AR Change)
-  2. Revenue by GL Entry Type table
-  3. Accrual-to-Cash Bridge
-  4. QoE Observations (4 observations)
-  5. AR Aging — TTI (Current, 1-30, 31-60, 61-90, >90)
-  6. AR by Customer — >90 Days Detail (year-based grouping)
-  7. Data Sources
 - **Key numbers:**
   - Gross Billed Invoices: **$55.85M**
   - Cash Collections: **$55.86M**
   - Collection Rate: **99.993%**
-  - Implied Cash: **$55,852,708**
-  - Variance: **$3,917**
   - Ending AR: **$2,165,993**
-  - >90 Days: **$374,543** (2025: $201K, 2024: $78K, 2023: $76K)
+  - >90 Days: **$374,543**
   - Dormant credit reclass to AP: **($19,930)**
   - All revenue now classified — no unclassified bucket
 
@@ -128,6 +125,54 @@ status_updates/
 ### `Payroll_Register_Verification.html` — Payroll
 - **Status:** Almost Complete
 - **Covers:** TTI and TK three-way tie (PDF registers → GL Expense → GL Cash)
+
+### `NWC_Peg.html` — Net Working Capital Peg (NEW)
+- **Status:** **COMPLETE**
+- **Locked Peg:** **$1,984,123** (TTM average, cash-free debt-free basis)
+- **Observation period:** 24 months (Jan 2023 – Dec 2024)
+- **Methodology:**
+  - Operating Current Assets = A/R + Advance Payments + Undeposited Funds
+  - Operating Current Liabilities = A/P + Credit Card liabilities
+  - **Adjustment 1:** $19,930 flat monthly reclassification (ancient negative A/R → A/P)
+  - **Adjustment 2:** $374,543 bad debt waterfall (removed chronologically by invoice vintage)
+- **Key stats:**
+  - Avg Op. Current Assets: **$2.32M**
+  - Avg Op. Current Liabilities: **$313K**
+  - Avg Asset Adjustment: **$169K**
+  - Avg Liability Adjustment: **$19.9K**
+- **Related-party flag:** $99,682 TK Loan Receivable discovered and stripped from NWC
+- **Monthly detail table:** All 24 months with Beginning/Ending/Net Delta
+
+### `EBITDA_Normalization.html` — EBITDA Normalization & Adjustments (NEW)
+- **Status:** **COMPLETE**
+- **TTI Standalone only** (not consolidated)
+- **Book EBITDA:** **$8.30M** (39 months)
+- **Total Adjustments:** **+$4.64M**
+- **Adjusted EBITDA:** **$12.94M** (39 months total)
+- **2025 figures:**
+  - TTI Book EBITDA: **$1,661,941**
+  - TTI Adjusted EBITDA: **$2,684,508**
+  - Broker Consolidated (all entities): **$2,520,000**
+  - **Variance: +$164,508 (6.5%)** — directionally aligned
+- **Normalization adjustments (by category):**
+
+| Category | Adjustment | 2023 | 2024 | 2025 | Q1 2026 | Total |
+|---|---|---|---|---|---|---|
+| Owner Comp | Disguised Owner Tax Payments (Tami) | $1,540,000 | $1,247,000 | — | — | $2,787,000 |
+| Owner Comp | Eliminated Owner Salary (Tami) | $48,000 | $48,000 | $48,000 | $12,000 | $156,000 |
+| Owner Comp | GM Salary Replacement | ($86,000) | ($86,000) | ($86,000) | ($21,500) | ($279,500) |
+| Owner Comp | Owner Personal Health Insurance | $336 | — | — | — | $336 |
+| Owner Comp | Executive Life & Disability | $2,479 | $2,479 | $2,012 | $620 | $7,590 |
+| Discretionary | Auto, Travel & Lifestyle | $60,814 | $61,257 | $53,510 | $10,145 | $185,726 |
+| Discretionary | Personal Warehouse Rent | $44,580 | $33,435 | $33,435 | $11,145 | $122,595 |
+| Related-Party | Intercompany Transfers (TWS) | — | — | $720,000 | $207,000 | $927,000 |
+| Related-Party | IT Consulting (Steve) | $82,256 | $73,368 | $83,519 | $20,888 | $260,031 |
+| Non-Recurring | Bad Debt Expense | $6,508 | $282,544 | $91 | $15,588 | $304,731 |
+| Non-Recurring | Discretionary Profit Sharing | — | — | $168,000 | — | $168,000 |
+| | **Total Adjustments** | **$1,698,973** | **$1,662,083** | **$1,022,567** | **$255,886** | **$4,639,509** |
+| | **Adjusted EBITDA** | **$6,658,070** | **$2,514,615** | **$2,684,508** | **$1,085,569** | **$12,942,762** |
+
+- **Broker comparison framing:** Directionally aligned. TTI standalone ($2.68M) and broker consolidated ($2.52M) for 2025 are in the same ballpark. The $164K difference is attributable to consolidated vs. standalone treatment of intercompany transfers and transaction-level vs. summary-level review.
 
 ---
 
@@ -163,21 +208,21 @@ Invoke-WebRequest -Uri "https://master.d2ucc03atd4qn9.amplifyapp.com/status_upda
 | Workstream | Status | Comment |
 |---|---|---|
 | Revenue Verification & AR Tie-Out | Almost Complete | $55.77M revenue, 99.993% collection, all revenue classified |
-| Cash Reconciliation (GL ↔ Bank) | **Complete** | TTI tied 0.17%. TK Q1 2026 ties to $87. TWS off-GL flagged. |
+| Cash Reconciliation (GL ↔ Bank) | **Complete** | TTI tied 0.17%. TK all statements received, Q1 2026 ties to $87. TWS off-GL flagged. $1.59M Top-Side Tax Plug flagged as material internal control weakness. |
 | Subcontracted Services & Intercompany | In Progress | 2023 ties perfectly. 2024 gap -$65,797. 2025 gap +$89,748. |
-| EBITDA Normalization | Not Started | Will start after financials loaded |
+| EBITDA Normalization | **Complete** | $12.94M Adjusted EBITDA (39 mo). $2.68M for 2025 vs broker $2.52M consolidated. Directionally aligned. |
 | Vendor Payments & Freight Cost | Not Started | Blocked on correct TTI GL file |
 | Credit Card Statement to GL | **Complete** | 54 AMEX statements parsed. 2023 missing, immaterial. |
 | Customer Concentration | Not Started | Needs complete revenue by customer |
 | Payroll Register Verification | Almost Complete | TTI and TK clean. TWS pending. |
 | Dispatch Logs / TMS | Not Started | TMS data not received |
 | Lease & Financing | Not Started | QBX received, ready to commence |
-| Working Capital Analysis | **In Progress** | AR aging complete, EBITDA impact analysis in progress |
+| Working Capital Analysis & NWC Peg | **Complete** | Locked peg $1,984,123. $374K bad debt waterfall + $19.9K reclassification. $99.7K TK Loan Receivable flagged. |
 | Tax Exposure & Compliance | Not Started | QBX received, ready to commence |
 | Tax Returns Tie-Out | In Progress | 2023/2024 returns received. 2025 pending. |
 | Segment / Entity Consolidation | Not Started | QBX received, ready to commence |
 
-**Summary pills:** 3 In Progress / 8 Not Started / 4 Complete / 14 Total
+**Summary pills:** 2 In Progress / 6 Not Started / 4 Complete / 2 Almost Complete / 14 Total
 
 ---
 
@@ -209,3 +254,12 @@ Invoke-WebRequest -Uri "https://master.d2ucc03atd4qn9.amplifyapp.com/status_upda
 | May 28 | Negative AR reclass explained (escheatment liability) | Revenue_AR_TTI.html |
 | May 28 | Working Capital marked In Progress | index.html |
 | May 28 | Credit Card Recon marked Complete | index.html |
+| May 30 | TK bank statements: all 39 months received, monthly detail table added | Cash_Reconciliation.html |
+| May 30 | NWC Peg page created: locked $1,984,123 TTM average, methodology, 24-month detail | NWC_Peg.html |
+| May 30 | Working Capital marked Complete, linked to NWC Peg | index.html |
+| May 30 | $1.59M Top-Side Tax Plug flagged as material internal control weakness | Cash_Reconciliation.html, index.html |
+| May 30 | $99,682 TK Loan Receivable added to NWC as related-party flag | NWC_Peg.html |
+| May 30 | TK status updated: all statements received, April gaps resolved | Cash_Reconciliation.html, index.html |
+| May 30 | EBITDA Normalization page created: $12.94M Adjusted EBITDA, $4.64M add-backs | EBITDA_Normalization.html |
+| May 30 | Broker comparison added: TTI $2.68M vs broker $2.52M for 2025, directionally aligned | EBITDA_Normalization.html |
+| May 30 | Index dashboard updated with EBITDA Normalization, new counts | index.html |

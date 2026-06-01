@@ -221,7 +221,7 @@ Invoke-WebRequest -Uri "https://master.d2ucc03atd4qn9.amplifyapp.com/status_upda
 | Revenue Verification & AR Tie-Out | Almost Complete | $55.77M revenue, 99.993% collection, all revenue classified |
 | Cash Reconciliation (GL ↔ Bank) | **Complete** | TTI tied 0.17%. TK all statements received, Q1 2026 ties to $87. TWS off-GL flagged. $1.59M Top-Side Tax Plug flagged as material internal control weakness. |
 | Subcontracted Services & Intercompany | **Complete** | TTI Subcontracted Services ↔ T-K Gross Trucking Income ties to ~$24K variance (immaterial cash-basis timing). Treated as direct wash in consolidation. 2023 ties perfectly ($1.19M). 2024 gap -$65,797. 2025 gap +$89,748. |
-| EBITDA Normalization | **Complete** | $11.90M TTI standalone / $12.15M TTI+T-K consolidated (39 mo). $2.94M raw / $2.74M after AR haircut for 2025 vs broker $2.52M consolidated. T-K consolidation bridge added: intercompany wash ($3.86M), T-K operating expenses baseline, T-K add-backs ($243K: Anaheim $208K, taxes $28K, Classic Import $7.5K). |
+| EBITDA Normalization | **Complete** | $10.58M TTI standalone / $10.82M TTI+T-K consolidated (39 mo). $2.75M raw / $2.56M after $191K AR haircut for 2025 vs broker $2.52M consolidated. T-K consolidation bridge: intercompany wash ($3.86M), T-K operating expenses baseline, T-K add-backs ($243K). Uncollectable AR haircut: $374K >90-day, $324K uncollectable ($100K/$33K/$191K by year). |
 | Vendor Payments & Freight Cost | **Complete** | $1.51M TWS intercompany add-back ($885K/$500K/$120K by year). $3.86M T-K subcontracted loop flagged for consolidation elimination. AP aging ~$115K (immaterial; cash-basis). Freight $13.12M reclassified to COGS. +$942K unrealized annual rent lift from TTIM/TTIO lease optimization. |
 | Credit Card Statement to GL | **Complete** | 54 AMEX statements parsed. 2023 missing, immaterial. |
 | Customer Concentration | Not Started | Needs complete revenue by customer |
@@ -279,6 +279,7 @@ Invoke-WebRequest -Uri "https://master.d2ucc03atd4qn9.amplifyapp.com/status_upda
 | May 30 | Vendor Payments & Freight Cost Tie-Out page created. $1.51M TWS add-back, $3.86M T-K loop, freight profile, +$942K rent lift | Vendor_Payments_Freight.html, index.html |
 | May 30 | T-K Investments consolidation bridge added to EBITDA page. Intercompany wash, T-K operating expenses baseline, T-K add-backs ($243K) | EBITDA_Normalization.html |
 | May 30 | 824 Anaheim ghost lease noted on Vendor Payments page and EBITDA consolidation bridge | Vendor_Payments_Freight.html, EBITDA_Normalization.html |
+| May 30 | Uncollectable AR haircut added: $374K >90-day receivables, $324K deemed uncollectable ($100K/$33K/$191K by year). Adjusted EBITDA revised down to $10.58M TTI standalone | EBITDA_Normalization.html, Revenue_AR_TTI.html |
 | May 30 | Broker comparison updated: $2.68M raw / $2.48M after haircut vs broker $2.52M, +$164K (6.5%) | EBITDA_Normalization.html |
 | May 30 | TWS Cash Transfers adjustment added: $1.505M (2023-2025) under Related-Party & Intercompany | EBITDA_Normalization.html |
 | May 30 | REG Logistics Security Deposit add-back: $100K (2023 only), miscategorized expense → asset | EBITDA_Normalization.html |

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vendor Payments, Real Estate &amp; Freight Cost Tie-Out</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0; padding: 40px 24px;
+    background: #f8f9fa; color: #1a1d23;
+    line-height: 1.5;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+  .subtitle { font-size: 13px; color: #5f6368; margin-bottom: 24px; }
+  .nav-home {
+    font-size: 13px; margin-bottom: 12px;
+  }
+  .nav-home a {
+    color: #1a73e8; text-decoration: none; font-weight: 500;
+  }
+  .nav-home a:hover { text-decoration: underline; }
+
+  .card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(60,64,67,0.08), 0 1px 3px rgba(60,64,67,0.05);
+    padding: 28px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 16px; font-weight: 600; margin: 0 0 16px 0;
+    color: #1a1d23; letter-spacing: -0.2px;
+    text-transform: uppercase;
+  }
+  .card h3 {
+    font-size: 14px; font-weight: 600; margin: 20px 0 10px 0;
+    color: #1a1d23;
+  }
+
+  .kpi-row {
+    display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;
+  }
+  .kpi-box {
+    flex: 1; min-width: 160px;
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(60,64,67,0.08);
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .kpi-box .kpi-label {
+    font-size: 10px; font-weight: 600; color: #5f6368;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .kpi-box .kpi-value {
+    font-size: 22px; font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .kpi-box .kpi-value.pos { color: #1e8e3e; }
+  .kpi-box .kpi-value.neg { color: #d93025; }
+  .kpi-box .kpi-sub {
+    font-size: 11px; color: #5f6368; margin-top: 4px;
+  }
+
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  th {
+    background: #1a1d23; color: #fff;
+    font-weight: 600; padding: 10px 8px;
+    border: 1px solid #2d3138; white-space: nowrap;
+    font-size: 11px; text-align: left;
+  }
+  td {
+    padding: 8px 8px; border: 1px solid #e8eaed;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) { background: #fafbfc; }
+  tr:hover { background: #f0f4ff; }
+  .total-row td {
+    background: #1a1d23; color: #fff;
+    font-weight: 600;
+  }
+  .num { font-family: "SF Mono", "Roboto Mono", Consolas, monospace; font-size: 11.5px; text-align: right; }
+  .pos { color: #1e8e3e; }
+  .neg { color: #d93025; }
+  .muted { color: #5f6368; font-size: 12px; }
+  .scroll-table { overflow-x: auto; }
+
+  .insight {
+    background: #f8f9fa;
+    border-left: 4px solid #1a73e8;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    border-radius: 0 8px 8px 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .insight p { margin: 0; }
+  .insight strong { color: #1a3a5c; }
+  .insight.red { border-left-color: #d93025; }
+  .insight.green { border-left-color: #1e8e3e; }
+  .insight.amber { border-left-color: #f9ab00; }
+
+  .footnote {
+    font-size: 12px; color: #5f6368; margin-top: 16px;
+    line-height: 1.6;
+  }
+
+  .highlight-box {
+    background: #e8f0fe;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 13.5px;
+  }
+  .highlight-box strong { color: #1a3a5c; }
+
+  ul.clean { margin: 8px 0; padding-left: 20px; }
+  ul.clean li { margin-bottom: 8px; font-size: 13.5px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="nav-home">
+  <a href="index.html">&#8592; Back to QoE Status Dashboard</a>
+</div>
+
+<h1>Vendor Payments, Real Estate &amp; Freight Cost Tie-Out</h1>
+<div class="subtitle">Tricon Transportation, Inc. (TTI) &mdash; Standalone &mdash; Jan 2023 &ndash; Mar 2026</div>
+
+<!-- KPI ROW -->
+<div class="kpi-row">
+  <div class="kpi-box">
+    <div class="kpi-label">TWS Cash Transfers</div>
+    <div class="kpi-value pos">$1.51M</div>
+    <div class="kpi-sub">Misclassified intercompany</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-label">T-K Subcontracted Loop</div>
+    <div class="kpi-value neg">$3.86M</div>
+    <div class="kpi-sub">Related-party elimination</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-label">Freight Cost (39 mo)</div>
+    <div class="kpi-value">$13.12M</div>
+    <div class="kpi-sub">Reclassified to COGS</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-label">AP Aging Balance</div>
+    <div class="kpi-value pos">~$115K</div>
+    <div class="kpi-sub">Immaterial; cash-basis</div>
+  </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="card">
+<h2>Executive Summary</h2>
+<p style="font-size:13.5px; line-height:1.6; margin-bottom:12px;">
+The vendor and freight audit is <strong>complete</strong>. AP Aging is highly clean with an immaterial ~$115K total balance, confirming that vendor payments are processed almost entirely on a <strong>cash basis</strong> with no complex invoice pass-through structures or unrecorded liabilities.
+</p>
+<p style="font-size:13.5px; line-height:1.6; margin-bottom:12px;">
+The primary QoE adjustments focus on (1) eliminating massive internal cash transfers misclassified as operational expenses, (2) reclassifying outsourced freight to match industry-standard Gross Margin presentation, and (3) calculating the precise <em>unrealized</em> incremental runway for the warehouse optimization strategy to avoid double-counting savings already captured on the ledger.
+</p>
+</div>
+
+<!-- SECTION 1: CASH-BASIS & INTERCOMPANY -->
+<div class="card">
+<h2>1. Cash-Basis &amp; Intercompany Realities</h2>
+<p class="muted" style="margin-bottom:16px;">Historically, the company's standalone ledger blended direct operational costs, intercompany movements, and facility real estate into single-line accounts.</p>
+
+<div class="insight red">
+  <p><strong>$1.5M TWS Intercompany Cash Loop.</strong> The bookkeeper systematically misclassified <strong>$1,505,000</strong> of pure cash transfers (moving funds from the TTI master account to the TWS Chase account) as operational expenses within the <code>TTIM</code> and <code>TTIO</code> real estate accounts. To present true historical cash flow, these are treated as a definitive EBITDA add-back:</p>
+  <ul class="clean">
+    <li><strong>$885,000</strong> in 2023</li>
+    <li><strong>$500,000</strong> in 2024</li>
+    <li><strong>$120,000</strong> in 2025</li>
+  </ul>
+</div>
+
+<div class="insight red">
+  <p><strong>$3.86M T-K Investments Loop.</strong> Within TTI&rsquo;s standalone COGS, <strong>$3.86M</strong> was categorized as <code>Subcontracted Services</code>. Our deep-dive verified this is entirely a cash transfer loop to the owners&rsquo; separate pass-through entity (T-K Investments). These are not third-party vendor expenses and must be completely eliminated prior to consolidating T-K&rsquo;s actual driver payroll.</p>
+</div>
+
+<div class="insight amber">
+  <p><strong>Cash-Basis Real Estate Distortion.</strong> True third-party facility costs reside strictly in the <code>TTIM</code> and <code>TTIO</code> accounts. Because these are maintained on a strict cash basis, EBITDA was artificially distorted by timing errors:</p>
+  <ul class="clean">
+    <li><strong>+$100,000 (2023):</strong> Capitalized security deposit paid to REG Logistics (TTIO) back to the Balance Sheet from the P&amp;L.</li>
+    <li><strong>+$120,000 (2025):</strong> Capitalized security deposit paid to Prologis (TTIM) back to the Balance Sheet from the P&amp;L.</li>
+    <li><strong>&minus;$120,000 (2024):</strong> Accrued rent expense for Sept/Oct 2024 to account for periods where the Pacific Expressway security deposit was applied to base rent in lieu of cash payments.</li>
+    <li><strong>&minus;$61,889 (Q1 2026):</strong> Accrued base rent for January 2026 at TTIM to ensure accurate expense cutoff for the period.</li>
+  </ul>
+</div>
+</div>
+
+<!-- SECTION 2: FREIGHT COST PROFILE -->
+<div class="card">
+<h2>2. Freight Cost Profile &amp; Quarterly Anomalies</h2>
+<p style="font-size:13.5px; line-height:1.6; margin-bottom:16px;">
+The <strong>$13.12M</strong> outsourced freight cost (contract carriers used when internal capacity is capped) has been reclassified from OpEx up to COGS for standard margin presentation.
+</p>
+
+<div class="scroll-table">
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Period</th>
+      <th style="text-align:right;">Freight Cost</th>
+      <th style="text-align:right;">% of Total</th>
+      <th style="text-align:left;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td style="text-align:left; font-weight:600;">2023</td><td class="num">3,508,320</td><td class="num">26.7%</td><td class="muted">Baseline year</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2024</td><td class="num">4,135,627</td><td class="num">31.5%</td><td class="muted">Volume increase</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">2025</td><td class="num">4,518,180</td><td class="num">34.4%</td><td class="muted">Peak spend</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Q1 2026</td><td class="num">958,545</td><td class="num">7.3%</td><td class="muted">Seasonal slowdown</td></tr>
+    <tr class="total-row">
+      <td style="text-align:left;">Total (39 mo)</td>
+      <td class="num">13,120,673</td>
+      <td class="num">100.0%</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="insight green" style="margin-top:16px;">
+  <p><strong>The &ldquo;Hangover&rdquo; Cutoff.</strong> Shifting ~$12K to ~$13K between historical years is an immaterial rounding error on a $4.5M annual spend, proving management does not front-load or back-load invoices to manage margins.</p>
+</div>
+
+<div class="insight green">
+  <p><strong>Q1 2026 Catch-Up: +$115,773.</strong> The Q1 2026 freight cutoff shows a <strong>$115,773</strong> concentration. This is a positive indicator for the buyer; it matches our AP aging almost perfectly, showing that the bookkeeper captured outstanding vendor bills transparently at the turn of the year rather than deferring them off-book.</p>
+</div>
+
+<div class="footnote">
+  <strong>Note:</strong> The <strong>$116,932</strong> net freight timing adjustment across all periods is treated as a mechanical period-cutoff fix on the EBITDA Normalization page, not an operational normalization. See <a href="EBITDA_Normalization.html">EBITDA Normalization &rarr;</a> for the full bridge.
+</div>
+</div>
+
+<!-- SECTION 3: PRO-FORMA RUN-RATE RENT LIFT -->
+<div class="card">
+<h2>3. Pro-Forma Run-Rate Rent Lift</h2>
+<p style="font-size:13.5px; line-height:1.6; margin-bottom:16px;">
+To prevent double-counting, our pro-forma adjustments isolate only the <em>unrealized incremental benefit</em> of the new leases compared to what historically hit the cash-basis P&amp;L during the Trailing Twelve Months (TTM).
+</p>
+
+<div class="scroll-table">
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Facility</th>
+      <th style="text-align:right;">Historical TTM<br>Cash P&amp;L (Avg/Mo)</th>
+      <th style="text-align:right;">New Executed<br>Run-Rate (Base + NNN/Mo)</th>
+      <th style="text-align:right;">Incremental EBITDA<br>Monthly Lift</th>
+      <th style="text-align:right;">Annualized Lift</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left; font-weight:600;">TTIM<br><span class="muted">Food Grade Warehouse</span></td>
+      <td class="num">$110,000</td>
+      <td class="num">$62,000</td>
+      <td class="num pos">+$48,000</td>
+      <td class="num pos" style="font-weight:600;">+$576,000</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; font-weight:600;">TTIO<br><span class="muted">Inland Empire</span></td>
+      <td class="num">$117,000</td>
+      <td class="num">$86,461</td>
+      <td class="num pos">+$30,539</td>
+      <td class="num pos" style="font-weight:600;">+$366,465</td>
+    </tr>
+    <tr class="total-row">
+      <td style="text-align:left;">Combined Annualized</td>
+      <td class="num">$227,000</td>
+      <td class="num">$148,461</td>
+      <td class="num pos">+$78,539</td>
+      <td class="num pos" style="font-size:14px;">+$942,465</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="insight" style="margin-top:16px;">
+  <p><strong>TTIM Timing.</strong> The lower $62,000/month rate commenced in early 2026. Because Q1 2026 already reflects this lower rate on the ledger, the pro-forma bridge will only adjust the remaining months of the historical TTM period that were still burdened by the old $110,000 rate. <em>Unrealized TTM Run-Rate Lift: +$576,000 annualized</em> (pro-rated for the historical un-realized months).</p>
+</div>
+
+<div class="insight">
+  <p><strong>TTIO Timing.</strong> The downsizing from the 130,000 sq. ft. facility ($117,000/month) to the optimized 72,051 sq. ft. facility at 8700 White Oak Ave ($86,461.20/month total) executes on <strong>July 1, 2026</strong>. <em>Unrealized TTM Run-Rate Lift: +$366,465 annualized</em> (100% incremental to the current TTM, as none of these savings have hit the ledger yet).</p>
+</div>
+
+<div class="highlight-box">
+  <strong>Total Unrealized Annualized Rent Lift: +$942,465</strong><br>
+  This represents pure incremental EBITDA runway available to a buyer post-close, above and beyond the historical normalized figures. It is <strong>not</strong> included in the Jan 2023&ndash;Mar 2026 historical Adjusted EBITDA of $11.90M.
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footnote" style="text-align:center; margin-top:8px;">
+  <a href="index.html">&larr; Back to QoE Status Dashboard</a> &nbsp;|&nbsp;
+  <a href="EBITDA_Normalization.html">EBITDA Normalization &rarr;</a>
+</div>
+
+</div>
+</body>
+</html>

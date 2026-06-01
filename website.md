@@ -129,7 +129,7 @@ status_updates/
 ### `NWC_Peg.html` — Net Working Capital Peg (NEW)
 - **Status:** **COMPLETE**
 - **Locked Peg:** **$1,984,123** (TTM average, cash-free debt-free basis)
-- **Observation period:** 24 months (Jan 2023 – Dec 2024)
+- **Observation period:** 24 months (Jan 2024 – Dec 2025)
 - **Methodology:**
   - Operating Current Assets = A/R + Advance Payments + Undeposited Funds
   - Operating Current Liabilities = A/P + Credit Card liabilities
@@ -141,24 +141,31 @@ status_updates/
   - Avg Asset Adjustment: **$169K**
   - Avg Liability Adjustment: **$19.9K**
 - **Related-party flag:** $99,682 TK Loan Receivable discovered and stripped from NWC
+- **Cash exclusion note:** Standard M&A practice — seller retains cash at closing
 - **Monthly detail table:** All 24 months with Beginning/Ending/Net Delta
 
 ### `EBITDA_Normalization.html` — EBITDA Normalization & Adjustments (NEW)
 - **Status:** **COMPLETE**
 - **TTI Standalone only** (not consolidated)
+- **Period scope:** Jan 2023 – Mar 2026 (39 months)
 - **Book EBITDA:** **$8.30M** (39 months)
-- **Total Adjustments:** **+$4.64M**
-- **Adjusted EBITDA:** **$12.94M** (39 months total)
+- **Total Adjustments:** **+$2.06M**
+- **Adjusted EBITDA:** **$10.36M** (39 months total)
+- **Critical fixes applied:**
+  - **Double-Count Fix:** CPA year-end reversals reduced owner tax add-backs from $2.79M to $87K net. Without this fix, Adjusted EBITDA would be inflated by $2.7M.
+  - **AR Haircut:** ~$200K of >90-day receivables flagged uncollectable. Reduces 2025 from $2.67M raw to $2.47M after haircut.
+  - **Freight Expense Timing Adjustment:** CPA period-cutoff distortion for freight costs only. Net +$116,932 total. Shifted one year forward per client direction.
 - **2025 figures:**
   - TTI Book EBITDA: **$1,661,941**
-  - TTI Adjusted EBITDA: **$2,684,508**
+  - TTI Adjusted EBITDA (raw): **$2,672,363**
+  - TTI Adjusted EBITDA (after ~$200K AR haircut): **$2.47M**
   - Broker Consolidated (all entities): **$2,520,000**
-  - **Variance: +$164,508 (6.5%)** — directionally aligned
+  - **Variance: +$152,363 (6.0%) raw** — directionally aligned, immaterial
 - **Normalization adjustments (by category):**
 
 | Category | Adjustment | 2023 | 2024 | 2025 | Q1 2026 | Total |
 |---|---|---|---|---|---|---|
-| Owner Comp | Disguised Owner Tax Payments (Tami) | $1,540,000 | $1,247,000 | — | — | $2,787,000 |
+| Owner Comp | Disguised Owner Tax Payments (Tami) | $40,000 | $47,000 | — | — | $87,000 |
 | Owner Comp | Eliminated Owner Salary (Tami) | $48,000 | $48,000 | $48,000 | $12,000 | $156,000 |
 | Owner Comp | GM Salary Replacement | ($86,000) | ($86,000) | ($86,000) | ($21,500) | ($279,500) |
 | Owner Comp | Owner Personal Health Insurance | $336 | — | — | — | $336 |
@@ -169,10 +176,11 @@ status_updates/
 | Related-Party | IT Consulting (Steve) | $82,256 | $73,368 | $83,519 | $20,888 | $260,031 |
 | Non-Recurring | Bad Debt Expense | $6,508 | $282,544 | $91 | $15,588 | $304,731 |
 | Non-Recurring | Discretionary Profit Sharing | — | — | $168,000 | — | $168,000 |
-| | **Total Adjustments** | **$1,698,973** | **$1,662,083** | **$1,022,567** | **$255,886** | **$4,639,509** |
-| | **Adjusted EBITDA** | **$6,658,070** | **$2,514,615** | **$2,684,508** | **$1,085,569** | **$12,942,762** |
+| Timing | Freight Expense Push/Pull (CPA cutoff) | — | — | ($12,145) | $129,077 | $116,932 |
+| | **Total Adjustments** | **$198,973** | **$462,083** | **$1,010,422** | **$384,963** | **$2,056,441** |
+| | **Adjusted EBITDA** | **$5,158,070** | **$1,314,615** | **$2,672,363** | **$1,214,646** | **$10,359,694** |
 
-- **Broker comparison framing:** Directionally aligned. TTI standalone ($2.68M) and broker consolidated ($2.52M) for 2025 are in the same ballpark. The $164K difference is attributable to consolidated vs. standalone treatment of intercompany transfers and transaction-level vs. summary-level review.
+- **Broker comparison framing:** Directionally aligned. TTI standalone ($2.67M raw / $2.47M after AR haircut) and broker consolidated ($2.52M) for 2025 are in the same ballpark. The $152K difference (6.0%) is attributable to consolidated vs. standalone treatment of intercompany transfers and transaction-level vs. summary-level review.
 
 ---
 
@@ -210,7 +218,7 @@ Invoke-WebRequest -Uri "https://master.d2ucc03atd4qn9.amplifyapp.com/status_upda
 | Revenue Verification & AR Tie-Out | Almost Complete | $55.77M revenue, 99.993% collection, all revenue classified |
 | Cash Reconciliation (GL ↔ Bank) | **Complete** | TTI tied 0.17%. TK all statements received, Q1 2026 ties to $87. TWS off-GL flagged. $1.59M Top-Side Tax Plug flagged as material internal control weakness. |
 | Subcontracted Services & Intercompany | In Progress | 2023 ties perfectly. 2024 gap -$65,797. 2025 gap +$89,748. |
-| EBITDA Normalization | **Complete** | $12.94M Adjusted EBITDA (39 mo). $2.68M for 2025 vs broker $2.52M consolidated. Directionally aligned. |
+| EBITDA Normalization | **Complete** | $10.36M Adjusted EBITDA (39 mo). $2.67M raw / $2.47M after AR haircut for 2025 vs broker $2.52M consolidated. Directionally aligned. Double-count fix, AR haircut, and freight timing adjustments applied. |
 | Vendor Payments & Freight Cost | Not Started | Blocked on correct TTI GL file |
 | Credit Card Statement to GL | **Complete** | 54 AMEX statements parsed. 2023 missing, immaterial. |
 | Customer Concentration | Not Started | Needs complete revenue by customer |
@@ -260,6 +268,10 @@ Invoke-WebRequest -Uri "https://master.d2ucc03atd4qn9.amplifyapp.com/status_upda
 | May 30 | $1.59M Top-Side Tax Plug flagged as material internal control weakness | Cash_Reconciliation.html, index.html |
 | May 30 | $99,682 TK Loan Receivable added to NWC as related-party flag | NWC_Peg.html |
 | May 30 | TK status updated: all statements received, April gaps resolved | Cash_Reconciliation.html, index.html |
-| May 30 | EBITDA Normalization page created: $12.94M Adjusted EBITDA, $4.64M add-backs | EBITDA_Normalization.html |
-| May 30 | Broker comparison added: TTI $2.68M vs broker $2.52M for 2025, directionally aligned | EBITDA_Normalization.html |
+| May 30 | EBITDA Normalization page created: $10.36M Adjusted EBITDA, $2.06M add-backs | EBITDA_Normalization.html |
+| May 30 | Double-Count Fix applied: CPA reversals reduced tax add-backs from $2.79M to $87K | EBITDA_Normalization.html |
+| May 30 | AR Haircut added: ~$200K uncollectable receivables flagged, 2025 EBITDA $2.67M→$2.47M | EBITDA_Normalization.html, Revenue_AR_TTI.html |
+| May 30 | Freight Expense Timing Adjustment added: net +$116,932, shifted one year forward per client | EBITDA_Normalization.html |
+| May 30 | Freight-only scope clarification added to timing adjustment row and detail cards | EBITDA_Normalization.html |
+| May 30 | Broker comparison updated: $2.67M raw / $2.47M after haircut vs broker $2.52M, +$152K (6.0%) | EBITDA_Normalization.html |
 | May 30 | Index dashboard updated with EBITDA Normalization, new counts | index.html |

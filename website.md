@@ -224,7 +224,7 @@ Invoke-WebRequest -Uri "https://master.d2ucc03atd4qn9.amplifyapp.com/status_upda
 | EBITDA Normalization | **Complete** | $10.58M TTI standalone / $10.82M TTI+T-K consolidated (39 mo). $2.75M raw / $2.56M after $191K AR haircut for 2025 vs broker $2.52M consolidated. T-K consolidation bridge: intercompany wash ($3.86M), T-K operating expenses baseline, T-K add-backs ($243K). Uncollectable AR haircut: $374K >90-day, $324K uncollectable ($100K/$33K/$191K by year). |
 | Vendor Payments & Freight Cost | **Complete** | $1.51M TWS intercompany add-back ($885K/$500K/$120K by year). $3.86M T-K subcontracted loop flagged for consolidation elimination. AP aging ~$115K (immaterial; cash-basis). Freight $13.12M reclassified to COGS. +$942K unrealized annual rent lift from TTIM/TTIO lease optimization. |
 | Credit Card Statement to GL | **Complete** | 54 AMEX statements parsed. 2023 missing, immaterial. |
-| Customer Concentration | Not Started | Needs complete revenue by customer |
+| Customer Concentration | Partial — Data Required | **Revenue concentration complete:** Top 5 = 68.4% (Armada $19.6M, BD $8.1M, TOTO $4.2M, HAVI $3.6M, TQL $2.7M). McDonald's ecosystem = ~41.5%. **Gross margin by customer BLOCKED** — needs 3PL Central load-level data. |
 | Payroll Register Verification | Almost Complete | TTI and TK clean. TWS pending. |
 | Dispatch Logs / TMS | Not Started | TMS data not received |
 | Lease & Financing | Not Started | QBX received, ready to commence |

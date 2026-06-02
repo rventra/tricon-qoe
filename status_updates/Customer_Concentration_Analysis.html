@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Customer Concentration Analysis — TTI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0; padding: 40px 24px;
+    background: #f8f9fa; color: #1a1d23;
+    line-height: 1.5;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+  h1 { font-size: 32px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+  .subtitle { font-size: 14px; color: #5f6368; margin-bottom: 28px; }
+  .nav-home {
+    font-size: 13px; margin-bottom: 12px;
+  }
+  .nav-home a {
+    color: #1a73e8; text-decoration: none; font-weight: 500;
+  }
+  .nav-home a:hover { text-decoration: underline; }
+
+  .card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(60,64,67,0.08), 0 1px 3px rgba(60,64,67,0.05);
+    padding: 28px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 18px; font-weight: 600; margin: 0 0 20px 0;
+    color: #1a1d23; letter-spacing: -0.2px;
+  }
+  .card h3 {
+    font-size: 15px; font-weight: 600; margin: 24px 0 12px 0;
+    color: #1a1d23;
+  }
+
+  .insight {
+    background: #fff; border-radius: 12px;
+    border-left: 4px solid #1a73e8;
+    box-shadow: 0 1px 2px rgba(60,64,67,0.08);
+    padding: 20px 24px; margin-bottom: 24px;
+  }
+  .insight p { margin: 0; font-size: 14px; line-height: 1.6; }
+  .insight-red { border-left: 4px solid #d93025; }
+  .insight-amber { border-left: 4px solid #f9ab00; }
+  .insight-green { border-left: 4px solid #1e8e3e; }
+
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  th {
+    background: #1a1d23; color: #fff;
+    font-weight: 600; padding: 10px 8px;
+    border: 1px solid #2d3138; white-space: nowrap;
+    font-size: 11px;
+    text-align: left;
+  }
+  td {
+    padding: 8px 8px; border: 1px solid #e8eaed;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) { background: #fafbfc; }
+  tr:hover { background: #f0f4ff; }
+
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .num.neg { color: #d93025; }
+  .num.pos { color: #1e8e3e; }
+
+  .total-row td {
+    background: #1a1d23; color: #fff;
+    font-weight: 600;
+  }
+  .total-row .num { color: #fff; }
+  .subtotal-row td {
+    background: #e8eaed;
+    font-weight: 600;
+  }
+  .highlight-row td {
+    background: #fff8e1;
+  }
+
+  .footer-note {
+    font-size: 12px; color: #5f6368; margin-top: 12px;
+    font-style: italic;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+  .badge-partial { background: #fef3c7; color: #92400e; }
+  .badge-data { background: #dbeafe; color: #1e40af; }
+
+  ul.qoe-list {
+    font-size: 13.5px;
+    line-height: 1.7;
+    padding-left: 20px;
+    margin-top: 8px;
+  }
+  ul.qoe-list li { margin-bottom: 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="nav-home">
+  <a href="index.html">← Home</a>
+</div>
+
+<h1>Customer Concentration Analysis</h1>
+<div class="subtitle">TTI Multi-Year Revenue by Customer &nbsp;|&nbsp; Jan 2023 – Mar 2026 &nbsp;|&nbsp; Updated May 28, 2026</div>
+
+<div class="insight insight-amber">
+  <p><strong>Status: Partial — More Data Required.</strong> Revenue concentration is complete from GL invoice data. Gross margin by customer is <strong>blocked pending load-level detail</strong> from 3PL Central (Extensiv). We have the DNA of who writes the checks; we need the dispatch manifest to know who actually pays the bills.</p>
+</div>
+
+<div class="card">
+  <h2>§1 — Multi-Year Top 5 Client Roster (Revenue Concentration)</h2>
+  <p style="font-size:13.5px; color:#5f6368; margin-bottom:16px;">Aggregate revenue over the full 39-month observation period (Jan 2023 – Mar 2026), cross-referenced with CIM blind profiles.</p>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:8%">Rank</th>
+        <th style="width:28%">Client Name</th>
+        <th class="num" style="width:22%">3+ Year Revenue Total</th>
+        <th style="width:16%">% of Total</th>
+        <th style="width:26%">Primary Services Utilized</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight-row">
+        <td><strong>#1</strong></td>
+        <td><strong>ARMADA</strong></td>
+        <td class="num"><strong>$19,561,871</strong></td>
+        <td class="num">~35.1%</td>
+        <td>Warehouse TTIM, Warehouse TTIO, Drayage</td>
+      </tr>
+      <tr>
+        <td><strong>#2</strong></td>
+        <td><strong>BECTON DICKINSON (BD)</strong></td>
+        <td class="num"><strong>$8,107,942</strong></td>
+        <td class="num">~14.5%</td>
+        <td>Container Drayage, Chassis Rent</td>
+      </tr>
+      <tr>
+        <td><strong>#3</strong></td>
+        <td><strong>TOTO / VYMI</strong></td>
+        <td class="num"><strong>$4,179,439</strong></td>
+        <td class="num">~7.5%</td>
+        <td>Container Drayage, Warehouse TTIO</td>
+      </tr>
+      <tr>
+        <td><strong>#4</strong></td>
+        <td><strong>HAVI SERVICES</strong></td>
+        <td class="num"><strong>$3,584,213</strong></td>
+        <td class="num">~6.4%</td>
+        <td>Container Drayage, Chassis Rent, Storage</td>
+      </tr>
+      <tr>
+        <td><strong>#5</strong></td>
+        <td><strong>TOTAL QUALITY LOGISTICS</strong></td>
+        <td class="num"><strong>$2,735,016</strong></td>
+        <td class="num">~4.9%</td>
+        <td>Container Drayage, Truckload</td>
+      </tr>
+      <tr>
+        <td><em>HM</em></td>
+        <td><em>American Honda Motor Co.</em></td>
+        <td class="num"><em>$2,475,304</em></td>
+        <td class="num"><em>~4.4%</em></td>
+        <td><em>Container Drayage, Warehouse TTIO</em></td>
+      </tr>
+      <tr class="subtotal-row">
+        <td colspan="2">Top 5 Subtotal</td>
+        <td class="num">$38,168,481</td>
+        <td class="num">~68.4%</td>
+        <td>—</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="2">All Other Customers</td>
+        <td class="num">$17,601,263</td>
+        <td class="num">~31.6%</td>
+        <td>—</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="2"><strong>Grand Total Revenue</strong></td>
+        <td class="num"><strong>$55,769,744</strong></td>
+        <td class="num"><strong>100.0%</strong></td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="footer-note">Percentages approximate. Revenue totals drawn from internal GL invoice detail across 39 months. Customer names cross-referenced against CIM blind profiles.</p>
+</div>
+
+<div class="card">
+  <h2>§2 — QoE Discoveries from the Aggregate Data</h2>
+
+  <h3>2.1 The McDonald's Ecosystem is the True Anchor</h3>
+  <ul class="qoe-list">
+    <li>The CIM states Tricon's largest client is a supply chain solutions provider serving a well-known fast-food brand with ~13,000 domestic locations. That is <strong>Armada</strong>.</li>
+    <li>The CIM also notes a long-standing working affiliation with a closely related entity, "Client 5." That is <strong>HAVI</strong>. Together, Armada and HAVI manage the global McDonald's supply chain.</li>
+    <li><strong>The Risk:</strong> Combined, the Armada + HAVI ecosystem represents roughly <strong>$23.1M</strong> in aggregate historical revenue (~41.5% of total). If McDonald's shifts its supply chain logistics strategy, Tricon's top-line revenue would be severely impacted.</li>
+    <li><strong>The Mitigant:</strong> Armada is aggressively utilizing the <strong>TTIM</strong> and <strong>TTIO</strong> warehouses, validating the CIM's claim of a multi-year, cost-plus facility contract. The warehousing relationship provides stickiness beyond pure transportation.</li>
+  </ul>
+
+  <h3>2.2 Becton Dickinson (BD) is the Drayage Engine</h3>
+  <ul class="qoe-list">
+    <li>The CIM notes Client 2 is a global medical technology firm that was among the company's first clients. The data confirms Becton Dickinson is an absolute machine for the transportation side of the business.</li>
+    <li>Unlike Armada (which leans heavily on warehousing), BD spends millions exclusively on <strong>Container Drayage</strong> and <strong>Chassis Rent</strong>. They are the primary reason Tricon keeps its fleet of 17 vehicles and 130 chassis moving.</li>
+    <li><strong>AR Risk Flag:</strong> BD has <strong>$78K in stale >90-day receivables</strong> across multiple years — the largest single bad-debt exposure in the AR waterfall. Monitor collection closely.</li>
+  </ul>
+
+  <h3>2.3 TOTO/VYMI & Honda: The Diversification Play</h3>
+  <ul class="qoe-list">
+    <li>The data validates the CIM's claims regarding a diversified client base of consumer goods and prominent automobile manufacturers.</li>
+    <li><strong>TOTO</strong> (global plumbing/hardware manufacturer) and <strong>American Honda</strong> are heavily utilizing the Inland Empire facility (<strong>TTIO</strong>), proving that expansion into San Bernardino County was a successful strategic move to capture non-food-grade industrial clients.</li>
+    <li>These clients represent lower concentration risk than the McDonald's ecosystem and provide a natural hedge against food-service sector volatility.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>§3 — What We Still Need: Gross Margin by Customer</h2>
+  <div class="insight insight-red" style="margin-bottom:16px;">
+    <p><strong>Revenue concentration tells us who writes the biggest checks, but margin concentration tells us who actually pays the bills.</strong> Sometimes the #1 client by revenue is so big they demand massive volume discounts, meaning they might represent 35% of revenue but only 15% of gross profit. Conversely, a smaller client like TOTO might be highly profitable.</p>
+  </div>
+
+  <h3>3.1 Why We Need It</h3>
+  <ul class="qoe-list">
+    <li><strong>Armada's margin profile is unknown.</strong> If Armada's warehousing is cost-plus (as the CIM suggests), the margin may be thin but stable. If drayage rates are heavily discounted, the profit contribution could be lower than the revenue share implies.</li>
+    <li><strong>BD's drayage margin is critical.</strong> Container drayage is a high-volume, low-margin business. We need to know whether BD's $8.1M in revenue is a margin hero or a margin drag.</li>
+    <li><strong>Warehouse vs. Drayage profitability.</strong> The two business lines have fundamentally different cost structures. We need to separate them by customer to assess true economic contribution.</li>
+  </ul>
+
+  <h3>3.2 The Data Gap: Load-Level Detail</h3>
+  <ul class="qoe-list">
+    <li><strong>What we need:</strong> A detailed line-by-line <strong>load manifest or order-level report</strong> from 3PL Central by Extensiv for 2023–2025.</li>
+    <li><strong>Why it works:</strong> Every time a container is moved, the system generates a <strong>Load ID</strong>. That Load ID ties the Client (e.g., Becton Dickinson) directly to the Carrier (e.g., subcontractor) and the specific Chassis / Port Fees incurred for that exact trip.</li>
+    <li><strong>The output:</strong> Pivot the raw data to build a perfect <strong>COGS-by-Customer</strong> profile. Match revenue per customer (we already have this) against direct costs per customer (we need this) to get true gross margin.</li>
+  </ul>
+
+  <h3>3.3 Request for Client</h3>
+  <div class="insight" style="margin-top:16px;">
+    <p><strong>Action item:</strong> Request the following from Tricon's operations team:</p>
+    <ol style="font-size:13.5px; line-height:1.7; padding-left:20px; margin-top:8px;">
+      <li>3PL Central (Extensiv) export: all orders / loads for 2023, 2024, and 2025</li>
+      <li>Required fields per row: Load ID, Date, Customer Name, Service Type (Drayage / Warehouse / Storage), Revenue Amount, Carrier/Subcontractor Cost, Chassis Fee, Port Fee</li>
+      <li>If 3PL Central cannot export this, request the equivalent WMS report or dispatch log</li>
+    </ol>
+  </div>
+</div>
+
+<div class="card">
+  <h2>§4 — Concentration Risk Summary</h2>
+  <table>
+    <thead>
+      <tr><th>Risk Category</th><th>Assessment</th><th>Mitigant</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Customer concentration (Top 5 = 68.4%)</td>
+        <td><span style="color:#d93025; font-weight:600;">ELEVATED</span></td>
+        <td>Armada on multi-year warehouse contract; HAVI as related McDonald's affiliate provides some stickiness</td>
+      </tr>
+      <tr>
+        <td>Single-customer dependency (Armada = 35.1%)</td>
+        <td><span style="color:#d93025; font-weight:600;">HIGH</span></td>
+        <td>Cost-plus warehouse contract; diversification into TTIO non-food clients (TOTO, Honda)</td>
+      </tr>
+      <tr>
+        <td>Sector concentration (Food service = ~41.5% via McDonald's)</td>
+        <td><span style="color:#f9ab00; font-weight:600;">MODERATE</span></td>
+        <td>BD (medical), TOTO (consumer goods), Honda (auto) provide sector diversification</td>
+      </tr>
+      <tr>
+        <td>AR collectability (BD = $78K stale)</td>
+        <td><span style="color:#f9ab00; font-weight:600;">MODERATE</span></td>
+        <td>BD is a publicly traded Fortune 500 company; receivables likely collectible with sustained effort</td>
+      </tr>
+      <tr>
+        <td>Margin visibility</td>
+        <td><span style="color:#d93025; font-weight:600;">UNKNOWN</span></td>
+        <td>Blocked pending 3PL Central load-level data</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2>§5 — Data Status</h2>
+  <table>
+    <thead>
+      <tr><th>Deliverable</th><th>Status</th><th>Source</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Revenue by customer (multi-year aggregate)</td>
+        <td><span style="color:#1e8e3e; font-weight:600;">Complete</span></td>
+        <td>Internal GL invoice detail, 39 months</td>
+      </tr>
+      <tr>
+        <td>Customer name mapping (CIM blind profiles)</td>
+        <td><span style="color:#1e8e3e; font-weight:600;">Complete</span></td>
+        <td>CIM cross-reference + GL customer names</td>
+      </tr>
+      <tr>
+        <td>Revenue concentration % and ranking</td>
+        <td><span style="color:#1e8e3e; font-weight:600;">Complete</span></td>
+        <td>Derived from GL pivot</td>
+      </tr>
+      <tr>
+        <td>Gross margin by customer</td>
+        <td><span style="color:#d93025; font-weight:600;">Blocked</span></td>
+        <td>Pending 3PL Central (Extensiv) load-level export</td>
+      </tr>
+      <tr>
+        <td>Service-line profitability (Drayage vs. Warehouse)</td>
+        <td><span style="color:#d93025; font-weight:600;">Blocked</span></td>
+        <td>Pending load-level cost allocation</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+</body>
+</html>

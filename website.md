@@ -218,7 +218,7 @@ Invoke-WebRequest -Uri "https://master.d2ucc03atd4qn9.amplifyapp.com/status_upda
 
 | Workstream | Status | Comment |
 |---|---|---|
-| Revenue Verification & AR Tie-Out | Almost Complete | $55.77M revenue, 99.993% collection, all revenue classified |
+| Revenue Verification & AR Tie-Out | **Complete** | $55.77M revenue, 99.993% collection. $374K >90-day receivables, $324K deemed uncollectable (AR haircut applied to EBITDA). |
 | Cash Reconciliation (GL ↔ Bank) | **Complete** | TTI tied 0.17%. TK all statements received, Q1 2026 ties to $87. TWS off-GL flagged. $1.59M Top-Side Tax Plug flagged as material internal control weakness. |
 | Subcontracted Services & Intercompany | **Complete** | TTI Subcontracted Services ↔ T-K Gross Trucking Income ties to ~$24K variance (immaterial cash-basis timing). Treated as direct wash in consolidation. 2023 ties perfectly ($1.19M). 2024 gap -$65,797. 2025 gap +$89,748. |
 | EBITDA Normalization | **Complete** | $10.58M TTI standalone / $10.82M TTI+T-K consolidated (39 mo). $2.75M raw / $2.56M after $191K AR haircut for 2025 vs broker $2.52M consolidated. T-K consolidation bridge: intercompany wash ($3.86M), T-K operating expenses baseline, T-K add-backs ($243K). Uncollectable AR haircut: $374K >90-day, $324K uncollectable ($100K/$33K/$191K by year). |

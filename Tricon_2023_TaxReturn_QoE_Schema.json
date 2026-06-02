@@ -1,0 +1,520 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tricon_2023_TaxReturn_QoE_Schema",
+  "type": "object",
+  "required": ["tax_year", "entity_name", "ein", "form_1120s", "federal_statements"],
+  "properties": {
+    "tax_year": {
+      "type": "integer",
+      "description": "Tax year of the return"
+    },
+    "entity_name": {
+      "type": "string"
+    },
+    "ein": {
+      "type": "string"
+    },
+    "extraction_notes": {
+      "type": "array",
+      "description": "Catch-all for CPA annotations, cross-references, or anomalies that do not fit standard fields",
+      "items": {
+        "type": "string"
+      }
+    },
+    "calculated_metrics": {
+      "type": "object",
+      "description": "Pre-computed QoE and financial metrics derived from the raw tax data",
+      "properties": {
+        "implied_gross_margin_percent": {
+          "type": ["number", "null"]
+        },
+        "implied_operating_margin_percent": {
+          "type": ["number", "null"]
+        },
+        "effective_tax_rate_federal": {
+          "type": ["number", "null"]
+        },
+        "net_working_capital_ending": {
+          "type": ["number", "null"]
+        },
+        "total_debt_ending": {
+          "type": ["number", "null"]
+        },
+        "distributions_as_percent_of_ordinary_income": {
+          "type": ["number", "null"]
+        },
+        "book_to_tax_variance": {
+          "type": ["number", "null"]
+        }
+      }
+    },
+    "form_1120s": {
+      "type": "object",
+      "description": "U.S. S Corporation Income Tax Return - core operational and reconciliation data",
+      "properties": {
+        "page_1_income": {
+          "type": "object",
+          "properties": {
+            "gross_receipts": { "type": ["number", "null"] },
+            "returns_and_allowances": { "type": ["number", "null"] },
+            "net_gross_receipts": { "type": ["number", "null"] },
+            "cost_of_goods_sold": { "type": ["number", "null"] },
+            "gross_profit": { "type": ["number", "null"] },
+            "net_gain_form_4797": { "type": ["number", "null"] },
+            "other_income": { "type": ["number", "null"] },
+            "total_income": { "type": ["number", "null"] }
+          }
+        },
+        "page_1_deductions": {
+          "type": "object",
+          "properties": {
+            "compensation_of_officers": { "type": ["number", "null"] },
+            "salaries_and_wages": { "type": ["number", "null"] },
+            "repairs_and_maintenance": { "type": ["number", "null"] },
+            "bad_debts": { "type": ["number", "null"] },
+            "rents": { "type": ["number", "null"] },
+            "taxes_and_licenses": { "type": ["number", "null"] },
+            "interest": { "type": ["number", "null"] },
+            "depreciation": { "type": ["number", "null"] },
+            "depletion": { "type": ["number", "null"] },
+            "advertising": { "type": ["number", "null"] },
+            "pension_profit_sharing": { "type": ["number", "null"] },
+            "employee_benefit_programs": { "type": ["number", "null"] },
+            "energy_efficient_building_deduction": { "type": ["number", "null"] },
+            "other_deductions": { "type": ["number", "null"] },
+            "total_deductions": { "type": ["number", "null"] }
+          }
+        },
+        "page_1_tax_computation": {
+          "type": "object",
+          "properties": {
+            "ordinary_business_income": { "type": ["number", "null"] },
+            "excess_net_passive_income": { "type": ["number", "null"] },
+            "tax_from_schedule_d": { "type": ["number", "null"] },
+            "total_tax": { "type": ["number", "null"] },
+            "estimated_tax_payments": { "type": ["number", "null"] },
+            "tax_deposited_with_extension": { "type": ["number", "null"] },
+            "total_payments": { "type": ["number", "null"] },
+            "amount_owed": { "type": ["number", "null"] },
+            "overpayment": { "type": ["number", "null"] }
+          }
+        },
+        "schedule_k": {
+          "type": "object",
+          "description": "Key Schedule K items affecting basis and QoE",
+          "properties": {
+            "ordinary_business_income": { "type": ["number", "null"] },
+            "interest_income": { "type": ["number", "null"] },
+            "section_179_deduction": { "type": ["number", "null"] },
+            "charitable_contributions": { "type": ["number", "null"] },
+            "post_1986_depreciation_adjustment": { "type": ["number", "null"] },
+            "property_distributions": { "type": ["number", "null"] },
+            "investment_income": { "type": ["number", "null"] },
+            "income_reconciliation": { "type": ["number", "null"] }
+          }
+        },
+        "schedule_l_balance_sheet": {
+          "type": "object",
+          "properties": {
+            "assets": {
+              "type": "object",
+              "properties": {
+                "cash_beginning": { "type": ["number", "null"] },
+                "cash_ending": { "type": ["number", "null"] },
+                "accounts_receivable_gross_beginning": { "type": ["number", "null"] },
+                "accounts_receivable_gross_ending": { "type": ["number", "null"] },
+                "allowance_for_bad_debts_beginning": { "type": ["number", "null"] },
+                "allowance_for_bad_debts_ending": { "type": ["number", "null"] },
+                "inventories_beginning": { "type": ["number", "null"] },
+                "inventories_ending": { "type": ["number", "null"] },
+                "other_current_assets_beginning": { "type": ["number", "null"] },
+                "other_current_assets_ending": { "type": ["number", "null"] },
+                "buildings_and_other_assets_beginning": { "type": ["number", "null"] },
+                "buildings_and_other_assets_ending": { "type": ["number", "null"] },
+                "accumulated_depreciation_beginning": { "type": ["number", "null"] },
+                "accumulated_depreciation_ending": { "type": ["number", "null"] },
+                "total_assets_beginning": { "type": ["number", "null"] },
+                "total_assets_ending": { "type": ["number", "null"] }
+              }
+            },
+            "liabilities_and_equity": {
+              "type": "object",
+              "properties": {
+                "accounts_payable_beginning": { "type": ["number", "null"] },
+                "accounts_payable_ending": { "type": ["number", "null"] },
+                "short_term_notes_payable_beginning": { "type": ["number", "null"] },
+                "short_term_notes_payable_ending": { "type": ["number", "null"] },
+                "other_current_liabilities_beginning": { "type": ["number", "null"] },
+                "other_current_liabilities_ending": { "type": ["number", "null"] },
+                "long_term_notes_payable_beginning": { "type": ["number", "null"] },
+                "long_term_notes_payable_ending": { "type": ["number", "null"] },
+                "other_liabilities_beginning": { "type": ["number", "null"] },
+                "other_liabilities_ending": { "type": ["number", "null"] },
+                "capital_stock_beginning": { "type": ["number", "null"] },
+                "capital_stock_ending": { "type": ["number", "null"] },
+                "additional_paid_in_capital_beginning": { "type": ["number", "null"] },
+                "additional_paid_in_capital_ending": { "type": ["number", "null"] },
+                "retained_earnings_beginning": { "type": ["number", "null"] },
+                "retained_earnings_ending": { "type": ["number", "null"] },
+                "treasury_stock_beginning": { "type": ["number", "null"] },
+                "treasury_stock_ending": { "type": ["number", "null"] },
+                "total_liabilities_and_equity_beginning": { "type": ["number", "null"] },
+                "total_liabilities_and_equity_ending": { "type": ["number", "null"] }
+              }
+            }
+          }
+        },
+        "schedule_m1_reconciliation": {
+          "type": "object",
+          "description": "Book-to-tax reconciliation",
+          "properties": {
+            "net_income_per_books": { "type": ["number", "null"] },
+            "income_on_books_not_on_return": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": { "type": "string" },
+                  "amount": { "type": ["number", "null"] }
+                }
+              }
+            },
+            "expenses_on_books_not_deducted": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": { "type": "string" },
+                  "amount": { "type": ["number", "null"] }
+                }
+              }
+            },
+            "income_on_return_not_on_books": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": { "type": "string" },
+                  "amount": { "type": ["number", "null"] }
+                }
+              }
+            },
+            "deductions_on_return_not_on_books": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": { "type": "string" },
+                  "amount": { "type": ["number", "null"] }
+                }
+              }
+            },
+            "reconciled_schedule_k_line_18": { "type": ["number", "null"] }
+          }
+        },
+        "schedule_m2_aaa": {
+          "type": "object",
+          "description": "Accumulated Adjustments Account and distribution history",
+          "properties": {
+            "balance_beginning": { "type": ["number", "null"] },
+            "ordinary_income": { "type": ["number", "null"] },
+            "other_additions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": { "type": "string" },
+                  "amount": { "type": ["number", "null"] }
+                }
+              }
+            },
+            "loss": { "type": ["number", "null"] },
+            "other_reductions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": { "type": "string" },
+                  "amount": { "type": ["number", "null"] }
+                }
+              }
+            },
+            "distributions": { "type": ["number", "null"] },
+            "balance_ending": { "type": ["number", "null"] }
+          }
+        }
+      }
+    },
+    "form_1125a": {
+      "type": "object",
+      "description": "Cost of Goods Sold detail",
+      "properties": {
+        "inventory_beginning": { "type": ["number", "null"] },
+        "purchases": { "type": ["number", "null"] },
+        "cost_of_labor": { "type": ["number", "null"] },
+        "additional_section_263a_costs": { "type": ["number", "null"] },
+        "other_costs": { "type": ["number", "null"] },
+        "total": { "type": ["number", "null"] },
+        "inventory_ending": { "type": ["number", "null"] },
+        "cost_of_goods_sold": { "type": ["number", "null"] }
+      }
+    },
+    "form_1125e": {
+      "type": "object",
+      "description": "Officer compensation detail",
+      "properties": {
+        "officers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "ssn": { "type": "string" },
+              "time_devoted_percent": { "type": ["number", "null"] },
+              "common_stock_percent": { "type": ["number", "null"] },
+              "preferred_stock_percent": { "type": ["number", "null"] },
+              "compensation": { "type": ["number", "null"] }
+            }
+          }
+        },
+        "total_compensation": { "type": ["number", "null"] },
+        "compensation_claimed_elsewhere": { "type": ["number", "null"] },
+        "net_compensation": { "type": ["number", "null"] }
+      }
+    },
+    "form_4562": {
+      "type": "object",
+      "description": "Depreciation and amortization",
+      "properties": {
+        "section_179": {
+          "type": "object",
+          "properties": {
+            "maximum_amount": { "type": ["number", "null"] },
+            "total_cost_of_property": { "type": ["number", "null"] },
+            "threshold": { "type": ["number", "null"] },
+            "reduction": { "type": ["number", "null"] },
+            "dollar_limitation": { "type": ["number", "null"] },
+            "elected_property": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": { "type": "string" },
+                  "cost": { "type": ["number", "null"] },
+                  "elected_cost": { "type": ["number", "null"] }
+                }
+              }
+            },
+            "tentative_deduction": { "type": ["number", "null"] },
+            "carryover_from_prior_year": { "type": ["number", "null"] },
+            "business_income_limitation": { "type": ["number", "null"] },
+            "expense_deduction": { "type": ["number", "null"] },
+            "carryover_to_next_year": { "type": ["number", "null"] }
+          }
+        },
+        "special_depreciation_allowance": { "type": ["number", "null"] },
+        "other_depreciation": { "type": ["number", "null"] },
+        "macrs_prior_years": { "type": ["number", "null"] },
+        "macrs_current_year_assets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": { "type": "string" },
+              "date_acquired": { "type": "string" },
+              "cost": { "type": ["number", "null"] },
+              "business_use_percent": { "type": ["number", "null"] },
+              "recovery_period": { "type": "string" },
+              "convention": { "type": "string" },
+              "method": { "type": "string" },
+              "depreciation_deduction": { "type": ["number", "null"] }
+            }
+          }
+        },
+        "listed_property": { "type": ["number", "null"] },
+        "total_depreciation": { "type": ["number", "null"] },
+        "amortization": {
+          "type": "object",
+          "properties": {
+            "current_year_items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": { "type": "string" },
+                  "date_amortization_begins": { "type": "string" },
+                  "amortizable_amount": { "type": ["number", "null"] },
+                  "code_section": { "type": "string" },
+                  "amortization_period": { "type": "string" },
+                  "amortization_this_year": { "type": ["number", "null"] }
+                }
+              }
+            },
+            "prior_years": { "type": ["number", "null"] },
+            "total_amortization": { "type": ["number", "null"] }
+          }
+        }
+      }
+    },
+    "form_7203": {
+      "type": "object",
+      "description": "Shareholder stock and debt basis - for distribution and loss limitation analysis",
+      "properties": {
+        "shareholder_name": { "type": "string" },
+        "shareholder_ssn": { "type": "string" },
+        "corporation_name": { "type": "string" },
+        "corporation_ein": { "type": "string" },
+        "stock_basis_beginning": { "type": ["number", "null"] },
+        "capital_contributions": { "type": ["number", "null"] },
+        "ordinary_business_income": { "type": ["number", "null"] },
+        "interest_income": { "type": ["number", "null"] },
+        "subtotal_increases": { "type": ["number", "null"] },
+        "stock_basis_before_distributions": { "type": ["number", "null"] },
+        "distributions": { "type": ["number", "null"] },
+        "stock_basis_after_distributions": { "type": ["number", "null"] },
+        "nondeductible_expenses": { "type": ["number", "null"] },
+        "allowable_loss_and_deductions": { "type": ["number", "null"] },
+        "stock_basis_ending": { "type": ["number", "null"] },
+        "debts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": { "type": "string" },
+              "loan_balance_beginning": { "type": ["number", "null"] },
+              "additional_loans": { "type": ["number", "null"] },
+              "principal_repayment": { "type": ["number", "null"] },
+              "loan_balance_ending": { "type": ["number", "null"] },
+              "debt_basis_beginning": { "type": ["number", "null"] },
+              "debt_basis_ending": { "type": ["number", "null"] }
+            }
+          }
+        }
+      }
+    },
+    "federal_statements": {
+      "type": "object",
+      "description": "Supporting statements behind summary line items",
+      "properties": {
+        "other_income": {
+          "type": "array",
+          "description": "Statement 1 - Form 1120S Line 5",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": { "type": "string" },
+              "amount": { "type": ["number", "null"] }
+            }
+          }
+        },
+        "other_deductions": {
+          "type": "array",
+          "description": "Statement 2 - Form 1120S Line 20. FLAT LIST of expense categories.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": { "type": "string" },
+              "amount": { "type": ["number", "null"] }
+            }
+          }
+        },
+        "charitable_contributions": {
+          "type": "array",
+          "description": "Statement 3 - Schedule K Line 12a",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": { "type": "string" },
+              "amount": { "type": ["number", "null"] }
+            }
+          }
+        },
+        "other_current_assets": {
+          "type": "object",
+          "description": "Statement 5 - Schedule L Line 6",
+          "properties": {
+            "beginning": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": { "type": "string" },
+                  "amount": { "type": ["number", "null"] }
+                }
+              }
+            },
+            "ending": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": { "type": "string" },
+                  "amount": { "type": ["number", "null"] }
+                }
+              }
+            }
+          }
+        },
+        "other_current_liabilities": {
+          "type": "object",
+          "description": "Statement 6 - Schedule L Line 18",
+          "properties": {
+            "beginning": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": { "type": "string" },
+                  "amount": { "type": ["number", "null"] }
+                }
+              }
+            },
+            "ending": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": { "type": "string" },
+                  "amount": { "type": ["number", "null"] }
+                }
+              }
+            }
+          }
+        },
+        "m2_other_additions": {
+          "type": "array",
+          "description": "Statement 8 - Schedule M-2 Column A Line 3",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": { "type": "string" },
+              "amount": { "type": ["number", "null"] }
+            }
+          }
+        },
+        "m2_other_reductions": {
+          "type": "array",
+          "description": "Statement 9 - Schedule M-2 Column A Line 5",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": { "type": "string" },
+              "amount": { "type": ["number", "null"] }
+            }
+          }
+        },
+        "cost_of_goods_sold_other_costs": {
+          "type": "array",
+          "description": "Statement 10 - Form 1125-A Line 5",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": { "type": "string" },
+              "amount": { "type": ["number", "null"] }
+            }
+          }
+        }
+      }
+    }
+  }
+}

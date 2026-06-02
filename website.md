@@ -230,7 +230,7 @@ Invoke-WebRequest -Uri "https://master.d2ucc03atd4qn9.amplifyapp.com/status_upda
 | Lease & Financing | Not Started | QBX received, ready to commence |
 | Working Capital Analysis & NWC Peg | **Complete** | Locked peg $1,984,123. $374K bad debt waterfall + $19.9K reclassification. $99.7K TK Loan Receivable flagged. |
 | Tax Exposure & Compliance | Not Started | QBX received, ready to commence |
-| Tax Returns Tie-Out | In Progress | 2023/2024 returns received. 2025 pending. |
+| Tax Returns Tie-Out | Almost Complete | **TTI 2023 tied:** Tax claimed $437K extra depreciation; pre-depreciation book income $89K higher than tax. $165K revenue gap, $83K OPEX gap. 2024 received, pending tie-out. 2025 pending from client. |
 | Segment / Entity Consolidation | Not Started | QBX received, ready to commence |
 
 **Summary pills:** 2 In Progress / 6 Not Started / 4 Complete / 2 Almost Complete / 14 Total

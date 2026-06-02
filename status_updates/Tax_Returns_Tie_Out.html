@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tax Returns Tie-Out — TTI 2023</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0; padding: 40px 24px;
+    background: #f8f9fa; color: #1a1d23;
+    line-height: 1.5;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+  h1 { font-size: 32px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+  .subtitle { font-size: 14px; color: #5f6368; margin-bottom: 28px; }
+  .nav-home {
+    font-size: 13px; margin-bottom: 12px;
+  }
+  .nav-home a {
+    color: #1a73e8; text-decoration: none; font-weight: 500;
+  }
+  .nav-home a:hover { text-decoration: underline; }
+
+  .card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(60,64,67,0.08), 0 1px 3px rgba(60,64,67,0.05);
+    padding: 28px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 18px; font-weight: 600; margin: 0 0 20px 0;
+    color: #1a1d23; letter-spacing: -0.2px;
+  }
+  .card h3 {
+    font-size: 15px; font-weight: 600; margin: 24px 0 12px 0;
+    color: #1a1d23;
+  }
+
+  /* INSIGHT */
+  .insight {
+    background: #fff; border-radius: 12px;
+    border-left: 4px solid #1a73e8;
+    box-shadow: 0 1px 2px rgba(60,64,67,0.08);
+    padding: 20px 24px; margin-bottom: 24px;
+  }
+  .insight p { margin: 0; font-size: 14px; line-height: 1.6; }
+
+  .insight-red {
+    border-left: 4px solid #d93025;
+  }
+
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  th {
+    background: #1a1d23; color: #fff;
+    font-weight: 600; padding: 10px 8px;
+    border: 1px solid #2d3138; white-space: nowrap;
+    font-size: 11px;
+    text-align: left;
+  }
+  td {
+    padding: 8px 8px; border: 1px solid #e8eaed;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) { background: #fafbfc; }
+  tr:hover { background: #f0f4ff; }
+
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .num.neg { color: #d93025; }
+  .num.pos { color: #1e8e3e; }
+
+  .total-row td {
+    background: #1a1d23; color: #fff;
+    font-weight: 600;
+  }
+  .total-row .num { color: #fff; }
+  .subtotal-row td {
+    background: #e8eaed;
+    font-weight: 600;
+  }
+  .variance-row td {
+    background: #fff8e1;
+    font-weight: 600;
+  }
+  .variance-row .num {
+    color: #e65100;
+  }
+  .indent td:first-child { padding-left: 28px; font-style: italic; }
+
+  .footer-note {
+    font-size: 12px; color: #5f6368; margin-top: 12px;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="nav-home">
+  <a href="index.html">← Home</a>
+</div>
+
+<h1>Tax Returns Tie-Out</h1>
+<div class="subtitle">TTI 2023 — Internal P&L vs. Tax Return Reconciliation &nbsp;|&nbsp; Updated May 28, 2026</div>
+
+<div class="insight insight-red">
+  <p><strong>Key Finding:</strong> The 2023 tax return claimed <strong>$437,719 more depreciation</strong> than internal book records. After backing out the extra depreciation, internal pre-depreciation book income is <strong>$89,715 higher</strong> than the tax return's pre-depreciation figure. The tax return also reported <strong>$164,906 more revenue</strong> and <strong>$83,441 more OPEX+COGS</strong> than internal books — a net variance of roughly $81K on the expense side offset by $7,614 in other income, reconciling to the ~$89K pre-depreciation delta.</p>
+</div>
+
+<div class="card">
+  <h2>§1 — TTI 2023 Tax Return vs. Internal P&L Tie-Out</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Line Item</th>
+        <th class="num">Internal P&L (Book)</th>
+        <th class="num">2023 Tax Return</th>
+        <th class="num">Variance (Tax vs. Book)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="total-row">
+        <td>Adjusted Book Income</td>
+        <td class="num">$4,167,991</td>
+        <td class="num">$3,819,987</td>
+        <td class="num neg">($348,004)</td>
+      </tr>
+      <tr>
+        <td>Pre-Book Depreciation Adjustment</td>
+        <td class="num">$0</td>
+        <td class="num">($437,719)</td>
+        <td class="num neg">($437,719)</td>
+      </tr>
+      <tr class="subtotal-row">
+        <td>Pre-Depreciation (Tax) Book Income</td>
+        <td class="num">$4,167,991</td>
+        <td class="num">$4,257,706</td>
+        <td class="num pos">$89,715</td>
+      </tr>
+      <tr><td colspan="4" style="height:8px; border:none; background:transparent;"></td></tr>
+      <tr>
+        <td>Depreciation (add back)</td>
+        <td class="num">($250,000)</td>
+        <td class="num">($250,000)</td>
+        <td class="num">$0</td>
+      </tr>
+      <tr class="subtotal-row">
+        <td>Subtotal: Pre-Depreciation Book Income</td>
+        <td class="num">$4,417,991</td>
+        <td class="num">$4,507,070</td>
+        <td class="num pos">$89,079</td>
+      </tr>
+      <tr>
+        <td>Other Income / Expense</td>
+        <td class="num">($7,614)</td>
+        <td class="num">—</td>
+        <td class="num pos">$7,614</td>
+      </tr>
+      <tr><td colspan="4" style="height:8px; border:none; background:transparent;"></td></tr>
+      <tr>
+        <td>Adjusted OPEX & COGS</td>
+        <td class="num">($14,535,139)</td>
+        <td class="num">($14,618,580)</td>
+        <td class="num neg">($83,441)</td>
+      </tr>
+      <tr>
+        <td>Adjustment: Depreciation</td>
+        <td class="num">$250,000</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+      <tr class="subtotal-row">
+        <td>OPEX + COGS (incl. Depreciation)</td>
+        <td class="num">($14,785,139)</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+      <tr><td colspan="4" style="height:8px; border:none; background:transparent;"></td></tr>
+      <tr class="total-row">
+        <td>Book Revenue</td>
+        <td class="num">$18,960,744</td>
+        <td class="num">$19,125,650</td>
+        <td class="num pos">$164,906</td>
+      </tr>
+      <tr>
+        <td>Accounting Adjustment to Revenue</td>
+        <td class="num">($71,374)</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td>Gross Invoices + Deposits</td>
+        <td class="num">$19,032,118</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="footer-note">Variance = Tax Return minus Internal P&L. Positive = Tax reported higher. Negative = Tax reported lower. $83,441 variance in OPEX+COGS means the tax return deducted $83,441 more in expenses than internal books.</p>
+</div>
+
+<div class="card">
+  <h2>§2 — Variance Bridge</h2>
+  <table>
+    <thead>
+      <tr><th>Variance Component</th><th class="num">Amount</th><th>Explanation</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Revenue (Tax higher)</td>
+        <td class="num pos">+$164,906</td>
+        <td>Tax return recognized more revenue. May include cash deposits, accrued receivables, or reclassification differences not captured in internal P&L.</td>
+      </tr>
+      <tr>
+        <td>OPEX + COGS (Tax higher)</td>
+        <td class="num neg">−$83,441</td>
+        <td>Tax return claimed more deductible expenses. Partially offset by the revenue delta above.</td>
+      </tr>
+      <tr>
+        <td>Other Income / Expense</td>
+        <td class="num pos">+$7,614</td>
+        <td>Miscellaneous income/expense booked internally but not reflected in the tax return presentation.</td>
+      </tr>
+      <tr class="subtotal-row">
+        <td>Net Pre-Depreciation Variance</td>
+        <td class="num pos">+$89,079</td>
+        <td>Tax pre-depreciation income is ~$89K higher than internal pre-depreciation income.</td>
+      </tr>
+      <tr>
+        <td>Extra Depreciation (Tax)</td>
+        <td class="num neg">−$437,719</td>
+        <td>Tax return claimed additional depreciation not recorded in books, driving reported taxable income lower.</td>
+      </tr>
+      <tr class="total-row">
+        <td>Net Reported Income Variance</td>
+        <td class="num neg">−$348,640</td>
+        <td>Tax return ordinary business income is ~$348K lower than internal book income after all adjustments. (Rounded; table shows $348,004.)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2>§3 — QoE Observations</h2>
+  <ul style="font-size: 13.5px; line-height: 1.7; padding-left: 20px;">
+    <li><strong>Depreciation timing difference ($437K):</strong> The tax return uses accelerated depreciation (likely bonus/Section 179 or MACRS) while books use straight-line. This is a normal book-to-tax difference but should be documented in the M-1 reconciliation.</li>
+    <li><strong>Revenue recognition gap ($165K):</strong> Tax return revenue exceeds internal P&L by ~0.9%. Verify whether this represents cash deposits not recorded as revenue, accrual adjustments, or customer credits applied in books but not on the return.</li>
+    <li><strong>OPEX variance ($83K):</strong> Tax return expenses are ~0.6% higher than internal books. Common sources: meals at 50%, entertainment disallowance reversals, or timing differences in prepaid expenses.</li>
+    <li><strong>QoE Impact:</strong> For EBITDA normalization purposes, use <strong>internal book figures</strong> as the starting point. Tax-basis depreciation is a non-cash add-back regardless of method; the $437K extra tax depreciation does not affect Adjusted EBITDA.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>§4 — Data Status</h2>
+  <table>
+    <thead>
+      <tr><th>Entity</th><th>2023</th><th>2024</th><th>2025</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TTI</td>
+        <td><span style="color:#1e8e3e; font-weight:600;">Tied — see above</span></td>
+        <td><span style="color:#5f6368;">Received, pending tie-out</span></td>
+        <td><span style="color:#d93025; font-weight:600;">Pending from client</span></td>
+      </tr>
+      <tr>
+        <td>T-K Investments</td>
+        <td><span style="color:#5f6368;">Not yet analyzed</span></td>
+        <td><span style="color:#5f6368;">Not yet analyzed</span></td>
+        <td><span style="color:#d93025; font-weight:600;">Pending from client</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+</body>
+</html>

@@ -244,17 +244,75 @@
 </div>
 
 <div class="card">
-  <h2>§3 — QoE Observations</h2>
+<div class="card">
+  <h2>§3 — T-K Investments 2023 Tax Return vs. Internal P&L Tie-Out</h2>
+  <div class="insight" style="margin-bottom:20px;">
+    <p><strong>Key Finding:</strong> T-K 2023 internal P&L and Schedule C tie to the <strong>exact same net loss of ($6,294)</strong>. Revenue matches dollar-for-dollar at <strong>$1,189,253</strong>. However, <strong>$72,800 was reclassified between COGS and OPEX</strong> — tax return shows lower COGS and higher OPEX by the identical amount. This is a presentation difference, not a net income difference.</p>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Line Item</th>
+        <th class="num">Internal P&L (Book)</th>
+        <th class="num">2023 Tax Return (Schedule C)</th>
+        <th class="num">Variance (Tax vs. Book)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Adjustment for TK Investment to EBITDA Bridge</td>
+        <td class="num">($1,131,457)</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+      <tr class="total-row">
+        <td>Revenue (Gross Receipts)</td>
+        <td class="num">$1,189,253</td>
+        <td class="num">$1,189,253</td>
+        <td class="num">$0</td>
+      </tr>
+      <tr>
+        <td>Less: Cost of Goods Sold (COGS)</td>
+        <td class="num">($1,093,962)</td>
+        <td class="num">($1,021,162)</td>
+        <td class="num pos">$72,800</td>
+      </tr>
+      <tr class="subtotal-row">
+        <td>Gross Profit</td>
+        <td class="num">$95,291</td>
+        <td class="num">$168,091</td>
+        <td class="num pos">$72,800</td>
+      </tr>
+      <tr>
+        <td>Less: Total Operating Expenses (OPEX)</td>
+        <td class="num">($101,585)</td>
+        <td class="num">($174,385)</td>
+        <td class="num neg">($72,800)</td>
+      </tr>
+      <tr class="total-row">
+        <td>Net Profit / (Loss)</td>
+        <td class="num">($6,294)</td>
+        <td class="num">($6,294)</td>
+        <td class="num">$0</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="footer-note">Variance = Tax Return minus Internal P&L. The $72,800 COGS/OPEX reclassification is a zero-sum presentation difference — net income is unaffected. The ($1.13M) EBITDA bridge adjustment is an internal QoE reclassification to TTI and does not appear on the T-K tax return.</p>
+</div>
+
+<div class="card">
+  <h2>§4 — QoE Observations</h2>
   <ul style="font-size: 13.5px; line-height: 1.7; padding-left: 20px;">
     <li><strong>Depreciation timing difference ($437K):</strong> The tax return uses accelerated depreciation (likely bonus/Section 179 or MACRS) while books use straight-line. This is a normal book-to-tax difference but should be documented in the M-1 reconciliation.</li>
     <li><strong>Revenue recognition gap ($165K):</strong> Tax return revenue exceeds internal P&L by ~0.9%. Verify whether this represents cash deposits not recorded as revenue, accrual adjustments, or customer credits applied in books but not on the return.</li>
     <li><strong>OPEX variance ($83K):</strong> Tax return expenses are ~0.6% higher than internal books. Common sources: meals at 50%, entertainment disallowance reversals, or timing differences in prepaid expenses.</li>
-    <li><strong>QoE Impact:</strong> For EBITDA normalization purposes, use <strong>internal book figures</strong> as the starting point. Tax-basis depreciation is a non-cash add-back regardless of method; the $437K extra tax depreciation does not affect Adjusted EBITDA.</li>
+    <li><strong>T-K COGS/OPEX reclassification ($72,800):</strong> T-K's tax return shows $72,800 less in COGS and $72,800 more in OPEX versus internal books. This is a pure presentation difference — net income ties exactly. For QoE purposes, COGS and OPEX are both deducted from revenue, so the reclassification has no impact on EBITDA. The key takeaway is that T-K's 2023 financials are internally consistent across book and tax.</li>
+    <li><strong>QoE Impact:</strong> For EBITDA normalization purposes, use <strong>internal book figures</strong> as the starting point. Tax-basis depreciation is a non-cash add-back regardless of method; the $437K extra tax depreciation does not affect Adjusted EBITDA. T-K's book-to-tax tie is clean at the net income line.</li>
   </ul>
 </div>
 
 <div class="card">
-  <h2>§4 — Data Status</h2>
+  <h2>§5 — Data Status</h2>
   <table>
     <thead>
       <tr><th>Entity</th><th>2023</th><th>2024</th><th>2025</th></tr>
@@ -268,7 +326,7 @@
       </tr>
       <tr>
         <td>T-K Investments</td>
-        <td><span style="color:#5f6368;">Not yet analyzed</span></td>
+        <td><span style="color:#1e8e3e; font-weight:600;">Tied — see §3</span></td>
         <td><span style="color:#5f6368;">Not yet analyzed</span></td>
         <td><span style="color:#d93025; font-weight:600;">Pending from client</span></td>
       </tr>

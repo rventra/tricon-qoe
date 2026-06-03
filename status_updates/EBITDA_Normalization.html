@@ -558,48 +558,6 @@
 </div>
 </div>
 
-<!-- YEAR-BY-YEAR BROKER COMPARISON -->
-<div class="card accordion-card open">
-<h2 class="accordion-toggle" onclick="toggleAccordion(this)">
-  <span>Year-by-Year: Broker vs. TTI Standalone</span>
-  <span class="accordion-icon">&#9656;</span>
-</h2>
-<div class="accordion-content">
-<div class="scroll-table">
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left;">Metric</th>
-      <th style="text-align:right;">2023</th>
-      <th style="text-align:right;">2024</th>
-      <th style="text-align:right;">2025</th>
-      <th style="text-align:right;">Q1 2026</th>
-      <th style="text-align:right;">Total</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td style="text-align:left; font-weight:600;">TTI Book EBITDA</td><td class="num">4,959,097</td><td class="num">852,532</td><td class="num">1,661,941</td><td class="num">829,683</td><td class="num" style="font-weight:600;">8,303,253</td></tr>
-    <tr><td style="text-align:left;">TTI Normalization Add-Backs (Net)</td><td class="num pos">1,667,712</td><td class="num pos">718,739</td><td class="num pos">947,371</td><td class="num pos">129,120</td><td class="num pos" style="font-weight:600;">3,462,942</td></tr>
-    <tr><td style="text-align:left; font-weight:600;">TTI Adjusted EBITDA</td><td class="num" style="font-weight:600;">6,626,809</td><td class="num" style="font-weight:600;">1,571,271</td><td class="num" style="font-weight:600;">2,609,312</td><td class="num" style="font-weight:600;">958,803</td><td class="num" style="font-weight:600;">10,766,195</td></tr>
-    <tr class="year-separator"><td colspan="6">Broker Figures</td></tr>
-    <tr><td style="text-align:left; font-weight:600;">Broker Consolidated EBITDA</td><td class="num muted">—</td><td class="num muted">—</td><td class="num">2,520,000</td><td class="num muted">—</td><td class="num" style="font-weight:600;">2,520,000</td></tr>
-    <tr class="total-row">
-      <td style="text-align:left;">Variance</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num" style="color:#81c995;">+$89,312</td>
-      <td class="num">—</td>
-      <td class="num" style="font-size:14px;">3.5% above broker</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<div class="footnote">
-  <strong>Note:</strong> The broker reported <strong>$2.52M</strong> for the <em>entire consolidated group</em> in 2025. Our TTI <em>standalone</em> analysis shows <strong>$2.75M</strong> pre-rent-adjustment, <strong>$2.56M</strong> after bad debt normalization, <strong>$2.40M</strong> after TTIO missing rent, and <strong>$2.61M</strong> after Kevin Harshberger's owner salary add-back, employer payroll taxes, and removal of GM replacement. The $89K difference (3.5%) is directionally aligned. Key drivers: (1) standalone treatment of intercompany transfers ($1.5M TWS cash + $927K P&amp;L funding), (2) TTIO missing rent ($351K), (3) Kevin salary add-back ($114K), (4) employer payroll taxes ($13K), (5) removal of GM replacement ($86K).
-</div>
-</div>
-</div>
 
 <!-- T-K INVESTMENTS CONSOLIDATION BRIDGE -->
 <div class="card accordion-card open">
@@ -757,6 +715,50 @@ function toggleAccordion(el) {
   el.closest('.accordion-card').classList.toggle('open');
 }
 </script>
+
+
+<!-- YEAR-BY-YEAR BROKER COMPARISON -->
+<div class="card accordion-card open">
+<h2 class="accordion-toggle" onclick="toggleAccordion(this)">
+  <span>Year-by-Year: Broker vs. TTI Standalone</span>
+  <span class="accordion-icon">&#9656;</span>
+</h2>
+<div class="accordion-content">
+<div class="scroll-table">
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Metric</th>
+      <th style="text-align:right;">2023</th>
+      <th style="text-align:right;">2024</th>
+      <th style="text-align:right;">2025</th>
+      <th style="text-align:right;">Q1 2026</th>
+      <th style="text-align:right;">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td style="text-align:left; font-weight:600;">TTI Book EBITDA</td><td class="num">4,959,097</td><td class="num">852,532</td><td class="num">1,661,941</td><td class="num">829,683</td><td class="num" style="font-weight:600;">8,303,253</td></tr>
+    <tr><td style="text-align:left;">TTI Normalization Add-Backs (Net)</td><td class="num pos">1,667,712</td><td class="num pos">718,739</td><td class="num pos">947,371</td><td class="num pos">129,120</td><td class="num pos" style="font-weight:600;">3,462,942</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">TTI Adjusted EBITDA</td><td class="num" style="font-weight:600;">6,626,809</td><td class="num" style="font-weight:600;">1,571,271</td><td class="num" style="font-weight:600;">2,609,312</td><td class="num" style="font-weight:600;">958,803</td><td class="num" style="font-weight:600;">10,766,195</td></tr>
+    <tr class="year-separator"><td colspan="6">Broker Figures</td></tr>
+    <tr><td style="text-align:left; font-weight:600;">Broker Consolidated EBITDA</td><td class="num muted">—</td><td class="num muted">—</td><td class="num">2,520,000</td><td class="num muted">—</td><td class="num" style="font-weight:600;">2,520,000</td></tr>
+    <tr class="total-row">
+      <td style="text-align:left;">Variance</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num" style="color:#81c995;">+$89,312</td>
+      <td class="num">—</td>
+      <td class="num" style="font-size:14px;">3.5% above broker</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="footnote">
+  <strong>Note:</strong> The broker reported <strong>$2.52M</strong> for the <em>entire consolidated group</em> in 2025. Our TTI <em>standalone</em> analysis shows <strong>$2.75M</strong> pre-rent-adjustment, <strong>$2.56M</strong> after bad debt normalization, <strong>$2.40M</strong> after TTIO missing rent, and <strong>$2.61M</strong> after Kevin Harshberger's owner salary add-back, employer payroll taxes, and removal of GM replacement. The $89K difference (3.5%) is directionally aligned. Key drivers: (1) standalone treatment of intercompany transfers ($1.5M TWS cash + $927K P&amp;L funding), (2) TTIO missing rent ($351K), (3) Kevin salary add-back ($114K), (4) employer payroll taxes ($13K), (5) removal of GM replacement ($86K).
+</div>
+</div>
+</div>
 
 </body>
 </html>

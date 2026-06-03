@@ -174,7 +174,7 @@ status_updates/
 | Discretionary | Auto, Travel & Lifestyle | $60,814 | $61,257 | $53,510 | $10,145 | $185,726 |
 | Discretionary | Personal Warehouse Rent | $44,580 | $33,435 | $33,435 | $11,145 | $122,595 |
 | Related-Party | Intercompany Transfers (TWS) | — | — | $720,000 | $207,000 | $927,000 |
-| Related-Party | IT Consulting (Steve) | $82,256 | $73,368 | $83,519 | $20,888 | $260,031 |
+| Related-Party | IT Consulting (Steve P. Harshberger) | $82,256 | $73,368 | $83,519 | $20,888 | $260,031 |
 | Non-Recurring | Bad Debt Expense | $6,508 | $282,544 | $91 | $15,588 | $304,731 |
 | Non-Recurring | Discretionary Profit Sharing | — | — | $168,000 | — | $168,000 |
 | Related-Party | Intercompany Transfers (TWS — P&L) | — | — | $720,000 | $207,000 | $927,000 |

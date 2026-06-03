@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Tax Returns Tie-Out — TTI 2023</title>
+<title>Tax Returns Tie-Out — TTI 2023 &amp; 2024</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
   * { box-sizing: border-box; }
@@ -104,10 +104,11 @@
 </div>
 
 <h1>Tax Returns Tie-Out</h1>
-<div class="subtitle">TTI 2023 — Internal P&L vs. Tax Return Reconciliation &nbsp;|&nbsp; Updated May 28, 2026</div>
+<div class="subtitle">TTI 2023 &amp; 2024 — Internal P&L vs. Tax Return Reconciliation &nbsp;|&nbsp; Updated May 28, 2026</div>
 
 <div class="insight insight-red">
-  <p><strong>Key Finding:</strong> The 2023 tax return claimed <strong>$437,719 more depreciation</strong> than internal book records. After backing out the extra depreciation, internal pre-depreciation book income is <strong>$89,715 higher</strong> than the tax return's pre-depreciation figure. The tax return also reported <strong>$164,906 more revenue</strong> and <strong>$83,441 more OPEX+COGS</strong> than internal books — a net variance of roughly $81K on the expense side offset by $7,614 in other income, reconciling to the ~$89K pre-depreciation delta.</p>
+  <p><strong>Key Finding (2023):</strong> The 2023 tax return claimed <strong>$437,719 more depreciation</strong> than internal book records. After backing out the extra depreciation, internal pre-depreciation book income is <strong>$89,715 higher</strong> than the tax return's pre-depreciation figure. The tax return also reported <strong>$164,906 more revenue</strong> and <strong>$83,441 more OPEX+COGS</strong> than internal books.</p>
+  <p style="margin-top:8px;"><strong>Key Finding (2024):</strong> The 2024 tax return shows <strong>$243,387 higher adjusted book income</strong> than internal records, driven by a <strong>$232,027 pre-book depreciation adjustment</strong> on the tax side. After normalization, pre-depreciation book income is <strong>$11,360 higher</strong> on the tax return. Revenue is nearly identical (only $15,563 variance), but OPEX+COGS is <strong>$218,991 lower</strong> on the tax return — suggesting aggressive expense deductions or timing differences.</p>
 </div>
 
 <div class="card">
@@ -203,7 +204,87 @@
 </div>
 
 <div class="card">
-  <h2>§2 — Variance Bridge</h2>
+  <h2>§2 — TTI 2024 Tax Return vs. Internal P&L Tie-Out</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Line Item</th>
+        <th class="num">Internal P&L (Book)</th>
+        <th class="num">2024 Tax Return</th>
+        <th class="num">Variance (Tax vs. Book)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="total-row">
+        <td>Adjusted Book Income</td>
+        <td class="num">$491,660</td>
+        <td class="num">$735,047</td>
+        <td class="num pos">$243,387</td>
+      </tr>
+      <tr>
+        <td>Pre-Book Depreciation Adjustment</td>
+        <td class="num">$0</td>
+        <td class="num">$232,027</td>
+        <td class="num pos">$232,027</td>
+      </tr>
+      <tr class="subtotal-row">
+        <td>Pre-Depreciation (Tax) Book Income</td>
+        <td class="num">$491,660</td>
+        <td class="num">$503,020</td>
+        <td class="num pos">$11,360</td>
+      </tr>
+      <tr><td colspan="4" style="height:8px; border:none; background:transparent;"></td></tr>
+      <tr>
+        <td>Depreciation (add back)</td>
+        <td class="num">($320,000)</td>
+        <td class="num">($320,000)</td>
+        <td class="num">$0</td>
+      </tr>
+      <tr class="subtotal-row">
+        <td>Subtotal: Pre-Depreciation Book Income</td>
+        <td class="num">$811,660</td>
+        <td class="num">$823,020</td>
+        <td class="num pos">$11,360</td>
+      </tr>
+      <tr>
+        <td>Other Income / Expense</td>
+        <td class="num">$225</td>
+        <td class="num">$9,058</td>
+        <td class="num pos">$8,833</td>
+      </tr>
+      <tr><td colspan="4" style="height:8px; border:none; background:transparent;"></td></tr>
+      <tr>
+        <td>Adjusted OPEX & COGS</td>
+        <td class="num">($14,459,127)</td>
+        <td class="num">($14,472,163)</td>
+        <td class="num neg">($13,036)</td>
+      </tr>
+      <tr>
+        <td>Adjustment: Depreciation</td>
+        <td class="num">$320,000</td>
+        <td class="num">$87,973</td>
+        <td class="num">—</td>
+      </tr>
+      <tr class="subtotal-row">
+        <td>OPEX + COGS (incl. Depreciation)</td>
+        <td class="num">($14,779,127)</td>
+        <td class="num">($14,560,136)</td>
+        <td class="num pos">$218,991</td>
+      </tr>
+      <tr><td colspan="4" style="height:8px; border:none; background:transparent;"></td></tr>
+      <tr class="total-row">
+        <td>Book Revenue</td>
+        <td class="num">$15,270,562</td>
+        <td class="num">$15,286,125</td>
+        <td class="num pos">$15,563</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="footer-note">Variance = Tax Return minus Internal P&L. Positive = Tax reported higher. Negative = Tax reported lower. The 2024 tax return shows significantly lower OPEX+COGS ($218,991) despite nearly identical revenue, suggesting either timing differences or more aggressive expense deductions on the tax side.</p>
+</div>
+
+<div class="card">
+  <h2>§3 — Variance Bridge</h2>
   <table>
     <thead>
       <tr><th>Variance Component</th><th class="num">Amount</th><th>Explanation</th></tr>
@@ -245,7 +326,7 @@
 
 <div class="card">
 <div class="card">
-  <h2>§3 — T-K Investments 2023 Tax Return vs. Internal P&L Tie-Out</h2>
+  <h2>§4 — T-K Investments 2023 Tax Return vs. Internal P&L Tie-Out</h2>
   <div class="insight" style="margin-bottom:20px;">
     <p><strong>Key Finding:</strong> T-K 2023 internal P&L and Schedule C tie to the <strong>exact same net loss of ($6,294)</strong>. Revenue matches dollar-for-dollar at <strong>$1,189,253</strong>. However, <strong>$72,800 was reclassified between COGS and OPEX</strong> — tax return shows lower COGS and higher OPEX by the identical amount. This is a presentation difference, not a net income difference.</p>
   </div>
@@ -301,7 +382,7 @@
 </div>
 
 <div class="card">
-  <h2>§4 — QoE Observations</h2>
+  <h2>§5 — QoE Observations</h2>
   <ul style="font-size: 13.5px; line-height: 1.7; padding-left: 20px;">
     <li><strong>Depreciation timing difference ($437K):</strong> The tax return uses accelerated depreciation (likely bonus/Section 179 or MACRS) while books use straight-line. This is a normal book-to-tax difference but should be documented in the M-1 reconciliation.</li>
     <li><strong>Revenue recognition gap ($165K):</strong> Tax return revenue exceeds internal P&L by ~0.9%. Verify whether this represents cash deposits not recorded as revenue, accrual adjustments, or customer credits applied in books but not on the return.</li>
@@ -312,7 +393,7 @@
 </div>
 
 <div class="card">
-  <h2>§5 — Data Status</h2>
+  <h2>§6 — Data Status</h2>
   <table>
     <thead>
       <tr><th>Entity</th><th>2023</th><th>2024</th><th>2025</th></tr>
@@ -320,8 +401,8 @@
     <tbody>
       <tr>
         <td>TTI</td>
-        <td><span style="color:#1e8e3e; font-weight:600;">Tied — see above</span></td>
-        <td><span style="color:#5f6368;">Received, pending tie-out</span></td>
+        <td><span style="color:#1e8e3e; font-weight:600;">Tied — see §1</span></td>
+        <td><span style="color:#1e8e3e; font-weight:600;">Tied — see §2</span></td>
         <td><span style="color:#d93025; font-weight:600;">Pending from client</span></td>
       </tr>
       <tr>

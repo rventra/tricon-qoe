@@ -609,8 +609,43 @@
 </h2>
 <div class="accordion-content">
 <p style="font-size:13.5px; color:#5f6368; margin-bottom:16px;">
-  The broker&rsquo;s <strong>$2.52M</strong> figure is <em>consolidated</em> (all entities). Our TTI standalone is <strong>$2.60M</strong> (after all adjustments). To bridge to a <strong>TTI + T-K consolidated</strong> view, we eliminate the intercompany loop and apply T-K-specific normalization add-backs.
+  The broker&rsquo;s <strong>$2.52M</strong> figure is <em>consolidated</em> (all entities). Our TTI standalone is <strong>$2.61M</strong> (after all adjustments). To bridge to a <strong>TTI + T-K consolidated</strong> view, we build a standalone T-K Adjusted EBITDA schedule and stack it on top of TTI.
 </p>
+
+<h3 style="font-size:15px; font-weight:600; margin:20px 0 12px 0; color:#1a1d23;">T-K Investments Adjusted EBITDA Build</h3>
+
+<div class="scroll-table">
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Item</th>
+      <th style="text-align:right;">2023</th>
+      <th style="text-align:right;">2024</th>
+      <th style="text-align:right;">2025</th>
+      <th style="text-align:right;">Q1 2026</th>
+      <th style="text-align:right;">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td style="text-align:left;">Revenue (IC Subcontractor Add-Back)</td><td class="num pos">1,189,253</td><td class="num pos">1,216,229</td><td class="num pos">1,222,841</td><td class="num pos">255,757</td><td class="num pos" style="font-weight:600;">3,884,080</td></tr>
+    <tr><td style="text-align:left;">Expenses</td><td class="num neg">(1,195,547)</td><td class="num neg">(1,262,468)</td><td class="num neg">(1,144,203)</td><td class="num neg">(259,180)</td><td class="num neg" style="font-weight:600;">(3,861,398)</td></tr>
+    <tr class="subtotal-row"><td style="text-align:left; font-weight:600;">Net Income</td><td class="num">(6,294)</td><td class="num">(46,239)</td><td class="num">78,638</td><td class="num">(3,423)</td><td class="num" style="font-weight:600;">22,682</td></tr>
+    <tr><td style="text-align:left;">Add Back: Interest Expense</td><td class="num pos">13,462</td><td class="num pos">7,544</td><td class="num pos">6,858</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">27,864</td></tr>
+    <tr class="subtotal-row"><td style="text-align:left; font-weight:600;">Book EBITDA</td><td class="num">7,168</td><td class="num">(38,695)</td><td class="num">85,496</td><td class="num">(3,423)</td><td class="num" style="font-weight:600;">50,546</td></tr>
+    <tr><td style="text-align:left;">Add Back: Anaheim (Personal Lease)</td><td class="num pos">64,090</td><td class="num pos">64,090</td><td class="num pos">64,090</td><td class="num pos">16,023</td><td class="num pos" style="font-weight:600;">208,293</td></tr>
+    <tr class="total-row" style="background:#1a73e8;">
+      <td style="text-align:left; font-weight:600;">T-K Adjusted EBITDA</td>
+      <td class="num">71,258</td>
+      <td class="num">25,396</td>
+      <td class="num">149,586</td>
+      <td class="num">12,599</td>
+      <td class="num" style="font-size:15px;">258,839</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 style="font-size:15px; font-weight:600; margin:20px 0 12px 0; color:#1a1d23;">Final Consolidation: TTI + T-K</h3>
 
 <div class="scroll-table">
 <table>
@@ -626,55 +661,29 @@
   </thead>
   <tbody>
     <tr><td style="text-align:left; font-weight:600;">TTI Adjusted EBITDA (Standalone)</td><td class="num">6,626,809</td><td class="num">1,571,271</td><td class="num">2,609,312</td><td class="num">958,803</td><td class="num" style="font-weight:600;">10,766,195</td></tr>
-    <tr class="year-separator"><td colspan="6">Intercompany Elimination (Wash)</td></tr>
-    <tr><td style="text-align:left;">Remove TTI Subcontracted Services</td><td class="num pos">+1,195,011</td><td class="num pos">+1,260,749</td><td class="num pos">+1,144,203</td><td class="num pos">+259,180</td><td class="num pos" style="font-weight:600;">+3,859,143</td></tr>
-    <tr><td style="text-align:left;">Remove T-K Gross Trucking Income</td><td class="num neg">-1,195,011</td><td class="num neg">-1,260,749</td><td class="num neg">-1,144,203</td><td class="num neg">-259,180</td><td class="num neg" style="font-weight:600;">-3,859,143</td></tr>
-    <tr class="subtotal-row"><td style="text-align:left; font-weight:600;">Subtotal — Intercompany Wash</td><td class="num muted">0</td><td class="num muted">0</td><td class="num muted">0</td><td class="num muted">0</td><td class="num muted" style="font-weight:600;">~$24K variance</td></tr>
-    <tr class="year-separator"><td colspan="6">T-K Operating Expenses (Replace Subcontracted Services)</td></tr>
-    <tr><td style="text-align:left;">T-K Total Operating Expenses</td><td class="num neg">-1,195,011</td><td class="num neg">-1,260,749</td><td class="num neg">-1,144,203</td><td class="num neg">-259,180</td><td class="num neg" style="font-weight:600;">-3,859,143</td></tr>
-    <tr class="subtotal-row"><td style="text-align:left; font-weight:600;">Subtotal — Net Replacement Effect</td><td class="num muted">0</td><td class="num muted">0</td><td class="num muted">0</td><td class="num muted">0</td><td class="num muted" style="font-weight:600;">0</td></tr>
-    <tr class="year-separator"><td colspan="6">T-K EBITDA Add-Backs</td></tr>
-    <tr><td style="text-align:left;">Entity Taxes (Standard EBITDA)</td><td class="num pos">+13,462</td><td class="num pos">+7,544</td><td class="num pos">+6,858</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">+27,864</td></tr>
-    <tr><td style="text-align:left;">824 Anaheim (Ghost Lease)</td><td class="num pos">+64,090</td><td class="num pos">+64,090</td><td class="num pos">+64,090</td><td class="num pos">+16,023</td><td class="num pos" style="font-weight:600;">+208,293</td></tr>
-    <tr><td style="text-align:left;">Classic Import (Auto Repairs)</td><td class="num pos">+7,500</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">+7,500</td></tr>
-    <tr class="total-row">
-      <td style="text-align:left;">T-K Net Contribution</td>
-      <td class="num pos">+84,052</td>
-      <td class="num pos">+71,634</td>
-      <td class="num pos">+70,948</td>
-      <td class="num pos">+16,023</td>
-      <td class="num pos" style="font-size:14px;">+243,657</td>
-    </tr>
+    <tr><td style="text-align:left; font-weight:600;">T-K Adjusted EBITDA</td><td class="num">71,258</td><td class="num">25,396</td><td class="num">149,586</td><td class="num">12,599</td><td class="num" style="font-weight:600;">258,839</td></tr>
     <tr class="total-row" style="background:#1a73e8;">
-      <td style="text-align:left;">Consolidated Adjusted EBITDA</td>
-      <td class="num">6,710,861</td>
-      <td class="num">1,643,015</td>
-      <td class="num">2,680,260</td>
-      <td class="num">974,826</td>
-      <td class="num" style="font-size:15px;">11,009,852</td>
+      <td style="text-align:left; font-weight:600;">Consolidated Adjusted EBITDA</td>
+      <td class="num">6,698,067</td>
+      <td class="num">1,596,667</td>
+      <td class="num">2,758,898</td>
+      <td class="num">971,402</td>
+      <td class="num" style="font-size:15px;">11,025,034</td>
     </tr>
   </tbody>
 </table>
 </div>
 
 <div class="insight red" style="margin-top:16px;">
-  <p><strong>Intercompany Wash.</strong> TTI&rsquo;s <code>Subcontracted Services</code> expense and T-K&rsquo;s <code>Gross Trucking Income</code> are related-party pass-throughs. They eliminate dollar-for-dollar in consolidation. The ~$24K total variance across all periods is immaterial cash-basis timing (year-end bank float). We do not chase it.</p>
-</div>
-
-<div class="insight red">
-  <p><strong>T-K is a Break-Even Pass-Through.</strong> T-K&rsquo;s operating expenses ($3.86M over 39 months) approximate its revenue almost exactly. In consolidated terms, the intercompany wash and the operating-expense replacement cancel out to <strong>zero</strong>. The only EBITDA impact from T-K is the <strong>$243K in normalization add-backs</strong> (Anaheim ghost lease, entity taxes, Classic Import).</p>
+  <p><strong>How It Works.</strong> The subcontractor expense is already baked into TTI&rsquo;s EBITDA. We bring it into this schedule as T-K&rsquo;s Revenue (this acts as the intercompany elimination). Then we deduct T-K&rsquo;s actual expenses, calculate net income, and apply T-K&rsquo;s specific add-backs (interest expense + Anaheim personal lease). The bottom-line T-K Adjusted EBITDA is then stacked directly on top of TTI Adjusted EBITDA.</p>
 </div>
 
 <div class="insight amber">
   <p><strong>824 Anaheim — Ghost Lease.</strong> This expense does not map to any known corporate HQ, food-grade warehouse, or general warehouse on the official Tricon Property Leases schedule. It is a personal/out-of-footprint expense run through the driver payroll entity. Confirmed as a definitive add-back: <strong>$64,090/year</strong> ($16,023/quarter).</p>
 </div>
 
-<div class="insight amber">
-  <p><strong>Classic Import — Personal Auto Repairs.</strong> Found in T-K&rsquo;s Repairs &amp; Maintenance account. A vendor named &ldquo;Classic Import&rdquo; paid by a driver payroll entity is a personal owner vehicle expense, completely unrelated to commercial trucking operations. One-time add-back: <strong>$7,500 (2023 only)</strong>.</p>
-</div>
-
 <div class="footnote">
-  <strong>Note:</strong> The Consolidated Adjusted EBITDA of <strong>$11.01M</strong> (39 months) equals TTI standalone ($10.77M) plus T-K&rsquo;s net add-back contribution (+$243K). For 2025 specifically: TTI $2.61M + T-K add-backs $70,948 = <strong>$2.68M consolidated</strong>. The broker&rsquo;s $2.52M consolidated figure is now below our TTI + T-K figure, suggesting TWS/other entities may drag down the full consolidated picture or the broker applied different normalization assumptions.
+  <strong>Note:</strong> The Consolidated Adjusted EBITDA of <strong>$11.03M</strong> (39 months) equals TTI standalone ($10.77M) plus T-K Adjusted EBITDA ($258,839). For 2025 specifically: TTI $2.61M + T-K $149,586 = <strong>$2.76M consolidated</strong>. The broker&rsquo;s $2.52M consolidated figure is now below our TTI + T-K figure, suggesting TWS/other entities may drag down the full consolidated picture or the broker applied different normalization assumptions.
 </div>
 </div>
 </div>
@@ -724,7 +733,7 @@
 </div>
 
 <div class="insight" style="border-left-color: #d93025;">
-  <p><strong>6. T-K Investments is a break-even pass-through — but it hides $243K in personal expenses.</strong> The $3.86M intercompany loop (TTI Subcontracted Services ↔ T-K Revenue) washes to zero in consolidation. T-K's operating expenses replace the opaque Subcontracted Services line dollar-for-dollar. The only value in peeling back T-K is the normalization add-backs: <strong>$208K Anaheim ghost lease</strong> (personal rent with no corporate facility mapping), <strong>$28K entity taxes</strong> (standard EBITDA add-back), and <strong>$7.5K Classic Import</strong> (personal auto repairs). TTI + T-K consolidated Adjusted EBITDA is <strong>$11.01M</strong> (39 months) vs. TTI standalone <strong>$10.77M</strong>. The broker's $2.52M consolidated figure is now below our TTI + T-K 2025 figure of $2.68M.</p>
+  <p><strong>6. T-K Investments is a break-even pass-through — but it hides $259K in personal expenses.</strong> The $3.86M intercompany loop (TTI Subcontracted Services ↔ T-K Revenue) washes to zero in consolidation. T-K's operating expenses replace the opaque Subcontracted Services line dollar-for-dollar. The only value in peeling back T-K is the normalization add-backs: <strong>$208K Anaheim ghost lease</strong> (personal rent with no corporate facility mapping), <strong>$28K interest expense</strong> (standard EBITDA add-back), and <strong>$7.5K Classic Import</strong> (personal auto repairs). TTI + T-K consolidated Adjusted EBITDA is <strong>$11.03M</strong> (39 months) vs. TTI standalone <strong>$10.77M</strong>. The broker's $2.52M consolidated figure is now below our TTI + T-K 2025 figure of $2.76M.</p>
 </div>
 </div>
 

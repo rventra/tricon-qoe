@@ -121,8 +121,10 @@
     font-weight: 600;
   }
 
-  .num { font-family: "SF Mono", "Roboto Mono", Consolas, monospace; font-size: 11.5px; text-align: right; }
-  .num-left { font-family: "SF Mono", "Roboto Mono", Consolas, monospace; font-size: 11.5px; text-align: left; }
+  .num { font-family: "SF Mono", "Roboto Mono", Consolas, monospace; font-size: 13px; text-align: right; }
+  .num-left { font-family: "SF Mono", "Roboto Mono", Consolas, monospace; font-size: 13px; text-align: left; }
+  a.row-link { color: inherit; text-decoration: none; border-bottom: 1px dotted #1a73e8; cursor: pointer; }
+  a.row-link:hover { color: #1a73e8; border-bottom: 1px solid #1a73e8; }
   .pos { color: #1e8e3e; }
   .neg { color: #d93025; }
   .muted { color: #5f6368; font-size: 12px; }
@@ -275,11 +277,11 @@
     <tr><td style="text-align:left;">ADJ09: Professional Fees</td><td class="num pos">40,000</td><td class="num pos">123,519</td><td style="font-size:12px; color:#5f6368;"><strong>$83K variance.</strong> Both builds capture the $40K Benchmark International transaction cost (Check DEBT, 6/11/2025, memo &ldquo;INV#061125 WIRE,&rdquo; Professional Fees account). We <em>also</em> captured <strong>$83,519 in related-party IT consulting fees</strong> to Steve P. Harshberger (assumed related to Kevin, same surname). GL shows 52 weekly Bill payments in 2025 alone (Bills 2025471–2025530), each debiting Computer and Internet Expenses and crediting Accounts Payable, ranging from $525 to $3,413/week. No independent vendor agreement or market-rate benchmarking provided. Transfer-pricing risk.</td></tr>
     <tr class="year-separator"><td colspan="4">North Castle-Only Adjustments</td></tr>
     <tr><td style="text-align:left;">Employer Payroll Taxes (Kevin + Tami)</td><td class="num muted">—</td><td class="num pos">13,000</td><td style="font-size:12px; color:#5f6368;">FICA/Medicare/SUI tied to eliminated owner salaries. Kevin&rsquo;s employer taxes ~$9,000/year; Tami&rsquo;s ~$4,000/year. Combined: $13,000/year. Since both Kevin&rsquo;s and Tami&rsquo;s salaries are added back, the associated employer payroll taxes must also be added back — they are directly tied to owner compensation that will not continue post-close. Michael J. Johnson&rsquo;s employer taxes remain in EBITDA because he is the actual GM staying with the business.</td></tr>
-    <tr><td style="text-align:left;">Discretionary Profit Sharing</td><td class="num muted">—</td><td class="num pos">168,000</td><td style="font-size:12px; color:#5f6368;">Year-end <strong>Dec 31, 2025</strong> adjusting entry (TAX AJE #5). This was an owner-directed tax mitigation strategy not utilized in prior years (2023/2024 show $0 profit sharing). A buyer is not obligated to continue discretionary profit-sharing. The broker may have missed this because it was buried in a year-end JE rather than visible in monthly payroll summaries.</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj11" class="row-link">Discretionary Profit Sharing</a></td><td class="num muted">—</td><td class="num pos">168,000</td><td style="font-size:12px; color:#5f6368;">Year-end <strong>Dec 31, 2025</strong> adjusting entry (TAX AJE #5). This was an owner-directed tax mitigation strategy not utilized in prior years (2023/2024 show $0 profit sharing). A buyer is not obligated to continue discretionary profit-sharing. The broker may have missed this because it was buried in a year-end JE rather than visible in monthly payroll summaries.</td></tr>
     <tr><td style="text-align:left;">Freight Expense Cutoff</td><td class="num muted">—</td><td class="num pos">13,304</td><td style="font-size:12px; color:#5f6368;">Mechanical timing adjustment, not a normalization of operations. The company operates on cash-basis AP. In early Jan 2026, the P&amp;L absorbed $115,773 of freight expenses that actually belonged to 2025 (pushed forward by the CPA&rsquo;s year-end cutoff). We add back $13,304 to 2025 to correct the period mismatch. Without this fix, 2025 Book EBITDA understates true freight costs by $13K.</td></tr>
     <tr><td style="text-align:left;">Bad Receivables (NWC Reserve)</td><td class="num muted">—</td><td class="num neg">(190,900)</td><td style="font-size:12px; color:#5f6368;"><strong>Actual uncollectable receivables,</strong> not a non-cash accounting cleanup. The NWC reserve analysis identified $190,900 in 2025 bad debt based on actual reserve requirements. Primary exposure: BECTON DICKINSON CASS ($78K) and other dormant accounts with 12+ months of non-payment. Unlike the Bad Debt Expense add-back (which was a year-end paper write-down), this reflects receivables a buyer will never realize. It is a bona fide deduction from Adjusted EBITDA.</td></tr>
     <tr><td style="text-align:left;">Rent Adjustment (TTIO Missing)</td><td class="num muted">—</td><td class="num neg">(231,000)</td><td style="font-size:12px; color:#5f6368;"><strong>3 months missing base rent at TTIO</strong> (10299 Sixth St., Rancho Cucamonga), leased to REG Logistics at <strong>$117,000/month</strong> through April 30, 2026. Our transaction-level review identified that 3 months of base rent in 2025 were never recorded in the P&amp;L — the GL shows no rent expense for these periods despite the lease obligation continuing. Net of $120K security deposit offset = $231K deduction. The landlord may have applied the security deposit or the rent may have been paid through an intercompany account not captured in TTI&rsquo;s P&amp;L.</td></tr>
-    <tr><td style="text-align:left;">Bad Debt Expense</td><td class="num muted">—</td><td class="num pos">91</td><td style="font-size:12px; color:#5f6368;">Non-cash year-end accounting cleanup. The 2025 amount is only $91 — immaterial. The larger Bad Debt Expense add-back ($282K in 2024) was a massive TAX AJE #5 reclassification of historical write-offs out of retained earnings. In 2025, the cleanup was already complete, leaving only a nominal residual.</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj10" class="row-link">Bad Debt Expense</a></td><td class="num muted">—</td><td class="num pos">91</td><td style="font-size:12px; color:#5f6368;">Non-cash year-end accounting cleanup. The 2025 amount is only $91 — immaterial. The larger Bad Debt Expense add-back ($282K in 2024) was a massive TAX AJE #5 reclassification of historical write-offs out of retained earnings. In 2025, the cleanup was already complete, leaving only a nominal residual.</td></tr>
     <tr class="subtotal-row">
       <td style="text-align:left; font-weight:600;">Total Adjustments</td>
       <td class="num">907,000</td>
@@ -491,36 +493,36 @@
   <tbody>
     <tr><td style="text-align:left; font-weight:600;">Book EBITDA</td><td class="num">4,959,097</td><td class="num">852,532</td><td class="num">1,661,941</td><td class="num">829,683</td><td class="num" style="font-weight:600;">8,303,253</td></tr>
     <tr class="year-separator"><td colspan="6">Owner Compensation &amp; Personal Expenses</td></tr>
-    <tr><td style="text-align:left;">Disguised Owner Tax Payments — Net Effect (Tami)</td><td class="num pos">370,000</td><td class="num neg">-189,110</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">180,890</td></tr>
-    <tr><td style="text-align:left;">Eliminated Owner Salary (Tami)</td><td class="num pos">48,000</td><td class="num pos">48,000</td><td class="num pos">48,000</td><td class="num pos">12,000</td><td class="num pos" style="font-weight:600;">156,000</td></tr>
-    <tr><td style="text-align:left;">Owner Personal Health Insurance</td><td class="num pos">336</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">336</td></tr>
-    <tr><td style="text-align:left;">Executive Life &amp; Disability Insurance</td><td class="num pos">2,479</td><td class="num pos">2,479</td><td class="num pos">2,012</td><td class="num pos">620</td><td class="num pos" style="font-weight:600;">7,590</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj1" class="row-link">Disguised Owner Tax Payments</a> — Net Effect (Tami)</td><td class="num pos">370,000</td><td class="num neg">-189,110</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">180,890</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj2" class="row-link">Eliminated Owner Salary (Tami)</a></td><td class="num pos">48,000</td><td class="num pos">48,000</td><td class="num pos">48,000</td><td class="num pos">12,000</td><td class="num pos" style="font-weight:600;">156,000</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj2" class="row-link">Owner Personal Health Insurance</a></td><td class="num pos">336</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">336</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj2" class="row-link">Executive Life &amp; Disability Insurance</a></td><td class="num pos">2,479</td><td class="num pos">2,479</td><td class="num pos">2,012</td><td class="num pos">620</td><td class="num pos" style="font-weight:600;">7,590</td></tr>
     <tr class="year-separator"><td colspan="6">Discretionary &amp; Lifestyle Expenses</td></tr>
-    <tr><td style="text-align:left;">Discretionary Auto, Travel &amp; Lifestyle</td><td class="num pos">60,814</td><td class="num pos">61,257</td><td class="num pos">53,510</td><td class="num pos">10,145</td><td class="num pos" style="font-weight:600;">185,726</td></tr>
-    <tr><td style="text-align:left;">Charitable Contributions</td><td class="num pos">4,435</td><td class="num pos">7,181</td><td class="num pos">2,025</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">13,641</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj4" class="row-link">Discretionary Auto, Travel &amp; Lifestyle</a></td><td class="num pos">60,814</td><td class="num pos">61,257</td><td class="num pos">53,510</td><td class="num pos">10,145</td><td class="num pos" style="font-weight:600;">185,726</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj20" class="row-link">Charitable Contributions</a></td><td class="num pos">4,435</td><td class="num pos">7,181</td><td class="num pos">2,025</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">13,641</td></tr>
     <tr class="year-separator"><td colspan="6">Related-Party &amp; Intercompany</td></tr>
-    <tr><td style="text-align:left;">Intercompany Transfers (TWS)</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos">720,000</td><td class="num pos">207,000</td><td class="num pos" style="font-weight:600;">927,000</td></tr>
-    <tr><td style="text-align:left;">TWS Cash Transfers</td><td class="num pos">885,000</td><td class="num pos">500,000</td><td class="num pos">120,000</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">1,505,000</td></tr>
-    <tr><td style="text-align:left;">Related-Party IT Consulting (Steve P. Harshberger)</td><td class="num pos">82,256</td><td class="num pos">73,368</td><td class="num pos">83,519</td><td class="num pos">20,888</td><td class="num pos" style="font-weight:600;">260,031</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj6" class="row-link">Intercompany Transfers (TWS)</a></td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos">720,000</td><td class="num pos">207,000</td><td class="num pos" style="font-weight:600;">927,000</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj7" class="row-link">TWS Cash Transfers</a></td><td class="num pos">885,000</td><td class="num pos">500,000</td><td class="num pos">120,000</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">1,505,000</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj3" class="row-link">Related-Party IT Consulting (Steve P. Harshberger)</a></td><td class="num pos">82,256</td><td class="num pos">73,368</td><td class="num pos">83,519</td><td class="num pos">20,888</td><td class="num pos" style="font-weight:600;">260,031</td></tr>
     <tr class="year-separator"><td colspan="6">Rent Adjustments</td></tr>
-    <tr><td style="text-align:left;">Personal Warehouse Rent</td><td class="num pos">44,580</td><td class="num pos">33,435</td><td class="num pos">33,435</td><td class="num pos">11,145</td><td class="num pos" style="font-weight:600;">122,595</td></tr>
-    <tr><td style="text-align:left;">REG Logistics Security Deposit (Miscategorized)</td><td class="num pos">100,000</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">100,000</td></tr>
-    <tr><td style="text-align:left;">TTIM Security Deposit (Miscategorized, Mar 2025)</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos">120,000</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">120,000</td></tr>
-    <tr><td style="text-align:left;">Pro-Forma Rent Adjustment (Pacific Expressway, Inc. — TTIM, Deposit-funded, Sept 2024)</td><td class="num muted">—</td><td class="num neg">-120,000</td><td class="num muted">—</td><td class="num muted">—</td><td class="num neg" style="font-weight:600;">-120,000</td></tr>
-    <tr><td style="text-align:left;">Missing January 2026 Base Rent (Prologis — TTIM)</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num neg">-61,889</td><td class="num neg" style="font-weight:600;">-61,889</td></tr>
-    <tr><td style="text-align:left;">TTIO REG Logistics — Missing 3 Months Rent (2025)</td><td class="num muted">—</td><td class="num muted">—</td><td class="num neg">-351,000</td><td class="num muted">—</td><td class="num neg" style="font-weight:600;">-351,000</td></tr>
-    <tr><td style="text-align:left;">TTIO REG Logistics — Missing 2 Months Rent (Q1 2026)</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num neg">-234,000</td><td class="num neg" style="font-weight:600;">-234,000</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj5" class="row-link">Personal Warehouse Rent</a></td><td class="num pos">44,580</td><td class="num pos">33,435</td><td class="num pos">33,435</td><td class="num pos">11,145</td><td class="num pos" style="font-weight:600;">122,595</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj8" class="row-link">REG Logistics Security Deposit (Miscategorized)</a></td><td class="num pos">100,000</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">100,000</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj9" class="row-link">TTIM Security Deposit (Miscategorized, Mar 2025)</a></td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos">120,000</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">120,000</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj12" class="row-link">Pro-Forma Rent Adjustment (Pacific Expressway, Inc.</a> — TTIM, Deposit-funded, Sept 2024)</td><td class="num muted">—</td><td class="num neg">-120,000</td><td class="num muted">—</td><td class="num muted">—</td><td class="num neg" style="font-weight:600;">-120,000</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj13" class="row-link">Missing January 2026 Base Rent (Prologis</a> — TTIM)</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num neg">-61,889</td><td class="num neg" style="font-weight:600;">-61,889</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj16" class="row-link">TTIO REG Logistics — Missing 3 Months Rent (2025)</a></td><td class="num muted">—</td><td class="num muted">—</td><td class="num neg">-351,000</td><td class="num muted">—</td><td class="num neg" style="font-weight:600;">-351,000</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj17" class="row-link">TTIO REG Logistics — Missing 2 Months Rent (Q1 2026)</a></td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num neg">-234,000</td><td class="num neg" style="font-weight:600;">-234,000</td></tr>
     <tr class="year-separator"><td colspan="6">Non-Recurring &amp; Non-Cash</td></tr>
     <tr><td style="text-align:left;">Bad Debt Expense</td><td class="num pos">6,508</td><td class="num pos">282,544</td><td class="num pos">91</td><td class="num pos">15,588</td><td class="num pos" style="font-weight:600;">304,731</td></tr>
-    <tr><td style="text-align:left;">Transaction Costs (Benchmark International)</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos">40,000</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">40,000</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj21" class="row-link">Transaction Costs (Benchmark International)</a></td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos">40,000</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">40,000</td></tr>
     <tr class="year-separator"><td colspan="6">Owner Compensation Add-Back</td></tr>
-    <tr><td style="text-align:left;">Kevin Harshberger — Owner Salary &amp; Holiday Pay</td><td class="num pos">114,400</td><td class="num pos">114,400</td><td class="num pos">114,400</td><td class="num pos">28,600</td><td class="num pos" style="font-weight:600;">371,800</td></tr>
-    <tr><td style="text-align:left;">Employer Payroll Taxes (Kevin &amp; Tami)</td><td class="num pos">13,000</td><td class="num pos">13,000</td><td class="num pos">13,000</td><td class="num pos">3,250</td><td class="num pos" style="font-weight:600;">42,250</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj18" class="row-link">Kevin Harshberger — Owner Salary</a> &amp; Holiday Pay</td><td class="num pos">114,400</td><td class="num pos">114,400</td><td class="num pos">114,400</td><td class="num pos">28,600</td><td class="num pos" style="font-weight:600;">371,800</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj19" class="row-link">Employer Payroll Taxes (Kevin &amp; Tami)</a></td><td class="num pos">13,000</td><td class="num pos">13,000</td><td class="num pos">13,000</td><td class="num pos">3,250</td><td class="num pos" style="font-weight:600;">42,250</td></tr>
     <tr><td style="text-align:left;">Discretionary Profit Sharing</td><td class="num muted">—</td><td class="num muted">—</td><td class="num pos">168,000</td><td class="num muted">—</td><td class="num pos" style="font-weight:600;">168,000</td></tr>
     <tr class="year-separator"><td colspan="6">Expense Timing / Period Cutoff — Freight Costs Only</td></tr>
-    <tr><td style="text-align:left;">Freight Expense Push/Pull (CPA period cutoff)</td><td class="num muted">—</td><td class="num neg">-12,145</td><td class="num pos">13,304</td><td class="num pos">115,773</td><td class="num pos" style="font-weight:600;">116,932</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj14" class="row-link">Freight Expense Push/Pull (CPA period cutoff)</a></td><td class="num muted">—</td><td class="num neg">-12,145</td><td class="num pos">13,304</td><td class="num pos">115,773</td><td class="num pos" style="font-weight:600;">116,932</td></tr>
     <tr class="year-separator"><td colspan="6">Normalized Bad Debt (Per NWC Reserve)</td></tr>
-    <tr><td style="text-align:left;">Normalized Bad Debt (Per NWC Reserve)</td><td class="num neg">-59,661</td><td class="num neg">-88,489</td><td class="num neg">-190,900</td><td class="num muted">—</td><td class="num neg" style="font-weight:600;">-339,050</td></tr>
+    <tr><td style="text-align:left;"><a href="#adj15" class="row-link">Normalized Bad Debt (Per NWC Reserve)</a></td><td class="num neg">-59,661</td><td class="num neg">-88,489</td><td class="num neg">-190,900</td><td class="num muted">—</td><td class="num neg" style="font-weight:600;">-339,050</td></tr>
     <tr class="total-row">
       <td style="text-align:left;">Total Adjustments</td>
       <td class="num pos">1,672,147</td>
@@ -547,23 +549,23 @@
 <div class="card">
 <h2>Adjustment Detail &amp; Supporting Evidence</h2>
 
-<div class="insight" style="border-left-color: #d93025;">
+<div id="adj1" class="insight" style="border-left-color: #d93025;">
   <p><strong>1. Disguised Owner Tax Payments — Net Effect: +$181K total ($370K in 2023, -$189K in 2024).</strong> <strong style="color:#d93025;">Double-Count Fix Applied:</strong> The 2023 side: The CPA reversed the $1.5M check via JE 37, but a separate <strong>$370K</strong> was booked via JE 40 (4/5/2023) from Undeposited Funds to Taxes expense and was NOT fully reversed until JE 40R in 2024. The 2023 residual is therefore <strong>+$370K</strong>. The 2024 side: The CPA dumped a flurry of balance-sheet corrections into the P&amp;L Taxes account — JE 40R (+$370K credit), JE 41 (+$217K credit to Shareholder Draw), TAX AJE #6 (+$19,110 credit for FTB refund), offset by the DEBT check (-$47K debit for "2024 TAX PMT"). The <strong>net effect is +$189,110 in artificial income</strong> in 2024. To neutralize this, we <em>deduct</em> $189,110 from 2024 Adjusted EBITDA. Without these fixes, 2024 Book EBITDA would be artificially inflated by $189K.</p>
 </div>
 
-<div class="insight" style="border-left-color: #1a73e8;">
+<div id="adj2" class="insight" style="border-left-color: #1a73e8;">
   <p><strong>2. Eliminated Owner Salary (Tami) + Owner Benefits — $164K total.</strong> Tami Harshberger (assumed related to Kevin) was on payroll at <strong>$4,000/month ($48,000/year)</strong> across 2023, 2024, and 2025, plus <strong>$12,000 in Q1 2026</strong> (pro-rated). The GL shows these payments flowing through the standard payroll expense accounts. Since Tami is an owner/spouse and not a market-rate employee performing core operations, her entire salary is added back: <strong>$48,000 (2023)</strong>, <strong>$48,000 (2024)</strong>, <strong>$48,000 (2025)</strong>, and <strong>$12,000 (Q1 2026)</strong>. Also added back: <strong>Owner Personal Health Insurance ($336 in 2023 only)</strong> and <strong>Executive Life &amp; Disability Insurance ($7,590 total: $2,479 in 2023, $2,479 in 2024, $2,012 in 2025, $620 in Q1 2026)</strong>. These are owner-specific benefits that a buyer would not continue.</p>
 </div>
 
-<div class="insight" style="border-left-color: #1a73e8;">
+<div id="adj3" class="insight" style="border-left-color: #1a73e8;">
   <p><strong>3. Related-Party IT Consulting (Steve P. Harshberger) — $260K total.</strong> Steve P. Harshberger is assumed related to Kevin Harshberger (same surname). The GL shows <strong>52 weekly bill payments</strong> in 2025 alone, each coded as a Bill to &ldquo;Steve P. Harshberger&rdquo; debiting Computer and Internet Expenses and crediting Accounts Payable. The amounts range from <strong>$525 to $3,413</strong> per week, with a consistent mid-month spike to ~$1,600 (e.g., Bills 2025471–2025530). Representative entries: Bill 2025471 (1/5/2025, $637.50), Bill 2025485 (3/23/2025, $3,412.50), Bill 2025514 (9/15/2025, $1,600). While the amounts are relatively small (~$73K–$84K/year), they represent a potential transfer-pricing risk. No independent vendor agreement or market-rate benchmarking has been provided. A buyer should verify these are at arm's length or replace with an independent vendor. If the services are not arm's-length, the full amount is a valid add-back.</p>
 </div>
 
-<div class="insight" style="border-left-color: #f9ab00;">
+<div id="adj4" class="insight" style="border-left-color: #f9ab00;">
   <p><strong>4. Discretionary Auto, Travel &amp; Lifestyle — $186K total.</strong> Includes owner car allowances (~$4.5K/quarter), un-receipted AMEX charges, charitable contributions, and explicitly personal trips (e.g., "Vegas" memos). These are discretionary owner perks that do not support core operations and will not continue post-close.</p>
 </div>
 
-<div class="insight" style="border-left-color: #f9ab00;">
+<div id="adj5" class="insight" style="border-left-color: #f9ab00;">
   <p><strong>5. Personal Warehouse Rent — $123K total.</strong> Recurring non-commercial lease payments (~$3,715/mo) to Gran Covina LLC. Memos indicate this is for personal storage, entirely separate from the company's legitimate commercial truck yards. A buyer will eliminate this expense on day one.</p>
   <p style="margin-top:8px; font-size:13px; color:#444;"><strong>GL Evidence — How to Locate on the P&amp;L:</strong> Search the General Ledger for <strong>Name = &ldquo;Gran Covina LLC&rdquo;</strong> within the <strong>Rent Expense</strong> account. The entries appear as quarterly checks from the BMO Corporate Account, each covering three months at <strong>$3,715/month = $11,145/quarter</strong>. Representative 2025 entries:</p>
   <table style="width:100%; font-size:11.5px; margin-top:6px; margin-bottom:6px; border-collapse:collapse;">
@@ -611,11 +613,11 @@
   <p style="font-size:13px; color:#444;"><strong>Note:</strong> Check 829109 (APR/MAY/JUN 2025) was <strong>voided on 5/15/2025</strong> and reversed via JE 44 / JE 44R. The replacement check 829118 captures the same quarter. The memo references &ldquo;Edna&rdquo; (likely a personal contact) and the amounts are consistent at exactly $11,145 per quarter — a clear signature of a fixed personal lease rather than a variable commercial facility cost.</p>
 </div>
 
-<div class="insight" style="border-left-color: #1e8e3e;">
+<div id="adj6" class="insight" style="border-left-color: #1e8e3e;">
   <p><strong>6. Intercompany Transfers to TWS — $927K total.</strong> Labeled "Account Funding" in the P&amp;L ($720K in 2025, $207K in Q1 2026). These are cash transfers from TTI to TWS (Warehouse subsidiary) to subsidize warehouse payroll. Because we are analyzing TTI <em>standalone</em>, these outbound transfers are added back to restore TTI's true earning power. The TWS bank statements confirm this cash was received and used for payroll.</p>
 </div>
 
-<div class="insight" style="border-left-color: #1e8e3e;">
+<div id="adj7" class="insight" style="border-left-color: #1e8e3e;">
   <p><strong>7. TWS Cash Transfers — $1.505M total ($885K in 2023, $500K in 2024, $120K in 2025).</strong> Actual cash transfers from TTI bank accounts to TWS bank accounts, separate from the P&amp;L &ldquo;Account Funding&rdquo; line. These represent direct cash subsidies to the warehouse subsidiary that reduce TTI's standalone earnings. A buyer acquiring TTI alone would not continue funding TWS operations. The cash transfer amounts are derived from bank statement analysis and are additive to the P&amp;L-based intercompany transfers.</p>
   <p style="margin-top:8px; font-size:13px; color:#444;"><strong>GL Evidence — Representative Entries:</strong></p>
   <table style="width:100%; font-size:11.5px; margin-top:6px; margin-bottom:6px; border-collapse:collapse;">
@@ -654,59 +656,59 @@
   <p style="font-size:13px; color:#444;">Both entries debit the TTIM expense account (miscategorized as an operating expense) and credit CNB Corp. The payee is &ldquo;TWS,&rdquo; the memo explicitly references a transfer to TWS's Chase account, and the amounts flow through the CNB corporate account. These are not vendor payments — they are direct cash subsidies to the warehouse subsidiary. In aggregate, bank-statement-level analysis identifies <strong>$1.505M</strong> of such transfers across 2023&ndash;2025.</p>
 </div>
 
-<div class="insight" style="border-left-color: #1e8e3e;">
+<div id="adj8" class="insight" style="border-left-color: #1e8e3e;">
   <p><strong>8. REG Logistics Security Deposit — $100K (2023 only).</strong> A $100,000 payment to REG Logistics (the third-party operator managing the TTIO warehouse) was miscategorized as an operating expense in 2023. This was a refundable security deposit, not a true P&amp;L cost. A buyer would recover this deposit at closing or it would transfer as a prepaid asset. Restoring it to EBITDA corrects the miscategorization and reflects TTI's true 2023 earning power.</p>
 </div>
 
-<div class="insight" style="border-left-color: #1e8e3e;">
+<div id="adj9" class="insight" style="border-left-color: #1e8e3e;">
   <p><strong>9. TTIM Security Deposit — $120K (2025 only).</strong> On March 11, 2025, a $359,663 check to TTIM included February/March rent plus a $120,000 security deposit. The bookkeeper dumped the entire amount into the TTIM expense account. Security deposits belong on the Balance Sheet, not the P&amp;L. This $120,000 add-back corrects the miscategorization and restores 2025 EBITDA to its true level.</p>
 </div>
 
-<div class="insight" style="border-left-color: #1e8e3e;">
+<div id="adj10" class="insight" style="border-left-color: #1e8e3e;">
   <p><strong>10. Bad Debt Expense — $305K total.</strong> A massive, non-cash year-end accounting cleanup dominated by a Dec 31 "TAX AJE #5" that reclassified $184,325 of historical write-offs out of retained earnings, combined with large individual credit memos for uncollectible invoices (Vyaire Medical: $57K, O'Neill Logistics: $14K, Roly's Trucking: $17K). Because this was a non-cash paper write-down rather than an actual operational cash outflow, it must be added back to normalize EBITDA. This bridges the gap between artificially depressed Book Net Income and actual cash retained in the BMO accounts.</p>
 </div>
 
-<div class="insight" style="border-left-color: #1a73e8;">
+<div id="adj11" class="insight" style="border-left-color: #1a73e8;">
   <p><strong>11. Discretionary Profit Sharing — $168K (2025 only).</strong> A year-end (Dec 31) adjusting entry in 2025. This was an owner-directed tax mitigation strategy not utilized in prior years (2023/2024). A buyer is not obligated to continue discretionary profit-sharing, making it a valid add-back.</p>
 </div>
 
-<div class="insight" style="border-left-color: #f9ab00;">
+<div id="adj12" class="insight" style="border-left-color: #f9ab00;">
   <p><strong>12. Pro-Forma Rent Adjustment (Pacific Expressway, Inc. — TTIM) — ($120K) unfavorable to 2024.</strong> September 2024 rent was paid directly from a security deposit, bypassing the P&amp;L entirely. The cash went straight to the landlord, so the P&amp;L shows no rent expense for that month. This is a true economic cost that a buyer will incur post-close. Adding it back to 2024 expenses reduces Adjusted EBITDA by $120,000 to reflect the normalized rent obligation.</p>
 </div>
 
-<div class="insight" style="border-left-color: #f9ab00;">
+<div id="adj13" class="insight" style="border-left-color: #f9ab00;">
   <p><strong>13. Missing January 2026 Base Rent (Prologis — TTIM) — ($61,889) unfavorable to Q1 2026.</strong> The January 2026 check to the landlord was labeled "JAN 2026 TAX &amp; OC" (operating costs / NNN fees) for only $19,390. The base rent itself was never recorded — February's check was ~$61,889, confirming January should have been similar. Because no base rent hit the P&amp;L in January, Q1 2026 is missing a true economic cost. This pro-forma deduction corrects the understatement.</p>
 </div>
 
-<div class="insight" style="border-left-color: #d93025;">
+<div id="adj14" class="insight" style="border-left-color: #d93025;">
   <p><strong>14. Freight Expense Timing / Period Cutoff — net $116,932.</strong> These adjustments apply to <strong>freight costs only</strong>. Because we stop the clock on March 31, 2026, Q1 2026's Book EBITDA is artificially understated by <strong>$115,773</strong> on the freight line. In early January 2026, the P&amp;L absorbed $115,773 of freight expenses that actually belonged to 2025 (pushed forward by the CPA's year-end cutoff). While 2024 and 2025 largely net out (-$12,145 vs. +$13,304), Q1 2026 does not get the benefit of pushing its own late-March bills into April. This is a mechanical timing adjustment, not a normalization of operations. <strong>Without this fix, Q1 2026 Adjusted EBITDA would understate true earnings by $115,773.</strong></p>
 </div>
 
-<div class="insight" style="border-left-color: #d93025;">
+<div id="adj15" class="insight" style="border-left-color: #d93025;">
   <p><strong>15. Normalized Bad Debt (Per NWC Reserve) — ($339,050) total.</strong> The NWC reserve analysis identified normalized bad debt of <strong>$59,661 (2023)</strong>, <strong>$88,489 (2024)</strong>, and <strong>$190,900 (2025)</strong> based on actual reserve requirements rather than the prior AR aging waterfall estimate. The primary exposure remains BECTON DICKINSON CASS ($78K) and other dormant accounts with 12+ months of non-payment. Unlike the Bad Debt Expense add-back (which was a non-cash accounting cleanup), this adjustment reflects <em>actual</em> uncollectable receivables that a buyer will never realize. It is a bona fide deduction from Adjusted EBITDA.</p>
 </div>
 
-<div class="insight" style="border-left-color: #d93025;">
+<div id="adj16" class="insight" style="border-left-color: #d93025;">
   <p><strong>16. TTIO REG Logistics — Missing 3 Months Rent (2025) — ($351,000) unfavorable to 2025.</strong> The TTIO facility (10299 Sixth St., Rancho Cucamonga) was under lease to REG Logistics at <strong>$117,000/month</strong> through April 30, 2026. Our transaction-level review identified that <strong>3 months of base rent in 2025 were never recorded in the P&amp;L</strong> — the GL shows no rent expense for these periods despite the lease obligation continuing. This is a true economic cost: a buyer inheriting the lease (or the successor lease at 8700 White Oak Ave.) will face this rent obligation. At $117K/month × 3 months = <strong>$351,000</strong>. This pro-forma deduction corrects the 2025 understatement.</p>
 </div>
 
-<div class="insight" style="border-left-color: #d93025;">
+<div id="adj17" class="insight" style="border-left-color: #d93025;">
   <p><strong>17. TTIO REG Logistics — Missing 2 Months Rent (Q1 2026) — ($234,000) unfavorable to Q1 2026.</strong> Continuing the TTIO lease analysis, <strong>2 additional months of base rent in Q1 2026</strong> (January and February 2026) were also not recorded in the P&amp;L. At $117K/month × 2 months = <strong>$234,000</strong>. This further reduces Q1 2026 Adjusted EBITDA. Combined with the 2025 missing rent, the total TTIO rent gap is <strong>$585,000</strong> across the 5 months. The landlord may have applied a security deposit or the rent may have been paid through an intercompany account not captured in TTI's P&amp;L — this requires confirmation.</p>
 </div>
 
-<div class="insight" style="border-left-color: #1e8e3e;">
+<div id="adj18" class="insight" style="border-left-color: #1e8e3e;">
   <p><strong>18. Kevin Harshberger — Owner Salary &amp; Holiday Pay — +$371,800 total.</strong> Kevin Harshberger consistently drew exactly <strong>$114,400 per year</strong> ($112,200 salary + $2,200 holiday pay) across 2022, 2023, 2024, and 2025. For QoE purposes, this entire amount is added back to Adjusted EBITDA for every historical year: <strong>$114,400 (2023)</strong>, <strong>$114,400 (2024)</strong>, <strong>$114,400 (2025)</strong>, and <strong>$28,600 (Q1 2026, pro-rated)</strong>. This is a standard EBITDA normalization: owner compensation is treated as a discretionary draw, not a true operating cost. <strong>Michael J. Johnson is the actual GM already on payroll</strong> at $161K/year (2025), so no replacement cost is needed — the business already has market-rate management. Kevin's $114K draw is purely an owner distribution. This adjustment brings our TTI standalone to <strong>$2.65M</strong> for 2025 (including employer payroll taxes and Benchmark International transaction costs).</p>
 </div>
 
-<div class="insight" style="border-left-color: #1e8e3e;">
+<div id="adj19" class="insight" style="border-left-color: #1e8e3e;">
   <p><strong>19. Employer Payroll Taxes (Kevin &amp; Tami) — +$42,250 total.</strong> The company paid the employer portion of FICA, Medicare, and state unemployment taxes on Kevin Harshberger and Tami's wages. For Kevin, employer taxes cost roughly <strong>$9,000 annually</strong>. For Tami, roughly <strong>$4,000 annually</strong>. Combined: <strong>$13,000/year</strong>. Since both Kevin's and Tami's salaries are added back to EBITDA, the associated employer payroll taxes must also be added back — they are directly tied to owner compensation that will not continue post-close. <strong>Michael J. Johnson's</strong> employer taxes remain in EBITDA because he is the actual GM staying with the business. This adjustment applies to all historical years: $13,000 (2023), $13,000 (2024), $13,000 (2025), and $3,250 (Q1 2026, pro-rated).</p>
 </div>
 
-<div class="insight" style="border-left-color: #1e8e3e;">
+<div id="adj20" class="insight" style="border-left-color: #1e8e3e;">
   <p><strong>20. Charitable Contributions — +$13,641 total ($4,435 in 2023, $7,181 in 2024, $2,025 in 2025).</strong> Discretionary donations to community organizations, including a <strong>$2,025 check to Charter Oak Unified School District</strong> on 8/26/2025 (Check 829129, memo: &ldquo;Sunday Bunch INV#11782&rdquo;). These are non-operating, discretionary expenses that a buyer would not continue. The GL shows these flowing through the Charitable Contributions expense account. A standard EBITDA normalization: charitable giving is an owner-driven community decision, not a cost of running the trucking business.</p>
 </div>
 
-<div class="insight" style="border-left-color: #1e8e3e;">
+<div id="adj21" class="insight" style="border-left-color: #1e8e3e;">
   <p><strong>21. Transaction Costs (Benchmark International) — +$40,000 (2025 only).</strong> On <strong>June 11, 2025</strong>, TTI paid <strong>$40,000</strong> to Benchmark International, the brokerage and investment bank leading the sale process (Check DEBT, memo: &ldquo;INV#061125 WIRE&rdquo;). The GL shows this flowing through the <strong>Professional Fees</strong> expense account. This is a classic <strong>transaction cost</strong> — a one-time, non-recurring fee incurred specifically for the sale of the business. A buyer would not inherit this expense; it is entirely deal-driven and has no bearing on TTI's core operating earnings. Adding it back is standard QoE practice for M&amp;A advisory fees, broker commissions, and investment banking engagement fees.</p>
 </div>
 </div>
